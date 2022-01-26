@@ -16,7 +16,7 @@ public class HelpDaoImpl implements HelpDao{
 	public ResultSet showHelp() {
 		
        
-		String showQuery = "select * from help_support";
+		String showQuery = "select phone,email from help_support";
 		Connection con = ConnectionUtil.getDbConnection();
 		Help help=null;
 		ResultSet rs=null;

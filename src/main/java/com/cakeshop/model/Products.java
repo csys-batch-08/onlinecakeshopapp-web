@@ -4,10 +4,24 @@ import java.util.Objects;
 
 public class Products {
 
+	private int cakeId;	
 	private String cakeName;
 	private String cakeDescription;
 	private int cakePrice;
 	private String categoryName;
+	private double rating;
+	public int getCakeId() {
+		return cakeId;
+	}
+	public void setCakeId(int cakeId) {
+		this.cakeId = cakeId;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
 	private String picture;
 	
 	public String getPicture() {
@@ -40,23 +54,30 @@ public class Products {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
+	
 	@Override
 	public String toString() {
 		return String.format("%-25s%-90s%-10s%-10s",cakeName,cakeDescription,cakePrice,categoryName) ;
-	}	
-	
+	}
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Products(String cakeName, String cakeDescription, int cakePrice, String categoryName,String picture) {
+	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture) {
 		super();
+		this.cakeId=cakeId;
 		this.cakeName = cakeName;
 		this.cakeDescription = cakeDescription;
 		this.cakePrice = cakePrice;
 		this.categoryName = categoryName;
-		this.picture=picture;
-	}
+		this.rating=rating;
+		this.picture = picture;
+		
+	}	
+	
+	
+	
+	
 
 	
 	

@@ -87,8 +87,7 @@ a:hover {
 <body>
  <center>
  <%String msg=(String)session.getAttribute("Invalid"); 
- if(msg!=null){%>
- 
+ if(msg!=null){%> 
 	 <h2><%=msg %></h2>
 	 <%session.removeAttribute("Invalid"); %>
  <% } %>

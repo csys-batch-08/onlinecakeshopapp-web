@@ -74,12 +74,14 @@ public class CartDaoImpl implements CartDao {
 
 	public void deleteCart(int userId)  {
 	
-		String deleteQuery = "delete from cart_items where user_id="+userId+"";
+		String deleteQuery = "delete from cart_items where cart_id=?";
 
 		try {
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-		int i = pstmt.executeUpdate();			
+		pstmt.setInt(1, userId);
+		int i = pstmt.executeUpdate();	
+		
 		pstmt.close();
 		con.close();	
 		System.out.println("cart deleted");

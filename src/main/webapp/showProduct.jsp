@@ -3,6 +3,8 @@
 <%@page import="java.util.List" import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      pageEncoding="ISO-8859-1" import ="com.cakeshop.dao.impl.*" %>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,7 +104,7 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" > 
-  <a href="categories.jsp">Categories</a> 
+  <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>    
@@ -111,10 +113,7 @@ background-size:cover;
           
 </div>
 <form>
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.showProduct();
-%>
+
 <table class="table table-hover">
 <tr>
 <th>Cake </th>
@@ -125,22 +124,25 @@ ResultSet rs=product.showProduct();
 <th>Product Rating</th>
 <th>Button</th>
 </tr>
-<%DecimalFormat df = new DecimalFormat("0.00");%>
-<% while(rs.next()){
-	double rating=rs.getDouble(7)/rs.getDouble(8);
-	double rating1=Double.parseDouble(df.format(rating));		
+<%//DecimalFormat df = new DecimalFormat("0.00");%>
+<%// while(rs.next()){
+	//double rating=rs.getDouble(7)/rs.getDouble(8);
+	//double rating1=Double.parseDouble(df.format(rating));		
 %>
+
+<c:forEach var="show" items="${showProduct}" >
+
 <tr>
-<td><img src="assets/<%=rs.getString(6)%>" alt="#alter" width="200" height="200" class="card-img-top"></td>
-<td><%= rs.getString(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getDouble(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%= rating1 %></td>
-<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>" style="text-decoration:none;">Buy</a></button></td>
+<td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
+<td>${show.cakeName}</td>
+<td>${show.cakeDescription}</td>
+<td>${show.cakePrice}</td>
+<td>${show.categoryName}</td>
+<td>${show.rating}</td>
+<td><button class="button button1"><a href="order?cakeId=${show.cakeId }&cakeName=${show.cakeName}" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
-<%} %>
+</c:forEach>
 </table>
 </form>
 </body>

@@ -38,7 +38,7 @@ public class CancelOrder extends HttpServlet {
 		walletDao.WalletRefund(userName, cartId,wallbal);
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
-		cartDao.deleteCart(userId);
+		cartDao.deleteCart(cartId);
 		response.sendRedirect("deleted.jsp");
 	}
 	

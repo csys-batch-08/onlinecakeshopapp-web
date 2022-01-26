@@ -7,7 +7,7 @@ import com.cakeshop.model.Products;
 
 public interface ProductDao {
 
-	public ResultSet showProduct();
+	public List<Products> showProduct();
 
 	public void insertProduct(Products product);
 
@@ -19,14 +19,14 @@ public interface ProductDao {
 
 	public int findProductId1(String productName);
 
-	public ResultSet findPrice(int proID);
+	public int findPrice(int proID);
 
-	public ResultSet findCategory(String categoryName);
+	public List<Products> findCategory(String categoryName);
 	
 	public ResultSet ShowRating();
 	
-	public ResultSet ShowCategory();
+	public List<Products> ShowCategory();
 	
-	public  ResultSet viewCategoryList(String categoryname);
+	public  List<Products> viewCategoryList(String categoryname);
 
 }

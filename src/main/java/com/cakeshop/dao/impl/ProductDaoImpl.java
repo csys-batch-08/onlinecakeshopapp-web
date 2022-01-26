@@ -12,23 +12,37 @@ import java.util.List;
 import com.cakeshop.dao.ProductDao;
 import com.cakeshop.model.Products;
 
-
 public class ProductDaoImpl implements ProductDao {
 
 //show product method
 
-	public ResultSet showProduct() {
-		String showQuery = "select * from product_details";
+	public List<Products> showProduct() {
+		List<Products> cakelist = new ArrayList<Products>();
+
+		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details";
 		Connection con = ConnectionUtil.getDbConnection();
-		ResultSet rs = null;
+
 		try {
 			Statement stmt = con.createStatement();
-			rs = stmt.executeQuery(showQuery);
+			ResultSet rs = stmt.executeQuery(showQuery);
+			while (rs.next()) {
+
+				Products cake = new Products();
+				cake.setCakeId(rs.getInt(1));
+				cake.setCakeName(rs.getString(2));
+				cake.setCakeDescription(rs.getString(3));
+				cake.setCakePrice(rs.getInt(4));
+				cake.setCategoryName(rs.getString(5));
+				cake.setRating(rs.getDouble(6));
+				cake.setPicture(rs.getString(7));
+
+				cakelist.add(cake);
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-		return rs;
+		return cakelist;
 	}
 
 //add new product
@@ -51,7 +65,7 @@ public class ProductDaoImpl implements ProductDao {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 
 		}
@@ -88,12 +102,12 @@ public class ProductDaoImpl implements ProductDao {
 			PreparedStatement pstmt = con.prepareStatement(updateQuery);
 
 			pstmt.executeUpdate();
-			System.out.println("Rating  added thank you!!");
+			
 			pstmt.close();
 			con.close();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -113,7 +127,7 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -136,7 +150,7 @@ public class ProductDaoImpl implements ProductDao {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -145,43 +159,49 @@ public class ProductDaoImpl implements ProductDao {
 
 //find Product Price	
 
-	public ResultSet findPrice(int proID) {
-		String query = "select * from product_details where cake_id='" + proID + "'";
+	@SuppressWarnings("null")
+	public int findPrice(int proID) {
+		String query = "select total_price from product_details where cake_id=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		Statement stmt;
-
+		PreparedStatement prepare = null ;
 		ResultSet rs = null;
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			rs = prepare.executeQuery(query);
+			prepare.setInt(1, proID);		
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
-		return rs;
+		return 0;
 
 	}
 
 //find product category 
 
-	public ResultSet findCategory(String categoryName) {
+	public List<Products> findCategory(String categoryName) {
 
-		String showQuery = "select * from product_details where category_name='" + categoryName + "'";
+		List<Products> category = new ArrayList<Products>();
+
+		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs = null;
+		PreparedStatement prepare = null ;
 		try {
-			Statement stmt = con.createStatement();
-			rs = stmt.executeQuery(showQuery);
+
+			
+			rs = prepare.executeQuery(showQuery);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
-		return rs;
+		return category;
 	}
 
 //show product rating	
@@ -197,38 +217,48 @@ public class ProductDaoImpl implements ProductDao {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
-
 		return rs;
 	}
 
 // product Category List
 
-	public ResultSet ShowCategory() {
+	public List<Products> ShowCategory() {
+		List<Products> category = new ArrayList<Products>();
 
 		String query = "select DISTINCT category_name from product_details";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs = null;
-		Statement stmt;
+		PreparedStatement stmt;
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Products cake = new Products();
+				
+				cake.setCategoryName(rs.getString(1));
+				
+				category.add(cake);
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
-
-		return rs;
+		return category;
 
 	}
 
 //category wise product List
 
-	public ResultSet viewCategoryList(String categoryname) {
-		String query = "select * from product_details where category_name=?";
+	public List<Products> viewCategoryList(String categoryname) {
+		
+		List<Products> viewCategory=new ArrayList<Products>();
+
+		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;
@@ -237,15 +267,27 @@ public class ProductDaoImpl implements ProductDao {
 		try {
 
 			stmt = con.prepareStatement(query);
+			
 			stmt.setString(1, categoryname);
 			rs = stmt.executeQuery();
-			return rs;
+			while(rs.next()) {
+				Products cake =new Products();
+				cake.setCakeId(rs.getInt(1));
+				cake.setCakeName(rs.getString(2));
+				cake.setCakeDescription(rs.getString(3));
+				cake.setCakePrice(rs.getInt(4));
+				cake.setCategoryName(rs.getString(5));
+				cake.setRating(rs.getDouble(6));
+				cake.setPicture(rs.getString(7));
+                
+				viewCategory.add(cake);
+			}
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
-
-		return rs;
+		return viewCategory ;
 
 	}
 
@@ -264,7 +306,7 @@ public class ProductDaoImpl implements ProductDao {
 			rs = stmt.executeQuery();
 			return rs;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

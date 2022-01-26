@@ -3,6 +3,7 @@ package com.cakeshop.servlet;
 import java.io.IOException;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,10 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cakeshop.dao.impl.AdminDaoImpl;
+import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.dao.impl.WalletDaoImpl;
 import com.cakeshop.exception.InvalidUserException;
 import com.cakeshop.exception.LowBalanceException;
+import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
 /**
@@ -68,8 +71,13 @@ public class Login extends HttpServlet {
 			WalletDaoImpl WalletBal=new WalletDaoImpl();
 			int WalletBal1=WalletBal.walletbal(userId);
 						
-			if(WalletBal1>1000) {			
-			 response.sendRedirect("showProduct.jsp");			
+			if(WalletBal1>1000) {
+				ProductDaoImpl productDao = new ProductDaoImpl();
+				List<Products> viewProducts = productDao.showProduct();
+				request.setAttribute("showProduct", viewProducts);
+				RequestDispatcher rd = request.getRequestDispatcher("showProduct.jsp");
+				rd.forward(request, response);
+		
 			
 			}else {
 				try {

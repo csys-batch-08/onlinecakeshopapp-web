@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import=" com.cakeshop.dao.impl.*" import="java.sql.*"%>
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,39 +91,22 @@ label {
    <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
-
-	<%int productId=Integer.parseInt(request.getParameter("cakeId")); 
-	
-	session.setAttribute("cake_id",productId);
-	
-	String cname=request.getParameter("cakeName");
-	
-	session.setAttribute("cakename", cname);
-	
-	
-	ProductDaoImpl productDao =new ProductDaoImpl();
-	ResultSet rs=productDao.findPrice(productId);
-	
-	String userName=(String)session.getAttribute("CurrentUser1");	
-	
-	UserDaoImpl userDao =new UserDaoImpl();    
-	int userId=userDao.findUserId(userName);
-	session.setAttribute("UserId", userId);
-	%>
 	
 	<center>	
 		<fieldset id="box">
 			<form action="Order" method="post">
-			<%if(rs.next()){
-			%>
-			<h3><%=rs.getString(2) %></h3>
-			<h1><%double price=rs.getDouble(4);%></h1>
-			<h3>Price :<%= price%></h3><br>	
-			<%session.setAttribute("Price", price); %>		
+			
+			<c:if test="">
+			<c:set></c:set>
+			<h3></h3>
+			<h1></h1>
+			<h3></h3><br>	
+			
+				
 				<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
 				<label for="orderdate">OrderDate :</label> <input type="date" id="datefield"  name="orderDate" ><br><br>				
 				<button class="button button1" type="submit" id="button">Buy</button>
-				<%} %>
+				</c:if>
 			</form>
 		</fieldset>
 	</center>

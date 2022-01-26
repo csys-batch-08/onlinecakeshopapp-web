@@ -1,6 +1,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.cakeshop.dao.impl.*"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,13 +86,6 @@ background-size:cover;
          
 </div>
 <form>
-<%!ResultSet rs; %>
-<%
-String categoryname=request.getParameter("categoryname");
-System.out.println(categoryname);
-ProductDaoImpl product=new ProductDaoImpl();
-rs=product.viewCategoryList(categoryname);
-%>
 <table class="table table-hover"> 
 <tr>
 
@@ -103,22 +97,21 @@ rs=product.viewCategoryList(categoryname);
 <th>Product Rating</th>
 <th>Button</th>
 </tr>
-<%DecimalFormat df = new DecimalFormat("0.00");%>
-<% while(rs.next()){
-	double rating=rs.getDouble(8)/rs.getDouble(7);
-	double rating1=Double.parseDouble(df.format(rating));
-%>
+
+<c:forEach var="show" items="${showCategory}">
+
 <tr>
-<td><img alt="#alter" src="assets/<%= rs.getString(6) %>" width="200" height="200"></td>
-<td><%= rs.getString(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getDouble(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%= rating1 %></td>
-<td><button class="button button1"><a href="order.jsp?cakeId=<%=rs.getInt(1)%>&cakeName=<%=rs.getString(2)%>"style="text-decoration:none;">Buy</a></button></td>
+<td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
+<td>${show.cakeName}</td>
+<td>${show.cakeDescription}</td>
+<td>${show.cakePrice}</td>
+<td>${show.categoryName}</td>
+<td>${show.rating}</td>
+<td><button class="button button1"><a href="order.jsp?cakeId=${show.cakeId }&cakeName=${show.cakeName}" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
-<%} %>
+</c:forEach>
+
 </table>
 </form>
 

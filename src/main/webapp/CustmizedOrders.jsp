@@ -95,10 +95,5 @@ ResultSet rs=Cust.viewCustomizedCart(userId);
 </tr>
 <%} %>
 </table>
-
-
-
-
-
 </body>
 </html>
