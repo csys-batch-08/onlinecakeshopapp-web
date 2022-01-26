@@ -30,7 +30,7 @@ public class Order extends HttpServlet {
 		request.setAttribute("cakeName", cname);
 		
 		
-		//session.setAttribute("cakename",cname);		
+				
 		
 		ProductDaoImpl productDao =new ProductDaoImpl();
 		double price=productDao.findPrice(productId);
