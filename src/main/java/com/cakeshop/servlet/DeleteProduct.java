@@ -15,7 +15,7 @@ public class DeleteProduct extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		int cakeId = Integer.parseInt(request.getParameter("cakeId"));

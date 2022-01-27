@@ -66,14 +66,10 @@ margin-left:-8px;
 <div class="topnav"> 
   <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a href="Contact.jsp">Contact</a>
+  <a href="ContactUs">Contact</a>
   <a href="AboutUs.jsp">About</a>    
   
 </div><br><br><br><br>
-
-
-
-
 <marquee><h1 style=color:#CD5959>&#128523<i>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </i></h1></marquee>
 </body>
 </html>

@@ -88,25 +88,19 @@ label {
    <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
     <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-         
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 	
 	<center>	
 		<fieldset id="box">
-			<form action="Order" method="post">
-			
-			<c:if test="">
-			<c:set></c:set>
-			<h3></h3>
-			<h1></h1>
-			<h3></h3><br>	
-			
-				
+			<form action="Order?cakeName=${requestScope['cakeName']}&cakeId=${requestScope['cakeId']}&cakePrice=${requestScope['price']}">
+			<input type="text" name="cakeName" value="<c:out value='${requestScope["cakeName"]}'/>">
+			<input type="text" name="price" value="<c:out value='${requestScope["price"]}'/>">
+			<input type="text" name="cakeId" value="<c:out value='${requestScope["cakeId"]}'/>">
+										
 				<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
 				<label for="orderdate">OrderDate :</label> <input type="date" id="datefield"  name="orderDate" ><br><br>				
-				<button class="button button1" type="submit" id="button">Buy</button>
-				</c:if>
+				<button class="button button1" type="submit" id="button">Buy</button>				
 			</form>
 		</fieldset>
 	</center>

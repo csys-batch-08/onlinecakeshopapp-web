@@ -29,7 +29,7 @@ public class CartDaoImpl implements CartDao {
 		PreparedStatement pst = null;
 
 		try {
-			System.out.println(cart.getProductId()+cart.getUserId()+cart.getQuantity()+cart.getTotalPrice());
+			
 			pst = con.prepareStatement(insert);
 			pst.setInt(1, cart.getProductId());
 			pst.setInt(2, cart.getUserId());
@@ -39,36 +39,44 @@ public class CartDaoImpl implements CartDao {
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.err.println("Value not inserted in the table");
+			
 		}
 
 	}
-	
-		
 
 //view cart items
 
-	public  ResultSet viewCart() {	
+	public  List<Cart> viewCart() {	
+		List<Cart> cartList=new ArrayList<Cart>();		
 		
-		
-	String query = "select cake_id,count(order_quantity),sum(total_price),user_id,trunc(order_date) from cart_items group by cake_id,user_id ,trunc(order_date) order by trunc(order_date) desc";
-				
+	String query = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items \r\n"
+			+ "inner join user_details using (user_id) \r\n"
+			+ "inner join product_details using(cake_id)\r\n"
+			+ "group by product_details.cake_name,user_details.user_name,trunc(order_date) \r\n"
+			+ "order by trunc(order_date) desc";
 		Connection con = ConnectionUtil.getDbConnection();				
-		ResultSet rs=null;
-		
+		ResultSet rs=null;	
+		PreparedStatement pst = null;
 		try {
-			Statement stmt = con.createStatement();
-			 rs = stmt.executeQuery(query);				
+			 pst = con.prepareStatement(query);
+			 rs = pst.executeQuery();	
 			
+			 while(rs.next()) {				 
+				 Cart cart=new Cart();
+				 cart.setCakeName(rs.getString(1));
+				 cart.setUserName(rs.getString(2));
+				 cart.setQuantity(rs.getInt(3));
+				 cart.setTotalPrice(rs.getDouble(4));
+				 cart.setOrderDate(rs.getDate(5).toLocalDate());
+				 cartList.add(cart);				 
+			 }
+			 System.out.println(cartList);			
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.getMessage();
 		}
-		return rs;
-	}
-
-	
+		return cartList;
+	}	
 
 	// delete cart
 
@@ -84,10 +92,9 @@ public class CartDaoImpl implements CartDao {
 		
 		pstmt.close();
 		con.close();	
-		System.out.println("cart deleted");
+		
 		}
 		catch(SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
 		}
@@ -118,7 +125,10 @@ public class CartDaoImpl implements CartDao {
 	
 	
 //filter sales	
-	public ResultSet filterSales(LocalDate min,LocalDate max) {
+	public List<Cart> filterSales(LocalDate min,LocalDate max) {
+		
+		List<Cart> cartlist=new ArrayList<Cart>();
+		
 		String query = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
 
 		Connection con = ConnectionUtil.getDbConnection();
@@ -129,13 +139,20 @@ public class CartDaoImpl implements CartDao {
 			stmt.setDate(1, java.sql.Date.valueOf(min));
 			stmt.setDate(2, java.sql.Date.valueOf(max));
 			rs = stmt.executeQuery();
-			return rs;
+			
+			while(rs.next()) {
+				Cart cart=new Cart();
+				cart.setUserId(rs.getInt(1));
+				cart.setTotalPrice(rs.getDouble(2));
+				cart.setQuantity(rs.getInt(3));
+				cartlist.add(cart);				
+			}				
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
-
-		return rs;
+		return cartlist;
 
 	}
 	

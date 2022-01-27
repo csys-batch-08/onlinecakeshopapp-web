@@ -145,37 +145,28 @@ label {
   <a href="Home.jsp">LogOut</a>
 </div>
 
-
-
-
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.showProduct();
-%>
 <table class="table table-hover">
 <tr>
-<th><h3 style=color:red>Cake Id</h3></th>
-<th><h3 style=color:red>Product Name</h3></th>
-<th><h3 style=color:red>Product Description</h3></th>
-<th><h3 style=color:red>Product price</h3></th>
-<th><h3 style=color:red>Product Categories</h3></th>
-<th><h3 style=color:red>Product Rating</h3></th>
-</tr>
 
-<%DecimalFormat df = new DecimalFormat("0.00");%>
-<% while(rs.next()){
-	double rating=rs.getDouble(7)/rs.getDouble(8);
-	double rating1=Double.parseDouble(df.format(rating));		
-%>
-<tr>
-<td style="text-align:center"><h3><%=rs.getInt(1) %></h3></td>
-<td style="text-align:left"><h3><%= rs.getString(2) %></h3></td>
-<td style="text-align:left"><h3><%= rs.getString(3) %></h3></td>
-<td style="text-align:center"><h3><%= rs.getDouble(4) %></h3></td>
-<td style="text-align:left"><h3><%= rs.getString(5) %></h3></td>
-<td style="text-align:center"><h3><%= rating1 %></h3></td>
+<th>Product Name</th>
+<th>Product Description</th>
+<th>Product price</th>
+<th>Product Categories</th>
+<th>Product Rating</th>
 </tr>
-<%} %>
+<c:forEach var="show" items="${showProduct}">
+
+<tr>
+<td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
+<td>${show.cakeName}</td>
+<td>${show.cakeDescription}</td>
+<td>${show.cakePrice}</td>
+<td>${show.categoryName}</td>
+<td>${show.rating}</td>
+<td><button class="button button1"><a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}" style="text-decoration:none;">Buy</a></button></td>
+
+</tr>
+</c:forEach>
 </table>
 
 <fieldset id="box"><legend><h3 style=color:red>Delete Product using Id</h3></legend><br>

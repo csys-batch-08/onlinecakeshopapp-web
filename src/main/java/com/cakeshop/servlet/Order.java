@@ -11,8 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
 
-
-@WebServlet("/Order")
+@WebServlet("/order")
 public class Order extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,28 +21,22 @@ public class Order extends HttpServlet {
         HttpSession session = request.getSession();
 		
 		int productId=Integer.parseInt(request.getParameter("cakeId")); 
-		
-		session.setAttribute("cake_id",productId);
+						
+		request.setAttribute("cakeId",productId);
 		
 		String cname=request.getParameter("cakeName");
 		
-		request.setAttribute("cakeName", cname);
+		request.setAttribute("cakeName", cname);				
 		
-		
-				
-		
-		ProductDaoImpl productDao =new ProductDaoImpl();
-		double price=productDao.findPrice(productId);
-		request.setAttribute("price", price);
-		
+		int price=Integer.parseInt(request.getParameter("cakePrice"));
+
+		request.setAttribute("price", price);		
 		
 		String userName=(String)session.getAttribute("CurrentUser1");	
 		
 		UserDaoImpl userDao =new UserDaoImpl();    
 		int userId=userDao.findUserId(userName);
-		session.setAttribute("UserId", userId);
-		
-		
+		session.setAttribute("UserId", userId);		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("order.jsp");
 		rd.forward(request, response);

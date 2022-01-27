@@ -7,10 +7,27 @@ import java.util.Objects;
 public class Cart {
 
 	private int productId;
+	private String cakeName;
 	private int userId;
+	private String userName;
 	private int quantity;
 	private double totalPrice;
 	private LocalDate orderDate;
+	
+
+	public String getCakeName() {
+		return cakeName;
+	}
+	public void setCakeName(String cakeName) {
+		this.cakeName = cakeName;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	
 	public LocalDate getOrderDate() {
 		return orderDate;
@@ -43,6 +60,14 @@ public class Cart {
 		this.totalPrice = totalPrice;
 	}
 	
+	public Cart(String cakeName, String userName, int quantity, double totalPrice, LocalDate orderDate) {
+		super();
+		this.cakeName = cakeName;
+		this.userName = userName;
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.orderDate = orderDate;
+	}
 	
 	public Cart(int productId, int userId, int quantity, double totalPrice, LocalDate orderDate) {
 		super();
@@ -54,7 +79,6 @@ public class Cart {
 	}
 	public Cart() {
 		super();
-		// TODO Auto-generated constructor stub
 	}	
 	
 	

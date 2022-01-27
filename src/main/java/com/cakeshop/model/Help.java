@@ -18,7 +18,7 @@ public class Help {
 	}
 	public Help() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public Help(long phone, String email) {
 		super();

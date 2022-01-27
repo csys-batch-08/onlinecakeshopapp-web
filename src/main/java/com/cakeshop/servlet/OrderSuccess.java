@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +28,9 @@ import com.cakeshop.model.Cart;
 @WebServlet("/Order")
 public class OrderSuccess extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
 		HttpSession session=request.getSession();	
 		String userName=(String) session.getAttribute("CurrentUser");
 		
@@ -37,16 +38,15 @@ public class OrderSuccess extends HttpServlet {
 		int userId=userDao.findUserId(userName);
 		
 		CartDaoImpl cartDao=new CartDaoImpl();
-		
+		System.out.println(userId);
 		session.setAttribute("userId", userId);
 		
-		LocalDate orderDate=null;
+		int quantity=Integer.parseInt(request.getParameter("quantity"));   
 		
-		 orderDate=LocalDate.parse(request.getParameter("orderDate"));			
+		LocalDate orderDate=LocalDate.parse(request.getParameter("orderDate"));			
 		
-		int quantity=Integer.parseInt(request.getParameter("quantity"));      
 		
-			double price1=(double)(session.getAttribute("Price"));	
+			int price1=Integer.parseInt(request.getParameter("price"));
 			
 			double totalPrice=(price1*quantity);		
 			
@@ -54,7 +54,7 @@ public class OrderSuccess extends HttpServlet {
 			
 			int userWallet=walletDao.walletbal(userId);				
 			
-			 double wallbal=userWallet -totalPrice;
+			 double wallbal=userWallet-totalPrice;
 			
 		 session.setAttribute("wallbal", wallbal);
 		 
@@ -62,13 +62,22 @@ public class OrderSuccess extends HttpServlet {
 			 
 			 walletDao.updatewallet(wallbal,userId);	
 			 
-			 int cakeId=Integer.parseInt(session.getAttribute("cake_id").toString());
+			 int cakeId=Integer.parseInt(request.getParameter("cakeId"));
 			 
 			Cart cart=new Cart(cakeId,userId,quantity,totalPrice,orderDate);
 			
-			cartDao.insertCart(cart);
-					
-			response.sendRedirect("OrderSuccess.jsp");		
+			cartDao.insertCart(cart);	
+			
+			
+			double totalprice=(double) session.getAttribute("totalprice"); 
+			request.setAttribute("totalprice", totalprice);
+
+			double wallet1=(double)session.getAttribute("wallbal"); 
+			request.setAttribute("wallet", wallet1);
+								
+
+			RequestDispatcher rd = request.getRequestDispatcher("OrderSuccess.jsp");
+			rd.forward(request, response);
 	
 	}
 

@@ -18,7 +18,7 @@ import com.cakeshop.dao.impl.UserDaoImpl;
 public class EditProfile extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		
 		UserDaoImpl userDao=new UserDaoImpl();	
@@ -29,7 +29,7 @@ public class EditProfile extends HttpServlet {
 		double wallet=Double.parseDouble(request.getParameter("wallet"));
 		String address=request.getParameter("address");
 				
-		userDao.EditUser(name, email, address,wallet,userId);		
+		userDao.editUser(name, email, address,wallet,userId);		
 		response.sendRedirect("Login.jsp");
 		
 		

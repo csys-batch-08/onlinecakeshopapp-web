@@ -37,8 +37,9 @@ public class ProductDaoImpl implements ProductDao {
 				cake.setPicture(rs.getString(7));
 
 				cakelist.add(cake);
+				
 			}
-		} catch (SQLException e) {
+			 } catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
@@ -165,11 +166,11 @@ public class ProductDaoImpl implements ProductDao {
 
 		Connection con = ConnectionUtil.getDbConnection();
 		Statement stmt;
-		PreparedStatement prepare = null ;
+		
 		ResultSet rs = null;
 		try {
-			stmt = con.createStatement();
-			rs = prepare.executeQuery(query);
+			PreparedStatement prepare =con.prepareStatement(query) ;
+			rs = prepare.executeQuery();
 			prepare.setInt(1, proID);		
 
 		} catch (SQLException e) {
@@ -292,8 +293,11 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 //product filter by price 	
-	public ResultSet filterPrice(int min, int max) {
-		String query = "select * from product_details where cake_price between ? and ? ";
+	public List<Products> filterPrice(int min, int max) {
+		
+		List<Products> pricelist=new ArrayList<Products>();
+		
+		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where cake_price between ? and ? ";
 
 		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement stmt;
@@ -304,13 +308,26 @@ public class ProductDaoImpl implements ProductDao {
 			stmt.setInt(1, min);
 			stmt.setInt(2, max);
 			rs = stmt.executeQuery();
-			return rs;
+			
+			while (rs.next()) {
+
+				Products cake = new Products();
+				cake.setCakeId(rs.getInt(1));
+				cake.setCakeName(rs.getString(2));
+				cake.setCakeDescription(rs.getString(3));
+				cake.setCakePrice(rs.getInt(4));
+				cake.setCategoryName(rs.getString(5));
+				cake.setRating(rs.getDouble(6));
+				cake.setPicture(rs.getString(7));
+
+				pricelist.add(cake);
+			}			
+			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-
-		return rs;
+		return pricelist;
 
 	}
 

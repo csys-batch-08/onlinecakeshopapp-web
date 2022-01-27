@@ -104,7 +104,7 @@ label {
  </center>
 <fieldset id="box"><center>
 <h2><i>Search by Price</i></h2>
-<form action="ShowPriceWise.jsp" method="post" >
+<form action="SearchPrice" method="post" >
 <label for="from"><i>From Price : </i></label>
 <input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
 <label for="to"><i>To Price : </i></label>

@@ -6,36 +6,34 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.cakeshop.dao.HelpDao;
 import com.cakeshop.model.Help;
+import com.cakeshop.model.Products;
 
 
 public class HelpDaoImpl implements HelpDao{
 
-	public ResultSet showHelp() {
-		
+	public List<Help> showHelp() {
+		List<Help> Showhelp=new ArrayList<Help>();		
        
 		String showQuery = "select phone,email from help_support";
-		Connection con = ConnectionUtil.getDbConnection();
-		Help help=null;
+		Connection con = ConnectionUtil.getDbConnection();		
 		ResultSet rs=null;
 		
 		try {
 			Statement stmt = con.createStatement();
 			 rs = stmt.executeQuery(showQuery);	
-			 System.out.println("hi");
-			 return rs;
+				Help cake = new Help();
+				cake.setPhone(rs.getLong(1));
+				System.out.println("hii");
+				cake.setEmail(rs.getString(2));
+				Showhelp.add(cake);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
-		
-
-		
+		return Showhelp;
+				
 	}
-	
 	
 }

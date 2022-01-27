@@ -1,7 +1,8 @@
 
-<%@page import="java.util.List" import ="java.sql.*" %>
+<%@page import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
+       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,32 +103,30 @@ background-size:cover;
   
   </ul>
 </div>
-<form>
+
 <button class="button"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
-<%
-CartDaoImpl cartDao=new CartDaoImpl();
-ResultSet rs=cartDao.viewCart();
-%>
+
 <table align="center">
 <tr>
 
-<h4><th style=color:red>Product ID</th></h4>
+<h4><th style=color:red>Product Name</th></h4>
+<h4><th style=color:red>User Name</th></h4>
 <h4><th style=color:red>Order Quantity</th></h4>
 <h4><th style=color:red>Total Price</th></h4>
-<h4><th style=color:red>User ID</th></h4>
 <h4><th style=color:red>Order Date</th></h4>
 </tr>
-<% while(rs.next()){%>
+<c:forEach var="show" items="${cartlist}" >
 <tr>
 
-<td style="color:black; text-align:center"><%= rs.getInt(1) %></td>
-<td style="color:black; text-align:center"><%= rs.getInt(2) %></td>
-<td style="color:black; text-align:center"><%= rs.getDouble(3) %></td>
-<td style="color:black; text-align:center"><%= rs.getInt(4) %></td>
-<td style="color:black; text-align:center"><%= rs.getDate(5) %></td>
+<td style="color:black; text-align:center">${show.cakeName}</td>
+<td style="color:black; text-align:center">${show.userName}</td>
+<td style="color:black; text-align:center">${show.quantity}</td>
+<td style="color:black; text-align:center">${show.totalPrice}</td>
+<td style="color:black; text-align:center">${show.orderDate}</td>
+
 </tr>
-<%} %>
+</c:forEach>
 </table>
-</form><br><br>
+
 </body>
 </html>

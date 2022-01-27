@@ -1,6 +1,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,20 +27,19 @@ margin-top:100px;
 
 <h2 style=color:red>Date Wise Sales Details</h2>
 
-<% ResultSet rs=(ResultSet)session.getAttribute("SalesList");%>
 <table class="table table-hover">
 <tr>
 <th>Total User </th>
 <th>Total sale Amount  </th>
 <th>Total Quantity sale</th>
 </tr>
-<% while(rs.next()){%>
+<c:forEach var="show" items="SalesList">
 <tr>
-<td><%= rs.getString(1)%></td>
-<td><%=rs.getString(2)%></td>
-<td><%= rs.getString(3) %></td>
+<td>${show.userId}</td>
+<td>${show.totalPrice}</td>
+<td>${show.quantity}</td>
 </tr>
-<%} %>
+</c:forEach>
 </table><br><br>
 <button><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </body>

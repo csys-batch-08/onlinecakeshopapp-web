@@ -1,7 +1,9 @@
 
-<%@page import="java.util.List" import ="java.sql.*" %>
+
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,10 +140,8 @@ li a:hover {
   </ul>
 </div>
 
-
 <%
-UserDaoImpl userDao=new UserDaoImpl();
-ResultSet rs=userDao.showAllUser();
+//(int userId, String userName, String emailId, String password, String address, String role,double wallet)
 %>
 <table align="center" class="table table-hover" id="box">
 <tr>
@@ -154,18 +154,19 @@ ResultSet rs=userDao.showAllUser();
 <th><h5 style=color:red><b>Role</b></h5></th>
 
 </tr>
-<% while(rs.next()){%>
+
+<c:forEach var="show" items="${showUser}" >
 <tr>
-<td><h5><%= rs.getInt(1) %></h5></td>
-<td><h5><%= rs.getString(2) %></h5></td>
-<td><h5><%= rs.getString(3) %></h5></td>
-<td><h5><%= rs.getString(4) %></h5></td>
-<td><h5><%= rs.getString(5) %></h5></td>
-<td><h5><%= rs.getInt(7) %></h5></td>
-<td><h5><%= rs.getString(6) %></h5></td>
+<td><h5>${show.userId}</h5></td>
+<td><h5>${show.userName}</h5></td>
+<td><h5>${show.emailId}</h5></td>
+<td><h5>${show.password}</h5></td>
+<td><h5>${show.address}</h5></td>
+<td><h5>${show.role}</h5></td>
+<td><h5>${show.wallet}</h5></td>
 
 </tr>
-<%} %>
+</c:forEach>
 </table><br>
 
 </body>

@@ -36,15 +36,10 @@ public class UserDaoImpl implements UserDao{
 					pst.executeUpdate();
 					
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+
 				e1.printStackTrace();
 			}
-		
-
-			
-			
-
-			
+				
 		}
 
 	//validate user method
@@ -63,13 +58,12 @@ public class UserDaoImpl implements UserDao{
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
 							rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
-				}
-			
+				}		
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
-				System.err.println("Statement error");
+				
 			}
 			return user;
 		}
@@ -77,22 +71,36 @@ public class UserDaoImpl implements UserDao{
 	//show all user method 
 		
 @Override		
-		public  ResultSet showAllUser() {		
+		public  List<User> showAllUser() {		
+	        List<User> userlist=new ArrayList<User>();
+	        
 			ConnectionUtil conUtil = new ConnectionUtil();
 			Connection con = conUtil.getDbConnection();
 
-			String selectQuery = "select * from user_details where role not in 'Admin'";
+			String selectQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where role not in 'Admin'";
 
 			ResultSet rs=null;	
 			try {
 				Statement stmt = con.createStatement();
 				 rs = stmt.executeQuery(selectQuery);
-				
+				 
+				 while (rs.next()) {
+
+						User user = new User();
+						user.setUserId(rs.getInt(1));
+						user.setUserName(rs.getString(2));
+						user.setEmailId(rs.getString(3));
+						user.setPassword(rs.getString(4));
+						user.setAddress(rs.getString(5));
+						user.setRole(rs.getString(6));
+						user.setWallet(rs.getDouble(7));
+						userlist.add(user);
+				 }
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
-			return rs;
+			return userlist;
 		}		
 
 //update user
@@ -153,7 +161,7 @@ public void update(String update)  {
 			
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 			return userId;
@@ -175,7 +183,7 @@ public void update(String update)  {
 				pstmt.close();
 				con.close();
 				}catch(SQLException e) {
-					//System.out.println("incorrect");
+					
 					e.printStackTrace();
 				}
 				
@@ -193,13 +201,13 @@ public void update(String update)  {
 			pstmt.close();
 			con.close();
 			}catch(SQLException e) {
-				//System.out.println("incorrect");
+				
 				e.printStackTrace();
 			}
 			
 		}
       
-      public  int EditUser(String name,String email,String address,double wallet,int UserId) {
+      public  int editUser(String name,String email,String address,double wallet,int UserId) {
 			String updateQuery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
 			try {
 			Connection con = ConnectionUtil.getDbConnection();
@@ -215,7 +223,7 @@ public void update(String update)  {
 			 return 1;
 			
 			}catch(SQLException e) {
-				//System.out.println("incorrect");
+				
 				e.printStackTrace();
 			}
 			return 1;

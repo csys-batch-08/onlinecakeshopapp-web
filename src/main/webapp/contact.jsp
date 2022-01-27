@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import ="java.sql.*"  import ="com.cakeshop.dao.impl.*"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,17 +59,15 @@ margin-left:600px;
    <a href="Home.jsp">Return To Home</a>
 </div>
 
-<%!ResultSet rs;%>
+
 <center><h2><i>For Any Queries Contact Us</i></h2></center>
-<%HelpDaoImpl helpDao = new HelpDaoImpl(); 
-rs=helpDao.showHelp();%>
+<c:forEach var="show" items="${contact}">
 <fieldset id="box">
-<%while(rs.next()){%>
 
-<h3>Contact Number : <%=rs.getString(1)%></h3>
-<h3>Email Id : <%=rs.getString(2)%></h3>
+<h3>Contact Number : ${show.phone}</h3>
+<h3>Email Id : ${show.email}</h3>
 
-<%}%>
 </fieldset>
+</c:forEach>
 </body>
 </html>

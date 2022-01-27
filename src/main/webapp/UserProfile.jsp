@@ -71,8 +71,7 @@ background-size:cover;
 </style>
 </head>
 <body>
-<div class="topnav" >
- 
+<div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a> 
   <a href="showProduct.jsp">Products</a> 
   <a href="categories.jsp">Categories</a> 
@@ -80,23 +79,15 @@ background-size:cover;
    <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-         
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
-<%
-String Email=session.getAttribute("EmailId").toString();
-String password=session.getAttribute("password").toString();
-UserDaoImpl userDao = new UserDaoImpl();
-User user = userDao.validateUser(Email, password);
-String UserName=user.getUserName();
-String address=user.getAddress();
-double Wallet=user.getWallet();
-%>
+
+
 <fieldset id="box"><legend align="left">User Profile</legend>
-<h3>User Name : <%= UserName %></h3>
-<h3>User Email : <%= Email %></h3>
-<h3>User Address : <%=address %></h3>
-<h3>User Wallet : <%=Wallet %></h3>
+<h3>User Name : ${requestScope['UserName']}</h3>
+<h3>User Email : ${requestScope['email']}</h3>
+<h3>User Address : ${requestScope['address']}</h3>
+<h3>User Wallet : ${requestScope['wallet']}</h3>
 <button class="button button1"><a href="Edit.jsp" style="text-decoration:none">Edit</a></button>
 </fieldset>
 </body>

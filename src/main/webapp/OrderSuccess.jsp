@@ -59,38 +59,30 @@ background-size:cover;
 <body>
 <div class="topnav" >
   
-  <a href="ViewOrder.jsp">Orders</a> 
-  <a href="showProduct.jsp">Products</a> 
-  <a href="categories.jsp">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
+   <a href="ViewOrder.jsp">Orders</a> 
+   <a href="showProduct.jsp">Products</a> 
+   <a href="categories.jsp">Categories</a> 
+   <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile.jsp" style="float:right;">Profile</a>
    
-   <%double wallet=(double)session.getAttribute("wallbal"); %>
-<h3><i> Wallet Amount : <%=wallet %></i></h3>  
+ 
+<h3><i> Wallet Amount :  ${requestScope['totalprice']}</i></h3>  
    
 </div>
 <center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
 <h2><i>Your Payment Is Debited from Your Wallet</i></h2>
 
+<h2><i>Your Total Amount is :  ${requestScope['totalprice']}</i></h2>
 
-<%double totalprice=(double) session.getAttribute("totalprice"); %>
-<h2><i>Your Total Amount is : <%=totalprice %></i></h2>
-
-<%double wallet1=(double)session.getAttribute("wallbal"); %>
-<h2><i> Your Revised Wallet Amount : <%=wallet1 %></i></h2>
-
-
+<h2><i> Your Revised Wallet Amount :  ${requestScope['wallet']}</i></h2>
 
 <form action="Rating" method="post">
 <h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" required></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>
-
-
-
 
 
 </body>

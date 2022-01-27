@@ -22,15 +22,12 @@ import com.cakeshop.exception.LowBalanceException;
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
-/**
- * Servlet implementation class Login
- */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub		
+
 
 		PrintWriter pw = response.getWriter();
 		HttpSession session=request.getSession();

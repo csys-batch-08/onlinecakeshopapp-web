@@ -1,9 +1,9 @@
 
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="java.util.List" import ="java.sql.*" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      pageEncoding="ISO-8859-1" import ="com.cakeshop.dao.impl.*" %>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
      
 <!DOCTYPE html>
 <html>
@@ -109,7 +109,7 @@ background-size:cover;
    <a href="ShowRating.jsp">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>    
     <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
+   <a href="UserProfile" style="float:right;">Profile</a>
           
 </div>
 <form>
@@ -139,7 +139,7 @@ background-size:cover;
 <td>${show.cakePrice}</td>
 <td>${show.categoryName}</td>
 <td>${show.rating}</td>
-<td><button class="button button1"><a href="order?cakeId=${show.cakeId }&cakeName=${show.cakeName}" style="text-decoration:none;">Buy</a></button></td>
+<td><button class="button button1"><a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
 </c:forEach>

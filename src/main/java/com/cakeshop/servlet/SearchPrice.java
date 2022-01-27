@@ -3,6 +3,9 @@ package com.cakeshop.servlet;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.exception.InvalidPriceException;
 import com.cakeshop.exception.InvalidUserException;
+import com.cakeshop.model.Products;
 
 /**
  * Servlet implementation class SearchPrice
@@ -19,8 +23,9 @@ import com.cakeshop.exception.InvalidUserException;
 @WebServlet("/SearchPrice")
 public class SearchPrice extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stubs
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		
 		HttpSession session=request.getSession();
 		
@@ -28,16 +33,14 @@ public class SearchPrice extends HttpServlet {
 		int ToPrice=Integer.parseInt(request.getParameter("toPrice"));	
 				
 		ProductDaoImpl productDao=new ProductDaoImpl();
-		ResultSet rs=productDao.filterPrice(FromPrice,ToPrice);
-		try {
-			while(rs.next()) {
-			System.out.println(rs.getString(1));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		response.sendRedirect("ShowPriceWise.jsp");
+		List<Products> viewProducts =productDao.filterPrice(FromPrice,ToPrice);
+		
+		request.setAttribute("fromprice", FromPrice);
+		request.setAttribute("toprice", ToPrice);
+			request.setAttribute("showproduct", viewProducts);
+			
+		RequestDispatcher rd = request.getRequestDispatcher("ShowPriceWise.jsp");
+		rd.forward(request, response);
 			
 		
 	

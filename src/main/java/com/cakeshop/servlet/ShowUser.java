@@ -11,31 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cakeshop.dao.impl.ProductDaoImpl;
+import com.cakeshop.dao.impl.UserDaoImpl;
 import com.cakeshop.model.Products;
+import com.cakeshop.model.User;
 
-/**
- * Servlet implementation class ShowProduct
- */
-@WebServlet("/ShowProduct")
-public class ShowProduct extends HttpServlet {
+@WebServlet("/ShowUser")
+public class ShowUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+   @Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	  UserDaoImpl userDao=new UserDaoImpl();
 		
-
-		ProductDaoImpl productDao = new ProductDaoImpl();
+		List<User> userList=userDao.showAllUser();
 		
-		List<Products> viewProducts = productDao.showProduct();
+		request.setAttribute("showUser", userList);
 		
-		request.setAttribute("showProduct", viewProducts);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("showProduct.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("showuser.jsp");
 		rd.forward(request, response);
-
-		
-		
-	}
+	   
+	   
+	   
+   }
 
 }

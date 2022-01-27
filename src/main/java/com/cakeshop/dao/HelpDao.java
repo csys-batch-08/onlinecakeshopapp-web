@@ -1,8 +1,11 @@
 package com.cakeshop.dao ;
 
 import java.sql.ResultSet;
+import java.util.List;
+
+import com.cakeshop.model.Help;
 
 public interface HelpDao {
 
-	public ResultSet showHelp();
+	public List<Help> showHelp();
 }

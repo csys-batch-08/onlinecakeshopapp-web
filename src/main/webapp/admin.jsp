@@ -84,16 +84,14 @@ background-size:cover;
 
 
 <div class="sidenav">
-  <a href="showUser.jsp">View All Users List</a>
+  <a href="ShowUser">View All Users List</a>
   <a href="AddProduct.jsp">Add a New Product</a>
-  <a href="UpdateProduct.jsp">Update Product</a>
-  <a href="showCart.jsp">View Order Details</a>
+  <a href="viewProduct">Update Product</a>
+  <a href="ShowCart">View Order Details</a>
   <a href="SalesDate.jsp">View Sales Details</a>
   <a href="InactiveUser.jsp">Delete User</a>
   <a href="Home.jsp">LogOut</a>
 </div>
 
 </body>
-
-
 </html>
