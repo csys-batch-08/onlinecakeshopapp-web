@@ -33,24 +33,20 @@ margin-top:250px;
   text-decoration: none;
   font-size: 17px;
 }
-
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
-
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: gray;
   color: white;
 }
 h2{
-
 margin-top:200px;
 margin-left:500px;
 }
-
 </style>
 </head>
 <body >
@@ -59,12 +55,10 @@ margin-left:500px;
   <a href="showProduct.jsp">Products</a>  
   <a href="categories.jsp">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>      
-   <a href="CustomizedCake.jsp">Customized Cake</a>
-    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-   
-         
+  <a href="ShowRating.jsp">Ratings</a>      
+  <a href="CustomizedCake.jsp">Customized Cake</a>
+  <a href="Home.jsp" style="float:right;">LogOut</a> 
+  <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 <form action="showProduct.jsp">
 <h2><i>Your Rating Was Added Successfully!!..</i></h2>

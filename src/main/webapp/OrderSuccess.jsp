@@ -52,8 +52,6 @@ background-size:cover;
   color: white;
 }
 
-
-
 </style>
 </head>
 <body>

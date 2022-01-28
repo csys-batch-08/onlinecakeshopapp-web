@@ -11,6 +11,7 @@
 
 <style type="text/css">
 table, th, td {
+ background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   border: 1px solid black;
   border-collapse: collapse;
   padding: 20px;
@@ -49,13 +50,34 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 </style>
 </head>
 <body>
 
-
-<div class="topnav" >
- 
+<div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a>  
   <a href="showProduct.jsp">Products</a>
   <a href="categories.jsp">Categories</a> 
@@ -63,20 +85,19 @@ background-size:cover;
    <a href="ShowRating.jsp">Ratings</a>    
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-         
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 
 <form action="cancelOrder">
 <table align="center">
 <tr>
 
-<th>User Name</th>
-<th>Product Name</th>
-<th>Order Quantity</th>
-<th>Total Price</th>
-<th>Order Date</th>
-<th>Button</th>
+<th style="color:red">User Name</th>
+<th style="color:red">Product Name</th>
+<th style="color:red">Order Quantity</th>
+<th style="color:red">Total Price</th>
+<th style="color:red">Order Date</th>
+<th style="color:red">Button</th>
 </tr>
 
 <center><h2>User Name : ${requestScope['userName']}</h2></center>
@@ -84,12 +105,12 @@ background-size:cover;
 <c:forEach var="show" items="${viewOrder}"> 
 
 <tr>
-<td>${show.userName}</td>
+<td>${requestScope['userName']}</td>
 <td>${show.cakeName}</td>
 <td>${show.quantity}</td>
 <td>${show.totalPrice}</td>
 <td>${show.orderDate}</td>
-<td><button><a href="cancelOrder?cartId=${show.cartId}" style="text-decoration:none;">Cancel Order</a></button>
+<td><button class="button button1"><a href="cancelOrder?cartId=${show.cartId}" style="text-decoration:none;">Cancel Order</a></button>
 </tr>
 </c:forEach>
 </table>

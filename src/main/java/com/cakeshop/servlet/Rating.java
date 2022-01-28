@@ -18,12 +18,13 @@ import com.cakeshop.dao.impl.UserRatingDaoImpl;
  */
 @WebServlet("/Rating")
 public class Rating extends HttpServlet {	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		HttpSession session=request.getSession();
 		
 		int newRating=Integer.parseInt(request.getParameter("Rating"));
 		UserRatingDaoImpl UserRatingDao=new UserRatingDaoImpl();
-		int c_id=Integer.parseInt(session.getAttribute("cake_id").toString());
+		int cId=Integer.parseInt(session.getAttribute("cake_id").toString());
 		String cakeName=(String) session.getAttribute("cakename");
 		
 		ResultSet rs= UserRatingDao.findRating(cakeName);
@@ -35,15 +36,13 @@ public class Rating extends HttpServlet {
 			count=rs.getInt(2);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	    count=count+1;
-		double rating=(oldRating+newRating);			
-		System.out.println(rating);
-	//	System.out.println(count);
+		double rating=(oldRating+newRating);		
 	
-		UserRatingDao.updateRating(rating,c_id,count);
+		UserRatingDao.updateRating(rating,cId,count);
 		response.sendRedirect("Ratingsuccess.jsp");
 		
 				

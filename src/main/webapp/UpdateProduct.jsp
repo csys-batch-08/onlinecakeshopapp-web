@@ -158,13 +158,11 @@ label {
 <c:forEach var="show" items="${showProduct}">
 
 <tr>
-
 <td>${show.cakeName}</td>
 <td>${show.cakeDescription}</td>
 <td>${show.cakePrice}</td>
 <td>${show.categoryName}</td>
 <td>${show.rating}</td>
-
 </tr>
 </c:forEach>
 </table>
@@ -186,7 +184,6 @@ Cake Id:<input type="number" name="cakeId" pattern="[0-9]"><br><br>
 </form>
 </center>
 </fieldset><br>
-
 
 </body>
 </html>

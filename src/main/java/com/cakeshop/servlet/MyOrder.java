@@ -1,16 +1,15 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.cakeshop.dao.impl.CartDaoImpl;
 import com.cakeshop.model.Cart;
 
@@ -32,7 +31,11 @@ public class MyOrder extends HttpServlet {
         
         String emailId=session.getAttribute("CurrentUser").toString();
         request.setAttribute("userName", emailId);
+        
+        System.out.println(emailId);
 		
+        RequestDispatcher rd = request.getRequestDispatcher("MyOrders.jsp");
+		rd.forward(request, response);        
 		
  }
 
