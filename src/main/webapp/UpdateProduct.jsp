@@ -3,6 +3,7 @@
 <%@page import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,13 +158,12 @@ label {
 <c:forEach var="show" items="${showProduct}">
 
 <tr>
-<td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
+
 <td>${show.cakeName}</td>
 <td>${show.cakeDescription}</td>
 <td>${show.cakePrice}</td>
 <td>${show.categoryName}</td>
 <td>${show.rating}</td>
-<td><button class="button button1"><a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
 </c:forEach>

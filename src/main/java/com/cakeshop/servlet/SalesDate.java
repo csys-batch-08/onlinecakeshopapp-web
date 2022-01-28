@@ -38,10 +38,10 @@ public class SalesDate extends HttpServlet {
 		List<Cart> cartlist=cartDao.filterSales(FromDate, toDate);
 				
 		
-		if(cartlist!=null) {				
+		if(cartlist!=null) {
+			request.setAttribute("SalesList", cartlist);
 			RequestDispatcher rd = request.getRequestDispatcher("ShowSales.jsp");
 			rd.forward(request, response);
-			request.setAttribute("SalesList", cartlist);
 			
 		}		
 		else {

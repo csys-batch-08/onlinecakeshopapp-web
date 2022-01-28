@@ -101,7 +101,10 @@ public class CartDaoImpl implements CartDao {
 		
 	}
 
-	public ResultSet viewUserCart(int userId) {
+	public List<Cart> viewUserCart(int userId) {
+		
+		List<Cart> cartlist=new ArrayList<Cart>();
+		
 		String query = "select cart_id,Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
 		
 		Connection con=ConnectionUtil.getDbConnection();
@@ -109,18 +112,26 @@ public class CartDaoImpl implements CartDao {
 		
 		ResultSet rs=null;
 		try {
-			stmt=con.prepareStatement(query);
-			//System.out.println(userId);
+			stmt=con.prepareStatement(query);			
 			stmt.setInt(1,userId) ;			
 			rs=stmt.executeQuery();	
-			return rs;
+			
+			while(rs.next()) {
+				Cart cart=new Cart();
+				cart.setCartId(rs.getInt(1));
+				cart.setEmail(rs.getString(2));
+				cart.setCakeName(rs.getString(3));
+				cart.setQuantity(rs.getInt(4));
+				cart.setTotalPrice(rs.getDouble(5));
+				cart.setOrderDate(rs.getDate(6).toLocalDate());
+				cartlist.add(cart);				
+			}
+					
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
-		}		
-		
-		return rs;
-		
+		}			
+		return cartlist;	
 	}
 	
 	

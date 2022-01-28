@@ -73,8 +73,7 @@ margin-left:200px;
 </head>
 <body>
 
-<div class="topnav" >
- 
+<div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a>
   <a href="showProduct.jsp">Products</a>  
   <a href="categories.jsp">Categories</a> 
@@ -82,12 +81,11 @@ margin-left:200px;
    <a href="ShowRating.jsp">Ratings</a>       
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-         
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 
 <fieldset id="box"><legend>Orders List</legend><center>
-<form action="MyOrders.jsp"><br>
+<form action="MyOrders"><br>
 <button class="button button1">Existing Product</button>
 </form><br>
 <form action="CustmizedOrders.jsp">

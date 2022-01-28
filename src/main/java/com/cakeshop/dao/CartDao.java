@@ -14,7 +14,7 @@ public interface CartDao {
 
 	public void deleteCart(int userId);
 	
-	public ResultSet viewUserCart(int userId);
+	public List<Cart> viewUserCart(int userId);
 	
 	public boolean checkUser(int userId,LocalDate orderDate);
 	

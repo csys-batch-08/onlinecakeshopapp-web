@@ -33,7 +33,7 @@ margin-top:100px;
 <th>Total sale Amount  </th>
 <th>Total Quantity sale</th>
 </tr>
-<c:forEach var="show" items="SalesList">
+<c:forEach var="show" items="${SalesList}">
 <tr>
 <td>${show.userId}</td>
 <td>${show.totalPrice}</td>

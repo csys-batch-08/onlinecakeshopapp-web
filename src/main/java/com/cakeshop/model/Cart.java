@@ -6,14 +6,23 @@ import java.util.Objects;
 
 public class Cart {
 
+	private int cartId;
 	private int productId;
 	private String cakeName;
 	private int userId;
 	private String userName;
+	private String email;
 	private int quantity;
 	private double totalPrice;
 	private LocalDate orderDate;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getCakeName() {
 		return cakeName;
@@ -27,7 +36,12 @@ public class Cart {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}	
 	
 	public LocalDate getOrderDate() {
 		return orderDate;
@@ -77,6 +91,17 @@ public class Cart {
 		this.totalPrice = totalPrice;
 		this.orderDate = orderDate;
 	}
+	
+	public Cart(int cartId, String cakeName, String email, int quantity, double totalPrice, LocalDate orderDate) {
+		super();
+		this.cartId = cartId;
+		this.cakeName = cakeName;
+		this.email = email;
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.orderDate = orderDate;
+	}
+	
 	public Cart() {
 		super();
 	}	

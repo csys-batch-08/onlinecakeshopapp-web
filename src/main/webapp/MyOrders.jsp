@@ -1,6 +1,8 @@
 <%@page import="com.cakeshop.dao.impl.SpecialCakeDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" import="com.cakeshop.dao.impl.CartDaoImpl"%>
+    pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" 
+    import="com.cakeshop.dao.impl.CartDaoImpl"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,15 +67,6 @@ background-size:cover;
          
 </div>
 
-
-<%
-
-int userId=Integer.parseInt(session.getAttribute("userId").toString());
-//System.out.println(userId);
-CartDaoImpl cartDao=new CartDaoImpl();
-ResultSet rs=cartDao.viewUserCart(userId);
-%>
-
 <form action="cancelOrder">
 <table align="center">
 <tr>
@@ -86,18 +79,19 @@ ResultSet rs=cartDao.viewUserCart(userId);
 <th>Button</th>
 </tr>
 
-<% String emailId=session.getAttribute("CurrentUser").toString();%>
-<center><h2>User Name : <%=emailId %></h2></center>
-<%while(rs.next()){%>
+<center><h2>User Name : ${requestScope['userName']}</h2></center>
+
+<c:forEach var="show" items="${viewOrder}"> 
+
 <tr>
-<td><%= rs.getString(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getInt(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%= rs.getString(6) %></td>
-<td><button><a href="cancelOrder?cartId=<%=rs.getInt(1)%>" style="text-decoration:none;">Cancel Order</a></button>
+<td>${show.userName}</td>
+<td>${show.cakeName}</td>
+<td>${show.quantity}</td>
+<td>${show.totalPrice}</td>
+<td>${show.orderDate}</td>
+<td><button><a href="cancelOrder?cartId=${show.cartId}" style="text-decoration:none;">Cancel Order</a></button>
 </tr>
-<%} %>
+</c:forEach>
 </table>
 </form>
 

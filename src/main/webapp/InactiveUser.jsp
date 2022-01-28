@@ -115,9 +115,8 @@ label {
 <body>
 
 <div class="header container-fluid">
-      	<center><h2 style=color:darkBlack>Inactive User</h2></center>      	
-   		
-      </div>
+      	<center><h2 style=color:darkBlack>Inactive User</h2></center>   		
+</div>
 
 
 <div class="sidenav">
@@ -128,7 +127,6 @@ label {
   <a href="SalesDate.jsp">View Sales Details</a>
   <a href="Home.jsp">LogOut</a>
 </div>
-
 
 <fieldset id="box">
 <form action="Inactive" method="post">
