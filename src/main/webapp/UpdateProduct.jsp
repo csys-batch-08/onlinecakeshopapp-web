@@ -126,13 +126,16 @@ label {
   background-color:pink;
   color: white;
 }
+h2{
+text-align:center;
+}
+
 </style>
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<center><h2 style=color:darkBlack>Hole Product List</h2></center>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+      	<h2 style=color:darkBlack>Hole Product List</h2>      		
       </div>
 
 
@@ -147,14 +150,14 @@ label {
 </div>
 
 <table class="table table-hover">
-<caption>All Product List</caption>
+<caption></caption>
 <tr>
 
-<th>Product Name</th>
-<th>Product Description</th>
-<th>Product price</th>
-<th>Product Categories</th>
-<th>Product Rating</th>
+<th id="1">Product Name</th>
+<th id="2">Product Description</th>
+<th id="3">Product price</th>
+<th id="4">Product Categories</th>
+<th id="5">Product Rating</th>
 </tr>
 <c:forEach var="show" items="${showProduct}">
 
@@ -176,14 +179,14 @@ Cake Id:<input type="number" name="cakeId" pattern="[0-9]"><br><br>
 </form>
 </fieldset>
 
-<fieldset id="box1"><legend><h3 style=color:red>Update Product Price using Name</h3></legend><center>
+<fieldset id="box1"><legend><h3 style=color:red>Update Product Price using Name</h3></legend>
 <form action="updateProduct" method="post">
 <label for="cake price">New Cake Price: </label><input type="number" name="cakePrice"><br><br>
 <label for="name">Cake Name: </label><input type="text"  name="cakeName"><br><br>
 <button class="button button1" type="submit" id="button">Update</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>
-</center>
+
 </fieldset><br>
 
 </body>

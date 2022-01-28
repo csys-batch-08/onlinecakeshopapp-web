@@ -8,7 +8,7 @@ import com.cakeshop.model.User;
 
 public class AdminDaoImpl implements AdminDao{
 	
-	public  User validateAdmin (String emailId,String password){		
+	public  User validateAdmin (String emailId,String password) throws SQLException{		
 		String validateQuery="select * from user_details where role='Admin'and Email_id= ? and password=?";
 		Connection con=ConnectionUtil.getDbConnection();
 		User user=null;
@@ -27,6 +27,13 @@ public class AdminDaoImpl implements AdminDao{
 		}
 		catch(SQLException e) {		
 			e.printStackTrace();
+		}finally {
+			if(pst!=null) {
+				pst.close();
+			}
+			if(con!=null) {
+				con.close();
+			}
 		}
 		return user;
 		

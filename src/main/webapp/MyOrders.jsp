@@ -95,14 +95,15 @@ align:center;
 <form action="cancelOrder">
 <table>
 <caption> My Orders </caption>
-<tr>
 
-<th style="color:red">User Name</th>
-<th style="color:red">Product Name</th>
-<th style="color:red">Order Quantity</th>
-<th style="color:red">Total Price</th>
-<th style="color:red">Order Date</th>
-<th style="color:red">Button</th>
+<tr>
+<th id="1"><h2 style=color:red><strong>User Name</strong></h2></th>
+<th id="2"><h2 style=color:red><strong>Product Name</strong></h2></th>
+<th id="3"><h2 style=color:red><strong>Order Quantity</strong></h2></th>
+<th id="4"><h2 style=color:red><strong>Total Price</strong></h2></th>
+<th id="6"><h2 style=color:red><strong>Order Date</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Button</strong></h2></th>
+
 </tr>
 
 <h2>User Name : ${requestScope['userName']}</h2>

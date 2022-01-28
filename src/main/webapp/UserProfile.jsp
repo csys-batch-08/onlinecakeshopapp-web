@@ -83,7 +83,7 @@ background-size:cover;
 </div>
 
 
-<fieldset id="box"><legend align="left">User Profile</legend>
+<fieldset id="box"><legend>User Profile</legend>
 <h3>User Name : ${requestScope['UserName']}</h3>
 <h3>User Email : ${requestScope['email']}</h3>
 <h3>User Address : ${requestScope['address']}</h3>

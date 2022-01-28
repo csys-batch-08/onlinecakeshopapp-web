@@ -84,15 +84,15 @@ margin-left:200px;
    <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 
-<fieldset id="box"><legend>Orders List</legend><center>
+<fieldset id="box"><legend>Orders List</legend>
 <form action="MyOrders"><br>
 <button class="button button1">Existing Product</button>
 </form><br>
-<form action="CustmizedOrders.jsp">
+<form action="CustmizedOrders">
 <button class="button button1">New Product</button>
 </form><br>
 <form action="showProduct.jsp">
-<button class="button button1">Back</button></form></center>
+<button class="button button1">Back</button></form>
 </fieldset>
 </body>
 </html>

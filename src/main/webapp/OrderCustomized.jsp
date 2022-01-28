@@ -24,24 +24,17 @@ margin-left:300px;
 
 <h1 style=color:#FF007F>Your Desired Cake Order is Placed!! It Will Be Ready Soon</h1>
 
-<%String flavour=(String)session.getAttribute("flavour"); 
-String type=(String)session.getAttribute("type");
-String size=(String)session.getAttribute("size"); 
-double totalPrice=(double)session.getAttribute("totalPrice");
-double wallbal=(double)session.getAttribute("wallbal");
-
-%>
 <fieldset id="box"><legend>Invoice</legend>
 
-<h2 style=color:#000>  Cake Flavour : <%=flavour%></h2>
+<h2 style=color:#000>  Cake Flavour : ${requestScope['flavour']}</h2>
 
-<h2 style=color:#000> Cake Type :  <%=type %></h2>
+<h2 style=color:#000> Cake Type :  ${requestScope['type']}</h2>
 
-<h2 style=color:#000> Cake Size :  <%=size %></h2>
+<h2 style=color:#000> Cake Size :  ${requestScope['size']}</h2>
 
-<h2 style=color:#000> Wallet Amount : <%=wallbal %></h2>
+<h2 style=color:#000> Wallet Amount : ${requestScope['wallball']}</h2>
 
-<h2 style=color:#000> Order Amount : <%=totalPrice  %></h2>
+<h2 style=color:#000> Order Amount : ${requestScope['totalPrice']}</h2>
 
 <button>Back</button>
 </fieldset>

@@ -56,13 +56,17 @@ float:right;
 img{
 margin-left:-8px;
 }
+.center{
+text-align:center;
+}
 
 </style>
 
 </head>
 <body>
-  
-<h1><e>Welcome to My CakeShop</e></h1><br>
+ <div class="center">
+<h1><em>Welcome to My CakeShop</em></h1><br>
+</div> 
 <img src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
   <a class="active" href="Login.jsp">Login</a>

@@ -15,7 +15,7 @@ import com.cakeshop.model.Cart;
 
 public class CartDaoImpl implements CartDao {
 
-	public void insertCart(Cart cart) {
+	public void insertCart(Cart cart) throws SQLException {
 		
 
 		String insert = "INSERT INTO CART_ITEMS (CAKE_ID,USER_ID,ORDER_QUANTITY,TOTAL_PRICE,order_date) VALUES(?,?,?,?,?) ";
@@ -36,13 +36,20 @@ public class CartDaoImpl implements CartDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
+		}finally {
+			if(pst!=null) {
+				pst.close();
+			}
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 	}
 
 //view cart items
 
-	public  List<Cart> viewCart() {	
+	public  List<Cart> viewCart() throws SQLException {	
 		List<Cart> cartList=new ArrayList<>();		
 		
 	String query = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items \r\n"
@@ -70,46 +77,63 @@ public class CartDaoImpl implements CartDao {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+		finally {
+			if(pst!=null) {
+				pst.close();
+			}
+			if(con!=null) {
+				con.close();
+			}
+		}
 		return cartList;
 	}	
 
 	// delete cart
 
-	public void deleteCart(int userId)  {
+	public void deleteCart(int userId) throws SQLException  {
 	
 		String deleteQuery = "delete from cart_items where cart_id=?";
-
+		PreparedStatement pstmt=null;
+		Connection con=null;
 		try {
-		Connection con = ConnectionUtil.getDbConnection();
-		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
+			con = ConnectionUtil.getDbConnection();
+		 pstmt = con.prepareStatement(deleteQuery);
 		pstmt.setInt(1, userId);
-		int i = pstmt.executeUpdate();	
+		pstmt.executeUpdate();	
 		
-		pstmt.close();
-		con.close();	
 		
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 			
+		}finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		
 	}
 
-	public List<Cart> viewUserCart(int userId) {
+	public List<Cart> viewUserCart(int userId) throws SQLException {
 		
 		List<Cart> cartlist=new ArrayList<>();
 		
 		String query = "select cart_id,Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
 		
-		Connection con=ConnectionUtil.getDbConnection();
-		PreparedStatement stmt;
+		Connection con=null;
+		PreparedStatement pstmt=null;
 		
 		ResultSet rs=null;
 		try {
-			stmt=con.prepareStatement(query);			
-			stmt.setInt(1,userId) ;			
-			rs=stmt.executeQuery();	
+			con=ConnectionUtil.getDbConnection();
+			pstmt=con.prepareStatement(query);			
+			pstmt.setInt(1,userId) ;			
+			rs=pstmt.executeQuery();	
 			
 			while(rs.next()) {
 				Cart cart=new Cart();
@@ -125,26 +149,37 @@ public class CartDaoImpl implements CartDao {
 		} catch (SQLException e) {
 
 			e.printStackTrace();
-		}			
+		}
+           finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
+		}
 		return cartlist;	
 	}
 	
 	
 //filter sales	
-	public List<Cart> filterSales(LocalDate min,LocalDate max) {
+	public List<Cart> filterSales(LocalDate min,LocalDate max) throws SQLException {
 		
 		List<Cart> cartlist=new ArrayList<>();
 		
 		String query = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		PreparedStatement stmt;
+		Connection con=null;
+		PreparedStatement pstmt=null;
 		ResultSet rs = null;
 		try {
-			stmt = con.prepareStatement(query);			
-			stmt.setDate(1, java.sql.Date.valueOf(min));
-			stmt.setDate(2, java.sql.Date.valueOf(max));
-			rs = stmt.executeQuery();
+			con = ConnectionUtil.getDbConnection();
+			pstmt = con.prepareStatement(query);			
+			pstmt.setDate(1, java.sql.Date.valueOf(min));
+			pstmt.setDate(2, java.sql.Date.valueOf(max));
+			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Cart cart=new Cart();
@@ -158,20 +193,31 @@ public class CartDaoImpl implements CartDao {
 
 			e.printStackTrace();
 		}
+		 finally {
+				
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				
+				if(con!=null) {
+					con.close();
+				}
+			}
 		return cartlist;
 
 	}
 	
 	
-	public boolean checkUser(int userId,LocalDate orderDate) {
+	public boolean checkUser(int userId,LocalDate orderDate) throws SQLException {
 		String query="select * from cart_items where user_id='"+userId+"' and to_char(order_date,'yyyy-mm-dd')='"+orderDate+"'";
-		Connection con=ConnectionUtil.getDbConnection();
+		Connection con=null;
 		
 		boolean flag=true;
-		Statement stmt;
+		Statement pstmt=null;
 		try {
-			stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery(query);
+			con=ConnectionUtil.getDbConnection();
+			pstmt=con.createStatement();
+			ResultSet rs=pstmt.executeQuery(query);
 			if(rs.next()) {
 				Cart cart=new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
 				
@@ -181,6 +227,15 @@ public class CartDaoImpl implements CartDao {
 		}catch (SQLException e) {
 
 			e.printStackTrace();
+		} finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 			
 		return flag;

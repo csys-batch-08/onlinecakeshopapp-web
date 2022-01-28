@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.cakeshop.model.SpecialCake;
 
@@ -12,15 +14,14 @@ import com.cakeshop.model.SpecialCake;
 public class SpecialCakeDaoImpl {
 
 	
-	public void insertCake(SpecialCake cake) {
+	public void insertCake(SpecialCake cake) throws SQLException {
 		String insertQuery = "insert into customized_details(user_id,flavour,types,shape,quantity,order_date) values(?,?,?,?,?,?)";
 		 
 		PreparedStatement pst = null;
+		Connection con=null;
 		try {
 			
-			ConnectionUtil conUtil = new ConnectionUtil();
-			Connection con = conUtil.getDbConnection();
-			 
+			 con = ConnectionUtil.getDbConnection();			 
 			 pst = con.prepareStatement(insertQuery);
 			
 			    pst.setInt(1, cake.getUserId());
@@ -31,43 +32,86 @@ public class SpecialCakeDaoImpl {
 				pst.setDate(6, java.sql.Date.valueOf(cake.getOrderDate()));
 				pst.executeUpdate();
 				
-		} catch (Exception e1) {
+		} catch (Exception e) {
 
-			e1.printStackTrace();
+			e.printStackTrace();
+		}
+          finally {
+			
+			if(pst!=null) {
+				pst.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		
 }
  
-	public ResultSet viewCustomizedCart(int userId) {
+	public List<SpecialCake> viewCustomizedCart(int userId) throws SQLException {
+		
+		List<SpecialCake> orderlist=new ArrayList<>();
+		
 		String query = "select Email_id,quantity,Order_date,flavour,types,shape,(quantity*initial_amount)as total_price from customized_details inner join user_details using (user_id) where user_id=? order by order_date desc";
-		Connection con=ConnectionUtil.getDbConnection();
-		PreparedStatement stmt;		
+		Connection con=null;
+		PreparedStatement stmt = null;		
 		ResultSet rs=null;
 		try {
+			con=ConnectionUtil.getDbConnection();
 			stmt=con.prepareStatement(query);			
-			stmt.setInt(1,userId) ;			
+			stmt.setInt(1,userId);			
 			rs=stmt.executeQuery();	
-			return rs;
+			
+			while(rs.next()) {
+				SpecialCake cake=new SpecialCake();
+				cake.setEmail(rs.getString(1));
+				cake.setQuantity(rs.getInt(2));
+				cake.setOrderDate(rs.getDate(3).toLocalDate());
+				cake.setFlavour(rs.getString(4));
+				cake.setType(rs.getString(5));
+				cake.setShape(rs.getString(6));
+				cake.setTotalPrice(rs.getDouble(7));
+				orderlist.add(cake);				
+			}				
 		} catch (SQLException e) {			
 			e.printStackTrace();
-		}		
-		return rs;		
+		}	
+		 finally {
+				
+				if(stmt!=null) {
+					stmt.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
+		return orderlist;		
 	}
 	
-	public ResultSet findPrice(int proID) {
+	public ResultSet findPrice(int proID) throws SQLException {
 		String query = "select initial_amount from customized_details where custcake_id ='" + proID + "'";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		Statement stmt;
+		Connection con=null;
+		Statement stmt = null;
 
 		ResultSet rs = null;
 		try {
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
 		} catch (SQLException e) {
 
 			e.printStackTrace();
-		}
+		}	
+		 finally {
+				
+				if(stmt!=null) {
+					stmt.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 
 		return rs;
 

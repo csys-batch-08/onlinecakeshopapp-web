@@ -65,21 +65,18 @@ background-size:cover;
    <a href="UserProfile.jsp" style="float:right;">Profile</a>       
 </div>
 
-<center><h2><b>High Rated Cake List</b></h2></center>
-
-<table border="4">
-<caption>Rating</caption>
-
-<th><h3 style="color:white; font-size:large;">Product Name</h3></th>
-<th><h3 style="color:white; font-size:large;">Ratings</h3></th>
-
+<table>
+<caption><h2>Rating</h2></caption>
+<tr>
+<th id="1"><h3 style="color:white; font-size:large;">Product Name</h3></th>
+<th id="2"><h3 style="color:white; font-size:large;">Ratings</h3></th>
+</tr>
 <c:forEach var="show" items="${ratinglist}"></c:forEach>
 
 <tr>
 <td style="color:white; font-size:large;">${show.cakeName}</td>
 <td style="color:white; font-size:large;">${requestScope['ratings']}</td>
 </tr>
-
 
 </table>
 </body>

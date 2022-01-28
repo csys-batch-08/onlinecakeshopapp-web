@@ -129,15 +129,15 @@ width:60px;
 
 
 <form action="salesWiseFilter" method="post">
-<fieldset id="box">
+<fieldset id="box"><legend></legend>
 <label>From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
 
 <label>To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
 
 <button type="submit" class="button button1">Search</button>
-
-</form>
 </fieldset>
+</form>
+
 
 </body>
 

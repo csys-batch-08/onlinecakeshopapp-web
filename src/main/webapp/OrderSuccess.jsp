@@ -46,10 +46,30 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
-#box{
-align:center;
-}
 
+.button {
+  background-color:pink; 
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid pink;
+  }
+  .button1:hover {
+  background-color:pink;
+  color: white;
+}
 
 </style>
 </head>
@@ -63,20 +83,20 @@ align:center;
    <a href="Home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile.jsp" style="float:right;">Profile</a>   
  
-<h3><e> Wallet Amount :  ${requestScope['totalprice']}</e></h3>  
+<h3><em> Wallet Amount :  ${requestScope['totalprice']}</em></h3>  
    
 </div>
 <fieldset id="box"><legend>Invoice</legend>
 <h1>Your Order is Placed Successfully!! Thank You!!</h1>
-<h2><e>Your Payment Is Debited from Your Wallet</e></h2>
+<h2><em>Your Payment Is Debited from Your Wallet</em></h2>
 
-<h2><e>Your Total Amount is :  ${requestScope['totalprice']}</e></h2>
+<h2><em>Your Total Amount is :  ${requestScope['totalprice']}</em></h2>
 
-<h2><e> Your Revised Wallet Amount :  ${requestScope['wallet']}</e></h2>
+<h2><em> Your Revised Wallet Amount :  ${requestScope['wallet']}</em></h2>
 
 <form action="Rating" method="post">
 <h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" ></h3>
-<button type="submit" id="rating">Rate</button>
+<button type="submit" id="rating" class="button button1">Rate</button>
 </form>
 </fieldset>
 

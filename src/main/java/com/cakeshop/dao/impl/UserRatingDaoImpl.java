@@ -10,12 +10,13 @@ import com.cakeshop.dao.UserRatingDao;
 
 public class UserRatingDaoImpl implements UserRatingDao{
 	
-	public void updateRating(double rating,int proId,int count){
+	public void updateRating(double rating,int proId,int count) throws SQLException{
 		String updateQuery="update product_details set rating=?,rating_count=? where cake_Id=?";
 	
-		Connection con=ConnectionUtil.getDbConnection();				
+		Connection 	con=null;			
 		PreparedStatement pstmt=null;
 		try {
+			con=ConnectionUtil.getDbConnection();
 			pstmt = con.prepareStatement(updateQuery);
 			pstmt.setDouble(1,rating);
 			pstmt.setInt(3, proId);	
@@ -27,21 +28,39 @@ public class UserRatingDaoImpl implements UserRatingDao{
 		} catch (SQLException e) {
 
 			e.printStackTrace();
-		}
+		} finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
+	 }
 		
 	}
-	public  ResultSet findRating(String proName)
+	public  ResultSet findRating(String proName) throws SQLException
 	{
 		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
-		Connection con=ConnectionUtil.getDbConnection();
-		Statement stmt;
+		Connection con=null;
+	
+		PreparedStatement stmt=null;
 		try {
-			stmt = con.createStatement();
-			return stmt.executeQuery(findRating);
+			con=ConnectionUtil.getDbConnection();
+			stmt = con.prepareStatement(findRating);
+			return stmt.executeQuery();
 			
 		} catch (SQLException e) {
 
 			e.printStackTrace();
+		}finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		
 		return null;

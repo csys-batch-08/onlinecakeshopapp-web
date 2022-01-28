@@ -61,8 +61,10 @@ align:center;
 </div>
 
 
-<h2><i>For Any Queries Contact Us</i></h2>
+<h2><em>For Any Queries Contact Us</em></h2>
+
 <c:forEach var="show" items="${contact}">
+
 <fieldset id="box"><legend>Contact</legend>
 
 <h3>Contact Number : ${show.phone}</h3>

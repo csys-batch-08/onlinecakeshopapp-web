@@ -87,14 +87,19 @@ background-size:cover;
 </div>
 
 <table class="table table-hover">
+<caption></caption>
+
+
 <tr>
-<th> CAKE </th>
-<th>Product Name</th>
-<th>Product Description</th>
-<th>Product price</th>
-<th>Product Categories</th>
-<th>Product Rating</th>
-<th>Button</th>
+
+<th id="1"><h2 style=color:red><strong>Cake</strong></h2></th>
+<th id="2"><h2 style=color:red><strong>Product Name</strong></h2></th>
+<th id="3"><h2 style=color:red><strong>Product Description</strong></h2></th>
+<th id="4"><h2 style=color:red><strong>Product price</strong></h2></th>
+<th id="6"><h2 style=color:red><strong>Product Categories</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Product Rating</strong></h2></th>
+<th id="8"><h2 style=color:red><strong>Button</strong></h2></th>
+
 </tr>
 
 

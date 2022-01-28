@@ -2,6 +2,7 @@
 <%@page import="com.cakeshop.dao.impl.SpecialCakeDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
 <title>Customized Orders</title>
 <style type="text/css">
 table, th, td {
+background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   border: 1px solid black;
   border-collapse: collapse;
   padding: 20px;
@@ -20,7 +22,10 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
-
+.center{
+ margin-left: auto; 
+  margin-right: auto;
+}
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: Gray;
@@ -48,6 +53,9 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+h2{
+text-align:center;
+}
 </style>
 </head>
 <body>
@@ -62,40 +70,36 @@ background-size:cover;
    <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
-<%
-int userId=Integer.parseInt(session.getAttribute("userId").toString());
-System.out.println(userId);
-SpecialCakeDaoImpl Cust=new SpecialCakeDaoImpl();
-ResultSet rs=Cust.viewCustomizedCart(userId);
-%>
 
-<table>
-<caption>Orders List</caption>
+<table class="center">
+<caption></caption>
+
+
 <tr>
-<th>User Name</th>
-<th>Quantity</th>
-<th>Order Date</th>
-<th>Flavour</th>
-<th>Types</th>
-<th>Shape</th>
-<th>Total Price</th>
+<th id="1"><h2 style=color:red><strong>User Name</strong></h2></th>
+<th id="2"><h2 style=color:red><strong>Quantity</strong></h2></th>
+<th id="3"><h2 style=color:red><strong>Order Date</strong></h2></th>
+<th id="4"><h2 style=color:red><strong>Flavour</strong></h2></th>
+<th id="6"><h2 style=color:red><strong>Types</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Shape</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Total Price</strong></h2></th>
 
 </tr>
 
-<% String emailId=session.getAttribute("CurrentUser").toString();%>
-<center><h2>User Name : <%=emailId %></h2></center>
-<%while(rs.next()){%>
+<h2>User Name : ${requestScope['email']}</h2>
+
+<c:forEach var="show" items="${orderlist}">
 <tr>
-<td><%= rs.getString(1) %></td>
-<td><%= rs.getInt(2) %></td>
-<td><%= rs.getString(3) %></td>
-<td><%= rs.getString(4) %></td>
-<td><%= rs.getString(5) %></td>
-<td><%=rs.getString(6) %></td>
-<td><%= rs.getDouble(7) %></td>
+<td>${show.email}</td>
+<td>${show.quantity}</td>
+<td>${show.orderDate}</td>
+<td>${show.flavour}</td>
+<td>${show.type}</td>
+<td>${show.shape}</td>
+<td>${show.totalPrice}</td>
 
 </tr>
-<%} %>
+</c:forEach>
 </table>
 </body>
 </html>

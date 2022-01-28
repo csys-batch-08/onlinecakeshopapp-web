@@ -1,17 +1,15 @@
 
 <%@page import="java.text.DecimalFormat"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      pageEncoding="ISO-8859-1" import ="com.cakeshop.dao.impl.*" %>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
      
 <!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="ISO-8859-1">
-<title>home page</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<head>
 <title>home page</title>
 <style type="text/css">
 
@@ -110,20 +108,20 @@ background-size:cover;
 <form>
 
 <table class="table table-hover">
+<caption></caption>
+
 <tr>
-<th>Cake </th>
-<th>Product Name</th>
-<th>Product Description</th>
-<th>Product price</th>
-<th>Product Categories</th>
-<th>Product Rating</th>
-<th>Button</th>
+
+<th id="1"><h2 style=color:red><strong>Cake</strong></h2></th>
+<th id="2"><h2 style=color:red><strong>Product Name</strong></h2></th>
+<th id="3"><h2 style=color:red><strong>Product Description</strong></h2></th>
+<th id="4"><h2 style=color:red><strong>Product price</strong></h2></th>
+<th id="6"><h2 style=color:red><strong>Product Categories</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Product Rating</strong></h2></th>
+<th id="8"><h2 style=color:red><strong>Button</strong></h2></th>
+
 </tr>
-<%//DecimalFormat df = new DecimalFormat("0.00");%>
-<%// while(rs.next()){
-	//double rating=rs.getDouble(7)/rs.getDouble(8);
-	//double rating1=Double.parseDouble(df.format(rating));		
-%>
+
 <c:forEach var="show" items="${showProduct}">
 <tr>
 <td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 
 import java.time.LocalDate;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,9 +38,7 @@ public class CustomizedCake extends HttpServlet {
 
 		session.setAttribute("size", size);
 
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
-
-		System.out.println("quantity=" + quantity);
+		int quantity = Integer.parseInt(request.getParameter("quantity"));		
 
 		String orderdate = request.getParameter("orderdate");
 
@@ -48,7 +48,7 @@ public class CustomizedCake extends HttpServlet {
 
 		double totalPrice = (1000 * quantity);
 
-		session.setAttribute("totalPrice", totalPrice);
+		session.setAttribute("totalPrices", totalPrice);
 
 		WalletDaoImpl walletDao = new WalletDaoImpl();
 
@@ -65,8 +65,29 @@ public class CustomizedCake extends HttpServlet {
 		SpecialCakeDaoImpl customizedCake = new SpecialCakeDaoImpl();
 
 		customizedCake.insertCake(customized);
-
-		response.sendRedirect("OrderCustomized.jsp");
+		
+		String flavours=(String)session.getAttribute("flavour"); 		
+		
+		request.setAttribute("flavour", flavours);
+		
+		String types=(String)session.getAttribute("type");
+		
+		request.setAttribute("type", types);
+		
+		String sizes=(String)session.getAttribute("size"); 
+		
+		request.setAttribute("size",sizes);
+		
+		double totalPrices=(double)session.getAttribute("totalPrices");
+		
+		request.setAttribute("totalPrice",totalPrices);
+		
+		double wallball=(double)session.getAttribute("wallbal");
+		
+		request.setAttribute("wallball",wallball);		
+		
+		  RequestDispatcher rd = request.getRequestDispatcher("OrderCustomized.jsp");
+		  rd.forward(request, response);
 
 	}
 

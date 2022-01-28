@@ -13,8 +13,16 @@ body {
 	background-image: url('assets/Background.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	align:center;
+	
 }
+
+.center{
+   margin-left: auto;
+  margin-right: auto;
+}
+
+
+
 /* Add a black background color to the top navigation */
 .topnav {
 	background-color: Gray;
@@ -86,22 +94,22 @@ body {
 	<br>
 	<br>
 	<br>
-	<table border="3">
-	<caption>Category List</caption>
+	<table border="3" class="center">
+	<caption><h2>Category List</h2></caption>
 
 		<th><h3>Category Name</h3></th>
 		<th><h3>Button</h3></th>
 
 		<c:forEach var="show" items="${showCategory}">
 
-			<tr>
+		<tr>
 				<td>${show.categoryName}</td>
-
+				
 				<td><button class="button button1" id="buy">
 						<a href="CategoryFilter?categoryname=${show.categoryName}" style="text-decoration: none;">Search</a>
 					</button></td>
 
-			</tr>
+		</tr>
 		</c:forEach>
 
 	</table>

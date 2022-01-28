@@ -31,9 +31,11 @@ margin-top:100px;
 <table class="table table-hover">
 <caption>Sales Details</caption>
 <tr>
-<th>Total User </th>
-<th>Total sale Amount  </th>
-<th>Total Quantity sale</th>
+
+<th id="1"><h5 style=color:red><strong>Total User</strong></h5></th>
+<th id="2"><h5 style=color:red><strong>Total sale Amount</strong></h5></th>
+<th id="3"><h5 style=color:red><strong>Total Quantity sale</strong></h5></th>
+
 </tr>
 <c:forEach var="show" items="${SalesList}">
 <tr>

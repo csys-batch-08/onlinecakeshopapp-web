@@ -117,13 +117,17 @@ li a:hover {
   color: white;
 }
 
+h2{
+text-align:center;
+}
+
 </style>
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<center><h2>Hole Users List</h2></center>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+      	<h2>Hole Users List</h2>    	
+   		
       </div>
 
 
@@ -134,7 +138,7 @@ li a:hover {
   <li><a href="UpdateProduct.jsp">Update Product</a></li>
   <li><a href="showCart.jsp">View Order Details</a></li>
   <li><a href="SalesDate.jsp">View Sales Details</a></li>
-   <a href="InactiveUser.jsp">Delete User</a>
+  <li><a href="InactiveUser.jsp">Delete User</a></li>
   <li><a href="Home.jsp">LogOut</a></li>
   
   </ul>
@@ -143,13 +147,13 @@ li a:hover {
 <table  class="table table-hover" id="box">
 <caption>All User List</caption>
 <tr>
-<th><h5 style=color:red><b>User Id</b></h5></th>
-<th><h5 style=color:red><b>User Name</b></h5></th>
-<th><h5 style=color:red><b>Email Id</b></h5></th>
-<th><h5 style=color:red><b>Password</b></h5></th>
-<th><h5 style=color:red><b>Address</b></h5></th>
-<th><h5 style=color:red><b>User Wallet</b></h5></th>
-<th><h5 style=color:red><b>Role</b></h5></th>
+<th id="1"><h5 style=color:red><strong>User Id</strong></h5></th>
+<th id="2"><h5 style=color:red><strong>User Name</strong></h5></th>
+<th id="3"><h5 style=color:red><strong>Email Id</strong></h5></th>
+<th id="4"><h5 style=color:red><strong>Password</strong></h5></th>
+<th id="6"><h5 style=color:red><strong>Address</strong></h5></th>
+<th id="7"><h5 style=color:red><strong>User Wallet</strong></h5></th>
+<th id="8"><h5 style=color:red><strong>Role</strong></h5></th>
 
 </tr>
 

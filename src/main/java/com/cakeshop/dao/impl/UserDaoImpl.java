@@ -2,7 +2,6 @@ package com.cakeshop.dao.impl;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.cakeshop.dao.UserDao;
-import com.cakeshop.model.Cart;
-import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
 
@@ -19,14 +16,15 @@ public class UserDaoImpl implements UserDao{
 
 	//insert user method
 	@Override
-	public void insertUser(User user) {
+	public void insertUser(User user) throws SQLException {
 			String insertQuery = "insert into user_details(user_name,email_id,password,address) values(?,?,?,?)";
 			 
 			PreparedStatement pst = null;
+			Connection con=null;
 			try {
 				
 				
-				Connection con = ConnectionUtil.getDbConnection();
+				 con = ConnectionUtil.getDbConnection();
 				 
 				 pst = con.prepareStatement(insertQuery);
 					pst.setString(1, user.getUserName());
@@ -38,21 +36,31 @@ public class UserDaoImpl implements UserDao{
 			} catch (Exception e1) {
 
 				e1.printStackTrace();
-			}
+			} finally {
+				
+				if(pst!=null) {
+					pst.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 				
 		}
 
 	//validate user method
 	@Override
-		public  User validateUser(String EmailId, String password) {
-			String validateQuery = "select * from user_details where Email_id='" + EmailId 
+		public  User validateUser(String emailId, String password) throws SQLException {
+			String validateQuery = "select * from user_details where Email_id='" + emailId 
 					+ "'and password='" + password + "'";
 
-			Connection con = ConnectionUtil.getDbConnection();
+			Connection con=null;
 			User user = null;
+			Statement pst=null;
 			try {
-				Statement st = con.createStatement();
-				ResultSet rs = st.executeQuery(validateQuery);
+				con = ConnectionUtil.getDbConnection();
+				 pst = con.createStatement();
+				ResultSet rs = pst.executeQuery(validateQuery);
 				if (rs.next()) {
 					
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
@@ -64,24 +72,33 @@ public class UserDaoImpl implements UserDao{
 
 				e.printStackTrace();
 				
-			}
+			}finally {
+				
+				if(pst!=null) {
+					pst.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 			return user;
 		}
 
 	//show all user method 
 		
 @Override		
-		public  List<User> showAllUser() {		
-	        List<User> userlist=new ArrayList<User>();
+		public  List<User> showAllUser() throws SQLException {		
+	        List<User> userlist=new ArrayList<>();
 	        
-			Connection con = ConnectionUtil.getDbConnection();
+			Connection con=null;
 
 			String selectQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where role not in 'Admin'";
-
+			Statement pst=null;
 			ResultSet rs=null;	
 			try {
-				Statement stmt = con.createStatement();
-				 rs = stmt.executeQuery(selectQuery);
+				con = ConnectionUtil.getDbConnection();
+				 pst = con.createStatement();
+				 rs = pst.executeQuery(selectQuery);
 				 
 				 while (rs.next()) {
 
@@ -97,39 +114,30 @@ public class UserDaoImpl implements UserDao{
 				 }
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
+			}finally {
+				
+				if(pst!=null) {
+					pst.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 
 			return userlist;
 		}		
 
-//update user
-@Override
-public void update(String update)  {
-			String updateQuery = "update user_details set password=?  where Email_id=?";
-			
-			Connection con = ConnectionUtil.getDbConnection();
-			
-	      try {
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);
-			pstmt.setString(1, update.split(",")[0]);
-			pstmt.setString(2, update.split(",")[1]);
-			 pstmt.executeUpdate();
-			
-			pstmt.close();
-			con.close();
-	      }catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+
 
 //delete method
         @Override
-		public void deletedetails(String delete)  {
+		public void deletedetails(String delete) throws SQLException  {
 			String deleteQuery = "delete from user_details where Email_id=?";
-
-			Connection con = ConnectionUtil.getDbConnection();
+			PreparedStatement pstmt=null;
+			Connection con=null;
 			try {
-			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
+				con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(deleteQuery);
 			pstmt.setString(1, delete);
 			 pstmt.executeUpdate();
 			
@@ -138,18 +146,28 @@ public void update(String update)  {
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}
+               finally {
+				
+				if(pstmt!=null) {
+					pstmt.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 		}
 
 	//find user id method
 @Override
-		public  int findUserId(String userName) {
+		public  int findUserId(String userName) throws SQLException {
 			
 			String findUserID = "select user_id from user_details where email_id='"+userName+"'";
-			Connection con = ConnectionUtil.getDbConnection();
-			Statement stmt;
+			Connection con=null;
+			Statement stmt = null;
 			
 			int userId = 0;
 			try {
+				 con = ConnectionUtil.getDbConnection();
 				stmt = con.createStatement();
 				
 				ResultSet rs = stmt.executeQuery(findUserID);
@@ -163,17 +181,29 @@ public void update(String update)  {
 
 				e.printStackTrace();
 			}
+               finally {
+				
+				if(stmt!=null) {
+					stmt.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+		 }
 			return userId;
 
 		}
 		
 		
 
-      public  void updatePassword(String newPassword, String emailId) {
+      public  void updatePassword(String newPassword, String emailId) throws SQLException {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
+				
+				PreparedStatement pstmt =null;
+				Connection con =null;
 				try {
-				Connection con = ConnectionUtil.getDbConnection();
-				PreparedStatement pstmt = con.prepareStatement(updateQuery);
+			     con = ConnectionUtil.getDbConnection();
+				 pstmt = con.prepareStatement(updateQuery);
 				pstmt.setString(1, newPassword);
 				pstmt.setString(2, emailId);
 				
@@ -184,15 +214,26 @@ public void update(String update)  {
 				}catch(SQLException e) {
 					
 					e.printStackTrace();
-				}
+				}   finally {
+					
+					if(pstmt!=null) {
+						pstmt.close();
+					}			
+					if(con!=null) {
+						con.close();
+					}
+			 }
 				
 			}
 
-      public  void inactiveUser(String emailId) {
+      public  void inactiveUser(String emailId) throws SQLException {
 			String updateQuery = "update user_details set role ='Inactive' where Email_id=?";
+			
+			PreparedStatement pstmt=null;
+			Connection con =null;
 			try {
-			Connection con = ConnectionUtil.getDbConnection();
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);			
+		 con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(updateQuery);			
 			pstmt.setString(1, emailId);
 			
 			 pstmt.executeUpdate();
@@ -203,14 +244,25 @@ public void update(String update)  {
 				
 				e.printStackTrace();
 			}
+			  finally {
+					
+					if(pstmt!=null) {
+						pstmt.close();
+					}			
+					if(con!=null) {
+						con.close();
+					}
+			 }
 			
 		}
       
-      public  int editUser(String name,String email,String address,double wallet,int userId) {
+      public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException {
 			String updateQuery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
+			PreparedStatement pstmt=null;
+			Connection con =null;
 			try {
-			Connection con = ConnectionUtil.getDbConnection();
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);	
+			 con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(updateQuery);	
 			pstmt.setString(1,name);
 			pstmt.setString(2,email);			
 			pstmt.setString(3,address);	
@@ -225,6 +277,15 @@ public void update(String update)  {
 				
 				e.printStackTrace();
 			}
+			  finally {
+					
+					if(pstmt!=null) {
+						pstmt.close();
+					}			
+					if(con!=null) {
+						con.close();
+					}
+			 }
 			return 1;
 			
 		}

@@ -13,16 +13,18 @@ import com.cakeshop.model.Help;
 
 public class HelpDaoImpl implements HelpDao{
 
-	public List<Help> showHelp() {
+	public List<Help> showHelp() throws SQLException {
 		List<Help> help=new ArrayList<>();		
        
 		String showQuery = "select phone,email from help_support";
-		Connection con = ConnectionUtil.getDbConnection();		
+		Connection con=null;		
 		ResultSet rs=null;
-		
+		Statement pstmt=null;
 		try {
-			Statement stmt = con.createStatement();
-			 rs = stmt.executeQuery(showQuery);	
+			con = ConnectionUtil.getDbConnection();
+			 pstmt = con.createStatement();
+			 rs = pstmt.executeQuery(showQuery);	
+			 
 				Help cake = new Help();
 				cake.setPhone(rs.getLong(1));			
 				cake.setEmail(rs.getString(2));
@@ -30,6 +32,16 @@ public class HelpDaoImpl implements HelpDao{
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+         finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		return help;
 				

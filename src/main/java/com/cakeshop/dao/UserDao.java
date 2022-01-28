@@ -1,5 +1,6 @@
 package com.cakeshop.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.cakeshop.model.User;
@@ -7,19 +8,19 @@ import com.cakeshop.model.User;
 
 public interface UserDao {
 	
-	public void insertUser(User user);
+	public void insertUser(User user) throws SQLException;
 
-	public User validateUser(String EmailId, String password);
+	public User validateUser(String emailId, String password) throws SQLException;
 
-	public List<User> showAllUser();
+	public List<User> showAllUser() throws SQLException;	
 
-	public void update(String update);
+	public void deletedetails(String delete) throws SQLException;
 
-	public void deletedetails(String delete);
+	public int findUserId(String userName) throws SQLException;
 
-	public int findUserId(String userName);
-
-	 public  void inactiveUser(String emailId);
+	 public  void inactiveUser(String emailId) throws SQLException;
 	 
-	  public  int editUser(String name,String email,String address,double wallet,int userId);
+	 public  void updatePassword(String newPassword, String emailId) throws SQLException;
+	 
+	  public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException;
 }

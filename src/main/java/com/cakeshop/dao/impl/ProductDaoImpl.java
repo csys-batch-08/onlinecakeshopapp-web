@@ -16,14 +16,15 @@ public class ProductDaoImpl implements ProductDao {
 
 //show product method
 
-	public List<Products> showProduct() {
+	public List<Products> showProduct() throws SQLException {
 		List<Products> cakelist = new ArrayList<>();
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details";
-		Connection con = ConnectionUtil.getDbConnection();
-
+		Connection con=null;
+		Statement stmt=null;
 		try {
-			Statement stmt = con.createStatement();
+			con = ConnectionUtil.getDbConnection();
+		    stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(showQuery);
 			while (rs.next()) {
 
@@ -43,18 +44,29 @@ public class ProductDaoImpl implements ProductDao {
 			
 			e.printStackTrace();
 		}
+		 finally {
+				
+				if(stmt!=null) {
+					stmt.close();
+				}
+				
+				if(con!=null) {
+					con.close();
+				}
+			}
 		return cakelist;
 	}
 
 //add new product
 
-	public void insertProduct(Products product) {
+	public void insertProduct(Products product) throws SQLException {
 		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name,picture) values(?,?,?,?,?)";
 
-		Connection con = ConnectionUtil.getDbConnection();
+		Connection con=null;
 		PreparedStatement pst = null;
 
 		try {
+			con = ConnectionUtil.getDbConnection();
 			pst = con.prepareStatement(insertQuery);
 			pst.setString(1, product.getCakeName());
 			pst.setString(2, product.getCakeDescription());
@@ -68,17 +80,27 @@ public class ProductDaoImpl implements ProductDao {
 			
 			e.printStackTrace();
 
+		} finally {
+			
+			if(pst!=null) {
+				pst.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 	}
 
 //update product
-	public void updateProduct(double cakePrice, String cakeName) {
+	public void updateProduct(double cakePrice, String cakeName) throws SQLException {
 		String updateQuery = "update product_details set cake_price =?  where cake_name=?";
-
+		PreparedStatement pstmt=null;
+		Connection con=null;
 		try {
-			Connection con = ConnectionUtil.getDbConnection();
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);
+		  con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(updateQuery);
 			pstmt.setDouble(1, cakePrice);
 			pstmt.setString(2, cakeName);
 			 pstmt.executeUpdate();
@@ -89,17 +111,28 @@ public class ProductDaoImpl implements ProductDao {
 
 			e.printStackTrace();
 		}
+		finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
+		}
 
 	}
 
 //rating insert 
-	public void insertRating(int insertRating) {
+	public void insertRating(int insertRating) throws SQLException {
 
 		String updateQuery = "update product_details set Ratings=? where cake_name=?";
-
-		Connection con = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=null;
+		Connection con=null;
 		try {
-			PreparedStatement pstmt = con.prepareStatement(updateQuery);
+			con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(updateQuery);
 
 			pstmt.executeUpdate();
 			
@@ -109,18 +142,28 @@ public class ProductDaoImpl implements ProductDao {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 	}
 
 //delete method
 
-	public void deleteProduct(int cakeId) {
+	public void deleteProduct(int cakeId) throws SQLException {
 		String deleteQuery = "delete from product_details where cake_id=?";
-
-		Connection con = ConnectionUtil.getDbConnection();
+		PreparedStatement pstmt=null;
+		Connection con=null;
 		try {
-			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
+			con = ConnectionUtil.getDbConnection();
+			 pstmt = con.prepareStatement(deleteQuery);
 			pstmt.setInt(1, cakeId);
 			pstmt.executeUpdate();
 
@@ -130,17 +173,29 @@ public class ProductDaoImpl implements ProductDao {
 			
 			e.printStackTrace();
 		}
+            finally {
+			
+			if(pstmt!=null) {
+				pstmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
+		}
+		
 	}
 
 //find product id	
 
-	public int findProductId1(String productName) {
+	public int findProductId1(String productName) throws SQLException {
 		String query = "select cake_id from product_details where cake_name='" + productName + "'";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		Statement stmt;
+		Connection con=null;
+		Statement stmt=null;
 		int proId = 0;
 		try {
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.createStatement();
 
 			ResultSet rs = stmt.executeQuery(query);
@@ -152,6 +207,15 @@ public class ProductDaoImpl implements ProductDao {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 		return proId;
@@ -159,17 +223,27 @@ public class ProductDaoImpl implements ProductDao {
 
 //find Product Price	
 
-	public int findPrice(int proID) {
+	public int findPrice(int proID) throws SQLException {
 		String query = "select total_price from product_details where cake_id=?";
-
-		Connection con = ConnectionUtil.getDbConnection();	
+		PreparedStatement stmt=null;
+		Connection con=null;
 		try {
-			PreparedStatement prepare =con.prepareStatement(query) ;
-			prepare.setInt(1, proID);		
+			con = ConnectionUtil.getDbConnection();	
+			 stmt =con.prepareStatement(query) ;
+			stmt.setInt(1, proID);		
 
 		} catch (SQLException e) {
 		
 			e.printStackTrace();
+		}finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 		return 0;
@@ -178,21 +252,31 @@ public class ProductDaoImpl implements ProductDao {
 
 //find product category 
 
-	public List<Products> findCategory(String categoryName) {
+	public List<Products> findCategory(String categoryName) throws SQLException {
 
 		List<Products> category = new ArrayList<>();
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
-		Connection con = ConnectionUtil.getDbConnection();
-		
-		PreparedStatement prepare = null ;
+		Connection con=null;		
+		PreparedStatement stmt = null;
 		try {		    
-			@SuppressWarnings("null")
-			ResultSet rs = prepare.executeQuery(showQuery);
+			
+			con = ConnectionUtil.getDbConnection();
+			 stmt =con.prepareStatement(showQuery);
+			 stmt.executeQuery();
 
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}
+			
+			if(con!=null) {
+				con.close();
+			}
 		}
 
 		return category;
@@ -200,13 +284,14 @@ public class ProductDaoImpl implements ProductDao {
 
 //show product rating	
 
-	public List<Products> ShowRating() {
+	public List<Products> showRating() throws SQLException {
 		List<Products> ratinglist=new ArrayList<>();
 		String query = "select cake_name,rating,rating_count from product_details order by rating desc";
-		Connection con = ConnectionUtil.getDbConnection();
+		Connection con=null;
 		ResultSet rs = null;
-		PreparedStatement stmt;
+		PreparedStatement stmt = null;
 		try {
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -218,20 +303,30 @@ public class ProductDaoImpl implements ProductDao {
 		} catch (SQLException e) {		
 			e.printStackTrace();
 		}
+          finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
+		}
 		return ratinglist;
 	}
 
 // product Category List
 
-	public List<Products> ShowCategory() {
+	public List<Products> showCategory() throws SQLException {
 		List<Products> category = new ArrayList<>();
 
 		String query = "select DISTINCT category_name from product_details";
 
-		Connection con = ConnectionUtil.getDbConnection();
+		Connection con=null;
 		ResultSet rs = null;
-		PreparedStatement stmt;
+		PreparedStatement stmt = null;
 		try {
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			
@@ -246,24 +341,33 @@ public class ProductDaoImpl implements ProductDao {
 
 			e.printStackTrace();
 		}
+		 finally {
+				
+				if(stmt!=null) {
+					stmt.close();
+				}			
+				if(con!=null) {
+					con.close();
+				}
+			}
 		return category;
 
 	}
 
 //category wise product List
 
-	public List<Products> viewCategoryList(String categoryname) {
+	public List<Products> viewCategoryList(String categoryname) throws SQLException {
 		
 		List<Products> viewCategory=new ArrayList<>();
 
 		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		PreparedStatement stmt;
+		Connection con=null;
+		PreparedStatement stmt = null;
 
 		ResultSet rs = null;
 		try {
-
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
 			
 			stmt.setString(1, categoryname);
@@ -284,23 +388,31 @@ public class ProductDaoImpl implements ProductDao {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		} finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		return viewCategory ;
 
 	}
 
 //product filter by price 	
-	public List<Products> filterPrice(int min, int max) {
+	public List<Products> filterPrice(int min, int max) throws SQLException {
 		
 		List<Products> pricelist=new ArrayList<>();
 		
 		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where cake_price between ? and ? ";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		PreparedStatement stmt;
+		Connection con=null;
+		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
-
+			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, min);
 			stmt.setInt(2, max);
@@ -322,6 +434,14 @@ public class ProductDaoImpl implements ProductDao {
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}finally {
+			
+			if(stmt!=null) {
+				stmt.close();
+			}			
+			if(con!=null) {
+				con.close();
+			}
 		}
 		return pricelist;
 

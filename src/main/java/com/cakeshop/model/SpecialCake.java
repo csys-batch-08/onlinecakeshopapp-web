@@ -5,13 +5,28 @@ import java.time.LocalDate;
 public class SpecialCake {
 
 	private int userId;	
+	private String email;	
 	private String flavour;
 	private String type;
 	private String shape;
 	private int quantity;	
+	private double totalPrice;
 	private LocalDate orderDate;
 	
 	
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	public int getUserId() {
 		return userId;

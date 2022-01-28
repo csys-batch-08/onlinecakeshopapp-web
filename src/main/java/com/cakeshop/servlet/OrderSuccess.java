@@ -48,7 +48,9 @@ public class OrderSuccess extends HttpServlet {
 
 		double wallbal = userWallet - totalPrice;
 
-		session.setAttribute("wallbal", wallbal);		
+		session.setAttribute("wallbal", wallbal);	
+		
+		 session.setAttribute("totalprices", totalPrice);
 
 		walletDao.updatewallet(wallbal, userId);
 
@@ -58,7 +60,7 @@ public class OrderSuccess extends HttpServlet {
 
 		cartDao.insertCart(cart);
 
-		double totalprice = (double) session.getAttribute("totalprice");
+		double totalprice = (double) session.getAttribute("totalprices");
 		request.setAttribute("totalprice", totalprice);
 
 		double wallet1 = (double) session.getAttribute("wallbal");

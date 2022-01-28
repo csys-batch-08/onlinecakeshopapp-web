@@ -14,6 +14,8 @@ import com.cakeshop.dao.impl.HelpDaoImpl;
 import com.cakeshop.model.Help;
 
 
+
+
 @WebServlet("/ContactUs")
 public class ContactUs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,9 +25,7 @@ public class ContactUs extends HttpServlet {
 
 		HelpDaoImpl helpDao = new HelpDaoImpl(); 
 		List<Help> contact=helpDao.showHelp();
-		
-		System.out.println(contact);
-		
+				
 		request.setAttribute("contact",contact);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("contact.jsp");
