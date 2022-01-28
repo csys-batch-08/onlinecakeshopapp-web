@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>cancel order</title>
@@ -39,17 +39,20 @@ background-size:cover;
 height:130px;
 margin-top:200px;
 margin-left:300px;
+
+}
+form{
+align:center;
 }
 </style>
 </head>
 <body>
-<center><fieldset id="box">
+<fieldset id="box"><legend>Order Deleted</legend>
 <form action="showProduct.jsp">
 <h2 style=color:#FF007F><i>Your Amount is Refunded </i></h2>
 <h2 style=color:#FF007F><i>Your Order Will Be Deleted!!</i></h2>
-
 <button class="button button1">Back</button>
 </form>
-</fieldset></center>
+</fieldset>
 </body>
 </html>

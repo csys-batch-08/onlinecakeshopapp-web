@@ -5,7 +5,7 @@
     pageEncoding="ISO-8859-1"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Update product</title>
@@ -147,6 +147,7 @@ label {
 </div>
 
 <table class="table table-hover">
+<caption>All Product List</caption>
 <tr>
 
 <th>Product Name</th>

@@ -5,7 +5,7 @@
      import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>showUser page</title>
@@ -140,10 +140,8 @@ li a:hover {
   </ul>
 </div>
 
-<%
-//(int userId, String userName, String emailId, String password, String address, String role,double wallet)
-%>
-<table align="center" class="table table-hover" id="box">
+<table  class="table table-hover" id="box">
+<caption>All User List</caption>
 <tr>
 <th><h5 style=color:red><b>User Id</b></h5></th>
 <th><h5 style=color:red><b>User Name</b></h5></th>

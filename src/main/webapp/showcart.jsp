@@ -4,7 +4,7 @@
      import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <style type="text/css">
 *{
@@ -18,6 +18,7 @@ table, th, td {
   font-size:17px;  
   padding: 4px;
   margin-left:450px;
+  align:center;
 }
 
 .header{
@@ -106,7 +107,8 @@ background-size:cover;
 
 <button class="button"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 
-<table align="center">
+<table>
+<caption>Order Details</caption>
 <tr>
 
 <h4><th style=color:red>Product Name</th></h4>

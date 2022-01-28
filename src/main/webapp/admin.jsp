@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>admin page</title>
@@ -74,11 +74,14 @@ background-image:url('assets/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
+h2{
+align:center;
+}
 </style>
 </head>
 <body>
 <div class="header container-fluid">
-      	<center><h2>Welcome Admin!!</h2></center>      	
+      	<h2>Welcome Admin!!</h2>      	
    		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
       </div>
 

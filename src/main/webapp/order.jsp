@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1" import=" com.cakeshop.dao.impl.*" import="java.sql.*"%>
 	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>order here</title>
@@ -13,7 +13,6 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
-
 #box {
 	width: 350px;
 	margin-left: 0px;
@@ -91,8 +90,9 @@ label {
    <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 	
-	<center>	
-		<fieldset id="box">
+		
+		<fieldset id="box"><legend>Order Here</legend>
+		
 			<form action="Order?cakeName=${requestScope['cakeName']}&cakeId=${requestScope['cakeId']}&cakePrice=${requestScope['price']}">
 			<input type="text" name="cakeName" value="<c:out value='${requestScope["cakeName"]}'/>">
 			<input type="text" name="price" value="<c:out value='${requestScope["price"]}'/>">
@@ -103,7 +103,7 @@ label {
 				<button class="button button1" type="submit" id="button">Buy</button>				
 			</form>
 		</fieldset>
-	</center>
+	
 </body>
 <script type="text/javascript">
 var today = new Date();

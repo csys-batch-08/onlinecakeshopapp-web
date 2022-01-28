@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>add product</title>
@@ -11,12 +11,6 @@ margin:0px;
 padding:0px;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 10px;
-  margin-left:500px;
-}
 
 .header{
 padding-top:24px;
@@ -139,9 +133,12 @@ label {
   background-color:pink;
   color: white;
 }
+fieldset{
+align:center;
+}
 
 </style>
-</style>
+
 </head>
 <body>
 
@@ -166,7 +163,7 @@ label {
 </div>
 
 
-<fieldset id="box"><legend>Add New Product</legend><center>
+<fieldset id="box"><legend>Add New Product</legend>
 <form action="AddProduct" method="post">
 <label for="cakeName">Cake_Name</label><input type="text" name="cakeName"  required><br><br>
 <label for="cakedes">Cake_description</label><input type="text" name="cakeDescription" required><br><br>
@@ -175,7 +172,7 @@ label {
 <label for="picture">Image</label><input type="file" name="picture" ><br><br>
 <button type="submit" name="button" class="button button1">Add</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
-</form></center>
+</form>
 </fieldset>
 
 </body>

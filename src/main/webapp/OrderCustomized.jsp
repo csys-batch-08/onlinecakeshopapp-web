@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>order success</title>
@@ -17,8 +17,6 @@ margin-top:200px;
 margin-left:300px;
 }
 
-
-
 </style>
 </head>
 <body>
@@ -33,7 +31,8 @@ double totalPrice=(double)session.getAttribute("totalPrice");
 double wallbal=(double)session.getAttribute("wallbal");
 
 %>
-<center><fieldset id="box">
+<fieldset id="box"><legend>Invoice</legend>
+
 <h2 style=color:#000>  Cake Flavour : <%=flavour%></h2>
 
 <h2 style=color:#000> Cake Type :  <%=type %></h2>
@@ -46,7 +45,7 @@ double wallbal=(double)session.getAttribute("wallbal");
 
 <button>Back</button>
 </fieldset>
-</center>
+
 
 </form>
 </body>

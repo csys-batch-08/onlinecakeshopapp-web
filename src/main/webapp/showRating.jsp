@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>show Rating</title>
@@ -14,6 +14,7 @@ background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
   border: 1px solid black;
   border-collapse: collapse;
   padding: 20px;
+  align:center;
 }
 body{
 background-image:url('assets/back2.jpg');
@@ -66,7 +67,8 @@ background-size:cover;
 
 <center><h2><b>High Rated Cake List</b></h2></center>
 
-<table align="center" border="4">
+<table border="4">
+<caption>Rating</caption>
 
 <th><h3 style="color:white; font-size:large;">Product Name</h3></th>
 <th><h3 style="color:white; font-size:large;">Ratings</h3></th>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Sales Date</title>
@@ -127,17 +127,18 @@ width:60px;
   <a href="Home.jsp">LogOut</a>
 </div>
 
-<fieldset id="box">
-<form action="salesWiseFilter" method="post">
 
+<form action="salesWiseFilter" method="post">
+<fieldset id="box">
 <label>From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
 
 <label>To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
 
 <button type="submit" class="button button1">Search</button>
-</form>
 
+</form>
 </fieldset>
+
 </body>
 
 <script type="text/javascript">

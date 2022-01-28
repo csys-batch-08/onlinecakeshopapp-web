@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.cakeshop.dao.impl.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>category wise cake</title>
@@ -87,6 +87,7 @@ background-size:cover;
 </div>
 <form>
 <table class="table table-hover"> 
+<caption>Category Wise Products</caption>
 <tr>
 
 <th> CAKE </th>

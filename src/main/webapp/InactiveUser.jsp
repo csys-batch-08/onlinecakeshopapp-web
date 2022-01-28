@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Inactive User</title>
@@ -128,7 +128,7 @@ label {
   <a href="Home.jsp">LogOut</a>
 </div>
 
-<fieldset id="box">
+<fieldset id="box"><legend>Inactive User</legend>
 <form action="Inactive" method="post">
 
 Email Id : <input type="email" name="Email"

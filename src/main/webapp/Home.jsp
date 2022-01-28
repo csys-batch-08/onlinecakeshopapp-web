@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
@@ -61,7 +62,7 @@ margin-left:-8px;
 </head>
 <body>
   
-<center><h1><i>Welcome to My CakeShop</i></h1></center><br>
+<h1><e>Welcome to My CakeShop</e></h1><br>
 <img src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
   <a class="active" href="Login.jsp">Login</a>

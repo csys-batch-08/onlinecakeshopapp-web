@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1" import ="java.sql.*"  import ="com.cakeshop.dao.impl.*"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Contact</title>
@@ -48,6 +48,7 @@ background-size:cover;
 
 h2{
 margin-left:600px;
+align:center;
 }
 
 </style>
@@ -60,9 +61,9 @@ margin-left:600px;
 </div>
 
 
-<center><h2><i>For Any Queries Contact Us</i></h2></center>
+<h2><i>For Any Queries Contact Us</i></h2>
 <c:forEach var="show" items="${contact}">
-<fieldset id="box">
+<fieldset id="box"><legend>Contact</legend>
 
 <h3>Contact Number : ${show.phone}</h3>
 <h3>Email Id : ${show.email}</h3>

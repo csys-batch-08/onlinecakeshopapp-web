@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>rating added</title>
@@ -61,8 +61,8 @@ margin-left:500px;
   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
 </div>
 <form action="showProduct.jsp">
-<h2><i>Your Rating Was Added Successfully!!..</i></h2>
-<center><button>Back</button></center>
+<h2><e>Your Rating Was Added Successfully!!..</e></h2>
+
 </form>
 </body>
 </html>

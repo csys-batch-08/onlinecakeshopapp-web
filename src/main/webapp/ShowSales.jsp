@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>view DateWise Sales</title>
@@ -17,6 +17,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
+  align:center;
 }
 table{
 margin-top:100px;
@@ -28,6 +29,7 @@ margin-top:100px;
 <h2 style=color:red>Date Wise Sales Details</h2>
 
 <table class="table table-hover">
+<caption>Sales Details</caption>
 <tr>
 <th>Total User </th>
 <th>Total sale Amount  </th>

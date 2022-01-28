@@ -4,7 +4,7 @@
     import="com.cakeshop.dao.impl.CartDaoImpl"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>My order</title>
@@ -15,6 +15,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 20px;
+  align:center;
 }
 body{
 background-image:url('assets/cake2.jpg');
@@ -73,6 +74,9 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+h2{
+align:center;
+}
 </style>
 </head>
 <body>
@@ -89,7 +93,8 @@ background-size:cover;
 </div>
 
 <form action="cancelOrder">
-<table align="center">
+<table>
+<caption> My Orders </caption>
 <tr>
 
 <th style="color:red">User Name</th>
@@ -100,7 +105,7 @@ background-size:cover;
 <th style="color:red">Button</th>
 </tr>
 
-<center><h2>User Name : ${requestScope['userName']}</h2></center>
+<h2>User Name : ${requestScope['userName']}</h2>
 
 <c:forEach var="show" items="${viewOrder}"> 
 

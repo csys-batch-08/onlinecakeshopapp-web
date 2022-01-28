@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>customized cake</title>
@@ -86,7 +86,7 @@ label {
    <a href="UserProfile.jsp" style="float:right;">Profile</a>
          
 </div>
-<fieldset id="box">
+<fieldset id="box"><legend>Customized Order</legend>
 <form action="customized" method="post">
 
 <label>Flavour</label>
@@ -102,7 +102,7 @@ label {
 
 <label>Type</label>
 <select name="type">
-<option  value="disabled" >Select</option>
+<option value="disabled" >Select</option>
 <option>Egg</option>
 <option>Eggless</option>
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>Order Success</title>
@@ -13,11 +13,6 @@
   color: orange;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
 body{
 background-image:url('assets/rating.jpeg');
 background-repeat:no-repeat;
@@ -51,6 +46,10 @@ background-size:cover;
   background-color: gray;
   color: white;
 }
+#box{
+align:center;
+}
+
 
 </style>
 </head>
@@ -67,18 +66,19 @@ background-size:cover;
 <h3><e> Wallet Amount :  ${requestScope['totalprice']}</e></h3>  
    
 </div>
-<center><h1>Your Order is Placed Successfully!! Thank You!!</h1>
-<h2><i>Your Payment Is Debited from Your Wallet</i></h2>
+<fieldset id="box"><legend>Invoice</legend>
+<h1>Your Order is Placed Successfully!! Thank You!!</h1>
+<h2><e>Your Payment Is Debited from Your Wallet</e></h2>
 
-<h2><i>Your Total Amount is :  ${requestScope['totalprice']}</i></h2>
+<h2><e>Your Total Amount is :  ${requestScope['totalprice']}</e></h2>
 
-<h2><i> Your Revised Wallet Amount :  ${requestScope['wallet']}</i></h2>
+<h2><e> Your Revised Wallet Amount :  ${requestScope['wallet']}</e></h2>
 
 <form action="Rating" method="post">
 <h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" ></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
-</center>
+</fieldset>
 
 
 </body>

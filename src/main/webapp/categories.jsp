@@ -4,7 +4,7 @@
 	import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>category wise cake</title>
@@ -13,6 +13,7 @@ body {
 	background-image: url('assets/Background.png');
 	background-repeat: no-repeat;
 	background-size: cover;
+	align:center;
 }
 /* Add a black background color to the top navigation */
 .topnav {
@@ -85,7 +86,8 @@ body {
 	<br>
 	<br>
 	<br>
-	<table align="center" border="3">
+	<table border="3">
+	<caption>Category List</caption>
 
 		<th><h3>Category Name</h3></th>
 		<th><h3>Button</h3></th>

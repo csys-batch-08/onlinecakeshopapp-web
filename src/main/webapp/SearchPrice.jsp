@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>search Price</title>
@@ -75,7 +75,9 @@ label {
         text-align: right;
         margin-left:-50px; 
       }
-
+fieldset{
+align:center;
+}
 
 </style>
 </head>
@@ -92,26 +94,17 @@ label {
     <a href="Home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile.jsp" style="float:right;">Profile</a>       
 </div>
-<center>
-
- <%String msg=(String)session.getAttribute("Invalid"); 
- if(msg!=null){
-	 %>
-	 <h2><%=msg %></h2>
-	 <%session.removeAttribute("Invalid"); %>
- <% } %>
  
- </center>
-<fieldset id="box"><center>
-<h2><i>Search by Price</i></h2>
 <form action="SearchPrice" method="post" >
-<label for="from"><i>From Price : </i></label>
+<fieldset id="box"><legend>Search By Price</legend>
+<label for="from"><e>From Price : </e></label>
 <input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
-<label for="to"><i>To Price : </i></label>
+<label for="to"><e>To Price : </e></label>
 <input type="number" name="toPrice" pattern="[0-9]" min="0" required><br>
 <button class="button button1" type="submit" name="button">submit</button>
-</form></center>
+
 </fieldset>
+</form>
 
 </body>
 </html>
