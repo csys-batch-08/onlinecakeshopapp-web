@@ -1,6 +1,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,9 +71,11 @@ background-size:cover;
 <th><h3 style="color:white; font-size:large;">Product Name</h3></th>
 <th><h3 style="color:white; font-size:large;">Ratings</h3></th>
 
+<c:forEach var="show" items="${ratinglist}"></c:forEach>
+
 <tr>
-<td style="color:white; font-size:large;"><%= rs.getString(1) %></td>
-<td style="color:white; font-size:large;"><%= rating1%></td>
+<td style="color:white; font-size:large;">${show.cakeName}</td>
+<td style="color:white; font-size:large;">${requestScope['ratings']}</td>
 </tr>
 
 

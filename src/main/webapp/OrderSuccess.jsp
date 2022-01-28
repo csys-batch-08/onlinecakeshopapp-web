@@ -64,7 +64,7 @@ background-size:cover;
    <a href="Home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile.jsp" style="float:right;">Profile</a>   
  
-<h3><i> Wallet Amount :  ${requestScope['totalprice']}</i></h3>  
+<h3><e> Wallet Amount :  ${requestScope['totalprice']}</e></h3>  
    
 </div>
 <center><h1>Your Order is Placed Successfully!! Thank You!!</h1>

@@ -1,10 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-
-import java.io.PrintWriter;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.cakeshop.dao.impl.AdminDaoImpl;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
@@ -23,26 +19,28 @@ import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
 @WebServlet("/Login")
-public class Login extends HttpServlet {
+public class Login extends HttpServlet {	
 	
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 
-		PrintWriter pw = response.getWriter();
 		HttpSession session=request.getSession();
-		String EmailId = request.getParameter("EmailId");
+		String emailId = request.getParameter("EmailId");
 		String password = request.getParameter("password");
 		
-		session.setAttribute("EmailId", EmailId);
+		session.setAttribute("EmailId", emailId);
 		session.setAttribute("password", password);	
 		
 		UserDaoImpl userDao = new UserDaoImpl();
-		User currentUser = userDao.validateUser(EmailId, password);
+		User currentUser = userDao.validateUser(emailId, password);
 		
 		
 		if(currentUser!=null) {
-		UserDaoImpl user=new UserDaoImpl();
+		
 		
 		int userId=currentUser.getUserId();
 		session.setAttribute("userId", userId);
@@ -55,7 +53,7 @@ public class Login extends HttpServlet {
 		if (userRole.equals("Admin")) {
 			
 			AdminDaoImpl admin=new AdminDaoImpl();
-			admin.validateAdmin(EmailId, password);
+			admin.validateAdmin(emailId, password);
 			response.sendRedirect("admin.jsp");
 			
 			
@@ -65,10 +63,10 @@ public class Login extends HttpServlet {
 			
 			session.setAttribute("CurrentUser1", currentUser.getUserName());
 		
-			WalletDaoImpl WalletBal=new WalletDaoImpl();
-			int WalletBal1=WalletBal.walletbal(userId);
+			WalletDaoImpl walletBal=new WalletDaoImpl();
+			int walletBal1=walletBal.walletbal(userId);
 						
-			if(WalletBal1>1000) {
+			if(walletBal1>1000) {
 				ProductDaoImpl productDao = new ProductDaoImpl();
 				List<Products> viewProducts = productDao.showProduct();
 				request.setAttribute("showProduct", viewProducts);

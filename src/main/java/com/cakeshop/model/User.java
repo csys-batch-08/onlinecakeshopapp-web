@@ -5,7 +5,7 @@ import java.util.Objects;
 public class User {
 	private int userId;
 	private String userName;
-	private String EmailId;
+	private String emailId;
 	private String password;
 	private String address;
 	private String role;
@@ -44,11 +44,11 @@ public class User {
 	}
 
 	public String getEmailId() {
-		return EmailId;
+		return emailId;
 	}
 
 	public void setEmailId(String emailId) {
-		EmailId = emailId;
+		this.emailId = emailId;
 	}
 
 	public String getPassword() {
@@ -69,7 +69,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(EmailId, password, userName);
+		return Objects.hash(emailId, password, userName);
 	}
 
 	@Override
@@ -81,14 +81,14 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(EmailId, other.EmailId) && Objects.equals(password, other.password)
+		return Objects.equals(emailId, other.emailId) && Objects.equals(password, other.password)
 				&& Objects.equals(userName, other.userName);
 	}
 
 	public User(String userName, String emailId, String password, String address) {
 		super();
 		this.userName = userName;
-		this.EmailId = emailId;
+		this.emailId = emailId;
 		this.password = password;
 		this.address = address;
 	}
@@ -98,7 +98,7 @@ public class User {
 		super();
 		this.userId = userId;
 		this.userName = userName;
-		this.EmailId = emailId;
+		this.emailId = emailId;
 		this.password = password;
 		this.address = address;
 		this.role = role;
@@ -111,6 +111,6 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User userName=" + userName + ",\n EmailId=" + EmailId + ",\n password=" + password + ", \naddress=" + address;
+		return "User userName=" + userName + ",\n EmailId=" + emailId + ",\n password=" + password + ", \naddress=" + address;
 	}
 }

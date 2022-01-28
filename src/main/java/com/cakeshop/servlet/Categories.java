@@ -13,16 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.model.Products;
 
-/**
- * Servlet implementation class Categories
- */
+
 @WebServlet("/Categories")
 public class Categories extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		List<Products> viewCategory =productDao.ShowCategory();
 		request.setAttribute("showCategory", viewCategory);

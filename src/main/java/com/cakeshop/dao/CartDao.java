@@ -1,6 +1,5 @@
 package com.cakeshop.dao;
 
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 

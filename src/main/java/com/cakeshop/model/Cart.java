@@ -1,8 +1,6 @@
 package com.cakeshop.model;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
 
 public class Cart {
 
@@ -106,11 +104,5 @@ public class Cart {
 		super();
 	}	
 	
-	
-	@Override
-	public String toString() {
-		return  String.format("%-10s%-10s%-10s%-10s",productId,userId,quantity,totalPrice,orderDate+"\n");
-	}
-
-	
+		
 }

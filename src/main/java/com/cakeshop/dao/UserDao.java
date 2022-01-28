@@ -1,6 +1,5 @@
 package com.cakeshop.dao;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.cakeshop.model.User;
@@ -20,4 +19,7 @@ public interface UserDao {
 
 	public int findUserId(String userName);
 
+	 public  void inactiveUser(String emailId);
+	 
+	  public  int editUser(String name,String email,String address,double wallet,int userId);
 }

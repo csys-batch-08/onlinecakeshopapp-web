@@ -24,7 +24,7 @@ margin-left:300px;
 <body>
 <form action="showProduct.jsp">
 
-<h1 style=color:#FF007F><i><b>Your Desired Cake Order is Placed!! It Will Be Ready Soon </b></i></h1>
+<h1 style=color:#FF007F>Your Desired Cake Order is Placed!! It Will Be Ready Soon</h1>
 
 <%String flavour=(String)session.getAttribute("flavour"); 
 String type=(String)session.getAttribute("type");

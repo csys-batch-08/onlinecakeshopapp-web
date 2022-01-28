@@ -1,7 +1,5 @@
 package com.cakeshop.model;
 
-import java.util.Objects;
-
 public class Admin {
 
 	private String name;
@@ -34,7 +32,7 @@ public class Admin {
 	
 	public Admin() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	@Override
 	public String toString() {

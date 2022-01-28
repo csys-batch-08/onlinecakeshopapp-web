@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.model.Products;
 
-/**
- * Servlet implementation class ShowProduct
- */
 @WebServlet("/ShowProduct")
 public class ShowProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;

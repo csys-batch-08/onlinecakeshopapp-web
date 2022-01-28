@@ -17,7 +17,7 @@ public class ProductDaoImpl implements ProductDao {
 //show product method
 
 	public List<Products> showProduct() {
-		List<Products> cakelist = new ArrayList<Products>();
+		List<Products> cakelist = new ArrayList<>();
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details";
 		Connection con = ConnectionUtil.getDbConnection();
@@ -51,8 +51,7 @@ public class ProductDaoImpl implements ProductDao {
 	public void insertProduct(Products product) {
 		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name,picture) values(?,?,?,?,?)";
 
-		ConnectionUtil conUtil = new ConnectionUtil();
-		Connection con = conUtil.getDbConnection();
+		Connection con = ConnectionUtil.getDbConnection();
 		PreparedStatement pst = null;
 
 		try {
@@ -82,7 +81,7 @@ public class ProductDaoImpl implements ProductDao {
 			PreparedStatement pstmt = con.prepareStatement(updateQuery);
 			pstmt.setDouble(1, cakePrice);
 			pstmt.setString(2, cakeName);
-			int i = pstmt.executeUpdate();
+			 pstmt.executeUpdate();
 
 			pstmt.close();
 			con.close();
@@ -123,7 +122,7 @@ public class ProductDaoImpl implements ProductDao {
 		try {
 			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 			pstmt.setInt(1, cakeId);
-			int i = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 
 			pstmt.close();
 			con.close();
@@ -160,17 +159,12 @@ public class ProductDaoImpl implements ProductDao {
 
 //find Product Price	
 
-	@SuppressWarnings("null")
 	public int findPrice(int proID) {
 		String query = "select total_price from product_details where cake_id=?";
 
-		Connection con = ConnectionUtil.getDbConnection();
-		Statement stmt;
-		
-		ResultSet rs = null;
+		Connection con = ConnectionUtil.getDbConnection();	
 		try {
 			PreparedStatement prepare =con.prepareStatement(query) ;
-			rs = prepare.executeQuery();
 			prepare.setInt(1, proID);		
 
 		} catch (SQLException e) {
@@ -186,16 +180,15 @@ public class ProductDaoImpl implements ProductDao {
 
 	public List<Products> findCategory(String categoryName) {
 
-		List<Products> category = new ArrayList<Products>();
+		List<Products> category = new ArrayList<>();
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 		Connection con = ConnectionUtil.getDbConnection();
-		ResultSet rs = null;
+		
 		PreparedStatement prepare = null ;
-		try {
-
-			
-			rs = prepare.executeQuery(showQuery);
+		try {		    
+			@SuppressWarnings("null")
+			ResultSet rs = prepare.executeQuery(showQuery);
 
 		} catch (SQLException e) {
 			
@@ -219,8 +212,7 @@ public class ProductDaoImpl implements ProductDao {
 			while (rs.next()) {
 				Products cake = new Products();				
 				cake.setCakeName(rs.getString(1));
-				cake.setRating(rs.getDouble(2));
-				cake.setRatingCount(rs.getInt(3));				
+				cake.setRating(rs.getDouble(2));							
 				ratinglist.add(cake);
 			}
 		} catch (SQLException e) {		
@@ -232,7 +224,7 @@ public class ProductDaoImpl implements ProductDao {
 // product Category List
 
 	public List<Products> ShowCategory() {
-		List<Products> category = new ArrayList<Products>();
+		List<Products> category = new ArrayList<>();
 
 		String query = "select DISTINCT category_name from product_details";
 
@@ -262,7 +254,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public List<Products> viewCategoryList(String categoryname) {
 		
-		List<Products> viewCategory=new ArrayList<Products>();
+		List<Products> viewCategory=new ArrayList<>();
 
 		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 
@@ -300,7 +292,7 @@ public class ProductDaoImpl implements ProductDao {
 //product filter by price 	
 	public List<Products> filterPrice(int min, int max) {
 		
-		List<Products> pricelist=new ArrayList<Products>();
+		List<Products> pricelist=new ArrayList<>();
 		
 		String query = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where cake_price between ? and ? ";
 
@@ -327,7 +319,6 @@ public class ProductDaoImpl implements ProductDao {
 
 				pricelist.add(cake);
 			}			
-			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();

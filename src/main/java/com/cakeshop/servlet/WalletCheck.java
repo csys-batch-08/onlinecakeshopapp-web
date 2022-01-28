@@ -14,18 +14,22 @@ import com.cakeshop.dao.impl.WalletDaoImpl;
 @WebServlet("/walletcheck")
 public class WalletCheck extends HttpServlet {
 	
+	
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		
 		
 		HttpSession session=request.getSession();
 		
-		String UserName=session.getAttribute("CurrentUser1").toString();	
-		System.out.println("userName"+UserName);
-	
-		WalletDaoImpl WalletCheck=new WalletDaoImpl();
+		String userName=session.getAttribute("CurrentUser1").toString();	
 		
-		WalletCheck.rechargeWallet(UserName);
+	
+		WalletDaoImpl walletCheck=new WalletDaoImpl();
+		
+		walletCheck.rechargeWallet(userName);
 		
 		response.sendRedirect("showProduct.jsp");
 		

@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
-import com.cakeshop.model.Products;
+
 import com.cakeshop.model.User;
 
 @WebServlet("/ShowUser")

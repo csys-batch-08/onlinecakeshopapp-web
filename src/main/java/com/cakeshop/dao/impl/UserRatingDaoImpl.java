@@ -25,7 +25,7 @@ public class UserRatingDaoImpl implements UserRatingDao{
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		
@@ -35,14 +35,12 @@ public class UserRatingDaoImpl implements UserRatingDao{
 		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
 		Connection con=ConnectionUtil.getDbConnection();
 		Statement stmt;
-		int rating=0;
 		try {
 			stmt = con.createStatement();
-			ResultSet rs=stmt.executeQuery(findRating);
-			return rs;
+			return stmt.executeQuery(findRating);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		

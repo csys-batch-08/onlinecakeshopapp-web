@@ -13,9 +13,8 @@ import com.cakeshop.dao.impl.ProductDaoImpl;
 public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		int cakeId = Integer.parseInt(request.getParameter("cakeId"));

@@ -9,14 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cakeshop.dao.impl.UserDaoImpl;
 
-/**
- * Servlet implementation class forgetPassword
- */
+
 @WebServlet("/forgetPassword")
-public class ForgetPassword extends HttpServlet {
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+public class ForgetPassword extends HttpServlet {	
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UserDaoImpl userDao=new UserDaoImpl();
 		
@@ -26,8 +25,7 @@ public class ForgetPassword extends HttpServlet {
 		userDao.updatePassword(password,emailId);
 		
 		response.sendRedirect("Login.jsp");
-		
-			
+				
 		
 	}
 

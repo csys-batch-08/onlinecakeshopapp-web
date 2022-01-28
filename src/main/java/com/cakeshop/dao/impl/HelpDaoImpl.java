@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import com.cakeshop.dao.HelpDao;
 import com.cakeshop.model.Help;
-import com.cakeshop.model.Products;
+
 
 
 public class HelpDaoImpl implements HelpDao{
 
 	public List<Help> showHelp() {
-		List<Help> Showhelp=new ArrayList<Help>();		
+		List<Help> help=new ArrayList<>();		
        
 		String showQuery = "select phone,email from help_support";
 		Connection con = ConnectionUtil.getDbConnection();		
@@ -24,15 +24,14 @@ public class HelpDaoImpl implements HelpDao{
 			Statement stmt = con.createStatement();
 			 rs = stmt.executeQuery(showQuery);	
 				Help cake = new Help();
-				cake.setPhone(rs.getLong(1));
-				System.out.println("hii");
+				cake.setPhone(rs.getLong(1));			
 				cake.setEmail(rs.getString(2));
-				Showhelp.add(cake);
+				help.add(cake);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return Showhelp;
+		return help;
 				
 	}
 	

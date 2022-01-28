@@ -2,21 +2,21 @@ package com.cakeshop.model;
 
 public class UserRating {
 	
-	private String ProductName;
-	private int ProName;
+	private String productName;
+	private int proName;
 	private int rating;
 	
 	public String getProductName() {
-		return ProductName;
+		return productName;
 	}
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.productName = productName;
 	}
 	public int getProName() {
-		return ProName;
+		return proName;
 	}
 	public void setProName(int proName) {
-		ProName = proName;
+		this.proName = proName;
 	}
 	public int getRating() {
 		return rating;
@@ -26,17 +26,17 @@ public class UserRating {
 	}
 	public UserRating(String productName, int proName, int rating) {
 		super();
-		ProductName = productName;
-		ProName = proName;
+		this.productName = productName;
+		this.proName = proName;
 		this.rating = rating;
 	}
 	public UserRating() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	@Override
 	public String toString() {
-		return "UserRating [ProductName=" + ProductName + ", ProName=" + ProName + ", rating=" + rating + "]";
+		return "UserRating [ProductName=" + productName + ", ProName=" + proName + ", rating=" + rating + "]";
 	}
 	
 	

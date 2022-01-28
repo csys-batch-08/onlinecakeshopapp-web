@@ -16,21 +16,21 @@ public class WalletDaoImpl implements WalletDao {
 
 		String query = "select user_wallet from user_details  where user_id = ?";
 		Connection con = ConnectionUtil.getDbConnection();
-		int user_wallet = 0;
+		int userwallet = 0;
 		try {
 			PreparedStatement statement = con.prepareStatement(query);
 			statement.setInt(1, userId);
 			ResultSet rs = statement.executeQuery();
 			if (rs.next()) {
-				user_wallet = rs.getInt(1);
-				return user_wallet;
+				userwallet = rs.getInt(1);
+				return userwallet;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
-		return user_wallet;
+		return userwallet;
 	}
 
 //update wallet balance:
@@ -43,12 +43,12 @@ public class WalletDaoImpl implements WalletDao {
 			statement = con.prepareStatement(query);
 			statement.setDouble(1, amount);
 			statement.setInt(2, userid);
-			int i = statement.executeUpdate();
+			 statement.executeUpdate();
 
 			statement.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -66,21 +66,21 @@ public class WalletDaoImpl implements WalletDao {
 			int i = statement.executeUpdate();
 
 			if (i > 0) {
-				System.out.println("wallet Updated");
+				
 				return 1;
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
 		return -1;
 	}
 
-	public int WalletRefund(String user,int cartid,double wallbal ) {
+	public int walletRefund(String user,int cartid,double wallbal ) {
 		Connection con = ConnectionUtil.getDbConnection();
-		System.out.println(cartid);
+		
 		String query1="select Total_price from cart_items where cart_id=?";
 		double totalPrice=0;
 		try {
@@ -89,10 +89,10 @@ public class WalletDaoImpl implements WalletDao {
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				totalPrice=rs.getDouble(1);
-				System.out.println(rs.getDouble(1));
+				
 			}
 		}catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		String query = "update user_details set user_wallet = ? where user_name=?";

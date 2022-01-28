@@ -13,11 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <head>
 <style type="text/css">
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
+
 body{
 background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;

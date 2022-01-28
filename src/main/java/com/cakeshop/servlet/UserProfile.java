@@ -34,12 +34,12 @@ public class UserProfile extends HttpServlet {
 		
 		request.setAttribute("email", email);
 		
-		String UserName=user.getUserName();
-		request.setAttribute("UserName",UserName);
+		String userName=user.getUserName();
+		request.setAttribute("UserName",userName);
 		String address=user.getAddress();
 		request.setAttribute("address", address);		
-		double Wallet=user.getWallet();
-		request.setAttribute("wallet", Wallet);
+		double wallet=user.getWallet();
+		request.setAttribute("wallet", wallet);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
 		rd.forward(request, response);

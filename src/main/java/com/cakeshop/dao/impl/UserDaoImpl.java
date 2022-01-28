@@ -25,8 +25,8 @@ public class UserDaoImpl implements UserDao{
 			PreparedStatement pst = null;
 			try {
 				
-				ConnectionUtil conUtil = new ConnectionUtil();
-				Connection con = conUtil.getDbConnection();
+				
+				Connection con = ConnectionUtil.getDbConnection();
 				 
 				 pst = con.prepareStatement(insertQuery);
 					pst.setString(1, user.getUserName());
@@ -74,8 +74,7 @@ public class UserDaoImpl implements UserDao{
 		public  List<User> showAllUser() {		
 	        List<User> userlist=new ArrayList<User>();
 	        
-			ConnectionUtil conUtil = new ConnectionUtil();
-			Connection con = conUtil.getDbConnection();
+			Connection con = ConnectionUtil.getDbConnection();
 
 			String selectQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where role not in 'Admin'";
 
@@ -114,7 +113,7 @@ public void update(String update)  {
 			PreparedStatement pstmt = con.prepareStatement(updateQuery);
 			pstmt.setString(1, update.split(",")[0]);
 			pstmt.setString(2, update.split(",")[1]);
-			int i = pstmt.executeUpdate();
+			 pstmt.executeUpdate();
 			
 			pstmt.close();
 			con.close();
@@ -132,7 +131,7 @@ public void update(String update)  {
 			try {
 			PreparedStatement pstmt = con.prepareStatement(deleteQuery);
 			pstmt.setString(1, delete);
-			int i = pstmt.executeUpdate();
+			 pstmt.executeUpdate();
 			
 			pstmt.close();
 			con.close();
@@ -178,7 +177,7 @@ public void update(String update)  {
 				pstmt.setString(1, newPassword);
 				pstmt.setString(2, emailId);
 				
-				int i = pstmt.executeUpdate();
+				pstmt.executeUpdate();
 				
 				pstmt.close();
 				con.close();
@@ -189,14 +188,14 @@ public void update(String update)  {
 				
 			}
 
-      public  void InactiveUser(String emailId) {
+      public  void inactiveUser(String emailId) {
 			String updateQuery = "update user_details set role ='Inactive' where Email_id=?";
 			try {
 			Connection con = ConnectionUtil.getDbConnection();
 			PreparedStatement pstmt = con.prepareStatement(updateQuery);			
 			pstmt.setString(1, emailId);
 			
-			int i = pstmt.executeUpdate();
+			 pstmt.executeUpdate();
 			
 			pstmt.close();
 			con.close();
@@ -207,7 +206,7 @@ public void update(String update)  {
 			
 		}
       
-      public  int editUser(String name,String email,String address,double wallet,int UserId) {
+      public  int editUser(String name,String email,String address,double wallet,int userId) {
 			String updateQuery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
 			try {
 			Connection con = ConnectionUtil.getDbConnection();
@@ -216,8 +215,8 @@ public void update(String update)  {
 			pstmt.setString(2,email);			
 			pstmt.setString(3,address);	
 			pstmt.setDouble(4, wallet);
-			pstmt.setInt(5, UserId);			
-			int i = pstmt.executeUpdate();			
+			pstmt.setInt(5, userId);			
+		    pstmt.executeUpdate();			
 			pstmt.close();
 			con.close();
 			 return 1;

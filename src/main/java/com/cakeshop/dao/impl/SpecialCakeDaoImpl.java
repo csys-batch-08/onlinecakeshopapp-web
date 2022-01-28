@@ -22,8 +22,7 @@ public class SpecialCakeDaoImpl {
 			Connection con = conUtil.getDbConnection();
 			 
 			 pst = con.prepareStatement(insertQuery);
-			 System.out.println(cake.getUserId());
-			 System.out.println(cake.getFlavour());
+			
 			    pst.setInt(1, cake.getUserId());
 				pst.setString(2, cake.getFlavour());
 				pst.setString(3, cake.getType());
@@ -33,7 +32,7 @@ public class SpecialCakeDaoImpl {
 				pst.executeUpdate();
 				
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
+
 			e1.printStackTrace();
 		}
 		
@@ -66,7 +65,7 @@ public class SpecialCakeDaoImpl {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -74,25 +73,6 @@ public class SpecialCakeDaoImpl {
 
 	}
 	
-//	public void deleteOrder(int userId)  {
-//		
-//		String deleteQuery = "delete from customized_details where user_id="+userId+"";
-//
-//		try {
-//		Connection con = ConnectionUtil.getDbConnection();
-//		PreparedStatement pstmt = con.prepareStatement(deleteQuery);
-//		int i = pstmt.executeUpdate();			
-//		pstmt.close();
-//		con.close();	
-//		//System.out.println("cart deleted");
-//		}
-//		catch(SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			
-//		}
-//		
-//	}
 
 	
 }

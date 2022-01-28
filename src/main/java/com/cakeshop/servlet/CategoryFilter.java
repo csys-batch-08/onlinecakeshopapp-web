@@ -13,22 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.model.Products;
 
-/**
- * Servlet implementation class CategoryFilter
- */
+
 @WebServlet("/CategoryFilter")
 
 public class CategoryFilter extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String categoryname = request.getParameter("categoryname");
 
 		ProductDaoImpl product = new ProductDaoImpl();
-		List<Products> categoryList = (List<Products>) product.viewCategoryList(categoryname);
+		List<Products> categoryList = product.viewCategoryList(categoryname);
 		request.setAttribute("showCategory", categoryList);
 		RequestDispatcher rd = request.getRequestDispatcher("categoryFilter.jsp");
 		rd.forward(request, response);

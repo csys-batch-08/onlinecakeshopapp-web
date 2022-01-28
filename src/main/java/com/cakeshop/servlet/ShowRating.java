@@ -25,14 +25,15 @@ public class ShowRating extends HttpServlet {
 	   ProductDaoImpl product=new ProductDaoImpl();
 	   List<Products> rating=product.ShowRating();
 	   
-	   request.setAttribute("rating", rating);
+	   request.setAttribute("ratinglist", rating);
 	   
+	   Products products=new Products();
 
       DecimalFormat df = new DecimalFormat("0.00");
-      double rating1=
-       rating1=Double.parseDouble(df.format(rating));
+      double rating1=products.getRating()/products.getRatingCount();
+       double ratings=Double.parseDouble(df.format(rating1));
       
-      
+      request.setAttribute("ratings", ratings);
 	   
 	  RequestDispatcher rd = request.getRequestDispatcher("showRating.jsp");
 	  rd.forward(request, response);

@@ -1,7 +1,5 @@
 package com.cakeshop.model;
 
-import java.util.Objects;
-
 public class Products {
 
 	private int cakeId;	
@@ -71,15 +69,14 @@ public class Products {
 		super();
 
 	}
-	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,int ratingCount,String picture) {
+	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture) {
 		super();
 		this.cakeId=cakeId;
 		this.cakeName = cakeName;
 		this.cakeDescription = cakeDescription;
 		this.cakePrice = cakePrice;
 		this.categoryName = categoryName;
-		this.rating=rating;
-		this.ratingCount=ratingCount;
+		this.rating=rating;		
 		this.picture = picture;
 		
 	}	

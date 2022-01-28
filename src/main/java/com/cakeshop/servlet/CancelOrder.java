@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,12 +13,12 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.CartDaoImpl;
 import com.cakeshop.dao.impl.WalletDaoImpl;
 
-/**
- * Servlet implementation class CancelOrder
- */
+
 @WebServlet("/cancelOrder")
-public class CancelOrder extends HttpServlet {
-	
+public class CancelOrder extends HttpServlet {	
+	private static final long serialVersionUID = 1L;
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
         HttpSession session=request.getSession();			
@@ -32,18 +34,18 @@ public class CancelOrder extends HttpServlet {
 		
 		int cartId=Integer.parseInt(request.getParameter("cartId"));
 		
-		System.out.println(cartId);
-		System.out.println(userName);
 		
-		walletDao.WalletRefund(userName, cartId,wallbal);
+		walletDao.walletRefund(userName, cartId,wallbal);
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
 		cartDao.deleteCart(cartId);
-		response.sendRedirect("deleted.jsp");
+		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
+		  rd.forward(request, response);
 	}
 	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		
 		HttpSession session=request.getSession();		
 				
@@ -57,14 +59,15 @@ public class CancelOrder extends HttpServlet {
 		
 		int cartId=Integer.parseInt(request.getParameter("cartId"));
 		
-		System.out.println(cartId);
-		System.out.println(userName);
+	
 		
-		walletDao.WalletRefund(userName, cartId,wallbal);
+		walletDao.walletRefund(userName, cartId,wallbal);
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
 		cartDao.deleteCart(userId);
-		response.sendRedirect("deleted.jsp");
+		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
+		  rd.forward(request, response);
+		
 				
 		
 	}

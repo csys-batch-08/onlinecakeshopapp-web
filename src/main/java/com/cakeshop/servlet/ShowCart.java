@@ -1,7 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cakeshop.dao.impl.CartDaoImpl;
 import com.cakeshop.model.Cart;
 
-/**
- * Servlet implementation class ShowCart
- */
+
 @WebServlet("/ShowCart")
 public class ShowCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
