@@ -23,7 +23,7 @@ public interface ProductDao {
 
 	public List<Products> findCategory(String categoryName);
 	
-	public ResultSet ShowRating();
+	public List<Products> ShowRating();
 	
 	public List<Products> ShowCategory();
 	

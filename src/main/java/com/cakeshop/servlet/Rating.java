@@ -24,6 +24,7 @@ public class Rating extends HttpServlet {
 		
 		int newRating=Integer.parseInt(request.getParameter("Rating"));
 		UserRatingDaoImpl UserRatingDao=new UserRatingDaoImpl();
+		
 		int cId=Integer.parseInt(session.getAttribute("cake_id").toString());
 		String cakeName=(String) session.getAttribute("cakename");
 		
@@ -36,7 +37,6 @@ public class Rating extends HttpServlet {
 			count=rs.getInt(2);
 			}
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
 	    count=count+1;

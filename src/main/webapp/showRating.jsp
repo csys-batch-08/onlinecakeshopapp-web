@@ -64,25 +64,17 @@ background-size:cover;
 </div>
 
 <center><h2><b>High Rated Cake List</b></h2></center>
-<%
-ProductDaoImpl product=new ProductDaoImpl();
-ResultSet rs=product.ShowRating();
-%>
+
 <table align="center" border="4">
 
 <th><h3 style="color:white; font-size:large;">Product Name</h3></th>
 <th><h3 style="color:white; font-size:large;">Ratings</h3></th>
 
-<%DecimalFormat df = new DecimalFormat("0.00");%>
-
-<% while(rs.next()){
-double rating=rs.getDouble(2)/rs.getDouble(3);
-double rating1=Double.parseDouble(df.format(rating));%>
 <tr>
 <td style="color:white; font-size:large;"><%= rs.getString(1) %></td>
 <td style="color:white; font-size:large;"><%= rating1%></td>
 </tr>
-<%} %>
+
 
 </table>
 </body>

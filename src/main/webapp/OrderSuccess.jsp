@@ -55,16 +55,14 @@ background-size:cover;
 </style>
 </head>
 <body>
-<div class="topnav" >
-  
+<div class="topnav">  
    <a href="ViewOrder.jsp">Orders</a> 
    <a href="showProduct.jsp">Products</a> 
    <a href="categories.jsp">Categories</a> 
    <a href="SearchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating.jsp">Ratings</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
-   
+   <a href="UserProfile.jsp" style="float:right;">Profile</a>   
  
 <h3><i> Wallet Amount :  ${requestScope['totalprice']}</i></h3>  
    
@@ -77,7 +75,7 @@ background-size:cover;
 <h2><i> Your Revised Wallet Amount :  ${requestScope['wallet']}</i></h2>
 
 <form action="Rating" method="post">
-<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" required></h3>
+<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" ></h3>
 <button type="submit" id="rating">Rate</button>
 </form>
 </center>

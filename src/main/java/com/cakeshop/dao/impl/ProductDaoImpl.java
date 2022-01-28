@@ -207,21 +207,26 @@ public class ProductDaoImpl implements ProductDao {
 
 //show product rating	
 
-	public ResultSet ShowRating() {
-
+	public List<Products> ShowRating() {
+		List<Products> ratinglist=new ArrayList<>();
 		String query = "select cake_name,rating,rating_count from product_details order by rating desc";
-
 		Connection con = ConnectionUtil.getDbConnection();
 		ResultSet rs = null;
-		Statement stmt;
+		PreparedStatement stmt;
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
-		} catch (SQLException e) {
-		
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Products cake = new Products();				
+				cake.setCakeName(rs.getString(1));
+				cake.setRating(rs.getDouble(2));
+				cake.setRatingCount(rs.getInt(3));				
+				ratinglist.add(cake);
+			}
+		} catch (SQLException e) {		
 			e.printStackTrace();
 		}
-		return rs;
+		return ratinglist;
 	}
 
 // product Category List

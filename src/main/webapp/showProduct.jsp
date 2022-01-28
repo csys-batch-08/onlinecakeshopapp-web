@@ -100,17 +100,15 @@ background-size:cover;
 }
 
 </style>
-
 </head>
 <body>
 <div class="topnav" > 
   <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>      
+   <a href="ShowRating">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>    
     <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile" style="float:right;">Profile</a>
-          
+   <a href="UserProfile" style="float:right;">Profile</a>          
 </div>
 <form>
 
@@ -129,9 +127,7 @@ background-size:cover;
 	//double rating=rs.getDouble(7)/rs.getDouble(8);
 	//double rating1=Double.parseDouble(df.format(rating));		
 %>
-
-<c:forEach var="show" items="${showProduct}" >
-
+<c:forEach var="show" items="${showProduct}">
 <tr>
 <td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
 <td>${show.cakeName}</td>

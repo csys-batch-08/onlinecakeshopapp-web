@@ -10,6 +10,14 @@ public class Products {
 	private int cakePrice;
 	private String categoryName;
 	private double rating;
+	private int ratingCount;
+	
+	public int getRatingCount() {
+		return ratingCount;
+	}
+	public void setRatingCount(int ratingCount) {
+		this.ratingCount = ratingCount;
+	}
 	public int getCakeId() {
 		return cakeId;
 	}
@@ -61,9 +69,9 @@ public class Products {
 	}
 	public Products() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture) {
+	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,int ratingCount,String picture) {
 		super();
 		this.cakeId=cakeId;
 		this.cakeName = cakeName;
@@ -71,6 +79,7 @@ public class Products {
 		this.cakePrice = cakePrice;
 		this.categoryName = categoryName;
 		this.rating=rating;
+		this.ratingCount=ratingCount;
 		this.picture = picture;
 		
 	}	
