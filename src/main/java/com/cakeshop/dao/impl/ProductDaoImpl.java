@@ -14,7 +14,7 @@ import com.cakeshop.model.Products;
 
 public class ProductDaoImpl implements ProductDao {
 
-//show product method
+
 
 	public List<Products> showProduct() throws SQLException {
 		List<Products> cakelist = new ArrayList<>();
@@ -57,7 +57,7 @@ public class ProductDaoImpl implements ProductDao {
 		return cakelist;
 	}
 
-//add new product
+
 
 	public void insertProduct(Products product) throws SQLException {
 		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name,picture) values(?,?,?,?,?)";
@@ -93,7 +93,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//update product
+
 	public void updateProduct(double cakePrice, String cakeName) throws SQLException {
 		String updateQuery = "update product_details set cake_price =?  where cake_name=?";
 		PreparedStatement pstmt=null;
@@ -124,7 +124,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//rating insert 
+
 	public void insertRating(int insertRating) throws SQLException {
 
 		String updateQuery = "update product_details set Ratings=? where cake_name=?";
@@ -155,7 +155,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//delete method
+
 
 	public void deleteProduct(int cakeId) throws SQLException {
 		String deleteQuery = "delete from product_details where cake_id=?";
@@ -186,7 +186,7 @@ public class ProductDaoImpl implements ProductDao {
 		
 	}
 
-//find product id	
+
 
 	public int findProductId1(String productName) throws SQLException {
 		String query = "select cake_id from product_details where cake_name='" + productName + "'";
@@ -220,8 +220,8 @@ public class ProductDaoImpl implements ProductDao {
 
 		return proId;
 	}
+	
 
-//find Product Price	
 
 	public int findPrice(int proID) throws SQLException {
 		String query = "select total_price from product_details where cake_id=?";
@@ -250,7 +250,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//find product category 
+
 
 	public List<Products> findCategory(String categoryName) throws SQLException {
 
@@ -282,7 +282,7 @@ public class ProductDaoImpl implements ProductDao {
 		return category;
 	}
 
-//show product rating	
+
 
 	public List<Products> showRating() throws SQLException {
 		List<Products> ratinglist=new ArrayList<>();
@@ -315,7 +315,7 @@ public class ProductDaoImpl implements ProductDao {
 		return ratinglist;
 	}
 
-// product Category List
+
 
 	public List<Products> showCategory() throws SQLException {
 		List<Products> category = new ArrayList<>();
@@ -354,7 +354,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//category wise product List
+
 
 	public List<Products> viewCategoryList(String categoryname) throws SQLException {
 		
@@ -401,7 +401,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-//product filter by price 	
+	
 	public List<Products> filterPrice(int min, int max) throws SQLException {
 		
 		List<Products> pricelist=new ArrayList<>();

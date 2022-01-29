@@ -52,15 +52,12 @@ public class CartDaoImpl implements CartDao {
 	public  List<Cart> viewCart() throws SQLException {	
 		List<Cart> cartList=new ArrayList<>();		
 		
-	String query = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items \r\n"
-			+ "inner join user_details using (user_id) \r\n"
-			+ "inner join product_details using(cake_id)\r\n"
-			+ "group by product_details.cake_name,user_details.user_name,trunc(order_date) \r\n"
-			+ "order by trunc(order_date) desc";
-		Connection con = ConnectionUtil.getDbConnection();				
+	String query = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) group by product_details.cake_name,user_details.user_name,trunc(order_date) order by trunc(order_date) desc";
+		Connection 	con=null;		
 		ResultSet rs=null;	
 		PreparedStatement pst = null;
 		try {
+			con = ConnectionUtil.getDbConnection();	
 			 pst = con.prepareStatement(query);
 			 rs = pst.executeQuery();	
 			
@@ -219,7 +216,7 @@ public class CartDaoImpl implements CartDao {
 			pstmt=con.createStatement();
 			ResultSet rs=pstmt.executeQuery(query);
 			if(rs.next()) {
-				Cart cart=new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
+			new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
 				
 			}else {
 				flag=false;

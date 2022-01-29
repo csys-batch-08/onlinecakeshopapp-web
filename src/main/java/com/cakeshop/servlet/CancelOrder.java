@@ -24,7 +24,7 @@ public class CancelOrder extends HttpServlet {
 		
         HttpSession session=request.getSession();			
 		
-		int userId=Integer.parseInt(session.getAttribute("userId").toString());
+		int userId=(int) session.getAttribute("userId");
 				
 		
 		WalletDaoImpl walletDao=new WalletDaoImpl();
@@ -39,7 +39,7 @@ public class CancelOrder extends HttpServlet {
 	
 		String userName=session.getAttribute("CurrentUser1").toString();
 		
-		int cartId=Integer.parseInt(request.getParameter("cartId"));
+		int cartId= Integer.parseInt(request.getParameter("cartId"));
 		
 		
 		try {
@@ -60,49 +60,7 @@ public class CancelOrder extends HttpServlet {
 		  rd.forward(request, response);
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-		HttpSession session=request.getSession();		
-				
-		int userId=Integer.parseInt(session.getAttribute("userId").toString());
-				
-		WalletDaoImpl walletDao=new WalletDaoImpl();
 	
-		double wallbal = 0;
-		try {
-			wallbal = walletDao.walletbal(userId);
-		} catch (SQLException e) {
-
-			e.getMessage();
-		}	
 	
-		String userName=session.getAttribute("CurrentUser1").toString();
-		
-		int cartId=Integer.parseInt(request.getParameter("cartId"));
-		
-	
-		
-		try {
-			walletDao.walletRefund(userName, cartId,wallbal);
-		} catch (SQLException e) {
-
-			e.getMessage();
-		}
-		CartDaoImpl cartDao=new CartDaoImpl();	
-		
-		try {
-			cartDao.deleteCart(userId);
-		} catch (SQLException e) {
-
-			e.getMessage();
-		}
-		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
-		  rd.forward(request, response);
-		
-				
-		
-	}
 
 }

@@ -29,29 +29,31 @@ public class Rating extends HttpServlet {
 		int cId = Integer.parseInt(session.getAttribute("cake_id").toString());
 		String cakeName = (String) session.getAttribute("cakename");
 
-		ResultSet rs;
+		
 		int oldRating = 0;
 		int count = 0;
 		try {
-			rs = userRatingDao.findRating(cakeName);	
-		
-		try {
+			
+			ResultSet rs = null;
 			while (rs.next()) {
 				oldRating = rs.getInt(1);
 				count = rs.getInt(2);
 			}
-		} catch (SQLException e) {
-			e.getMessage();
+			
+			count = count + 1;
+			double rating = (oldRating + newRating);
+			
+			rs = userRatingDao.findRating(cakeName);
+			userRatingDao.updateRating(rating, cId, count);
+			response.sendRedirect("Ratingsuccess.jsp");
 		}
-		count = count + 1;
-		double rating = (oldRating + newRating);
-
-		userRatingDao.updateRating(rating, cId, count);
-		response.sendRedirect("Ratingsuccess.jsp");
-		} catch (SQLException e1) {
-
-			e1.getMessage();
-		}
+			catch (SQLException e) {
+				e.getMessage();
+			}
+		
+	
+		
+		
 	}
 		
 

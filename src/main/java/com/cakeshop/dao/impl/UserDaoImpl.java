@@ -14,7 +14,7 @@ import com.cakeshop.model.User;
 
 public class UserDaoImpl implements UserDao{
 
-	//insert user method
+	
 	@Override
 	public void insertUser(User user) throws SQLException {
 			String insertQuery = "insert into user_details(user_name,email_id,password,address) values(?,?,?,?)";
@@ -48,7 +48,8 @@ public class UserDaoImpl implements UserDao{
 				
 		}
 
-	//validate user method
+	
+	@SuppressWarnings({ "resource", "null" })
 	@Override
 		public  User validateUser(String emailId, String password) throws SQLException {
 			String validateQuery = "select * from user_details where Email_id='" + emailId 
@@ -56,11 +57,13 @@ public class UserDaoImpl implements UserDao{
 
 			Connection con=null;
 			User user = null;
-			Statement pst=null;
+			
+			PreparedStatement pst=null;
 			try {
+				 pst = con.prepareStatement(validateQuery);
 				con = ConnectionUtil.getDbConnection();
-				 pst = con.createStatement();
-				ResultSet rs = pst.executeQuery(validateQuery);
+				
+				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
 					
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
@@ -84,7 +87,7 @@ public class UserDaoImpl implements UserDao{
 			return user;
 		}
 
-	//show all user method 
+	
 		
 @Override		
 		public  List<User> showAllUser() throws SQLException {		
@@ -129,7 +132,7 @@ public class UserDaoImpl implements UserDao{
 
 
 
-//delete method
+
         @Override
 		public void deletedetails(String delete) throws SQLException  {
 			String deleteQuery = "delete from user_details where Email_id=?";
@@ -157,7 +160,7 @@ public class UserDaoImpl implements UserDao{
 		 }
 		}
 
-	//find user id method
+	
 @Override
 		public  int findUserId(String userName) throws SQLException {
 			

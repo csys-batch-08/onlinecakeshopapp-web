@@ -5,7 +5,10 @@
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+<meta charset="ISO-8859-1">
+<title>showcart page</title>
 <style type="text/css">
 *{
 margin:0px;
@@ -87,14 +90,12 @@ text-align:center;
 }
 
 </style>
-<meta charset="ISO-8859-1">
-<title>showcart page</title>
+
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<h2>Orders List</h2>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+      	<h2>Orders List</h2>         		
       </div>
 <div class="sidenav">
 <ul>

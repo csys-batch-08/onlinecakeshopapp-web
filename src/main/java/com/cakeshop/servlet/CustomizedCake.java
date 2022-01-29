@@ -25,9 +25,9 @@ public class CustomizedCake extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String flavour = request.getParameter("flavour");
+		String flavours = request.getParameter("flavour");
 
-		session.setAttribute("flavour", flavour);
+		session.setAttribute("flavours", flavours);
 
 		String type = request.getParameter("type");
 
@@ -37,7 +37,7 @@ public class CustomizedCake extends HttpServlet {
 
 		session.setAttribute("size", size);
 
-		int quantity = Integer.parseInt(request.getParameter("quantity"));		
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 
 		String orderdate = request.getParameter("orderdate");
 
@@ -63,11 +63,7 @@ public class CustomizedCake extends HttpServlet {
 			e.getMessage();
 		}
 
-	
-
-		
-
-		SpecialCake customized = new SpecialCake(userId, flavour, type, size, quantity, neworderdate);
+		SpecialCake customized = new SpecialCake(userId, flavours, type, size, quantity, neworderdate);
 
 		SpecialCakeDaoImpl customizedCake = new SpecialCakeDaoImpl();
 
@@ -77,29 +73,27 @@ public class CustomizedCake extends HttpServlet {
 
 			e.getMessage();
 		}
-		
-		String flavours=(String)session.getAttribute("flavour"); 		
-		
+
 		request.setAttribute("flavour", flavours);
-		
-		String types=(String)session.getAttribute("type");
-		
+
+		String types = (String) session.getAttribute("type");
+
 		request.setAttribute("type", types);
-		
-		String sizes=(String)session.getAttribute("size"); 
-		
-		request.setAttribute("size",sizes);
-		
-		double totalPrices=(double)session.getAttribute("totalPrices");
-		
-		request.setAttribute("totalPrice",totalPrices);
-		
-		double wallball=(double)session.getAttribute("wallbal");
-		
-		request.setAttribute("wallball",wallball);		
-		
-		  RequestDispatcher rd = request.getRequestDispatcher("OrderCustomized.jsp");
-		  rd.forward(request, response);
+
+		String sizes = (String) session.getAttribute("size");
+
+		request.setAttribute("size", sizes);
+
+		double totalPrices = (double) session.getAttribute("totalPrices");
+
+		request.setAttribute("totalPrice", totalPrices);
+
+		double wallball = (double) session.getAttribute("wallbal");
+
+		request.setAttribute("wallball", wallball);
+
+		RequestDispatcher rd = request.getRequestDispatcher("OrderCustomized.jsp");
+		rd.forward(request, response);
 
 	}
 
