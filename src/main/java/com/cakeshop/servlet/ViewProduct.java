@@ -22,11 +22,11 @@ public class ViewProduct extends HttpServlet {
 		
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		
-		List<Products> viewProducts;
+		List<Products> updateProduct;
 		try {
-			viewProducts = productDao.showProduct();
+			updateProduct = productDao.showProduct();
 			
-			request.setAttribute("showProduct", viewProducts);
+			request.setAttribute("viewProduct", updateProduct);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("updateproduct.jsp");
 			rd.forward(request, response);

@@ -159,8 +159,9 @@ text-align:center;
 <th id="4">Product Categories</th>
 <th id="5">Product Rating</th>
 </tr>
-<c:forEach var="show" items="${showProduct}">
 
+
+<c:forEach var="show" items="${viewProduct}">
 <tr>
 <td>${show.cakeName}</td>
 <td>${show.cakeDescription}</td>
