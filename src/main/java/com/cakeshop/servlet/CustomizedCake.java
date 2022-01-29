@@ -1,8 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-
-
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
@@ -52,19 +51,32 @@ public class CustomizedCake extends HttpServlet {
 
 		WalletDaoImpl walletDao = new WalletDaoImpl();
 
-		int userWallet = walletDao.walletbal(userId);
+		int userWallet;
+		try {
+			userWallet = walletDao.walletbal(userId);
+			double wallbal = userWallet - totalPrice;
 
-		double wallbal = userWallet - totalPrice;
+			session.setAttribute("wallbal", wallbal);
+			walletDao.updatewallet(wallbal, userId);
+		} catch (SQLException e) {
 
-		session.setAttribute("wallbal", wallbal);
+			e.printStackTrace();
+		}
 
-		walletDao.updatewallet(wallbal, userId);
+	
+
+		
 
 		SpecialCake customized = new SpecialCake(userId, flavour, type, size, quantity, neworderdate);
 
 		SpecialCakeDaoImpl customizedCake = new SpecialCakeDaoImpl();
 
-		customizedCake.insertCake(customized);
+		try {
+			customizedCake.insertCake(customized);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		
 		String flavours=(String)session.getAttribute("flavour"); 		
 		

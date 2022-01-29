@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,22 +29,29 @@ public class UserProfile extends HttpServlet {
 		
 				
 		UserDaoImpl userDao = new UserDaoImpl();
-		User user = userDao.validateUser(Email, password);
-		
-		String email=user.getEmailId();
-		
-		request.setAttribute("email", email);
-		
-		String userName=user.getUserName();
-		request.setAttribute("UserName",userName);
-		String address=user.getAddress();
-		request.setAttribute("address", address);		
-		double wallet=user.getWallet();
-		request.setAttribute("wallet", wallet);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
-		rd.forward(request, response);
-		
+		User user;
+		try {
+			user = userDao.validateUser(Email, password);
+			
+			String email=user.getEmailId();
+			
+			request.setAttribute("email", email);
+			
+			String userName=user.getUserName();
+			request.setAttribute("UserName",userName);
+			String address=user.getAddress();
+			request.setAttribute("address", address);		
+			double wallet=user.getWallet();
+			request.setAttribute("wallet", wallet);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
+			rd.forward(request, response);
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	
 	}
 
 }

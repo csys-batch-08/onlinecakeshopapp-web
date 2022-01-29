@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,9 +38,15 @@ public class Register extends HttpServlet {
 	    com.cakeshop.model.User user1=  new com.cakeshop.model.User(userName,emailId,password,address);    
 	    
 	
-	   userDao.insertUser(user1);
-		
+	   try {
+		userDao.insertUser(user1);
 		response.sendRedirect("Login.jsp");
+	} catch (SQLException e) {
+
+		e.printStackTrace();
+	}
+		
+	
 		
 		
 	}

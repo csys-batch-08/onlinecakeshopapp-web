@@ -2,6 +2,7 @@ package com.cakeshop.servlet;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,16 +26,23 @@ public class Home extends HttpServlet {
 
 		ProductDaoImpl proDao = new ProductDaoImpl();
 
-		List<Products> productsList = proDao.showProduct();
-		for (int i = 0; i < productsList.size(); i++) {
-			
+		List<Products> productsList;
+		try {
+			productsList = proDao.showProduct();
+			for (int i = 0; i < productsList.size(); i++) {
+				
+			}
+
+			HttpSession session = request.getSession();
+			session.setAttribute("productsList", productsList);
+			response.sendRedirect("Home.jsp");
+
+			doGet(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
 		}
-
-		HttpSession session = request.getSession();
-		session.setAttribute("productsList", productsList);
-		response.sendRedirect("Home.jsp");
-
-		doGet(request, response);
+		
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,12 +24,19 @@ public class ShowUser extends HttpServlet {
 
 	  UserDaoImpl userDao=new UserDaoImpl();
 		
-		List<User> userList=userDao.showAllUser();
+		List<User> userList;
+		try {
+			userList = userDao.showAllUser();
+			request.setAttribute("showUser", userList);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("showuser.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		
-		request.setAttribute("showUser", userList);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("showuser.jsp");
-		rd.forward(request, response);
 	   
 	   
 	   

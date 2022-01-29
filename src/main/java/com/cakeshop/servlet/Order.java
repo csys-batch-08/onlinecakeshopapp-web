@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,11 +36,18 @@ public class Order extends HttpServlet {
 		String userName=(String)session.getAttribute("CurrentUser1");	
 		
 		UserDaoImpl userDao =new UserDaoImpl();    
-		int userId=userDao.findUserId(userName);
-		session.setAttribute("UserId", userId);		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("order.jsp");
-		rd.forward(request, response);
+		int userId;
+		try {
+			userId = userDao.findUserId(userName);
+			session.setAttribute("UserId", userId);		
+			
+			RequestDispatcher rd = request.getRequestDispatcher("order.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	
 		
 	}
 

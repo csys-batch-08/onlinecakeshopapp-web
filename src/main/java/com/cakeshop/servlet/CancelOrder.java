@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,17 +29,33 @@ public class CancelOrder extends HttpServlet {
 		
 		WalletDaoImpl walletDao=new WalletDaoImpl();
 	
-		double wallbal=walletDao.walletbal(userId);	
+		double wallbal = 0;
+		try {
+			wallbal = walletDao.walletbal(userId);
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}	
 	
 		String userName=session.getAttribute("CurrentUser1").toString();
 		
 		int cartId=Integer.parseInt(request.getParameter("cartId"));
 		
 		
-		walletDao.walletRefund(userName, cartId,wallbal);
+		try {
+			walletDao.walletRefund(userName, cartId,wallbal);
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
-		cartDao.deleteCart(cartId);
+		try {
+			cartDao.deleteCart(cartId);
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
 		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
 		  rd.forward(request, response);
 	}
@@ -53,7 +70,13 @@ public class CancelOrder extends HttpServlet {
 				
 		WalletDaoImpl walletDao=new WalletDaoImpl();
 	
-		double wallbal=walletDao.walletbal(userId);	
+		double wallbal = 0;
+		try {
+			wallbal = walletDao.walletbal(userId);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}	
 	
 		String userName=session.getAttribute("CurrentUser1").toString();
 		
@@ -61,10 +84,20 @@ public class CancelOrder extends HttpServlet {
 		
 	
 		
-		walletDao.walletRefund(userName, cartId,wallbal);
+		try {
+			walletDao.walletRefund(userName, cartId,wallbal);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
-		cartDao.deleteCart(userId);
+		try {
+			cartDao.deleteCart(userId);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
 		  rd.forward(request, response);
 		

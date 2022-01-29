@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +30,14 @@ public class EditProfile extends HttpServlet {
 		double wallet=Double.parseDouble(request.getParameter("wallet"));
 		String address=request.getParameter("address");
 				
-		userDao.editUser(name, email, address,wallet,userId);		
-		response.sendRedirect("Login.jsp");
+		try {
+			userDao.editUser(name, email, address,wallet,userId);
+			response.sendRedirect("Login.jsp");
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}		
+		
 		
 		
 		

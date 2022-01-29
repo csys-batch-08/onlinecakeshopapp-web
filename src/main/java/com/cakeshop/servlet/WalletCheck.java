@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,9 +31,15 @@ public class WalletCheck extends HttpServlet {
 	
 		WalletDaoImpl walletCheck=new WalletDaoImpl();
 		
-		walletCheck.rechargeWallet(userName);
+		try {
+			walletCheck.rechargeWallet(userName);
+			response.sendRedirect("showProduct.jsp");
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 		
-		response.sendRedirect("showProduct.jsp");
+	
 		
 		
 		

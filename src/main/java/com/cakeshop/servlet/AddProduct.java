@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,12 @@ public class AddProduct extends HttpServlet {
 		 
 		
 		Products product=new Products(0,cakeName,cakeDescription,cakePrice,categoryName,cakePrice, image);	    		
-	    proDao.insertProduct(product);
+	    try {
+			proDao.insertProduct(product);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		
 	   
 	    response.sendRedirect("admin.jsp");

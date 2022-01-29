@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,12 +22,19 @@ public class ViewProduct extends HttpServlet {
 		
 		ProductDaoImpl productDao = new ProductDaoImpl();
 		
-		List<Products> viewProducts = productDao.showProduct();
-		
-		request.setAttribute("showProduct", viewProducts);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("updateproduct.jsp");
-		rd.forward(request, response);
+		List<Products> viewProducts;
+		try {
+			viewProducts = productDao.showProduct();
+			
+			request.setAttribute("showProduct", viewProducts);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("updateproduct.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	
 		
 	}
 

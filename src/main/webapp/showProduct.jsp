@@ -98,12 +98,12 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav" > 
-  <a href="Categories">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating">Ratings</a>      
-   <a href="CustomizedCake.jsp">Customized Cake</a>    
+    <a href="Categories">Categories</a> 
+    <a href="SearchPrice.jsp">Price Wise Search</a>
+    <a href="ShowRating">Ratings</a>      
+    <a href="CustomizedCake.jsp">Customized Cake</a>    
     <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile" style="float:right;">Profile</a>          
+    <a href="UserProfile" style="float:right;">Profile</a>          
 </div>
 <form>
 
@@ -112,13 +112,13 @@ background-size:cover;
 
 <tr>
 
-<th id="1"><h2 style=color:red><strong>Cake</strong></h2></th>
-<th id="2"><h2 style=color:red><strong>Product Name</strong></h2></th>
-<th id="3"><h2 style=color:red><strong>Product Description</strong></h2></th>
-<th id="4"><h2 style=color:red><strong>Product price</strong></h2></th>
-<th id="6"><h2 style=color:red><strong>Product Categories</strong></h2></th>
-<th id="7"><h2 style=color:red><strong>Product Rating</strong></h2></th>
-<th id="8"><h2 style=color:red><strong>Button</strong></h2></th>
+<th id="1"><h5 style=color:red><strong>Cake</strong></h5></th>
+<th id="2"><h5 style=color:red><strong>Product Name</strong></h5></th>
+<th id="3"><h5 style=color:red><strong>Product Description</strong></h5></th>
+<th id="4"><h5 style=color:red><strong>Product price</strong></h5></th>
+<th id="6"><h5 style=color:red><strong>Product Categories</strong></h5></th>
+<th id="7"><h5 style=color:red><strong>Product Rating</strong></h5></th>
+<th id="8"><h5 style=color:red><strong>Button</strong></h5></th>
 
 </tr>
 

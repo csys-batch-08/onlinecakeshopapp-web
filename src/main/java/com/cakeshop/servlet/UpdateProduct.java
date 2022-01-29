@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,9 +24,15 @@ public class UpdateProduct extends HttpServlet {
 		String cakename=request.getParameter("cakeName");
 		double cakeprice=Double.parseDouble(request.getParameter("cakePrice"));
 		
-		productDao.updateProduct(cakeprice,cakename);	
-		
-		response.sendRedirect("admin.jsp");
+		try {
+			productDao.updateProduct(cakeprice,cakename);
+			
+			response.sendRedirect("admin.jsp");
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}	
+	
 		
 		
 	}

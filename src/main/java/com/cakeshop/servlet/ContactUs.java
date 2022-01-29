@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -24,12 +25,19 @@ public class ContactUs extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HelpDaoImpl helpDao = new HelpDaoImpl(); 
-		List<Help> contact=helpDao.showHelp();
-				
+		List<Help> contact;
+		try {
+			contact = helpDao.showHelp();
+			
 		request.setAttribute("contact",contact);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("contact.jsp");
 		rd.forward(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+	
 		
 		
 	}

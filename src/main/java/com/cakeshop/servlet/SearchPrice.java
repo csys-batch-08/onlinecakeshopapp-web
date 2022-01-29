@@ -1,7 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -28,14 +28,21 @@ public class SearchPrice extends HttpServlet {
 		int toPrice=Integer.parseInt(request.getParameter("toPrice"));	
 				
 		ProductDaoImpl productDao=new ProductDaoImpl();
-		List<Products> viewProducts =productDao.filterPrice(fromPrice,toPrice);
-		
-		request.setAttribute("fromprice", fromPrice);
-		request.setAttribute("toprice", toPrice);
-			request.setAttribute("showproduct", viewProducts);
+		List<Products> viewProducts;
+		try {
+			viewProducts = productDao.filterPrice(fromPrice,toPrice);
+			request.setAttribute("fromprice", fromPrice);
+			request.setAttribute("toprice", toPrice);
+				request.setAttribute("showproduct", viewProducts);
+				
+			RequestDispatcher rd = request.getRequestDispatcher("ShowPriceWise.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
 			
-		RequestDispatcher rd = request.getRequestDispatcher("ShowPriceWise.jsp");
-		rd.forward(request, response);
+			e.printStackTrace();
+		}
+		
+	
 			
 		
 	

@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -26,16 +27,23 @@ public class MyOrder extends HttpServlet {
         
         CartDaoImpl cartDao=new CartDaoImpl();
         
-        List<Cart> cartList=cartDao.viewUserCart(userId);
-        request.setAttribute("viewOrder", cartList);        
-        
-        String emailId=session.getAttribute("CurrentUser").toString();
-        request.setAttribute("userName", emailId);
-        
-        System.out.println(emailId);
-		
-        RequestDispatcher rd = request.getRequestDispatcher("MyOrders.jsp");
-		rd.forward(request, response);        
+        List<Cart> cartList;
+		try {
+			cartList = cartDao.viewUserCart(userId);
+			   request.setAttribute("viewOrder", cartList);        
+		        
+		        String emailId=session.getAttribute("CurrentUser").toString();
+		        request.setAttribute("userName", emailId);
+		        
+		       
+				
+		        RequestDispatcher rd = request.getRequestDispatcher("MyOrders.jsp");
+				rd.forward(request, response);  
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+           
 		
  }
 

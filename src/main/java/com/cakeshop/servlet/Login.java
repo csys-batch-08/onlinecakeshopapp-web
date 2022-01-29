@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,7 +37,9 @@ public class Login extends HttpServlet {
 		session.setAttribute("password", password);	
 		
 		UserDaoImpl userDao = new UserDaoImpl();
-		User currentUser = userDao.validateUser(emailId, password);
+		User currentUser;
+		try {
+			currentUser = userDao.validateUser(emailId, password);
 		
 		
 		if(currentUser!=null) {
@@ -105,6 +108,9 @@ public class Login extends HttpServlet {
 			}
 		}
 
+	} catch (SQLException e1) {
+
+		e1.printStackTrace();
 	}
 
-}
+}}

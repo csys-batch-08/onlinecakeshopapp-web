@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -23,21 +24,28 @@ public class ShowRating extends HttpServlet {
 
 	   
 	   ProductDaoImpl product=new ProductDaoImpl();
-	   List<Products> rating=product.ShowRating();
-	   
-	   request.setAttribute("ratinglist", rating);
-	   
-	   Products products=new Products();
+	   List<Products> rating;
+	try {
+		rating = product.showRating();
+		  request.setAttribute("ratinglist", rating);
+		   
+		   Products products=new Products();
 
-      DecimalFormat df = new DecimalFormat("0.00");
-      double rating1=products.getRating()/products.getRatingCount();
-       double ratings=Double.parseDouble(df.format(rating1));
-      
-      request.setAttribute("ratings", ratings);
+	      DecimalFormat df = new DecimalFormat("0.00");
+	      double rating1=products.getRating()/products.getRatingCount();
+	       double ratings=Double.parseDouble(df.format(rating1));
+	      
+	      request.setAttribute("ratings", ratings);
+		   
+		  RequestDispatcher rd = request.getRequestDispatcher("showRating.jsp");
+		  rd.forward(request, response);
+		   
+	} catch (SQLException e) {
+
+		e.printStackTrace();
+	}
 	   
-	  RequestDispatcher rd = request.getRequestDispatcher("showRating.jsp");
-	  rd.forward(request, response);
-	   
+	 
    }
 
 }

@@ -1,7 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -34,18 +34,25 @@ public class SalesDate extends HttpServlet {
 			
 		
 		CartDaoImpl cartDao =new CartDaoImpl();		
-		List<Cart> cartlist=cartDao.filterSales(fromdate, todate);
+		List<Cart> cartlist;
+		try {
+			cartlist = cartDao.filterSales(fromdate, todate);
+			if(cartlist!=null) {
+				request.setAttribute("SalesList", cartlist);
+				RequestDispatcher rd = request.getRequestDispatcher("ShowSales.jsp");
+				rd.forward(request, response);
+				
+			}		
+			else {
+				response.sendRedirect("SalesDate.jsp");
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 				
 		
-		if(cartlist!=null) {
-			request.setAttribute("SalesList", cartlist);
-			RequestDispatcher rd = request.getRequestDispatcher("ShowSales.jsp");
-			rd.forward(request, response);
-			
-		}		
-		else {
-			response.sendRedirect("SalesDate.jsp");
-		}
+	
 		
 		
 		

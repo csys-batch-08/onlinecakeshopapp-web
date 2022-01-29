@@ -1,6 +1,7 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,10 +28,17 @@ public class CategoryFilter extends HttpServlet {
 		String categoryname = request.getParameter("categoryname");
 
 		ProductDaoImpl product = new ProductDaoImpl();
-		List<Products> categoryList = product.viewCategoryList(categoryname);
-		request.setAttribute("showCategory", categoryList);
-		RequestDispatcher rd = request.getRequestDispatcher("categoryFilter.jsp");
-		rd.forward(request, response);
+		List<Products> categoryList;
+		try {
+			categoryList = product.viewCategoryList(categoryname);
+			request.setAttribute("showCategory", categoryList);
+			RequestDispatcher rd = request.getRequestDispatcher("categoryFilter.jsp");
+			rd.forward(request, response);
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
 
 	}
 

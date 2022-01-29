@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,9 +24,15 @@ public class InactiveUser extends HttpServlet {
 		
 		String email=request.getParameter("Email");
 		
-		userDao.inactiveUser(email);
+		try {
+			userDao.inactiveUser(email);
+			response.sendRedirect("admin.jsp");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		response.sendRedirect("admin.jsp");
+	
 		
 		
 	}

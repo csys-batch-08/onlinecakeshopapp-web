@@ -1,6 +1,8 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,9 +24,15 @@ public class ForgetPassword extends HttpServlet {
 		String password=request.getParameter("password");
 		String emailId=request.getParameter("emailId");
 		
-		userDao.updatePassword(password,emailId);
+		try {
+			userDao.updatePassword(password,emailId);
+			response.sendRedirect("Login.jsp");
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 		
-		response.sendRedirect("Login.jsp");
+		
 				
 		
 	}
