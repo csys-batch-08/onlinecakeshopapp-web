@@ -183,10 +183,8 @@ public class ProductDaoImpl implements ProductDao {
 		
 	}
 
-
-
 	public int findProductId1(String productName) throws SQLException {
-		String query = "select cake_id from product_details where cake_name='" + productName + "'";
+		String query = "select cake_id from product_details where cake_name=?";
 
 		Connection con=null;
 		PreparedStatement stmt=null;
@@ -194,7 +192,7 @@ public class ProductDaoImpl implements ProductDao {
 		try {
 			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
-
+            stmt.setString(1, productName);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {

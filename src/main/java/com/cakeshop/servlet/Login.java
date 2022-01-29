@@ -96,7 +96,7 @@ public class Login extends HttpServlet {
 			response.sendRedirect("Login.jsp");
 		} catch (SQLException e1) {
 
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 }

@@ -44,13 +44,14 @@ public class UserRatingDaoImpl implements UserRatingDao{
 	public List<Products> findRating(String proName) throws SQLException
 	{
 		List<Products> ratinglist=new ArrayList<>();
-		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
+		String findRating="select rating,rating_count from product_details where cake_name=?";
 		Connection con=null;
 		ResultSet rs=null;
 		PreparedStatement stmt=null;
 		try {
 			con=ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(findRating);
+			stmt.setString(1, proName);
 			 rs= stmt.executeQuery();
 			while(rs.next()) {
 				Products product=new Products();

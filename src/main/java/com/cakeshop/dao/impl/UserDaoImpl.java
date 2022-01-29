@@ -165,7 +165,7 @@ public class UserDaoImpl implements UserDao{
 @Override
 		public  int findUserId(String userName) throws SQLException {
 			
-			String findUserID = "select user_id from user_details where email_id='"+userName+"'";
+			String findUserID = "select user_id from user_details where email_id=?";
 			Connection con=null;
 			PreparedStatement stmt = null;
 			
@@ -173,7 +173,7 @@ public class UserDaoImpl implements UserDao{
 			try {
 				 con = ConnectionUtil.getDbConnection();
 				stmt = con.prepareStatement(findUserID);
-				
+				stmt.setString(1, userName);
 				ResultSet rs = stmt.executeQuery();
 
 				if (rs.next()) {				

@@ -89,7 +89,7 @@ public class SpecialCakeDaoImpl {
 	}
 	
 	public ResultSet findPrice(int proID) throws SQLException {
-		String query = "select initial_amount from customized_details where custcake_id ='" + proID + "'";
+		String query = "select initial_amount from customized_details where custcake_id =?";
 
 		Connection con=null;
 		PreparedStatement stmt = null;
@@ -98,6 +98,7 @@ public class SpecialCakeDaoImpl {
 		try {
 			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(query);
+			stmt.setInt(1, proID);
 			rs = stmt.executeQuery();
 		} catch (SQLException e) {
 
