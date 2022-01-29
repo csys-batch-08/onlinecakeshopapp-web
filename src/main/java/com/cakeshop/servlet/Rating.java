@@ -41,7 +41,7 @@ public class Rating extends HttpServlet {
 				count = rs.getInt(2);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
 		count = count + 1;
 		double rating = (oldRating + newRating);
@@ -50,7 +50,7 @@ public class Rating extends HttpServlet {
 		response.sendRedirect("Ratingsuccess.jsp");
 		} catch (SQLException e1) {
 
-			e1.printStackTrace();
+			e1.getMessage();
 		}
 	}
 		

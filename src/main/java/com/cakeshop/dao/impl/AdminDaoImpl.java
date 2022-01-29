@@ -10,11 +10,12 @@ public class AdminDaoImpl implements AdminDao{
 	
 	public  User validateAdmin (String emailId,String password) throws SQLException{		
 		String validateQuery="select * from user_details where role='Admin'and Email_id= ? and password=?";
-		Connection con=ConnectionUtil.getDbConnection();
+		Connection con=null;
 		User user=null;
 		PreparedStatement pst = null;
 	
 		try {
+			con=ConnectionUtil.getDbConnection();
 			pst = con.prepareStatement(validateQuery);
 			ResultSet rs=pst.executeQuery();	
 			pst.setString(1, emailId);
@@ -26,7 +27,8 @@ public class AdminDaoImpl implements AdminDao{
 			}			
 		}
 		catch(SQLException e) {		
-			e.printStackTrace();
+			e.getMessage();
+			
 		}finally {
 			if(pst!=null) {
 				pst.close();

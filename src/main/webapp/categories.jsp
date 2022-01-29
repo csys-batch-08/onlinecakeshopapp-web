@@ -80,7 +80,6 @@ body {
 </head>
 <body>
 	<div class="topnav">
-
 		<a href="ViewOrder.jsp">Orders</a> 
 		<a href="ShowProduct">Products</a>
 		<a href="categories.jsp">Categories</a> 
@@ -97,8 +96,8 @@ body {
 	<table border="3" class="center">
 	<caption><h2>Category List</h2></caption>
 
-		<th><h3>Category Name</h3></th>
-		<th><h3>Button</h3></th>
+		<th id="1"><h3>Category Name</h3></th>
+		<th id="2"><h3>Button</h3></th>
 
 		<c:forEach var="show" items="${showCategory}">
 

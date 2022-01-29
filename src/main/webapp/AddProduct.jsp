@@ -123,6 +123,7 @@ label {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border-radius: 20px;
 }
 .button1 {
   background-color: white; 
@@ -133,9 +134,19 @@ label {
   background-color:pink;
   color: white;
 }
-fieldset{
-align:center;
+#box{
+width:40px;
+margin-left:600px;
+margin-top:100px;
+margin-align:center;
+
 }
+form {width:26em}
+fieldset {padding:2ex}
+legend {font-size:150%; font-weight:bold}
+label {display:block; margin:1em 0}
+input {display:block; width:30ex}
+textarea {display:block; width:50ex; height:7em}
 
 </style>
 
@@ -144,7 +155,7 @@ align:center;
 
 
 <div class="header container-fluid">
-      	<center><h2>Add </h2></center>      	
+      	<h2>Add </h2>     	
    		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
       </div>
 
@@ -165,11 +176,11 @@ align:center;
 
 <fieldset id="box"><legend>Add New Product</legend>
 <form action="AddProduct" method="post">
-<label for="cakeName">Cake_Name</label><input type="text" name="cakeName"  required><br><br>
-<label for="cakedes">Cake_description</label><input type="text" name="cakeDescription" required><br><br>
-<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required><br><br>
-<label for="catename">Category_name</label><input type="text" name="categoryName"  required><br><br>
-<label for="picture">Image</label><input type="file" name="picture" ><br><br>
+<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName"  required>
+<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" required>
+<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
+<label for="catename">Category_name</label><input type="text" name="categoryName"  required>
+<label for="picture">Image</label><input type="file" name="picture">
 <button type="submit" name="button" class="button button1">Add</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 import com.cakeshop.dao.UserRatingDao;
 
@@ -27,7 +27,7 @@ public class UserRatingDaoImpl implements UserRatingDao{
 			con.close();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		} finally {
 			
 			if(pstmt!=null) {
@@ -52,7 +52,7 @@ public class UserRatingDaoImpl implements UserRatingDao{
 			
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {

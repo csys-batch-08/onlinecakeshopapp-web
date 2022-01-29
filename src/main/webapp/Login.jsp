@@ -85,17 +85,17 @@ a:hover {
 </style>
 </head>
 <body>
- <center>
+ 
  <%String msg=(String)session.getAttribute("Invalid"); 
  if(msg!=null){%> 
 	 <h2><%=msg %></h2>
 	 <%session.removeAttribute("Invalid"); %>
  <% } %>
  
- </center>
+
 	<form action="Login" method="post">
 		<div class="container">
-			<img src="assets/user1.png" height="70" width="70">
+			<img alt="img" src="assets/user1.png" height="70" width="70">
 			<div class="card">
 				<input type="email" placeholder="username" id="name" name="EmailId" required autofocus 
 				
@@ -109,7 +109,7 @@ a:hover {
 				
 				<h4 style="color:red"><input type="checkbox" onclick="myFunction()" style="color:red;">Show Password</h4>
 				
-				<a href="ForgetPassword.jsp"><h3><i>Reset My Password</i></h3></a>		
+				<a href="ForgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
 				
 				<button type="submit" id="button">Submit</button>
 				

@@ -20,7 +20,7 @@ public class CancelOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
         HttpSession session=request.getSession();			
 		
@@ -34,7 +34,7 @@ public class CancelOrder extends HttpServlet {
 			wallbal = walletDao.walletbal(userId);
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			e.getMessage();
 		}	
 	
 		String userName=session.getAttribute("CurrentUser1").toString();
@@ -46,7 +46,7 @@ public class CancelOrder extends HttpServlet {
 			walletDao.walletRefund(userName, cartId,wallbal);
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			e.getMessage();
 		}
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
@@ -54,7 +54,7 @@ public class CancelOrder extends HttpServlet {
 			cartDao.deleteCart(cartId);
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			e.getMessage();
 		}
 		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
 		  rd.forward(request, response);
@@ -75,7 +75,7 @@ public class CancelOrder extends HttpServlet {
 			wallbal = walletDao.walletbal(userId);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}	
 	
 		String userName=session.getAttribute("CurrentUser1").toString();
@@ -88,7 +88,7 @@ public class CancelOrder extends HttpServlet {
 			walletDao.walletRefund(userName, cartId,wallbal);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		CartDaoImpl cartDao=new CartDaoImpl();	
 		
@@ -96,7 +96,7 @@ public class CancelOrder extends HttpServlet {
 			cartDao.deleteCart(userId);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		 RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
 		  rd.forward(request, response);

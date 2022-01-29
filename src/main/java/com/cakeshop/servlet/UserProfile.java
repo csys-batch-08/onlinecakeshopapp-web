@@ -23,7 +23,7 @@ public class UserProfile extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		String Email=session.getAttribute("EmailId").toString();
+		String emailId=session.getAttribute("EmailId").toString();
 		String password=session.getAttribute("password").toString();
 
 		
@@ -31,7 +31,7 @@ public class UserProfile extends HttpServlet {
 		UserDaoImpl userDao = new UserDaoImpl();
 		User user;
 		try {
-			user = userDao.validateUser(Email, password);
+			user = userDao.validateUser(emailId, password);
 			
 			String email=user.getEmailId();
 			
@@ -49,7 +49,7 @@ public class UserProfile extends HttpServlet {
 			
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 	
 	}

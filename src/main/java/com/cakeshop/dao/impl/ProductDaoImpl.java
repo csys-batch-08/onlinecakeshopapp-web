@@ -42,7 +42,7 @@ public class ProductDaoImpl implements ProductDao {
 			}
 			 } catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
 		 finally {
 				
@@ -78,7 +78,7 @@ public class ProductDaoImpl implements ProductDao {
 
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 
 		} finally {
 			
@@ -109,7 +109,7 @@ public class ProductDaoImpl implements ProductDao {
 			con.close();
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		finally {
 			
@@ -141,7 +141,7 @@ public class ProductDaoImpl implements ProductDao {
 
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(pstmt!=null) {
@@ -171,7 +171,7 @@ public class ProductDaoImpl implements ProductDao {
 			con.close();
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
             finally {
 			
@@ -206,7 +206,7 @@ public class ProductDaoImpl implements ProductDao {
 
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {
@@ -234,7 +234,7 @@ public class ProductDaoImpl implements ProductDao {
 
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {
@@ -267,7 +267,7 @@ public class ProductDaoImpl implements ProductDao {
 
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {
@@ -301,7 +301,7 @@ public class ProductDaoImpl implements ProductDao {
 				ratinglist.add(cake);
 			}
 		} catch (SQLException e) {		
-			e.printStackTrace();
+			e.getMessage();
 		}
           finally {
 			
@@ -339,7 +339,7 @@ public class ProductDaoImpl implements ProductDao {
 			}
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		 finally {
 				
@@ -387,7 +387,7 @@ public class ProductDaoImpl implements ProductDao {
 			
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		} finally {
 			
 			if(stmt!=null) {
@@ -433,7 +433,7 @@ public class ProductDaoImpl implements ProductDao {
 			}			
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {

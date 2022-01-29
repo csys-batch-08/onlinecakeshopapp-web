@@ -16,11 +16,10 @@ import com.cakeshop.dao.impl.WalletDaoImpl;
 @WebServlet("/walletcheck")
 public class WalletCheck extends HttpServlet {
 	
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
 		
@@ -36,7 +35,7 @@ public class WalletCheck extends HttpServlet {
 			response.sendRedirect("showProduct.jsp");
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 	

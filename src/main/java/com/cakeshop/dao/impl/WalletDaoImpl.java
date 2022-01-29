@@ -29,7 +29,7 @@ public class WalletDaoImpl implements WalletDao {
 			}
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}finally {
 			
 			if(stmt!=null) {
@@ -59,7 +59,7 @@ public class WalletDaoImpl implements WalletDao {
 			
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		finally {
 			
@@ -92,7 +92,7 @@ public class WalletDaoImpl implements WalletDao {
 
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		finally {
 			
@@ -138,7 +138,7 @@ public class WalletDaoImpl implements WalletDao {
 		} 
 			}catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
          finally {

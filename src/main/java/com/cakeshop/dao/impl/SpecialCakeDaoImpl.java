@@ -34,7 +34,7 @@ public class SpecialCakeDaoImpl {
 				
 		} catch (Exception e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
           finally {
 			
@@ -74,7 +74,7 @@ public class SpecialCakeDaoImpl {
 				orderlist.add(cake);				
 			}				
 		} catch (SQLException e) {			
-			e.printStackTrace();
+			e.getMessage();
 		}	
 		 finally {
 				
@@ -101,7 +101,7 @@ public class SpecialCakeDaoImpl {
 			rs = stmt.executeQuery(query);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}	
 		 finally {
 				

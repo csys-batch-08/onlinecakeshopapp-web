@@ -32,7 +32,7 @@ public class ViewProduct extends HttpServlet {
 			rd.forward(request, response);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 	
 		

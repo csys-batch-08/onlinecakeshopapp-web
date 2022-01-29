@@ -32,7 +32,7 @@ public class AddProduct extends HttpServlet {
 			proDao.insertProduct(product);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 	   

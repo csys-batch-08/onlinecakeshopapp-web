@@ -35,7 +35,7 @@ public class EditProfile extends HttpServlet {
 			response.sendRedirect("Login.jsp");
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}		
 		
 		

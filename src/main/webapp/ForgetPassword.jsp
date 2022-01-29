@@ -61,7 +61,7 @@ label {
 <form action="forgetPassword" method="post">
 <label>Set New Password : </label><input type="text" name="password" required pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
 <label>Email Id : </label><input type="Email" name="emailId" required ><br><br>
-<button class="button button1" type="submit" id="button"><i>Change</i></button>
+<button class="button button1" type="submit" id="button"><em>Change</em></button>
 &emsp;
 </form>
 <form action="Login.jsp">

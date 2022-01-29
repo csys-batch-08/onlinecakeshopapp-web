@@ -94,7 +94,7 @@ img {
 <body>
 	<form action="Register" method="post">
 		<div class="container">
-			<img src="assets/user1.png" height="70" width="70">
+			<img alt="image" src="assets/user1.png" height="70" width="70">
 			<div class="card">
 			
 				<input type="text" name="userName" placeholder="Username"

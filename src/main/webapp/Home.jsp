@@ -59,6 +59,9 @@ margin-left:-8px;
 .center{
 text-align:center;
 }
+h1{
+acronym
+}
 
 </style>
 
@@ -67,7 +70,7 @@ text-align:center;
  <div class="center">
 <h1><em>Welcome to My CakeShop</em></h1><br>
 </div> 
-<img src="assets/logo2.png" width="90px" height="80px">
+<img alt="img" src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
   <a class="active" href="Login.jsp">Login</a>
   <a href="register.jsp">Register</a>
@@ -75,6 +78,6 @@ text-align:center;
   <a href="AboutUs.jsp">About</a>    
   
 </div><br><br><br><br>
-<marquee><h1 style=color:#CD5959>&#128523<i>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </i></h1></marquee>
+<h1 style=color:#CD5959>&#128523<em>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </em></h1>
 </body>
 </html>

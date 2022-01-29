@@ -18,6 +18,7 @@ table, th, td {
   font-size:17px;  
   padding: 4px;
   margin-left:450px;
+  margin-top:50px;
   align:center;
 }
 
@@ -81,7 +82,9 @@ background-image:url('assets/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
-
+h2{
+text-align:center;
+}
 
 </style>
 <meta charset="ISO-8859-1">
@@ -90,7 +93,7 @@ background-size:cover;
 <body>
 
 <div class="header container-fluid">
-      	<center><h2>Orders List</h2></center>      	
+      	<h2>Orders List</h2>      	
    		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
       </div>
 <div class="sidenav">
@@ -105,17 +108,17 @@ background-size:cover;
   </ul>
 </div>
 
-<button class="button"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
+
 
 <table>
-<caption>Order Details</caption>
+<caption></caption>
 <tr>
 
-<h4><th style=color:red>Product Name</th></h4>
-<h4><th style=color:red>User Name</th></h4>
-<h4><th style=color:red>Order Quantity</th></h4>
-<h4><th style=color:red>Total Price</th></h4>
-<h4><th style=color:red>Order Date</th></h4>
+<th id="1" style=color:red><h4>Product Name</h4></th>
+<th id="2" style=color:red><h4>User Name</h4></th>
+<th id="3" style=color:red><h4>Order Quantity</h4></th>
+<th id="4" style=color:red><h4>Total Price</h4></th>
+<th id="5" style=color:red><h4>Order Date</h4></th>
 </tr>
 <c:forEach var="show" items="${cartlist}" >
 <tr>

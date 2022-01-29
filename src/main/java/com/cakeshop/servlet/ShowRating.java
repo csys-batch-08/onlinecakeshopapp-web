@@ -42,7 +42,7 @@ public class ShowRating extends HttpServlet {
 		   
 	} catch (SQLException e) {
 
-		e.printStackTrace();
+		e.getMessage();
 	}
 	   
 	 

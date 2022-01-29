@@ -49,8 +49,8 @@ align:center;
 <body>
 <fieldset id="box"><legend>Order Deleted</legend>
 <form action="showProduct.jsp">
-<h2 style=color:#FF007F><i>Your Amount is Refunded </i></h2>
-<h2 style=color:#FF007F><i>Your Order Will Be Deleted!!</i></h2>
+<h2 style=color:#FF007F><em>Your Amount is Refunded </em></h2>
+<h2 style=color:#FF007F><em>Your Order Will Be Deleted!!</em></h2>
 <button class="button button1">Back</button>
 </form>
 </fieldset>

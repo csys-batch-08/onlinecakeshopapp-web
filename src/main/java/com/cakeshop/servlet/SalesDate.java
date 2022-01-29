@@ -24,7 +24,7 @@ public class SalesDate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		String fromDate=request.getParameter("FromDate");
 		LocalDate fromdate=LocalDate.parse(fromDate);
@@ -48,7 +48,7 @@ public class SalesDate extends HttpServlet {
 			}
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 				
 		

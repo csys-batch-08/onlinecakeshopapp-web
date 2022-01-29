@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao{
 					
 			} catch (Exception e1) {
 
-				e1.printStackTrace();
+				e1.getMessage();
 			} finally {
 				
 				if(pst!=null) {
@@ -70,7 +70,7 @@ public class UserDaoImpl implements UserDao{
 				
 			} catch (SQLException e) {
 
-				e.printStackTrace();
+				e.getMessage();
 				
 			}finally {
 				
@@ -113,7 +113,7 @@ public class UserDaoImpl implements UserDao{
 						userlist.add(user);
 				 }
 			} catch (SQLException e) {
-				e.printStackTrace();
+				e.getMessage();
 			}finally {
 				
 				if(pst!=null) {
@@ -144,7 +144,7 @@ public class UserDaoImpl implements UserDao{
 			pstmt.close();
 			con.close();
 			}catch (SQLException e) {
-				e.printStackTrace();
+				e.getMessage();
 			}
                finally {
 				
@@ -179,7 +179,7 @@ public class UserDaoImpl implements UserDao{
 
 			} catch (SQLException e) {
 
-				e.printStackTrace();
+				e.getMessage();
 			}
                finally {
 				
@@ -213,7 +213,7 @@ public class UserDaoImpl implements UserDao{
 				con.close();
 				}catch(SQLException e) {
 					
-					e.printStackTrace();
+					e.getMessage();
 				}   finally {
 					
 					if(pstmt!=null) {
@@ -242,7 +242,7 @@ public class UserDaoImpl implements UserDao{
 			con.close();
 			}catch(SQLException e) {
 				
-				e.printStackTrace();
+				e.getMessage();
 			}
 			  finally {
 					
@@ -275,7 +275,7 @@ public class UserDaoImpl implements UserDao{
 			
 			}catch(SQLException e) {
 				
-				e.printStackTrace();
+				e.getMessage();
 			}
 			  finally {
 					

@@ -30,7 +30,7 @@ public class UpdateProduct extends HttpServlet {
 			response.sendRedirect("admin.jsp");
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}	
 	
 		

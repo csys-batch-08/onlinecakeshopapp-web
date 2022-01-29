@@ -36,7 +36,7 @@ public class ShowProduct extends HttpServlet {
 
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 
 		

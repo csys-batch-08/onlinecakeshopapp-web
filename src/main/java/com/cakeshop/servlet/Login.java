@@ -25,7 +25,7 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 
@@ -110,7 +110,7 @@ public class Login extends HttpServlet {
 
 	} catch (SQLException e1) {
 
-		e1.printStackTrace();
+		e1.getMessage();
 	}
 
 }}

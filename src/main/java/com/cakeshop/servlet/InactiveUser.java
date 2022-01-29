@@ -28,8 +28,8 @@ public class InactiveUser extends HttpServlet {
 			userDao.inactiveUser(email);
 			response.sendRedirect("admin.jsp");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+			e.getMessage();
 		}
 		
 	

@@ -39,7 +39,7 @@ public class SearchPrice extends HttpServlet {
 			rd.forward(request, response);
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 	

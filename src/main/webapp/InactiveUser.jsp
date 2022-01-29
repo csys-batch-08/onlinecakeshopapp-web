@@ -109,13 +109,17 @@ label {
   margin-top:150px;
   margin-left:500px;
   }    
+  
+  h2{
+  text-align:center;
+  }
 
 </style>
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<center><h2 style=color:darkBlack>Inactive User</h2></center>   		
+      	<h2 style=color:darkBlack>Inactive User</h2>		
 </div>
 
 

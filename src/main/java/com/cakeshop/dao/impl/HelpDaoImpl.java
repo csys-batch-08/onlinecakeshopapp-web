@@ -31,7 +31,7 @@ public class HelpDaoImpl implements HelpDao{
 				help.add(cake);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.getMessage();
 		}
          finally {
 			

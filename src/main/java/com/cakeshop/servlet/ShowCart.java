@@ -34,7 +34,7 @@ public class ShowCart extends HttpServlet {
 		   
 	} catch (SQLException e) {
 
-		e.printStackTrace();
+		e.getMessage();
 	}
 	   
 	 

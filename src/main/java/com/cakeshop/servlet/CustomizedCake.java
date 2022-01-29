@@ -60,7 +60,7 @@ public class CustomizedCake extends HttpServlet {
 			walletDao.updatewallet(wallbal, userId);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 
 	
@@ -75,7 +75,7 @@ public class CustomizedCake extends HttpServlet {
 			customizedCake.insertCake(customized);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 		String flavours=(String)session.getAttribute("flavour"); 		

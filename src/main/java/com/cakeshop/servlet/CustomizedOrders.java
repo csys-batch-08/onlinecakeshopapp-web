@@ -38,7 +38,7 @@ public class CustomizedOrders extends HttpServlet {
 			rd.forward(request, response);
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 
 	}

@@ -20,11 +20,11 @@ public class CartDaoImpl implements CartDao {
 
 		String insert = "INSERT INTO CART_ITEMS (CAKE_ID,USER_ID,ORDER_QUANTITY,TOTAL_PRICE,order_date) VALUES(?,?,?,?,?) ";
 
-		Connection con = ConnectionUtil.getDbConnection();
+		Connection con=null;
 		PreparedStatement pst = null;
 
 		try {
-			
+			con = ConnectionUtil.getDbConnection();
 			pst = con.prepareStatement(insert);
 			pst.setInt(1, cart.getProductId());
 			pst.setInt(2, cart.getUserId());
@@ -34,7 +34,7 @@ public class CartDaoImpl implements CartDao {
 			pst.executeUpdate();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.getMessage();
 			
 		}finally {
 			if(pst!=null) {
@@ -104,7 +104,7 @@ public class CartDaoImpl implements CartDao {
 		
 		}
 		catch(SQLException e) {
-			e.printStackTrace();
+			e.getMessage();
 			
 		}finally {
 			
@@ -148,7 +148,7 @@ public class CartDaoImpl implements CartDao {
 					
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
            finally {
 			
@@ -191,7 +191,7 @@ public class CartDaoImpl implements CartDao {
 			
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		 finally {
 				
@@ -226,7 +226,7 @@ public class CartDaoImpl implements CartDao {
 			}
 		}catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		} finally {
 			
 			if(pstmt!=null) {

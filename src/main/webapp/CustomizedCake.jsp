@@ -110,7 +110,7 @@ label {
 
 <label>Size</label>
 <select name="size">
- <option value="disabled">Select</option>
+<option value="disabled">Select</option>
 <option>Heart</option>
 <option>Circle</option>
 <option>Square</option>
