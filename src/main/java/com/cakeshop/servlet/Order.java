@@ -25,7 +25,11 @@ public class Order extends HttpServlet {
 						
 		request.setAttribute("cakeId",productId);
 		
+		session.setAttribute("cakeId",productId);
+		
 		String cname=request.getParameter("cakeName");
+		
+		session.setAttribute("cakename", cname);
 		
 		request.setAttribute("cakeName", cname);				
 		

@@ -1,17 +1,16 @@
 package com.cakeshop.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.cakeshop.dao.impl.UserRatingDaoImpl;
+import com.cakeshop.model.Products;
 
 @WebServlet("/Rating")
 public class Rating extends HttpServlet {
@@ -26,24 +25,28 @@ public class Rating extends HttpServlet {
 		int newRating = Integer.parseInt(request.getParameter("Rating"));
 		UserRatingDaoImpl userRatingDao = new UserRatingDaoImpl();
 
-		int cId = Integer.parseInt(session.getAttribute("cake_id").toString());
+		int cId = Integer.parseInt(session.getAttribute("cakeId").toString());
 		String cakeName = (String) session.getAttribute("cakename");
-
-		ResultSet rs = null ;
-		int oldRating = 0;
+	
+		double oldRating = 0;
 		int count = 0;
 		try {
 			
+			List<Products> ratingList=userRatingDao.findRating(cakeName);
 			
-			while (rs.next()) {
-				oldRating = rs.getInt(1);
-				count = rs.getInt(2);
-			}
+			request.setAttribute("rating", ratingList);
+			Products product=new Products();
+					
+				
+			oldRating= product.getRating();
+			
+			
+			count=product.getRatingCount();
 			
 			count = count + 1;
 			double rating = (oldRating + newRating);
 			
-			 userRatingDao.findRating(cakeName);
+			
 			userRatingDao.updateRating(rating, cId, count);
 			response.sendRedirect("Ratingsuccess.jsp");
 		}

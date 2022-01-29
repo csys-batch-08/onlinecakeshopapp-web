@@ -2,6 +2,7 @@ package com.cakeshop.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +46,21 @@ public class UserRatingDaoImpl implements UserRatingDao{
 		List<Products> ratinglist=new ArrayList<>();
 		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
 		Connection con=null;
-	
+		ResultSet rs=null;
 		PreparedStatement stmt=null;
 		try {
 			con=ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(findRating);
-			 stmt.executeQuery();
+			 rs= stmt.executeQuery();
+			while(rs.next()) {
+				Products product=new Products();
+				product.setRating(rs.getDouble(1));
+				
+				product.setRatingCount(rs.getInt(2));
+				
+               ratinglist.add(product);				
+			}
+			
 			
 		} catch (SQLException e) {
 
