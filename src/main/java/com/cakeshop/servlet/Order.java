@@ -21,11 +21,13 @@ public class Order extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 		
-		int productId=Integer.parseInt(request.getParameter("cakeId")); 
+        String validName="cakeId";
+        
+		int productId=Integer.parseInt(request.getParameter(validName)); 
 						
-		request.setAttribute("cakeId",productId);
+		request.setAttribute(validName,productId);
 		
-		session.setAttribute("cakeId",productId);
+		session.setAttribute(validName,productId);
 		
 		String cname=request.getParameter("cakeName");
 		
