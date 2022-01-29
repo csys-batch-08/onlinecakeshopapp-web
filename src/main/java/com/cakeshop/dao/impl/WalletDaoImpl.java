@@ -11,7 +11,7 @@ import com.cakeshop.dao.WalletDao;
 
 public class WalletDaoImpl implements WalletDao {
 
-	// get wallet balance:
+	
 	public int walletbal(int userId) throws SQLException {
 
 		String query = "select user_wallet from user_details  where user_id = ?";
@@ -43,7 +43,7 @@ public class WalletDaoImpl implements WalletDao {
 		return userwallet;
 	}
 
-//update wallet balance:
+
 	public void updatewallet(double amount, int userid) throws SQLException {
 
 		Connection con=null;
@@ -72,7 +72,7 @@ public class WalletDaoImpl implements WalletDao {
 		}
 
 	}
-// Recharge wallet
+
 	public int rechargeWallet(String user) throws SQLException {
 
 		Connection con=null;
@@ -107,6 +107,7 @@ public class WalletDaoImpl implements WalletDao {
 		return -1;
 	}
 
+	
 	public int walletRefund(String user,int cartid,double wallbal ) throws SQLException {
 		
 		Connection con=null;		
@@ -131,29 +132,21 @@ public class WalletDaoImpl implements WalletDao {
 			pstmt.setDouble(1, newBal);
 			pstmt.setString(2,user);
 			int i = pstmt.executeUpdate();
-
-			if (i > 0) {
-				
+			if (i > 0) {				
 				return 1;
 			}
 		} 
 			}catch (SQLException e) {
-
 			e.getMessage();
-		}
-		
-         finally {
-			
+			}	
+         finally {			
 			if(pstmt!=null) {
 				pstmt.close();
-			}
-			
+			}			
 			if(con!=null) {
 				con.close();
-			}
-			
-		}
-		
+			}		
+		}		
 		return -1;
 		}
 	

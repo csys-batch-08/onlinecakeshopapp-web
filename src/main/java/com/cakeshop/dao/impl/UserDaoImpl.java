@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.cakeshop.dao.UserDao;
@@ -49,19 +48,20 @@ public class UserDaoImpl implements UserDao{
 		}
 
 	
-	@SuppressWarnings({ "resource", "null" })
+	@SuppressWarnings({ })
 	@Override
 		public  User validateUser(String emailId, String password) throws SQLException {
-			String validateQuery = "select * from user_details where Email_id='" + emailId 
-					+ "'and password='" + password + "'";
+			String validateQuery = "select * from user_details where Email_id=? and password=?";
 
 			Connection con=null;
 			User user = null;
 			
 			PreparedStatement pst=null;
 			try {
-				 pst = con.prepareStatement(validateQuery);
 				con = ConnectionUtil.getDbConnection();
+				 pst = con.prepareStatement(validateQuery);
+				pst.setString(1, emailId);
+				pst.setString(2, password);
 				
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
@@ -83,7 +83,8 @@ public class UserDaoImpl implements UserDao{
 				if(con!=null) {
 					con.close();
 				}
-		 }
+			}
+		 
 			return user;
 		}
 

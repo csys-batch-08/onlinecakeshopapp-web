@@ -38,8 +38,10 @@ public class Login extends HttpServlet {
 		
 		UserDaoImpl userDao = new UserDaoImpl();
 		User currentUser;
-		try {
-			currentUser = userDao.validateUser(emailId, password);
+		
+			try {
+				currentUser = userDao.validateUser(emailId, password);
+			
 		
 		
 		if(currentUser!=null) {
@@ -110,7 +112,7 @@ public class Login extends HttpServlet {
 
 	} catch (SQLException e1) {
 
-		e1.getMessage();
+		e1.printStackTrace();
 	}
 
 }}
