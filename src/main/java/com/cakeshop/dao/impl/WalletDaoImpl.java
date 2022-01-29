@@ -111,25 +111,26 @@ public class WalletDaoImpl implements WalletDao {
 		
 		Connection con=null;		
 		String query1="select Total_price from cart_items where cart_id=?";
+		String query = "update user_details set user_wallet = ? where user_name=?";
+			
 		double totalPrice=0;
 		PreparedStatement pstmt=null;
-		PreparedStatement statement=null;
+		ResultSet rs=null;
 		
 		try {
 			con = ConnectionUtil.getDbConnection();
 			 pstmt=con.prepareStatement(query1);
 			pstmt.setInt(1, cartid);
-			ResultSet rs=pstmt.executeQuery();
+			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				totalPrice=rs.getDouble(1);				
 					
-		String query = "update user_details set user_wallet = ? where user_name=?";
-		   			
-			statement = con.prepareStatement(query);
+		
+			pstmt = con.prepareStatement(query);
 			double newBal=totalPrice+wallbal;			
-			statement.setDouble(1, newBal);
-			statement.setString(2,user);
-			int i = statement.executeUpdate();
+			pstmt.setDouble(1, newBal);
+			pstmt.setString(2,user);
+			int i = pstmt.executeUpdate();
 
 			if (i > 0) {
 				
@@ -146,9 +147,7 @@ public class WalletDaoImpl implements WalletDao {
 			if(pstmt!=null) {
 				pstmt.close();
 			}
-			if(statement!=null) {
-				statement.close();
-			}
+			
 			if(con!=null) {
 				con.close();
 			}

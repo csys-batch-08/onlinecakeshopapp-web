@@ -29,12 +29,12 @@ public class Rating extends HttpServlet {
 		int cId = Integer.parseInt(session.getAttribute("cake_id").toString());
 		String cakeName = (String) session.getAttribute("cakename");
 
-		
+		ResultSet rs = null ;
 		int oldRating = 0;
 		int count = 0;
 		try {
 			
-			ResultSet rs = null;
+			
 			while (rs.next()) {
 				oldRating = rs.getInt(1);
 				count = rs.getInt(2);
@@ -43,7 +43,7 @@ public class Rating extends HttpServlet {
 			count = count + 1;
 			double rating = (oldRating + newRating);
 			
-			rs = userRatingDao.findRating(cakeName);
+			 userRatingDao.findRating(cakeName);
 			userRatingDao.updateRating(rating, cId, count);
 			response.sendRedirect("Ratingsuccess.jsp");
 		}
