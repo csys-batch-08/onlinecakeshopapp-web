@@ -105,8 +105,7 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt.setString(2, cakeName);
 			 pstmt.executeUpdate();
 
-			pstmt.close();
-			con.close();
+		
 		} catch (SQLException e) {
 
 			e.getMessage();
@@ -167,8 +166,6 @@ public class ProductDaoImpl implements ProductDao {
 			pstmt.setInt(1, cakeId);
 			pstmt.executeUpdate();
 
-			pstmt.close();
-			con.close();
 		} catch (SQLException e) {
 			
 			e.getMessage();
@@ -192,13 +189,13 @@ public class ProductDaoImpl implements ProductDao {
 		String query = "select cake_id from product_details where cake_name='" + productName + "'";
 
 		Connection con=null;
-		Statement stmt=null;
+		PreparedStatement stmt=null;
 		int proId = 0;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.createStatement();
+			stmt = con.prepareStatement(query);
 
-			ResultSet rs = stmt.executeQuery(query);
+			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				proId = rs.getInt(1);

@@ -92,13 +92,13 @@ public class SpecialCakeDaoImpl {
 		String query = "select initial_amount from customized_details where custcake_id ='" + proID + "'";
 
 		Connection con=null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(query);
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
 		} catch (SQLException e) {
 
 			e.getMessage();

@@ -210,11 +210,11 @@ public class CartDaoImpl implements CartDao {
 		Connection con=null;
 		
 		boolean flag=true;
-		Statement pstmt=null;
+		PreparedStatement pstmt=null;
 		try {
 			con=ConnectionUtil.getDbConnection();
-			pstmt=con.createStatement();
-			ResultSet rs=pstmt.executeQuery(query);
+			pstmt=con.prepareStatement(query);
+			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
 			new Cart(rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5),(rs).getDate(6).toLocalDate());
 				

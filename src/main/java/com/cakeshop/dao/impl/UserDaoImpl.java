@@ -96,12 +96,12 @@ public class UserDaoImpl implements UserDao{
 			Connection con=null;
 
 			String selectQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where role not in 'Admin'";
-			Statement pst=null;
+			PreparedStatement pst=null;
 			ResultSet rs=null;	
 			try {
 				con = ConnectionUtil.getDbConnection();
-				 pst = con.createStatement();
-				 rs = pst.executeQuery(selectQuery);
+				 pst = con.prepareStatement(selectQuery);
+				 rs = pst.executeQuery();
 				 
 				 while (rs.next()) {
 
@@ -166,14 +166,14 @@ public class UserDaoImpl implements UserDao{
 			
 			String findUserID = "select user_id from user_details where email_id='"+userName+"'";
 			Connection con=null;
-			Statement stmt = null;
+			PreparedStatement stmt = null;
 			
 			int userId = 0;
 			try {
 				 con = ConnectionUtil.getDbConnection();
-				stmt = con.createStatement();
+				stmt = con.prepareStatement(findUserID);
 				
-				ResultSet rs = stmt.executeQuery(findUserID);
+				ResultSet rs = stmt.executeQuery();
 
 				if (rs.next()) {				
 					userId = rs.getInt(1);

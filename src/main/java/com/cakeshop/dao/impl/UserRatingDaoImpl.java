@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import com.cakeshop.dao.UserRatingDao;
+import com.cakeshop.model.Products;
 
 public class UserRatingDaoImpl implements UserRatingDao{
 	
@@ -39,8 +41,9 @@ public class UserRatingDaoImpl implements UserRatingDao{
 	 }
 		
 	}
-	public  ResultSet findRating(String proName) throws SQLException
+	public List<Products> findRating(String proName) throws SQLException
 	{
+		List<Products> ratinglist=new ArrayList<>();
 		String findRating="select rating,rating_count from product_details where cake_name='"+proName+"'";
 		Connection con=null;
 	
@@ -48,7 +51,7 @@ public class UserRatingDaoImpl implements UserRatingDao{
 		try {
 			con=ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(findRating);
-			return stmt.executeQuery();
+			 stmt.executeQuery();
 			
 		} catch (SQLException e) {
 
@@ -63,7 +66,7 @@ public class UserRatingDaoImpl implements UserRatingDao{
 			}
 		}
 		
-		return null;
+		return ratinglist;
 	}
 
 }
