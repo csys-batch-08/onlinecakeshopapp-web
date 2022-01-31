@@ -22,11 +22,11 @@ public class ProductDaoImpl implements ProductDao {
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture,rating_count from product_details";
 		Connection con=null;
-		Statement stmt=null;
+		Statement stmte=null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-		    stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery(showQuery);
+		    stmte = con.createStatement();
+			ResultSet rs = stmte.executeQuery(showQuery);
 			while (rs.next()) {
 
 				Products cake = new Products();
@@ -49,8 +49,8 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		 finally {
 				
-				if(stmt!=null) {
-					stmt.close();
+				if(stmte!=null) {
+					stmte.close();
 				}
 				
 				if(con!=null) {
@@ -130,15 +130,15 @@ public class ProductDaoImpl implements ProductDao {
 	public void insertRating(int insertRating) throws SQLException {
 
 		String insertrating = "update product_details set Ratings=? where cake_name=?";
-		PreparedStatement pstmt1=null;
+		PreparedStatement prepared=null;
 		Connection con=null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			 pstmt1 = con.prepareStatement(insertrating);
+			prepared = con.prepareStatement(insertrating);
 
-			pstmt1.executeUpdate();
+			prepared.executeUpdate();
 			
-			pstmt1.close();
+			prepared.close();
 			con.close();
 
 		} catch (SQLException e) {
@@ -146,8 +146,8 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		}finally {
 			
-			if(pstmt1!=null) {
-				pstmt1.close();
+			if(prepared!=null) {
+				prepared.close();
 			}
 			
 			if(con!=null) {
@@ -161,13 +161,13 @@ public class ProductDaoImpl implements ProductDao {
 
 	public void deleteProduct(int cakeId) throws SQLException {
 		String deleteQuery = "delete from product_details where cake_id=?";
-		PreparedStatement pstmt=null;
+		PreparedStatement statement=null;
 		Connection con=null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(deleteQuery);
-			pstmt.setInt(1, cakeId);
-			pstmt.executeUpdate();
+			statement = con.prepareStatement(deleteQuery);
+			statement.setInt(1, cakeId);
+			statement.executeUpdate();
 
 		} catch (SQLException e) {
 			
@@ -175,8 +175,8 @@ public class ProductDaoImpl implements ProductDao {
 		}
             finally {
 			
-			if(pstmt!=null) {
-				pstmt.close();
+			if(statement!=null) {
+				statement.close();
 			}
 			
 			if(con!=null) {
@@ -190,13 +190,13 @@ public class ProductDaoImpl implements ProductDao {
 		String findproductid = "select cake_id from product_details where cake_name=?";
 
 		Connection con=null;
-		PreparedStatement stmt=null;
+		PreparedStatement ps=null;
 		int proId = 0;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.prepareStatement(findproductid);
-            stmt.setString(1, productName);
-			ResultSet rs = stmt.executeQuery();
+			ps = con.prepareStatement(findproductid);
+            ps.setString(1, productName);
+			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
 				proId = rs.getInt(1);
@@ -207,8 +207,8 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		}finally {
 			
-			if(stmt!=null) {
-				stmt.close();
+			if(ps!=null) {
+				ps.close();
 			}
 			
 			if(con!=null) {
@@ -223,20 +223,20 @@ public class ProductDaoImpl implements ProductDao {
 
 	public int findPrice(int proID) throws SQLException {
 		String findprice = "select total_price from product_details where cake_id=?";
-		PreparedStatement stmt=null;
+		PreparedStatement preste=null;
 		Connection con=null;
 		try {
 			con = ConnectionUtil.getDbConnection();	
-			 stmt =con.prepareStatement(findprice) ;
-			stmt.setInt(1, proID);		
+			preste =con.prepareStatement(findprice) ;
+			preste.setInt(1, proID);		
 
 		} catch (SQLException e) {
 		
 			e.getMessage();
 		}finally {
 			
-			if(stmt!=null) {
-				stmt.close();
+			if(preste!=null) {
+				preste.close();
 			}
 			
 			if(con!=null) {
@@ -256,20 +256,20 @@ public class ProductDaoImpl implements ProductDao {
 
 		String findcategory = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 		Connection con=null;		
-		PreparedStatement stmt = null;
+		PreparedStatement pre = null;
 		try {		    
 			
 			con = ConnectionUtil.getDbConnection();
-			 stmt =con.prepareStatement(findcategory);
-			 stmt.executeQuery();
+			 pre =con.prepareStatement(findcategory);
+			 pre.executeQuery();
 
 		} catch (SQLException e) {
 			
 			e.getMessage();
 		}finally {
 			
-			if(stmt!=null) {
-				stmt.close();
+			if(pre!=null) {
+				pre.close();
 			}
 			
 			if(con!=null) {
