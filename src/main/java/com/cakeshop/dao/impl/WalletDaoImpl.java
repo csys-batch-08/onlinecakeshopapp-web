@@ -138,14 +138,10 @@ public class WalletDaoImpl implements WalletDao {
 			}catch (SQLException e) {
 			e.getMessage();
 			}	
-         finally {			
-			if(pstmt!=null) {
-				pstmt.close();
-			}			
-			if(con!=null) {
-				con.close();
-			}		
-		}		
+		finally {
+			ConnectionUtil.closePreparedStatement(pstmt, con);
+			
+		}	
 		return -1;
 		}
 	

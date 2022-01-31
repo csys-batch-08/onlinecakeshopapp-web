@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConnectionUtil {
 
@@ -33,5 +34,19 @@ public class ConnectionUtil {
 			con.close();
 		}
 	}
+	public static void closePreparedStatement(PreparedStatement pstmt, Connection con) {
+		try {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		}
+	}
+	
+
 
 }
