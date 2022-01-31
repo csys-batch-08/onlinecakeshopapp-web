@@ -129,16 +129,16 @@ public class ProductDaoImpl implements ProductDao {
 
 	public void insertRating(int insertRating) throws SQLException {
 
-		String updateQuery1 = "update product_details set Ratings=? where cake_name=?";
-		PreparedStatement pstmt=null;
+		String insertrating = "update product_details set Ratings=? where cake_name=?";
+		PreparedStatement pstmt1=null;
 		Connection con=null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(updateQuery1);
+			 pstmt1 = con.prepareStatement(insertrating);
 
-			pstmt.executeUpdate();
+			pstmt1.executeUpdate();
 			
-			pstmt.close();
+			pstmt1.close();
 			con.close();
 
 		} catch (SQLException e) {
@@ -146,8 +146,8 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		}finally {
 			
-			if(pstmt!=null) {
-				pstmt.close();
+			if(pstmt1!=null) {
+				pstmt1.close();
 			}
 			
 			if(con!=null) {
@@ -187,14 +187,14 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public int findProductId1(String productName) throws SQLException {
-		String query = "select cake_id from product_details where cake_name=?";
+		String findproductid = "select cake_id from product_details where cake_name=?";
 
 		Connection con=null;
 		PreparedStatement stmt=null;
 		int proId = 0;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.prepareStatement(query);
+			stmt = con.prepareStatement(findproductid);
             stmt.setString(1, productName);
 			ResultSet rs = stmt.executeQuery();
 
@@ -222,12 +222,12 @@ public class ProductDaoImpl implements ProductDao {
 
 
 	public int findPrice(int proID) throws SQLException {
-		String query1 = "select total_price from product_details where cake_id=?";
+		String findprice = "select total_price from product_details where cake_id=?";
 		PreparedStatement stmt=null;
 		Connection con=null;
 		try {
 			con = ConnectionUtil.getDbConnection();	
-			 stmt =con.prepareStatement(query1) ;
+			 stmt =con.prepareStatement(findprice) ;
 			stmt.setInt(1, proID);		
 
 		} catch (SQLException e) {
@@ -254,13 +254,13 @@ public class ProductDaoImpl implements ProductDao {
 
 		List<Products> category = new ArrayList<>();
 
-		String showQuery1 = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
+		String findcategory = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 		Connection con=null;		
 		PreparedStatement stmt = null;
 		try {		    
 			
 			con = ConnectionUtil.getDbConnection();
-			 stmt =con.prepareStatement(showQuery1);
+			 stmt =con.prepareStatement(findcategory);
 			 stmt.executeQuery();
 
 		} catch (SQLException e) {

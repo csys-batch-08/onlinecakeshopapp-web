@@ -9,13 +9,13 @@ import com.cakeshop.dao.UserRatingDao;
 public class UserRatingDaoImpl implements UserRatingDao{
 	
 	public void updateRating(double rating,int proId,int count) throws SQLException{
-		String updateQuery="update product_details set rating=?,rating_count=? where cake_Id=?";
+		String updaterating="update product_details set rating=?,rating_count=? where cake_Id=?";
 	
 		Connection 	con=null;			
 		PreparedStatement pstmt=null;
 		try {
 			con=ConnectionUtil.getDbConnection();
-			pstmt = con.prepareStatement(updateQuery);
+			pstmt = con.prepareStatement(updaterating);
 			pstmt.setDouble(1,rating);
 			pstmt.setInt(3, proId);	
 			pstmt.setInt(2, count);
