@@ -9,4 +9,6 @@ public interface WalletDao {
 	public void updatewallet(double amount, int userid) throws SQLException;
 
 	 public int rechargeWallet(String user) throws SQLException;
+	 
+	 public int walletRefund(String user,int cartid,double wallbal ) throws SQLException;
 }

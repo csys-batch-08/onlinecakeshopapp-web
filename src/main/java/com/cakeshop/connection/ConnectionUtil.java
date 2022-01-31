@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class ConnectionUtil {
 
 	public static Connection getDbConnection() {
@@ -23,7 +24,7 @@ public class ConnectionUtil {
 		return con;
 	}
 
-	public void closeConnection(ResultSet rs, PreparedStatement pstmt, Connection con) throws SQLException {
+	public void closeConnection(ResultSet rs, PreparedStatement pstmt,Connection con) throws SQLException {
 		if (rs != null) {
 			rs.close();
 		}
@@ -34,10 +35,23 @@ public class ConnectionUtil {
 			con.close();
 		}
 	}
-	public static void closePreparedStatement(PreparedStatement pstmt, Connection con) {
+	public static void closePreparedStatement(PreparedStatement pstmt,Connection con) {
 		try {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+		} catch (SQLException e) {
+			e.getMessage();
+		}
+	}
+	
+	public static void closeStatement(Statement stmt,Connection con) {
+		try {
+			if (stmt != null) {
+				stmt.close();
 			}
 			if (con != null) {
 				con.close();

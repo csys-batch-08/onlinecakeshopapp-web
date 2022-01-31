@@ -107,40 +107,45 @@ public class WalletDaoImpl implements WalletDao {
 		return -1;
 	}
 
-	
+
+
+	@Override
 	public int walletRefund(String user,int cartid,double wallbal ) throws SQLException {
 		
-		Connection con=null;		
-		String query1="select Total_price from cart_items where cart_id=?";
 			
+		String query1="select Total_price from cart_items where cart_id=?";
+		String query2 = "update user_details set user_wallet = ? where user_name=?";	
 		double totalPrice=0;
 		PreparedStatement pstmt=null;
+		PreparedStatement pst=null;
 		ResultSet rs=null;
+		Connection con=null;	
 		
 		try {
 			con = ConnectionUtil.getDbConnection();
-			 pstmt=con.prepareStatement(query1);
+			
+			pstmt=con.prepareStatement(query1);
 			pstmt.setInt(1, cartid);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				totalPrice=rs.getDouble(1);				
-					
-			 query1 = "update user_details set user_wallet = ? where user_name=?";
-			pstmt = con.prepareStatement(query1);
+				totalPrice=rs.getDouble(1);							
+			}
+			
+			pst = con.prepareStatement(query2);
 			double newBal=totalPrice+wallbal;			
-			pstmt.setDouble(1, newBal);
-			pstmt.setString(2,user);
-			int i = pstmt.executeUpdate();
+			pst.setDouble(1, newBal);
+			pst.setString(2,user);
+			int i = pst.executeUpdate();
 			if (i > 0) {				
 				return 1;
-			}
-		} 
-			}catch (SQLException e) {
-			e.getMessage();
-			}	
-		finally {
-			ConnectionUtil.closePreparedStatement(pstmt, con);
+			}		
 			
+			}catch (Exception e) {
+			        e.getMessage();
+			}finally {
+
+				ConnectionUtil.closePreparedStatement(pstmt, con);
+			    ConnectionUtil.closePreparedStatement(pst, con);			
 		}	
 		return -1;
 		}
