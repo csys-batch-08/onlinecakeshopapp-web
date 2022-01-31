@@ -326,11 +326,11 @@ public class ProductDaoImpl implements ProductDao {
 
 		Connection con=null;
 		ResultSet rs = null;
-		PreparedStatement stmt = null;
+		PreparedStatement tmt = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.prepareStatement(showcategory);
-			rs = stmt.executeQuery();
+			tmt = con.prepareStatement(showcategory);
+			rs = tmt.executeQuery();
 			
 			while (rs.next()) {
 				Products cake = new Products();
@@ -345,8 +345,8 @@ public class ProductDaoImpl implements ProductDao {
 		}
 		 finally {
 				
-				if(stmt!=null) {
-					stmt.close();
+				if(tmt!=null) {
+					tmt.close();
 				}			
 				if(con!=null) {
 					con.close();
@@ -365,15 +365,15 @@ public class ProductDaoImpl implements ProductDao {
 		String viewQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 
 		Connection con=null;
-		PreparedStatement stmt = null;
+		PreparedStatement stm = null;
 
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.prepareStatement(viewQuery);
+			stm = con.prepareStatement(viewQuery);
 			
-			stmt.setString(1, categoryname);
-			rs = stmt.executeQuery();
+			stm.setString(1, categoryname);
+			rs = stm.executeQuery();
 			while(rs.next()) {
 				Products cake =new Products();
 				cake.setCakeId(rs.getInt(1));
@@ -392,8 +392,8 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		} finally {
 			
-			if(stmt!=null) {
-				stmt.close();
+			if(stm!=null) {
+				stm.close();
 			}			
 			if(con!=null) {
 				con.close();
@@ -411,14 +411,14 @@ public class ProductDaoImpl implements ProductDao {
 		String filterprice = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where cake_price between ? and ? ";
 
 		Connection con=null;
-		PreparedStatement stmt = null;
+		PreparedStatement ste = null;
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			stmt = con.prepareStatement(filterprice);
-			stmt.setInt(1, min);
-			stmt.setInt(2, max);
-			rs = stmt.executeQuery();
+			ste = con.prepareStatement(filterprice);
+			ste.setInt(1, min);
+			ste.setInt(2, max);
+			rs = ste.executeQuery();
 			
 			while (rs.next()) {
 
@@ -438,8 +438,8 @@ public class ProductDaoImpl implements ProductDao {
 			e.getMessage();
 		}finally {
 			
-			if(stmt!=null) {
-				stmt.close();
+			if(ste!=null) {
+				ste.close();
 			}			
 			if(con!=null) {
 				con.close();
