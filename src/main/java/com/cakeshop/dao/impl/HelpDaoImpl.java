@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.cakeshop.connection.ConnectionUtil;
 import com.cakeshop.dao.HelpDao;
 import com.cakeshop.model.Help;
 

@@ -1,4 +1,4 @@
-package com.cakeshop.dao.impl;
+package com.cakeshop.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class ConnectionUtil {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			con = DriverManager.getConnection(url, "system", "oracle");
+			con = DriverManager.getConnection(url, "system", ConnectionPassword.decrypt());
 		} catch (Exception e) {
 			e.getMessage();
 			

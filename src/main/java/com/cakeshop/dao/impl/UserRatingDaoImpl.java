@@ -3,6 +3,8 @@ package com.cakeshop.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import com.cakeshop.connection.ConnectionUtil;
 import com.cakeshop.dao.UserRatingDao;
 
 
