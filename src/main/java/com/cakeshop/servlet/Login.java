@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
 				int userId = currentUser.getUserId();
 				session.setAttribute("userId", userId);
 
-				//session.setAttribute("CurrentUser", currentUser);
+			
 				session.setAttribute("CurrentUser", currentUser.getEmailId());
 
 				String userRole = currentUser.getRole();

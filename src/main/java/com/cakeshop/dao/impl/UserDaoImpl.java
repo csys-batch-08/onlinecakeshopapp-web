@@ -46,14 +46,14 @@ public class UserDaoImpl implements UserDao{
 
 			Connection con=null;
 			User user = null;			
-			PreparedStatement pst=null;
+			PreparedStatement pstm=null;
 			try {
 				con = ConnectionUtil.getDbConnection();
-				 pst = con.prepareStatement(validateQuery);
-				pst.setString(1, emailId);
-				pst.setString(2, password);
+				 pstm = con.prepareStatement(validateQuery);
+				pstm.setString(1, emailId);
+				pstm.setString(2, password);
 				
-				ResultSet rs = pst.executeQuery();
+				ResultSet rs = pstm.executeQuery();
 				if (rs.next()) {
 					
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
@@ -66,8 +66,8 @@ public class UserDaoImpl implements UserDao{
 				
 			}finally {
 				
-				if(pst!=null) {
-					pst.close();
+				if(pstm!=null) {
+					pstm.close();
 				}			
 				if(con!=null) {
 					con.close();
@@ -84,12 +84,12 @@ public class UserDaoImpl implements UserDao{
 			Connection con=null;
 
 			String selectQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where role not in 'Admin'";
-			PreparedStatement pst=null;
+			PreparedStatement pstmt=null;
 			ResultSet rs=null;	
 			try {
 				con = ConnectionUtil.getDbConnection();
-				 pst = con.prepareStatement(selectQuery);
-				 rs = pst.executeQuery();
+				 pstmt = con.prepareStatement(selectQuery);
+				 rs = pstmt.executeQuery();
 				 
 				 while (rs.next()) {
 						User user = new User();
@@ -106,8 +106,8 @@ public class UserDaoImpl implements UserDao{
 				e.getMessage();
 			}finally {
 				
-				if(pst!=null) {
-					pst.close();
+				if(pstmt!=null) {
+					pstmt.close();
 				}			
 				if(con!=null) {
 					con.close();
@@ -120,23 +120,23 @@ public class UserDaoImpl implements UserDao{
         @Override
 		public void deletedetails(String delete) throws SQLException  {
 			String deleteQuery = "delete from user_details where Email_id=?";
-			PreparedStatement pstmt=null;
+			PreparedStatement pstmte=null;
 			Connection con=null;
 			try {
 				con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(deleteQuery);
-			pstmt.setString(1, delete);
-			 pstmt.executeUpdate();
+			 pstmte = con.prepareStatement(deleteQuery);
+			pstmte.setString(1, delete);
+			 pstmte.executeUpdate();
 			
-			pstmt.close();
+			pstmte.close();
 			con.close();
 			}catch (SQLException e) {
 				e.getMessage();
 			}
                finally {
 				
-				if(pstmt!=null) {
-					pstmt.close();
+				if(pstmte!=null) {
+					pstmte.close();
 				}			
 				if(con!=null) {
 					con.close();
@@ -183,25 +183,25 @@ public class UserDaoImpl implements UserDao{
       public  void updatePassword(String newPassword, String emailId) throws SQLException {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
 				
-				PreparedStatement pstmt =null;
+				PreparedStatement prepare =null;
 				Connection con =null;
 				try {
 			     con = ConnectionUtil.getDbConnection();
-				 pstmt = con.prepareStatement(updateQuery);
-				pstmt.setString(1, newPassword);
-				pstmt.setString(2, emailId);
+			     prepare = con.prepareStatement(updateQuery);
+			     prepare.setString(1, newPassword);
+			     prepare.setString(2, emailId);
 				
-				pstmt.executeUpdate();
+			     prepare.executeUpdate();
 				
-				pstmt.close();
+			     prepare.close();
 				con.close();
 				}catch(SQLException e) {
 					
 					e.getMessage();
 				}   finally {
 					
-					if(pstmt!=null) {
-						pstmt.close();
+					if(prepare!=null) {
+						prepare.close();
 					}			
 					if(con!=null) {
 						con.close();
@@ -213,16 +213,16 @@ public class UserDaoImpl implements UserDao{
       public  void inactiveUser(String emailId) throws SQLException {
 			String inactivequery = "update user_details set role ='Inactive' where Email_id=?";
 			
-			PreparedStatement pstmt=null;
+			PreparedStatement prepare1=null;
 			Connection con =null;
 			try {
 		 con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(inactivequery);			
-			pstmt.setString(1, emailId);
+			 prepare1 = con.prepareStatement(inactivequery);			
+			 prepare1.setString(1, emailId);
 			
-			 pstmt.executeUpdate();
+			 prepare1.executeUpdate();
 			
-			pstmt.close();
+			 prepare1.close();
 			con.close();
 			}catch(SQLException e) {
 				
@@ -230,8 +230,8 @@ public class UserDaoImpl implements UserDao{
 			}
 			  finally {
 					
-					if(pstmt!=null) {
-						pstmt.close();
+					if(prepare1!=null) {
+						prepare1.close();
 					}			
 					if(con!=null) {
 						con.close();
@@ -242,18 +242,18 @@ public class UserDaoImpl implements UserDao{
       
       public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException {
 			String editquery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
-			PreparedStatement pstmt=null;
+			PreparedStatement prepare3=null;
 			Connection con =null;
 			try {
 			 con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(editquery);	
-			pstmt.setString(1,name);
-			pstmt.setString(2,email);			
-			pstmt.setString(3,address);	
-			pstmt.setDouble(4, wallet);
-			pstmt.setInt(5, userId);			
-		    pstmt.executeUpdate();			
-			pstmt.close();
+			 prepare3 = con.prepareStatement(editquery);	
+			 prepare3.setString(1,name);
+			 prepare3.setString(2,email);			
+			 prepare3.setString(3,address);	
+			 prepare3.setDouble(4, wallet);
+			 prepare3.setInt(5, userId);			
+			 prepare3.executeUpdate();			
+			 prepare3.close();
 			con.close();
 			 return 1;
 			
@@ -263,8 +263,8 @@ public class UserDaoImpl implements UserDao{
 			}
 			  finally {
 					
-					if(pstmt!=null) {
-						pstmt.close();
+					if(prepare3!=null) {
+						prepare3.close();
 					}			
 					if(con!=null) {
 						con.close();

@@ -70,13 +70,13 @@ public class Products {
 	
 	@Override
 	public String toString() {
-		return String.format("%-25s%-90s%-10s%-10s",cakeName,cakeDescription,cakePrice,categoryName,oldRating) ;
+		return String.format("%-25s%-90s%-10s%-10s",cakeName,cakeDescription,cakePrice,categoryName);
 	}
 	public Products() {
 		super();
 
 	}
-	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture, double oldRating) {
+	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture) {
 		super();
 		this.cakeId=cakeId;
 		this.cakeName = cakeName;
@@ -85,7 +85,7 @@ public class Products {
 		this.categoryName = categoryName;
 		this.rating=rating;		
 		this.picture = picture;
-		this.oldRating=oldRating;
+		
 		
 	}	
 	
