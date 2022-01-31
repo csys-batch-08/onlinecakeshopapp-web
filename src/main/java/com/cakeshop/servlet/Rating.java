@@ -2,7 +2,7 @@ package com.cakeshop.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.UserRatingDaoImpl;
-import com.cakeshop.model.Products;
+
 
 @WebServlet("/Rating")
 public class Rating extends HttpServlet {
@@ -26,22 +26,16 @@ public class Rating extends HttpServlet {
 		UserRatingDaoImpl userRatingDao = new UserRatingDaoImpl();
 
 		int cId = Integer.parseInt(session.getAttribute("cakeId").toString());
-		String cakeName = (String) session.getAttribute("cakename");
+		
 	
 		double oldRating = 0;
 		int count = 0;
-		try {
-			
-			List<Products> ratingList=userRatingDao.findRating(cakeName);
-			
-			request.setAttribute("rating", ratingList);
-			Products product=new Products();
-					
+		try {							
 				
-			oldRating= product.getRating();
+			oldRating=(double)session.getAttribute("Rating");
 			
 			
-			count=product.getRatingCount();
+			count=(int)session.getAttribute("ratingcount");
 			
 			count = count + 1;
 			double rating = (oldRating + newRating);

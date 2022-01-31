@@ -76,16 +76,17 @@ background-size:cover;
 <body>
 <div class="topnav">  
    <a href="ViewOrder.jsp">Orders</a> 
-   <a href="showProduct.jsp">Products</a> 
-   <a href="categories.jsp">Categories</a> 
+   <a href="ShowProduct">Products</a> 
+   <a href="Categories">Categories</a> 
    <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>
+   <a href="ShowRating">Ratings</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>   
+   <a href="UserProfile" style="float:right;">Profile</a>   
  
 <h3><em> Wallet Amount :  ${requestScope['totalprice']}</em></h3>  
    
 </div>
+
 <fieldset id="box"><legend>Invoice</legend>
 <h1>Your Order is Placed Successfully!! Thank You!!</h1>
 <h2><em>Your Payment Is Debited from Your Wallet</em></h2>

@@ -56,14 +56,15 @@ background-size:cover;
 <body>
 <div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a> 
-  <a href="showProduct.jsp">Products</a> 
-  <a href="categories.jsp">Categories</a> 
+  <a href="ShowProduct">Products</a> 
+  <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>      
+   <a href="ShowRating">Ratings</a>      
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>       
+   <a href="UserProfile" style="float:right;">Profile</a>       
 </div>
+
 
 <table>
 <caption><h2>Rating</h2></caption>
@@ -75,7 +76,7 @@ background-size:cover;
 
 <tr>
 <td style="color:white; font-size:large;">${show.cakeName}</td>
-<td style="color:white; font-size:large;">${requestScope['ratings']}</td>
+<td style="color:white; font-size:large;">${show.oldRating}</td>
 </tr>
 
 </table>

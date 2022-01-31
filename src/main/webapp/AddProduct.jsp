@@ -162,16 +162,18 @@ textarea {display:block; width:50ex; height:7em}
 
 <div class="sidenav">
 <ul>
-  <li><a href="showUser.jsp">View All Users List</a></li>
+  <li><a href="ShowUser">View All Users List</a></li>
   <li><a href="AddProduct.jsp">Add a New Product</a></li>
-  <li><a href="UpdateProduct.jsp">Update Product</a></li>
-  <li><a href="showCart.jsp">View Order Details</a></li>
+  <li><a href="viewProduct">Update Product</a></li>
+  <li><a href="ShowCart">View Order Details</a></li>
   <li><a href="SalesDate.jsp">View Sales Details</a></li>
-   <a href="InactiveUser.jsp">Delete User</a>
-  <li><a href="Home.jsp">LogOut</a></li>
-  
-  </ul>
+  <li><a href="InactiveUser.jsp">Delete User</a></li>
+  <li><a href="Home.jsp">LogOut</a></li>  
+  </ul>  
 </div>
+
+
+ 
 
 
 <fieldset id="box"><legend>Add New Product</legend>

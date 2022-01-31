@@ -75,15 +75,17 @@ margin-left:200px;
 
 <div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a>
-  <a href="showProduct.jsp">Products</a>  
-  <a href="categories.jsp">Categories</a> 
+  <a href="ShowProduct">Products</a>  
+  <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>       
+   <a href="ShowRating">Ratings</a>       
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
+   <a href="UserProfile" style="float:right;">Profile</a>         
 </div>
 
+
+ 
 <fieldset id="box"><legend>Orders List</legend>
 <form action="MyOrders"><br>
 <button class="button button1">Existing Product</button>

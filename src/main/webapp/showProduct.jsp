@@ -61,7 +61,9 @@ background-size:cover;
   cursor: pointer;
   border-radius: 20px;
 }
+
 .button1 {
+
   background-color: white; 
   color: black; 
   border: 2px solid pink;
@@ -111,17 +113,15 @@ background-size:cover;
 <caption></caption>
 
 <tr>
-
-<th id="1"><h5 style=color:red><strong>Cake</strong></h5></th>
-<th id="2"><h5 style=color:red><strong>Product Name</strong></h5></th>
-<th id="3"><h5 style=color:red><strong>Product Description</strong></h5></th>
-<th id="4"><h5 style=color:red><strong>Product price</strong></h5></th>
-<th id="6"><h5 style=color:red><strong>Product Categories</strong></h5></th>
-<th id="7"><h5 style=color:red><strong>Product Rating</strong></h5></th>
-<th id="8"><h5 style=color:red><strong>Button</strong></h5></th>
-
+<th id="1"><h6 style=color:red><strong>Cake</strong></h6></th>
+<th id="2"><h6 style=color:red><strong>Product Name</strong></h6></th>
+<th id="3"><h6 style=color:red><strong>Product Description</strong></h6></th>
+<th id="4"><h6 style=color:red><strong>Product price</strong></h6></th>
+<th id="6"><h6 style=color:red><strong>Product Categories</strong></h6></th>
+<th id="7"><h6 style=color:red><strong>Product Rating</strong></h6></th>
+<th id="8"><h6 style=color:red><strong>oldrating</strong></h6></th>
+<th id="8"><h6 style=color:red><strong>Button</strong></h6></th>
 </tr>
-
 <c:forEach var="show" items="${showProduct}">
 <tr>
 <td><img src="assets/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
@@ -130,7 +130,8 @@ background-size:cover;
 <td>${show.cakePrice}</td>
 <td>${show.categoryName}</td>
 <td>${show.rating}</td>
-<td><button class="button button1"><a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}" style="text-decoration:none;">Buy</a></button></td>
+<td>${show.oldRating}</td>
+<td><button class="button button1"><a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}" style="text-decoration:none;">Buy</a></button></td>
 
 </tr>
 </c:forEach>

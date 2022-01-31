@@ -10,21 +10,14 @@ import java.util.List;
 import com.cakeshop.dao.UserDao;
 import com.cakeshop.model.User;
 
-
-public class UserDaoImpl implements UserDao{
-
-	
+public class UserDaoImpl implements UserDao{	
 	@Override
 	public void insertUser(User user) throws SQLException {
-			String insertQuery = "insert into user_details(user_name,email_id,password,address) values(?,?,?,?)";
-			 
+			String insertQuery = "insert into user_details(user_name,email_id,password,address) values(?,?,?,?)";			 
 			PreparedStatement pst = null;
 			Connection con=null;
-			try {
-				
-				
-				 con = ConnectionUtil.getDbConnection();
-				 
+			try {				
+				 con = ConnectionUtil.getDbConnection();				 
 				 pst = con.prepareStatement(insertQuery);
 					pst.setString(1, user.getUserName());
 					pst.setString(2, user.getEmailId());
@@ -45,17 +38,14 @@ public class UserDaoImpl implements UserDao{
 				}
 		 }
 				
-		}
-
-	
+		}	
 	@SuppressWarnings({ })
 	@Override
 		public  User validateUser(String emailId, String password) throws SQLException {
-			String validateQuery = "select * from user_details where Email_id=? and password=?";
+			String validateQuery = "select user_id,user_name,email_id,password,address,role,user_wallet from user_details where Email_id=? and password=?";
 
 			Connection con=null;
-			User user = null;
-			
+			User user = null;			
 			PreparedStatement pst=null;
 			try {
 				con = ConnectionUtil.getDbConnection();
@@ -69,8 +59,7 @@ public class UserDaoImpl implements UserDao{
 					user = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
 							rs.getString(5),rs.getString(6),rs.getDouble(7));
 					return user;
-				}		
-				
+				}						
 			} catch (SQLException e) {
 
 				e.getMessage();
@@ -87,8 +76,6 @@ public class UserDaoImpl implements UserDao{
 		 
 			return user;
 		}
-
-	
 		
 @Override		
 		public  List<User> showAllUser() throws SQLException {		
@@ -105,7 +92,6 @@ public class UserDaoImpl implements UserDao{
 				 rs = pst.executeQuery();
 				 
 				 while (rs.next()) {
-
 						User user = new User();
 						user.setUserId(rs.getInt(1));
 						user.setUserName(rs.getString(2));
@@ -130,9 +116,6 @@ public class UserDaoImpl implements UserDao{
 
 			return userlist;
 		}		
-
-
-
 
         @Override
 		public void deletedetails(String delete) throws SQLException  {
@@ -178,8 +161,7 @@ public class UserDaoImpl implements UserDao{
 
 				if (rs.next()) {				
 					userId = rs.getInt(1);
-				}
-			
+				}			
 
 			} catch (SQLException e) {
 
@@ -196,9 +178,7 @@ public class UserDaoImpl implements UserDao{
 		 }
 			return userId;
 
-		}
-		
-		
+		}		
 
       public  void updatePassword(String newPassword, String emailId) throws SQLException {
 				String updateQuery = "update user_details set password =?  where Email_id=?";
@@ -231,13 +211,13 @@ public class UserDaoImpl implements UserDao{
 			}
 
       public  void inactiveUser(String emailId) throws SQLException {
-			String updateQuery = "update user_details set role ='Inactive' where Email_id=?";
+			String inactivequery = "update user_details set role ='Inactive' where Email_id=?";
 			
 			PreparedStatement pstmt=null;
 			Connection con =null;
 			try {
 		 con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(updateQuery);			
+			 pstmt = con.prepareStatement(inactivequery);			
 			pstmt.setString(1, emailId);
 			
 			 pstmt.executeUpdate();
@@ -261,12 +241,12 @@ public class UserDaoImpl implements UserDao{
 		}
       
       public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException {
-			String updateQuery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
+			String editquery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
 			PreparedStatement pstmt=null;
 			Connection con =null;
 			try {
 			 con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(updateQuery);	
+			 pstmt = con.prepareStatement(editquery);	
 			pstmt.setString(1,name);
 			pstmt.setString(2,email);			
 			pstmt.setString(3,address);	
@@ -293,15 +273,5 @@ public class UserDaoImpl implements UserDao{
 			return 1;
 			
 		}
-
-
-
-
-			
-			
-		
-			
-		
-	
 
 }

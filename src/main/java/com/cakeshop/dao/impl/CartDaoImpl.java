@@ -206,7 +206,7 @@ public class CartDaoImpl implements CartDao {
 	
 	
 	public boolean checkUser(int userId,LocalDate orderDate) throws SQLException {
-		String query="select * from cart_items where user_id=? and to_char(order_date,'yyyy-mm-dd')=?";
+		String query="select cart_id,cake_id,user_id,order_quantity,total_price,order_date from cart_items where user_id=? and to_char(order_date,'yyyy-mm-dd')=?";
 		Connection con=null;
 		
 		boolean flag=true;

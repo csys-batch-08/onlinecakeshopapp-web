@@ -27,7 +27,7 @@ public class AddProduct extends HttpServlet {
 		String image=request.getParameter("picture");
 		 
 		
-		Products product=new Products(0,cakeName,cakeDescription,cakePrice,categoryName,cakePrice, image);	    		
+		Products product=new Products(0,cakeName,cakeDescription,cakePrice,categoryName,cakePrice, image,0);	    		
 	    try {
 			proDao.insertProduct(product);
 		} catch (SQLException e) {

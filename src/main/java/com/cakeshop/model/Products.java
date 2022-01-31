@@ -9,7 +9,14 @@ public class Products {
 	private String categoryName;
 	private double rating;
 	private int ratingCount;
+	private double oldRating;
 	
+	public double getOldRating() {
+		return oldRating;
+	}
+	public void setOldRating(double oldRating) {
+		this.oldRating = oldRating;
+	}
 	public int getRatingCount() {
 		return ratingCount;
 	}
@@ -63,13 +70,13 @@ public class Products {
 	
 	@Override
 	public String toString() {
-		return String.format("%-25s%-90s%-10s%-10s",cakeName,cakeDescription,cakePrice,categoryName) ;
+		return String.format("%-25s%-90s%-10s%-10s",cakeName,cakeDescription,cakePrice,categoryName,oldRating) ;
 	}
 	public Products() {
 		super();
 
 	}
-	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture) {
+	public Products(int cakeId,String cakeName, String cakeDescription, int cakePrice, String categoryName, double rating,String picture, double oldRating) {
 		super();
 		this.cakeId=cakeId;
 		this.cakeName = cakeName;
@@ -78,15 +85,10 @@ public class Products {
 		this.categoryName = categoryName;
 		this.rating=rating;		
 		this.picture = picture;
+		this.oldRating=oldRating;
 		
 	}	
 	
-	
-	
-	
 
-	
-	
-	
 
 }

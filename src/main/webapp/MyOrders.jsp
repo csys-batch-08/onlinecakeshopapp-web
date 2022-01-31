@@ -83,18 +83,18 @@ align:center;
 
 <div class="topnav"> 
   <a href="ViewOrder.jsp">Orders</a>  
-  <a href="showProduct.jsp">Products</a>
-  <a href="categories.jsp">Categories</a> 
+  <a href="ShowProduct">Products</a>
+  <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>    
+   <a href="ShowRating">Ratings</a>    
    <a href="CustomizedCake.jsp">Customized Cake</a>
    <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>         
+   <a href="UserProfile" style="float:right;">Profile</a>         
 </div>
 
 <form action="cancelOrder">
 <table>
-<caption> My Orders </caption>
+<caption></caption>
 
 <tr>
 <th id="1"><h2 style=color:red><strong>User Name</strong></h2></th>

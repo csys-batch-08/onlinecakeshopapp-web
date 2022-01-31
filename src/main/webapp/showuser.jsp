@@ -1,5 +1,3 @@
-
-
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
      import ="com.cakeshop.dao.impl.*" pageEncoding="ISO-8859-1"%>
@@ -126,17 +124,16 @@ text-align:center;
 <body>
 
 <div class="header container-fluid">
-      	<h2>Hole Users List</h2>    	
-   		
+      	<h2>Hole Users List</h2>     		
       </div>
 
 
 <div class="sidenav">
 <ul>
-  <li><a href="showUser.jsp">View All Users List</a></li>
+  <li><a href="ShowUser">View All Users List</a></li>
   <li><a href="AddProduct.jsp">Add a New Product</a></li>
-  <li><a href="UpdateProduct.jsp">Update Product</a></li>
-  <li><a href="showCart.jsp">View Order Details</a></li>
+  <li><a href="viewProduct">Update Product</a></li>
+  <li><a href="ShowCart">View Order Details</a></li>
   <li><a href="SalesDate.jsp">View Sales Details</a></li>
   <li><a href="InactiveUser.jsp">Delete User</a></li>
   <li><a href="Home.jsp">LogOut</a></li>
@@ -144,8 +141,9 @@ text-align:center;
   </ul>
 </div>
 
+
 <table  class="table table-hover" id="box">
-<caption>All User List</caption>
+<caption></caption>
 <tr>
 <th id="1"><h5 style=color:red><strong>User Id</strong></h5></th>
 <th id="2"><h5 style=color:red><strong>User Name</strong></h5></th>

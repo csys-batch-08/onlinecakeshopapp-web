@@ -11,8 +11,17 @@
  
 <style type="text/css">
 
+table, th, td {
+background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+  align:center;
+}
+
 body{
-background-image:url('assets/cake2.jpg');
+
+background-image:url('assets/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -76,27 +85,30 @@ background-size:cover;
 <div class="topnav" >
  
   <a href="ViewOrder.jsp">Orders</a>  
-   <a href="showProduct.jsp">Products</a>
-  <a href="categories.jsp">Categories</a> 
+   <a href="ShowProduct">Products</a>
+  <a href="Categories">Categories</a> 
   <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating.jsp">Ratings</a>  
+   <a href="ShowRating">Ratings</a>  
    <a href="CustomizedCake.jsp">Customized Cake</a>
     <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile.jsp" style="float:right;">Profile</a>
+   <a href="UserProfile" style="float:right;">Profile</a>
          
 </div>
+
+
+
 <form>
 <table class="table table-hover"> 
-<caption>Category Wise Products</caption>
+<caption></caption>
 <tr>
 
-<th id="1"><h2 style=color:red><strong>Cake</strong></h2></th>
-<th id="2"><h2 style=color:red><strong>Product Name</strong></h2></th>
-<th id="3"><h2 style=color:red><strong>Product Description</strong></h2></th>
-<th id="4"><h2 style=color:red><strong>Product price</strong></h2></th>
-<th id="6"><h2 style=color:red><strong>Product Categories</strong></h2></th>
-<th id="7"><h2 style=color:red><strong>Product Rating</strong></h2></th>
-<th id="8"><h2 style=color:red><strong>Button</strong></h2></th>
+<th id="1"><h6 style=color:red><strong>Cake</strong></h6></th>
+<th id="2"><h6 style=color:red><strong>Product Name</strong></h6></th>
+<th id="3"><h6 style=color:red><strong>Product Description</strong></h6></th>
+<th id="4"><h6 style=color:red><strong>Product price</strong></h6></th>
+<th id="6"><h6 style=color:red><strong>Product Categories</strong></h6></th>
+<th id="7"><h6 style=color:red><strong>Product Rating</strong></h6></th>
+<th id="8"><h6 style=color:red><strong>Button</strong></h6></th>
 
 </tr>
 <c:forEach var="show" items="${showCategory}">
