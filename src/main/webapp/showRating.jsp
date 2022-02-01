@@ -10,11 +10,11 @@
 
 <style type="text/css">
 table, th, td {
-background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   border: 1px solid black;
   border-collapse: collapse;
-  padding: 20px;
-  align:center;
+  padding: 20px; 
+  margin-left:500px;
 }
 body{
 background-image:url('assets/back2.jpg');
@@ -22,7 +22,6 @@ background-repeat:no-repeat;
 background-size:cover;
 
 }
-
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: Gray;
@@ -65,8 +64,7 @@ background-size:cover;
    <a href="UserProfile" style="float:right;">Profile</a>       
 </div>
 
-
-<table align="center">
+<table>
 <caption><h2>Rating</h2></caption>
 <tr>
 <th id="1"><h3 style="color:white; font-size:large;">Product Name</h3></th>

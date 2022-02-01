@@ -10,7 +10,7 @@
 <title>User Profile</title>
 <style>
 #box {
- background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+ background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 	width: 350px;	
 	margin-left:900px;
 	
