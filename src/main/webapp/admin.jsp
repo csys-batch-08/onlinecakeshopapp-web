@@ -82,7 +82,7 @@ align:center;
 <body>
 <div class="header container-fluid">
       	<h2>Welcome Admin!!</h2>      	
-   		<a href="logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+   		
       </div>
 
 

@@ -28,7 +28,7 @@ public class ViewProduct extends HttpServlet {
 			
 			request.setAttribute("viewProduct", updateProduct);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("updateproduct.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("updateProduct.jsp");
 			rd.forward(request, response);
 		} catch (SQLException e) {
 

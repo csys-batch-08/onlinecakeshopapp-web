@@ -22,8 +22,7 @@ public class RechargeWallet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session=request.getSession();
-		
-		//double oldAmount=Double.parseDouble(request.getParameter("userWallet"));
+			
 		
 		double oldAmount=(double)session.getAttribute("userWallet");
 		
@@ -43,7 +42,7 @@ public class RechargeWallet extends HttpServlet {
 			
 		} catch (SQLException e) {
 
-			e.printStackTrace();
+			e.getMessage();
 		}
 		
 	

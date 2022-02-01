@@ -34,10 +34,7 @@ public class ShowUser extends HttpServlet {
 		} catch (SQLException e) {
 
 			e.getMessage();
-		}
-		
-		
-	   
+		}   
 	   
 	   
    }
