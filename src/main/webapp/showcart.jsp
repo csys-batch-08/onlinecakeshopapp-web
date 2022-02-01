@@ -100,11 +100,11 @@ text-align:center;
 <div class="sidenav">
 <ul>
   <li><a href="showUser.jsp">View All Users List</a></li>
-  <li><a href="AddProduct.jsp">Add a New Product</a></li>
-  <li><a href="UpdateProduct.jsp">Update Product</a></li>
+  <li><a href="addProduct.jsp">Add a New Product</a></li>
+  <li><a href="updateProduct.jsp">Update Product</a></li>
   <li><a href="showCart.jsp">View Order Details</a></li>
-  <li><a href="SalesDate.jsp">View Sales Details</a></li>
-  <li><a href="Home.jsp">LogOut</a></li>
+  <li><a href="salesDate.jsp">View Sales Details</a></li>
+  <li><a href="home.jsp">LogOut</a></li>
   
   </ul>
 </div>

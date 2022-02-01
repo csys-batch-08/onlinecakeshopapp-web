@@ -13,31 +13,41 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.WalletDaoImpl;
 
 
-@WebServlet("/walletcheck")
-public class WalletCheck extends HttpServlet {
-	
+@WebServlet("/RechargeWallet")
+public class RechargeWallet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
+  
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		
 		HttpSession session=request.getSession();
 		
-		String userName=session.getAttribute("CurrentUser1").toString();	
+		//double oldAmount=Double.parseDouble(request.getParameter("userWallet"));
 		
+		double oldAmount=(double)session.getAttribute("userWallet");
+		
+		double newAmount=Double.parseDouble(request.getParameter("newamount"));
+		request.setAttribute("Amount", newAmount);		
 	
-		WalletDaoImpl walletCheck=new WalletDaoImpl();
+		WalletDaoImpl update=new WalletDaoImpl();
+		
+		int userId=(int)session.getAttribute("userId");
+		
+		double walbal=oldAmount+newAmount;
 		
 		try {
-			walletCheck.rechargeWallet(userName);
-			response.sendRedirect("showProduct.jsp");
-		} catch (SQLException e) {
+			update.updatewallet(walbal,userId);
+			response.sendRedirect("userProfile.jsp");
+						
 			
-			e.getMessage();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
 		}
 		
-			
+	
+		
 		
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.ProductDaoImpl"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,16 +76,14 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav">  
-   <a href="ViewOrder.jsp">Orders</a> 
+   <a href="viewOrder.jsp">Orders</a> 
    <a href="ShowProduct">Products</a> 
    <a href="Categories">Categories</a> 
-   <a href="SearchPrice.jsp">Price Wise Search</a>
+   <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>
-   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>   
- 
-<h3><em> Wallet Amount :  ${requestScope['totalprice']}</em></h3>  
-   
+    
 </div>
 
 <fieldset id="box"><legend>Invoice</legend>

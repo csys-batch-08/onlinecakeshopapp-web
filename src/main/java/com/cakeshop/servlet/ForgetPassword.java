@@ -26,7 +26,7 @@ public class ForgetPassword extends HttpServlet {
 		
 		try {
 			userDao.updatePassword(password,emailId);
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("login.jsp");
 		} catch (SQLException e) {
 
 			e.getMessage();

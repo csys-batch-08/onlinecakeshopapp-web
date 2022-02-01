@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Profile</title>
+<title>Wallet Recharge</title>
+</head>
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -69,60 +70,32 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 0;
   }
-}</style>
+}
+</style>
 
-
-</head>
 <body>
-
 <div class="container">
-  <form action="edit" method="post">
-  <div class="row">
+<form action="RechargeWallet">
+
+<h4 style="color:red">User Email ID : <c:out value='${sessionScope.email}'/></h4><br/>
+<h4 style="color:red">Your Wallet Balance : <c:out value='${sessionScope.userWallet}'/></h4>
+
+
+ <div class="row">
     <div class="col-25">
-      <label for="fname">User Name</label>
+      <label for="fname">Enter Amount : </label>
     </div>
     <div class="col-75">
-      <input type="text" id="fname" name="name" placeholder="Your name.." pattern="[A-Za-z]{3,}" title="Charecter Only Atleast 3 "> 
+      <input type="text" id="fname" name="newamount" placeholder="Amount" > 
     </div>
   </div>
  
  <div class="row">
-    <div class="col-25">
-      <label for="lname">User Email</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="lname" name="email" placeholder="Your Email Id..">
-    </div>
-  </div>
- 
-  <div class="row">
-    <div class="col-25">
-      <label for="lname">User Address</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="lname" name="address" placeholder="Your Address.." pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{25,}" 
-      title="Street Number & Street Name,AdressLine,Pincode">
-    </div>
-  </div>
-  
-   <div class="row">
-    <div class="col-25">
-      <label for="lname">User Wallet</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="lname" name="wallet" placeholder="Your Wallet.." pattern="[0-9]+" >
-    </div>
-  </div>
+ <input type="submit" value="Recharge">
+ </div>
 
- <br>
-  <div class="row">
-    <input type="submit" value="Submit">
-    &emsp;
-    <input type="submit" value="Back">
-  </div>
-  </form>
+</form>
+
 </div>
-
-
 </body>
 </html>

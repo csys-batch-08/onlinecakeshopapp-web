@@ -21,18 +21,13 @@ public class ShowRating extends HttpServlet {
        
    @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	   
 	  
 	  
 	try {
 		 ProductDaoImpl product=new ProductDaoImpl();
 		 List<Products> rating = product.showRating();
 		  request.setAttribute("ratinglist", rating);
-		 
-	   
-
-		   
+		 	   
 		  RequestDispatcher rd = request.getRequestDispatcher("showRating.jsp");
 		  rd.forward(request, response);
 		   

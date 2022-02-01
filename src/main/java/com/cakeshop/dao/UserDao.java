@@ -22,5 +22,5 @@ public interface UserDao {
 	 
 	 public  void updatePassword(String newPassword, String emailId) throws SQLException;
 	 
-	  public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException;
+	  public  int editUser(String name,String address,int userId) throws SQLException;
 }

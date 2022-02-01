@@ -1,17 +1,16 @@
+<%@page import="com.cakeshop.dao.impl.UserDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>add product</title>
+<title>Inactive User</title>
 <style>
 *{
 margin:0px;
 padding:0px;
 }
-
-
 .header{
 padding-top:24px;
 background:#111;
@@ -36,7 +35,6 @@ height:50px;
   padding-top: 20px;
 }
 
-
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 325px; /* Set the width of the sidebar */
@@ -48,6 +46,7 @@ height:50px;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 50px;
 }
+
 .sidenav a {
   padding: 16px 16px 16px 18px;
   text-decoration: none;
@@ -55,6 +54,7 @@ height:50px;
   color:white;
   display: block;
 }
+
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -68,43 +68,11 @@ height:50px;
   .sidenav a {font-size: 18px;}
 }
 
-
 body{
 background-image:url('assets/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
-.button{
-margin-left:1250px;
-width:100px;
-
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #111;
-}
-
-
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color on hover */
-li a:hover {
-  background-color: #555;
-  color: white;
-}
-* {
-  box-sizing: border-box;
-}
-
 label {
         display: inline-block;
         width: 155px;
@@ -115,7 +83,7 @@ label {
   background-color:pink; 
   border: none;
   color: white;
-  padding: 3px 6px;
+  padding: 3px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -123,70 +91,57 @@ label {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 20px;
+   border-radius: 20px;
 }
 .button1 {
   background-color: white; 
   color: black; 
   border: 2px solid pink;
   }
+  
   .button1:hover {
   background-color:pink;
   color: white;
 }
-#box{
-width:40px;
-margin-left:600px;
-margin-top:100px;
-margin-align:center;
+      
+  #box{
 
-}
-form {width:26em}
-fieldset {padding:2ex}
-legend {font-size:150%; font-weight:bold}
-label {display:block; margin:1em 0}
-input {display:block; width:30ex}
-textarea {display:block; width:50ex; height:7em}
+  margin-top:150px;
+  margin-left:500px;
+  }    
+  
+  h2{
+  text-align:center;
+  }
 
 </style>
-
 </head>
 <body>
 
-
 <div class="header container-fluid">
-      	<h2>Add </h2>     	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
-      </div>
-
-
-<div class="sidenav">
-<ul>
-  <li><a href="ShowUser">View All Users List</a></li>
-  <li><a href="AddProduct.jsp">Add a New Product</a></li>
-  <li><a href="viewProduct">Update Product</a></li>
-  <li><a href="ShowCart">View Order Details</a></li>
-  <li><a href="SalesDate.jsp">View Sales Details</a></li>
-  <li><a href="InactiveUser.jsp">Delete User</a></li>
-  <li><a href="Home.jsp">LogOut</a></li>  
-  </ul>  
+      	<h2 style=color:darkBlack>Inactive User</h2>		
 </div>
 
 
- 
+<div class="sidenav">
+  <a href="ShowUser">View All Users List</a>
+  <a href="addProduct.jsp">Add a New Product</a>
+  <a href="viewProduct">Update Product</a>
+  <a href="ShowCart">View Order Details</a>
+  <a href="salesDate.jsp">View Sales Details</a>
+  <a href="inactiveUser.jsp">Delete User</a>
+  <a href="home.jsp">LogOut</a>
+</div>
 
+<fieldset id="box"><legend>Inactive User</legend>
+<form action="Inactive" method="post">
 
-<fieldset id="box"><legend>Add New Product</legend>
-<form action="AddProduct" method="post">
-<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName"  required>
-<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" required>
-<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
-<label for="catename">Category_name</label><input type="text" name="categoryName"  required>
-<label for="picture">Image</label><input type="file" name="picture">
-<button type="submit" name="button" class="button button1">Add</button>
-<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
+Email Id : <input type="email" name="Email"
+oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" 
+onchange="try{setCustomValidity('')}catch(e){}">
+
+<button type="submit" class="button button1">Delete</button>
 </form>
 </fieldset>
-
 </body>
 </html>

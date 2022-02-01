@@ -69,7 +69,7 @@ public class OrderSuccess extends HttpServlet {
 		double wallet1 = (double) session.getAttribute("wallbal");
 		request.setAttribute("wallet", wallet1);
 
-		RequestDispatcher rd = request.getRequestDispatcher("OrderSuccess.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("orderSuccess.jsp");
 		rd.forward(request, response);
 		} catch (SQLException e) {
 

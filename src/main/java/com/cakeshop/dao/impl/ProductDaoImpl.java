@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,15 @@ public class ProductDaoImpl implements ProductDao {
 				cake.setCakePrice(rs.getInt(4));
 				cake.setCategoryName(rs.getString(5));
 				cake.setRatingCount(rs.getInt(8));				
-				cake.setRating(rs.getDouble(6)/rs.getInt(8));
+				
+
+				double ratingavg=rs.getDouble(6)/rs.getInt(8);
+				NumberFormat formatter = new DecimalFormat("#0.00");     
+				ratingavg=Double.parseDouble(formatter.format(ratingavg));
+				
+				cake.setRating(ratingavg);		     				
+				
+				
 				cake.setPicture(rs.getString(7));
 				cake.setOldRating(rs.getDouble(6));
 				
@@ -285,7 +294,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public List<Products> showRating() throws SQLException {
 		List<Products> ratinglist=new ArrayList<>();
-		String showrating = "select cake_name,rating,rating_count from product_details order by rating desc";
+		String showrating = "select cake_name,(rating/rating_count)as average from product_details order by average desc";
 		Connection con=null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -298,9 +307,12 @@ public class ProductDaoImpl implements ProductDao {
 				Products cake = new Products();				
 				cake.setCakeName(rs.getString(1));
 				
-				cake.setOldRating(rs.getDouble(2)/rs.getInt(3));	    
-			     			
+				double ratingavg=rs.getDouble(2);
+				NumberFormat formatter = new DecimalFormat("#0.00");     
+				ratingavg=Double.parseDouble(formatter.format(ratingavg));
 				
+				cake.setOldRating(ratingavg);
+			     				
 				ratinglist.add(cake);
 			}
 		} catch (SQLException e) {		

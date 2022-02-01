@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Sales Date</title>
+<title>add product</title>
 <style>
 *{
 margin:0px;
 padding:0px;
 }
+
 .header{
 padding-top:24px;
 background:#111;
@@ -34,6 +35,7 @@ height:50px;
   padding-top: 20px;
 }
 
+
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 325px; /* Set the width of the sidebar */
@@ -45,7 +47,6 @@ height:50px;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 50px;
 }
-
 .sidenav a {
   padding: 16px 16px 16px 18px;
   text-decoration: none;
@@ -53,7 +54,6 @@ height:50px;
   color:white;
   display: block;
 }
-
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -67,11 +67,43 @@ height:50px;
   .sidenav a {font-size: 18px;}
 }
 
+
 body{
 background-image:url('assets/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
+.button{
+margin-left:1250px;
+width:100px;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #111;
+}
+
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+* {
+  box-sizing: border-box;
+}
+
 label {
         display: inline-block;
         width: 155px;
@@ -82,15 +114,15 @@ label {
   background-color:pink; 
   border: none;
   color: white;
-  padding: 4px 10px;
+  padding: 3px 6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-   border-radius: 20px;
+  border-radius: 20px;
 }
 .button1 {
   background-color: white; 
@@ -101,63 +133,55 @@ label {
   background-color:pink;
   color: white;
 }
-      
-  #box{
+#box{
+width:40px;
+margin-left:600px;
+margin-top:100px;
+margin-align:center;
 
-width:60px;
-  margin-top:150px;
-  margin-left:500px;
-  }    
-
-h2{
-text-align:center;
 }
+form {width:26em}
+fieldset {padding:2ex}
+legend {font-size:150%; font-weight:bold}
+label {display:block; margin:1em 0}
+input {display:block; width:30ex}
+textarea {display:block; width:50ex; height:7em}
 
 </style>
+
 </head>
 <body>
 
+
 <div class="header container-fluid">
-      	<h2 style=color:darkBlack>Get Sales Details Using Date</h2>         		
+      	<h2>Add </h2>     	
+   		
       </div>
 
 
 <div class="sidenav">
-  <a href="ShowUser">View All Users List</a>
-  <a href="AddProduct.jsp">Add a New Product</a>
-  <a href="viewProduct">Update Product</a>
-  <a href="ShowCart">View Order Details</a>
-  <a href="SalesDate.jsp">View Sales Details</a>
-  <a href="InactiveUser.jsp">Delete User</a>
-  <a href="Home.jsp">LogOut</a>
+<ul>
+  <li><a href="ShowUser">View All Users List</a></li>
+  <li><a href="addProduct.jsp">Add a New Product</a></li>
+  <li><a href="viewProduct">Update Product</a></li>
+  <li><a href="ShowCart">View Order Details</a></li>
+  <li><a href="salesDate.jsp">View Sales Details</a></li>
+  <li><a href="inactiveUser.jsp">Delete User</a></li>
+  <li><a href="home.jsp">LogOut</a></li>  
+  </ul>  
 </div>
 
-
-<form action="salesWiseFilter" method="post">
-<fieldset id="box"><legend></legend>
-<label>From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
-
-<label>To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
-
-<button type="submit" class="button button1">Search</button>
-</fieldset>
+<fieldset id="box"><legend>Add New Product</legend>
+<form action="AddProduct" method="post">
+<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName"  required>
+<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" required>
+<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
+<label for="catename">Category_name</label><input type="text" name="categoryName"  required>
+<label for="picture">Image</label><input type="file" name="picture">
+<button type="submit" name="button" class="button button1">Add</button>
+<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>
-
+</fieldset>
 
 </body>
-
-<script type="text/javascript">
-
-today();
-function today(){
-	var currentTime = new Date()
-	var maxDate=new Date(currentTime.getFullYear(),currentTime.getMonth(),currentTime.getDate()+1);
-	console.log(maxDate);
-	let date=JSON.stringify(maxDate)
-	date = date.slice(1,11)
-	console.log(date)
-	document.getElementById("maxDate").setAttribute("max",date);
-	document.getElementById("startDate").setAttribute("max",date);	
-}
-</script>
 </html>

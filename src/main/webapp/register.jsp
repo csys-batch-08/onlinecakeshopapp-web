@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>login page</title>
+
 <style>
 body {
 	margin: 0;
@@ -92,10 +93,10 @@ img {
 </style>
 </head>
 <body>
-	<form action="Register" method="post">
+	<form action="Register" method="post"  >
 		<div class="container">
 			<img alt="image" src="assets/user1.png" height="70" width="70">
-			<div class="card">
+			<div class="card" >
 			
 				<input type="text" name="userName" placeholder="Username"
 					pattern="[A-Za-z]{3,}" required autofocus><br><br>

@@ -59,10 +59,27 @@ margin-left:-8px;
 .center{
 text-align:center;
 }
-h1{
-acronym
+  .marquee {
+    width: 100%;
+line-height: 5px;
+	background-color: black;
+	color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    position : absolute;
+    bottom: 0px;
 }
-
+.marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    padding-top:15px;
+    animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-70%, 0); }
+}
 </style>
 
 </head>
@@ -72,12 +89,14 @@ acronym
 </div> 
 <img alt="img" src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
-  <a class="active" href="Login.jsp">Login</a>
+  <a class="active" href="login.jsp">Login</a>
   <a href="register.jsp">Register</a>
-  <a href="ContactUs">Contact</a>
-  <a href="AboutUs.jsp">About</a>    
+  <a href="contactUs">Contact</a>
+  <a href="aboutUs.jsp">About</a>    
   
 </div><br><br><br><br>
-<h1 style=color:#CD5959>&#128523<em>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </em></h1>
+<div class="marquee">
+<p><h1 style=color:#CD5959>&#128523<em>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </em></h1></p>
+</div>
 </body>
 </html>

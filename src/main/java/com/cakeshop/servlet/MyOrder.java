@@ -37,7 +37,7 @@ public class MyOrder extends HttpServlet {
 		        
 		       
 				
-		        RequestDispatcher rd = request.getRequestDispatcher("MyOrders.jsp");
+		        RequestDispatcher rd = request.getRequestDispatcher("myOrders.jsp");
 				rd.forward(request, response);  
 		} catch (SQLException e) {
 

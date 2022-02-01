@@ -141,12 +141,12 @@ text-align:center;
 
 <div class="sidenav">
   <a href="ShowUser">View All Users List</a>
-  <a href="AddProduct.jsp">Add a New Product</a>
+  <a href="addProduct.jsp">Add a New Product</a>
   <a href="viewProduct">Update Product</a>
   <a href="ShowCart">View Order Details</a>
-  <a href="SalesDate.jsp">View Sales Details</a>
-  <a href="InactiveUser.jsp">Delete User</a>
-  <a href="Home.jsp">LogOut</a>
+  <a href="salesDate.jsp">View Sales Details</a>
+  <a href="inactiveUser.jsp">Delete User</a>
+  <a href="home.jsp">LogOut</a>
 </div>
 
 <table class="table table-hover">

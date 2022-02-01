@@ -92,7 +92,7 @@ public class CustomizedCake extends HttpServlet {
 
 		request.setAttribute("wallball", wallball);
 
-		RequestDispatcher rd = request.getRequestDispatcher("OrderCustomized.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("orderCustomized.jsp");
 		rd.forward(request, response);
 
 	}

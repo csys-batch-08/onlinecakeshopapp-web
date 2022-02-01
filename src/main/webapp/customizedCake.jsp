@@ -7,9 +7,10 @@
 <title>customized cake</title>
 <style>
 #box{
+background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 width:350px;
-margin-left:600px;
-margin-top:250px;
+margin-left:500px;
+margin-top:150px;
 }
 body{
 background-image:url('assets/index2.jpeg');
@@ -29,6 +30,7 @@ background-size:cover;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border-radius:20px;
 }
 .button1 {
   background-color: white; 
@@ -76,19 +78,19 @@ label {
 </head>
 <body>
 <div class="topnav" > 
-  <a href="ViewOrder.jsp">Orders</a>  
+  <a href="viewOrder.jsp">Orders</a>  
    <a href="ShowProduct">Products</a>
   <a href="Categories">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
+  <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>     
-   <a href="CustomizedCake.jsp">Customized Cake</a>
-    <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="customizedCake.jsp">Customized Cake</a>
+    <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>
          
 </div>
   
 
-<fieldset id="box"><legend>Customized Order</legend>
+<fieldset id="box"><legend style=color:red><h2>Customized Order</h2></legend>
 <form action="customized" method="post">
 
 <label>Flavour</label>

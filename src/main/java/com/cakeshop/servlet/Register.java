@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
 	
 	   try {
 		userDao.insertUser(user1);
-		response.sendRedirect("Login.jsp");
+		response.sendRedirect("login.jsp");
 	} catch (SQLException e) {
 
 		e.getMessage();

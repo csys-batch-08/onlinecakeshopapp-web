@@ -7,12 +7,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>home page</title>
 <meta charset="ISO-8859-1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 
-<title>home page</title>
+
 <style type="text/css">
 body {
 	background-image: url('assets/cake2.jpg');
@@ -101,11 +102,12 @@ body {
 </head>
 <body>
 	<div class="topnav">
-		<a href="Categories">Categories</a> <a href="SearchPrice.jsp">Price
-			Wise Search</a> <a href="ShowRating">Ratings</a> <a
-			href="CustomizedCake.jsp">Customized Cake</a> <a href="Home.jsp"
-			style="float: right;">LogOut</a> <a href="UserProfile"
-			style="float: right;">Profile</a>
+		 <a href="Categories">Categories</a>
+		 <a href="searchPrice.jsp">Price Wise Search</a> 
+		 <a href="ShowRating">Ratings</a>
+		 <a	href="customizedCake.jsp">Customized Cake</a> 
+		 <a href="home.jsp"	style="float: right;">LogOut</a>
+		 <a href="UserProfile"	style="float: right;">Profile</a>
 	</div>
 	<form>
 

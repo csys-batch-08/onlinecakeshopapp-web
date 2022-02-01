@@ -35,7 +35,7 @@ public class SearchPrice extends HttpServlet {
 			request.setAttribute("toprice", toPrice);
 				request.setAttribute("showproduct", viewProducts);
 				
-			RequestDispatcher rd = request.getRequestDispatcher("ShowPriceWise.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("showPriceWise.jsp");
 			rd.forward(request, response);
 		} catch (SQLException e) {
 			

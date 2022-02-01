@@ -53,7 +53,7 @@ background-size:cover;
 <form action="walletcheck">
 <button class="button button1" type="submit" id="button">Pay</button>
 </form><br>
-<form action="Home.jsp">
+<form action="home.jsp">
 <button class="button button1" type="submit" id="button">Pay Later</button>
 </form>
 </fieldset>

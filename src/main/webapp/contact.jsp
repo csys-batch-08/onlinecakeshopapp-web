@@ -55,9 +55,9 @@ align:center;
 </head>
 <body>
 <div class="topnav" >
- <a class="active" href="Login.jsp">Login</a>
+ <a class="active" href="login.jsp">Login</a>
   <a href="register.jsp">Register</a> 
-   <a href="Home.jsp">Return To Home</a>
+   <a href="home.jsp">Return To Home</a>
 </div>
 
 

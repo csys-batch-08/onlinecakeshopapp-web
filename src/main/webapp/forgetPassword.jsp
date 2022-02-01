@@ -51,6 +51,7 @@ label {
       }
       
   feildset{
+  width:20px;
   align:center;
   }    
 
@@ -64,7 +65,7 @@ label {
 <button class="button button1" type="submit" id="button"><em>Change</em></button>
 &emsp;
 </form>
-<form action="Login.jsp">
+<form action="login.jsp">
 <button class="button button1">Back</button>
 
 </form>

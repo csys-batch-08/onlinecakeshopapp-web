@@ -39,12 +39,12 @@ public class SalesDate extends HttpServlet {
 			cartlist = cartDao.filterSales(fromdate, todate);
 			if(cartlist!=null) {
 				request.setAttribute("SalesList", cartlist);
-				RequestDispatcher rd = request.getRequestDispatcher("ShowSales.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("showSales.jsp");
 				rd.forward(request, response);
 				
 			}		
 			else {
-				response.sendRedirect("SalesDate.jsp");
+				response.sendRedirect("salesDate.jsp");
 			}
 		} catch (SQLException e) {
 

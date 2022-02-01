@@ -1,11 +1,10 @@
-<%@page import="com.cakeshop.dao.impl.UserDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Inactive User</title>
+<title>Sales Date</title>
 <style>
 *{
 margin:0px;
@@ -83,11 +82,11 @@ label {
   background-color:pink; 
   border: none;
   color: white;
-  padding: 3px 8px;
+  padding: 4px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -98,7 +97,6 @@ label {
   color: black; 
   border: 2px solid pink;
   }
-  
   .button1:hover {
   background-color:pink;
   color: white;
@@ -106,42 +104,60 @@ label {
       
   #box{
 
+width:60px;
   margin-top:150px;
   margin-left:500px;
   }    
-  
-  h2{
-  text-align:center;
-  }
+
+h2{
+text-align:center;
+}
 
 </style>
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<h2 style=color:darkBlack>Inactive User</h2>		
-</div>
+      	<h2 style=color:darkBlack>Get Sales Details Using Date</h2>         		
+      </div>
 
 
 <div class="sidenav">
   <a href="ShowUser">View All Users List</a>
-  <a href="AddProduct.jsp">Add a New Product</a>
+  <a href="addProduct.jsp">Add a New Product</a>
   <a href="viewProduct">Update Product</a>
   <a href="ShowCart">View Order Details</a>
-  <a href="SalesDate.jsp">View Sales Details</a>
-  <a href="InactiveUser.jsp">Delete User</a>
-  <a href="Home.jsp">LogOut</a>
+  <a href="salesDate.jsp">View Sales Details</a>
+  <a href="inactiveUser.jsp">Delete User</a>
+  <a href="home.jsp">LogOut</a>
 </div>
 
-<fieldset id="box"><legend>Inactive User</legend>
-<form action="Inactive" method="post">
 
-Email Id : <input type="email" name="Email"
-oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" 
-onchange="try{setCustomValidity('')}catch(e){}">
+<form action="salesWiseFilter" method="post">
+<fieldset id="box"><legend></legend>
+<label>From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
 
-<button type="submit" class="button button1">Delete</button>
-</form>
+<label>To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
+
+<button type="submit" class="button button1">Search</button>
 </fieldset>
+</form>
+
+
 </body>
+
+<script type="text/javascript">
+
+today();
+function today(){
+	var currentTime = new Date()
+	var maxDate=new Date(currentTime.getFullYear(),currentTime.getMonth(),currentTime.getDate()+1);
+	console.log(maxDate);
+	let date=JSON.stringify(maxDate)
+	date = date.slice(1,11)
+	console.log(date)
+	document.getElementById("maxDate").setAttribute("max",date);
+	document.getElementById("startDate").setAttribute("max",date);	
+}
+</script>
 </html>

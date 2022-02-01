@@ -74,13 +74,13 @@ margin-left:200px;
 <body>
 
 <div class="topnav"> 
-  <a href="ViewOrder.jsp">Orders</a>
+  <a href="viewOrder.jsp">Orders</a>
   <a href="ShowProduct">Products</a>  
   <a href="Categories">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
+  <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>       
-   <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="customizedCake.jsp">Customized Cake</a>
+   <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>         
 </div>
 

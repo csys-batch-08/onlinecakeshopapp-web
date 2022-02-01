@@ -91,7 +91,7 @@ a:hover {
 	 <h2><%=msg %></h2>
 	 <%session.removeAttribute("Invalid"); %>
  <% } %>
- 
+
 
 	<form action="Login" method="post">
 		<div class="container">
@@ -109,7 +109,7 @@ a:hover {
 				
 				<h4 style="color:red"><input type="checkbox" onclick="myFunction()" style="color:red;">Show Password</h4>
 				
-				<a href="ForgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
+				<a href="forgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
 				
 				<button type="submit" id="button">Submit</button>
 				

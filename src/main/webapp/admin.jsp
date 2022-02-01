@@ -82,18 +82,18 @@ align:center;
 <body>
 <div class="header container-fluid">
       	<h2>Welcome Admin!!</h2>      	
-   		<a href="Logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
+   		<a href="logout.jsp"><h3 style="float:right; position:relative; bottom:40px; color:black;">Logout</h3></a>
       </div>
 
 
 <div class="sidenav">
   <a href="ShowUser">View All Users List</a>
-  <a href="AddProduct.jsp">Add a New Product</a>
+  <a href="addProduct.jsp">Add a New Product</a>
   <a href="viewProduct">Update Product</a>
   <a href="ShowCart">View Order Details</a>
-  <a href="SalesDate.jsp">View Sales Details</a>
-  <a href="InactiveUser.jsp">Delete User</a>
-  <a href="Home.jsp">LogOut</a>
+  <a href="salesDate.jsp">View Sales Details</a>
+  <a href="inactiveUser.jsp">Delete User</a>
+  <a href="home.jsp">LogOut</a>
 </div>
 
 </body>

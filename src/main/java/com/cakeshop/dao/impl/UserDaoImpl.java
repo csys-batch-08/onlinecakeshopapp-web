@@ -242,18 +242,16 @@ public class UserDaoImpl implements UserDao{
 			
 		}
       
-      public  int editUser(String name,String email,String address,double wallet,int userId) throws SQLException {
-			String editquery = "update user_details set user_name=?,email_id=?,address=?,user_wallet=? where user_id=?";
+      public  int editUser(String name,String address,int userId) throws SQLException {
+			String editquery = "update user_details set user_name=?,address=? where user_id=?";
 			PreparedStatement prepare3=null;
 			Connection con =null;
 			try {
 			 con = ConnectionUtil.getDbConnection();
 			 prepare3 = con.prepareStatement(editquery);	
-			 prepare3.setString(1,name);
-			 prepare3.setString(2,email);			
-			 prepare3.setString(3,address);	
-			 prepare3.setDouble(4, wallet);
-			 prepare3.setInt(5, userId);			
+			 prepare3.setString(1,name);					
+			 prepare3.setString(2,address);				
+			 prepare3.setInt(3,userId);			
 			 prepare3.executeUpdate();			
 			 prepare3.close();
 			con.close();

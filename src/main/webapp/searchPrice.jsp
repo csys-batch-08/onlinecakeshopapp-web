@@ -1,26 +1,28 @@
-<%@page import="com.cakeshop.dao.impl.UserDaoImpl"%>
-<%@page import="com.cakeshop.model.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>User Profile</title>
+<title>search Price</title>
 <style>
-#box {
-	width: 350px;	
-	margin-left:900px;
-	
-}
+
 body{
-background-image:url('assets/cake1.jpeg');
+background-image:url('assets/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
+
+}
+#box {
+ background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+	width: 350px;
+	margin-left: 30px;
+	margin-right:400px;
+	margin-top: 150px;
 }
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: gray;
+  background-color: Gray;
   overflow: hidden;
 }
 
@@ -68,28 +70,42 @@ background-size:cover;
   background-color:pink;
   color: white;
 }
+label {
+        display: inline-block;
+        width: 155px;
+        text-align: right;
+        margin-left:-50px; 
+      }
+fieldset{
+align:center;
+}
+
 </style>
 </head>
 <body>
-<div class="topnav"> 
-  <a href="ViewOrder.jsp">Orders</a> 
+
+<div class="topnav" >
+ 
+  <a href="viewOrder.jsp">Orders</a> 
   <a href="ShowProduct">Products</a> 
   <a href="Categories">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
-   <a href="ShowRating">Ratings</a>      
-   <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="Home.jsp" style="float:right;">LogOut</a> 
-   <a href="UserProfile" style="float:right;">Profile</a>         
+  <a href="searchPrice.jsp">Price Wise Search</a>
+   <a href="ShowRating">Ratings</a>     
+   <a href="customizedCake.jsp">Customized Cake</a>
+    <a href="home.jsp" style="float:right;">LogOut</a> 
+   <a href="UserProfile" style="float:right;">Profile</a>       
 </div>
+ 
+ 
+<form action="SearchPrice" method="post" >
+<fieldset id="box"><legend style=color:red><h2>Search By Price</h2></legend>
+<label for="from"><strong><em>From Price : </em></strong></label>
+<input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
+<label for="to"><strong><em>To Price : </em></strong></label>
+<input type="number" name="toPrice" pattern="[0-9]" min="0" required><br>
+<button class="button button1" type="submit" name="button">submit</button>
 
-
-
-<fieldset id="box"><legend>User Profile</legend>
-<h3>User Name : ${requestScope['UserName']}</h3>
-<h3>User Email : ${requestScope['email']}</h3>
-<h3>User Address : ${requestScope['address']}</h3>
-<h3>User Wallet : ${requestScope['wallet']}</h3>
-<button class="button button1"><a href="Edit.jsp" style="text-decoration:none">Edit</a></button>
 </fieldset>
+</form>
 </body>
 </html>

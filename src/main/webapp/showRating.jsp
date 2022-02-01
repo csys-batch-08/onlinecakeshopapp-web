@@ -55,30 +55,30 @@ background-size:cover;
 </head>
 <body>
 <div class="topnav"> 
-  <a href="ViewOrder.jsp">Orders</a> 
+  <a href="viewOrder.jsp">Orders</a> 
   <a href="ShowProduct">Products</a> 
   <a href="Categories">Categories</a> 
-  <a href="SearchPrice.jsp">Price Wise Search</a>
+  <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>      
-   <a href="CustomizedCake.jsp">Customized Cake</a>
-   <a href="Home.jsp" style="float:right;">LogOut</a> 
+   <a href="customizedCake.jsp">Customized Cake</a>
+   <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>       
 </div>
 
 
-<table>
+<table align="center">
 <caption><h2>Rating</h2></caption>
 <tr>
 <th id="1"><h3 style="color:white; font-size:large;">Product Name</h3></th>
 <th id="2"><h3 style="color:white; font-size:large;">Ratings</h3></th>
 </tr>
-<c:forEach var="show" items="${ratinglist}"></c:forEach>
+<c:forEach var="show" items="${ratinglist}">
 
 <tr>
 <td style="color:white; font-size:large;">${show.cakeName}</td>
 <td style="color:white; font-size:large;">${show.oldRating}</td>
 </tr>
-
+</c:forEach>
 </table>
 </body>
 </html>

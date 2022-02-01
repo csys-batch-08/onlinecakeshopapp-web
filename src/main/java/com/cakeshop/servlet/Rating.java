@@ -42,7 +42,7 @@ public class Rating extends HttpServlet {
 			
 			
 			userRatingDao.updateRating(rating, cId, count);
-			response.sendRedirect("Ratingsuccess.jsp");
+			response.sendRedirect("ratingsuccess.jsp");
 		}
 			catch (SQLException e) {
 				e.getMessage();

@@ -13,9 +13,9 @@ import javax.servlet.http.HttpSession;
 import com.cakeshop.dao.impl.AdminDaoImpl;
 import com.cakeshop.dao.impl.ProductDaoImpl;
 import com.cakeshop.dao.impl.UserDaoImpl;
-import com.cakeshop.dao.impl.WalletDaoImpl;
+
 import com.cakeshop.exception.InvalidUserException;
-import com.cakeshop.exception.LowBalanceException;
+
 import com.cakeshop.model.Products;
 import com.cakeshop.model.User;
 
@@ -46,7 +46,6 @@ public class Login extends HttpServlet {
 				int userId = currentUser.getUserId();
 				session.setAttribute("userId", userId);
 
-			
 				session.setAttribute("CurrentUser", currentUser.getEmailId());
 
 				String userRole = currentUser.getRole();
@@ -59,25 +58,20 @@ public class Login extends HttpServlet {
 
 				} else if (userRole.equals("user")) {
 
-					session.setAttribute("CurrentUser1", currentUser.getUserName());
+				
 
 					session.setAttribute("CurrentUser1", currentUser.getUserName());
 
-					WalletDaoImpl walletBal = new WalletDaoImpl();
-					int walletBal1 = walletBal.walletbal(userId);
+				
 
-					if (walletBal1 > 1000) {
+				
 						ProductDaoImpl productDao = new ProductDaoImpl();
 						List<Products> viewProducts = productDao.showProduct();
 						request.setAttribute("showProduct", viewProducts);
 						RequestDispatcher rd = request.getRequestDispatcher("showProduct.jsp");
 						rd.forward(request, response);
 
-					} else {
-
-						throw new LowBalanceException();
-
-					}
+					
 				} else {
 
 					throw new InvalidUserException();
@@ -89,11 +83,9 @@ public class Login extends HttpServlet {
 
 			}
 
-		} catch (LowBalanceException e) {
-			response.sendRedirect(e.getMessage());
 		} catch (InvalidUserException e) {
 			session.setAttribute("Invalid", e.getMessage());
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("login.jsp");
 		} catch (SQLException e1) {
 
 			e1.getMessage();

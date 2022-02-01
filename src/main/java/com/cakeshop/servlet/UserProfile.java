@@ -25,8 +25,6 @@ public class UserProfile extends HttpServlet {
 		HttpSession session=request.getSession();
 		String emailId=session.getAttribute("EmailId").toString();
 		String password=session.getAttribute("password").toString();
-
-		
 				
 		UserDaoImpl userDao = new UserDaoImpl();
 		User user;
@@ -36,15 +34,22 @@ public class UserProfile extends HttpServlet {
 			String email=user.getEmailId();
 			
 			request.setAttribute("email", email);
+			session.setAttribute("email", email);
 			
 			String userName=user.getUserName();
 			request.setAttribute("UserName",userName);
 			String address=user.getAddress();
+			
 			request.setAttribute("address", address);		
 			double wallet=user.getWallet();
-			request.setAttribute("wallet", wallet);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("UserProfile.jsp");
+			if(wallet<1000) {
+			
+			request.setAttribute("wallet", wallet);
+			}
+			request.setAttribute("userWallet", wallet);
+			session.setAttribute("userWallet", wallet);
+			RequestDispatcher rd = request.getRequestDispatcher("userProfile.jsp");
 			rd.forward(request, response);
 			
 		} catch (SQLException e) {
