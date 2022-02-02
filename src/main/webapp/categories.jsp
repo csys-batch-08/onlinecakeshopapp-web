@@ -9,6 +9,10 @@
 <meta charset="ISO-8859-1">
 <title>category wise cake</title>
 <style>
+*{
+margin:0px;
+padding:0px;
+}
 body {
 	background-image: url('assets/Background.png');
 	background-repeat: no-repeat;
@@ -25,32 +29,43 @@ body {
 
 /* Add a black background color to the top navigation */
 .topnav {
-	background-color: Gray;
+	background-color: gray;
 	overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+  position:relative;
+  margin-top:-65px;
+  margin-left:80px;
+  
+}
+/* Style the links inside the navigation bar */
 .topnav a {
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav-right{
+float:right;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-	background-color: #ddd;
-	color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-	background-color: gray;
-	color: white;
+  background-color: red;
+  color: white;
 }
-
 .button {
 	background-color: pink;
 	border: none;
@@ -79,6 +94,7 @@ body {
 </style>
 </head>
 <body>
+<img alt="img" src="assets/logo2.png" width="100px" height="90px">
 	<div class="topnav">
 		<a href="viewOrder.jsp">Orders</a> 
 		<a href="ShowProduct">Products</a>
@@ -89,15 +105,9 @@ body {
 		 <a href="home.jsp" style="float:right;">LogOut</a> 
 	 <a href="UserProfile" style="float:right;">Profile</a> 
 	</div>
-	
-	
+
    
-   
-       
-      
-   
-            
-</div>
+
 	
 	<br>
 	<br>

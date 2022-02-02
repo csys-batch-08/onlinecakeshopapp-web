@@ -85,13 +85,14 @@ a:hover {
 </style>
 </head>
 <body>
- 
+ <center><h3 style=color:red>
  <%String msg=(String)session.getAttribute("Invalid"); 
  if(msg!=null){%> 
 	 <h2><%=msg %></h2>
 	 <%session.removeAttribute("Invalid"); %>
  <% } %>
-
+ </h3> 
+</center>
 
 	<form action="Login" method="post">
 		<div class="container">

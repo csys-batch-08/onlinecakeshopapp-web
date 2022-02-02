@@ -273,5 +273,26 @@ public class UserDaoImpl implements UserDao{
 			return 1;
 			
 		}
+	public boolean checkEmail(String email) {
+		String emailCheck="select email_id from user_details where email_id in ?";
+		PreparedStatement pstmt=null;
+		Connection con =null;
+	
+		try {
+			 con = ConnectionUtil.getDbConnection();
+			pstmt=con.prepareStatement(emailCheck);
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();	
+			if(rs.next()) {
+				return true;
+			}
+		}catch(SQLException e) {
+			
+			e.getMessage();
+		}
+		
+		return false;
+	}
+	
 
 }

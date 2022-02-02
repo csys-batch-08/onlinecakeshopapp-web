@@ -104,6 +104,7 @@ text-align:center;
   <li><a href="updateProduct.jsp">Update Product</a></li>
   <li><a href="showCart.jsp">View Order Details</a></li>
   <li><a href="salesDate.jsp">View Sales Details</a></li>
+  <li><a href="inactiveUser.jsp">Delete User</a></li>
   <li><a href="home.jsp">LogOut</a></li>
   
   </ul>

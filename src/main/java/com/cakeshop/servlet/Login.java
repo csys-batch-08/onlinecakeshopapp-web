@@ -57,12 +57,10 @@ public class Login extends HttpServlet {
 					response.sendRedirect("admin.jsp");
 
 				} else if (userRole.equals("user")) {
-
-				
+	
 
 					session.setAttribute("CurrentUser1", currentUser.getUserName());
-
-				
+	
 
 				
 						ProductDaoImpl productDao = new ProductDaoImpl();

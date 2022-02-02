@@ -31,7 +31,7 @@ public class WalletCheck extends HttpServlet {
 		
 		try {
 			walletCheck.rechargeWallet(userName);
-			response.sendRedirect("showProduct.jsp");
+			response.sendRedirect("order.jsp");
 		} catch (SQLException e) {
 			
 			e.getMessage();

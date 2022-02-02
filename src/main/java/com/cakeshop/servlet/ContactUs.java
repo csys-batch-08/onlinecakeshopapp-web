@@ -17,7 +17,7 @@ import com.cakeshop.model.Help;
 
 
 
-@WebServlet("/ContactUs")
+@WebServlet("/contactUs")
 public class ContactUs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
           

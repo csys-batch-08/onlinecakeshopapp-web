@@ -7,11 +7,13 @@
 <meta charset="ISO-8859-1">
 <title>Home Page</title>
 
+
 <style>
 *{
 margin:0px;
 padding:0px;
 }
+
 
 body{
 background-image:url('assets/index3.jpeg');
@@ -59,34 +61,36 @@ margin-left:-8px;
 .center{
 text-align:center;
 }
-  .marquee {
-    width: 100%;
-line-height: 5px;
-	background-color: black;
+ .marquee {
+    width: 100%; 
 	color: white;
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
-    position : absolute;
-    bottom: 0px;
+    position : absolute;   
 }
-.marquee p {
-    display: inline-block;
+.marquee h1{ 
+   color:#CD5959;
+    width:100%;
     padding-left: 100%;
-    padding-top:15px;
+    padding-top:100px;
+    margin-top:10px;    
     animation: marquee 30s linear infinite;
 }
 @keyframes marquee {
     0%   { transform: translate(0, 0); }
     100% { transform: translate(-70%, 0); }
 }
+
 </style>
 
 </head>
 <body>
+
  <div class="center">
-<h1><em>Welcome to My CakeShop</em></h1><br>
+<h1 style=color:#CD5959><em>Welcome to  Frosting Fairy Cake Shop</em></h1><br>
 </div> 
+
 <img alt="img" src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
   <a class="active" href="login.jsp">Login</a>
@@ -95,8 +99,10 @@ line-height: 5px;
   <a href="aboutUs.jsp">About</a>    
   
 </div><br><br><br><br>
+
 <div class="marquee">
-<p><h1 style=color:#CD5959>&#128523<em>We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!! </em></h1></p>
+<h1>&#128523 We bake happiness for you in the face of cake!! Let us deliver sweetness in your lives!!</h1> 
 </div>
+
 </body>
 </html>

@@ -63,8 +63,10 @@ color:black;
 <li>So as to accomplish this, the family offers establishments to growing business visionaries and merchants joining 
      forces with them to guarantee achievement and perfection.
 <li> We bake happiness for you in the face of cake. 
-<li>Let us deliver sweetness in your lives.</ul></h2>
+<li>Let us deliver sweetness in your lives.
+</ul>
 </h2>
+
 
 
 </body>

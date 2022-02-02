@@ -9,6 +9,11 @@
 <meta charset="ISO-8859-1">
 <title>Customized Orders</title>
 <style type="text/css">
+*{
+margin:0px;
+padding:0px;
+}
+
 table, th, td {
 background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   border: 1px solid black;
@@ -28,10 +33,19 @@ background-size:cover;
 }
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: Gray;
-  overflow: hidden;
+	background-color: gray;
+	overflow: hidden;
 }
 
+/* Style the links inside the navigation bar */
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+  position:relative;
+  margin-top:-65px;
+  margin-left:80px;
+  
+}
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -40,6 +54,9 @@ background-size:cover;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+.topnav-right{
+float:right;
 }
 
 /* Change the color of links on hover */
@@ -50,7 +67,7 @@ background-size:cover;
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: gray;
+  background-color: red;
   color: white;
 }
 h2{
@@ -59,6 +76,7 @@ text-align:center;
 </style>
 </head>
 <body>
+<img alt="img" src="assets/logo2.png" width="100px" height="90px">
 <div class="topnav" > 
   <a href="viewOrder.jsp">Orders</a> 
    <a href="ShowProduct">Products</a> 
@@ -77,13 +95,13 @@ text-align:center;
 
 
 <tr>
-<th id="1"><h2 style=color:red><strong>User Name</strong></h2></th>
-<th id="2"><h2 style=color:red><strong>Quantity</strong></h2></th>
-<th id="3"><h2 style=color:red><strong>Order Date</strong></h2></th>
-<th id="4"><h2 style=color:red><strong>Flavour</strong></h2></th>
-<th id="6"><h2 style=color:red><strong>Types</strong></h2></th>
-<th id="7"><h2 style=color:red><strong>Shape</strong></h2></th>
-<th id="7"><h2 style=color:red><strong>Total Price</strong></h2></th>
+<th id="1"><h3 style=color:red><strong>User Name</strong></h3></th>
+<th id="2"><h3 style=color:red><strong>Quantity</strong></h3></th>
+<th id="3"><h3 style=color:red><strong>Order Date</strong></h3></th>
+<th id="4"><h3 style=color:red><strong>Flavour</strong></h3></th>
+<th id="6"><h3 style=color:red><strong>Types</strong></h3></th>
+<th id="7"><h3 style=color:red><strong>Shape</strong></h3></th>
+<th id="7"><h3 style=color:red><strong>Total Price</strong></h3></th>
 
 </tr>
 

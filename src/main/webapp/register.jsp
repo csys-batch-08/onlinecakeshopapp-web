@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>login page</title>
+ 
 
 <style>
 body {
@@ -89,11 +90,13 @@ img {
 	background-color: pink;
 	color: white;
 }
-
+ 
 </style>
 </head>
 <body>
+ 
 	<form action="Register" method="post"  >
+
 		<div class="container">
 			<img alt="image" src="assets/user1.png" height="70" width="70">
 			<div class="card" >
@@ -114,9 +117,11 @@ img {
 					
 				<button class="button button1" type="submit" id="button">Submit</button>
 				<br><button class="button button1" type="reset" id="button">Reset</button>
+		</div>
+		</div>
+			
 	</form>
-	</div>
-	</div>
+
 </body>
 </html>
 </body>

@@ -10,6 +10,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
  
 <style type="text/css">
+*{
+margin:0px;
+padding:0px;
+}
 
 table, th, td {
 background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
@@ -28,10 +32,19 @@ background-size:cover;
 }
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: Gray;
-  overflow: hidden;
+	background-color: gray;
+	overflow: hidden;
 }
 
+/* Style the links inside the navigation bar */
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+  position:relative;
+  margin-top:-65px;
+  margin-left:80px;
+  
+}
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -40,6 +53,9 @@ background-size:cover;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+.topnav-right{
+float:right;
 }
 
 /* Change the color of links on hover */
@@ -50,7 +66,7 @@ background-size:cover;
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: gray;
+  background-color: red;
   color: white;
 }
 .button {
@@ -82,6 +98,7 @@ background-size:cover;
 </style>
 </head>
 <body>
+<img alt="img" src="assets/logo2.png" width="100px" height="90px">
 <div class="topnav" >
  
   <a href="viewOrder.jsp">Orders</a>  

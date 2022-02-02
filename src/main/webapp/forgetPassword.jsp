@@ -51,7 +51,7 @@ label {
       }
       
   feildset{
-  width:20px;
+  width:40px;
   align:center;
   }    
 
@@ -60,8 +60,8 @@ label {
 <body>
 <fieldset id="box"><legend>Reset Your Password</legend>
 <form action="forgetPassword" method="post">
-<label>Set New Password : </label><input type="text" name="password" required pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
-<label>Email Id : </label><input type="Email" name="emailId" required ><br><br>
+<label>Set New Password : </label><br/><input type="text" name="password" required pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"><br><br>
+<label>Email Id : </label><br/><input type="Email" name="emailId" required ><br><br>
 <button class="button button1" type="submit" id="button"><em>Change</em></button>
 &emsp;
 </form>

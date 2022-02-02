@@ -76,7 +76,7 @@ public class WalletDaoImpl implements WalletDao {
 	public int rechargeWallet(String user) throws SQLException {
 
 		Connection con=null;
-		String query = "update user_details set user_wallet =(user_wallet+10000) where user_name = ?";
+		String query = "update user_details set user_wallet =(user_wallet+1000) where user_name = ?";
 		PreparedStatement stmt = null;
 		try {
 			con = ConnectionUtil.getDbConnection();

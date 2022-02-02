@@ -2,12 +2,13 @@ package com.cakeshop.model;
 
 public class Help {
 
-	private long phone;
+	private String phone;
 	private String email;
-	public double getPhone() {
+	
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {
@@ -20,7 +21,7 @@ public class Help {
 		super();
 
 	}
-	public Help(long phone, String email) {
+	public Help(String phone, String email) {
 		super();
 		this.phone = phone;
 		this.email = email;

@@ -3,6 +3,7 @@ package com.cakeshop.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +25,11 @@ public class InactiveUser extends HttpServlet {
 		
 		String email=request.getParameter("Email");
 		
+		boolean validate=userDao.checkEmail(email);
+		if(validate) {
+			
+		
+		
 		try {
 			userDao.inactiveUser(email);
 			response.sendRedirect("admin.jsp");
@@ -32,6 +38,13 @@ public class InactiveUser extends HttpServlet {
 			e.getMessage();
 		}
 		
+		}
+		else {
+		 request.setAttribute("invalidEmail", "invalid");
+		 RequestDispatcher rd=request.getRequestDispatcher("inactiveUser.jsp");
+		 rd.forward(request, response);
+		 
+		}
 	
 		
 		

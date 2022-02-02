@@ -7,6 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Contact</title>
 <style>
+*{
+margin:0px;
+padding:0px;
+}
 body{
 background-image:url('assets/contact.jpeg');
 background-repeat:no-repeat;

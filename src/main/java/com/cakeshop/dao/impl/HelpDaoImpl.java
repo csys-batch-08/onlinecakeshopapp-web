@@ -26,12 +26,12 @@ public class HelpDaoImpl implements HelpDao{
 			con = ConnectionUtil.getDbConnection();
 			 pstmt = con.createStatement();
 			 rs = pstmt.executeQuery(showQuery);	
-			 
+			while(rs.next()) { 
 				Help cake = new Help();
-				cake.setPhone(rs.getLong(1));			
+				cake.setPhone(rs.getString(1));			
 				cake.setEmail(rs.getString(2));
 				help.add(cake);
-
+			}
 		} catch (SQLException e) {
 			e.getMessage();
 		}

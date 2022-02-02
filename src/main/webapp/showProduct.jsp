@@ -28,25 +28,37 @@ body {
 }
 
 /* Style the links inside the navigation bar */
+.topnav {
+  background-color: gray;
+  overflow: hidden;
+  position:relative;
+  margin-top:-65px;
+  margin-left:80px;
+  
+}
+/* Style the links inside the navigation bar */
 .topnav a {
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.topnav-right{
+float:right;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-	background-color: #ddd;
-	color: black;
+  background-color: #ddd;
+  color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-	background-color: gray;
-	color: white;
+  background-color: red;
+  color: white;
 }
 
 .button {
@@ -97,10 +109,17 @@ body {
 	.topnav input[type=text] {
 		border: 1px solid #ccc;
 	}
+	
+	img{
+	align:center;
+	}
+	
 }
 </style>
 </head>
 <body>
+	
+	<img alt="img" src="assets/logo2.png" width="100px" height="90px">
 	<div class="topnav">
 		 <a href="Categories">Categories</a>
 		 <a href="searchPrice.jsp">Price Wise Search</a> 
