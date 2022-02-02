@@ -93,10 +93,10 @@ text-align:center;
 
 <img alt="img" src="assets/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
-  <a class="active" href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>
-  <a href="contactUs">Contact</a>
-  <a href="aboutUs.jsp">About</a>    
+  <a class="active" href="login.jsp"><label>Login</label></a>
+  <a href="register.jsp"><label>Register</label></a>
+  <a href="contactUs"><label>Contact</label></a>
+  <a href="aboutUs.jsp"><label>About</label></a>    
   
 </div><br><br><br><br>
 

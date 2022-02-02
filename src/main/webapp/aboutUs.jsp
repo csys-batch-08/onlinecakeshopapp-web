@@ -51,9 +51,9 @@ color:black;
 </head>
 <body>
 <div class="topnav" >
- <a class="active" href="login.jsp">Login</a>
-  <a href="register.jsp">Register</a>   
-   <a href="home.jsp">Return To Home</a>
+ <a class="active" href="login.jsp"><label>Login</label></a>
+  <a href="register.jsp"><label>Register</label></a>   
+   <a href="home.jsp"><label>Return To Home</label></a>
 </div>
 <p>
 <h2>

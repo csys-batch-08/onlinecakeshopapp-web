@@ -87,7 +87,7 @@ align:center;
 
 
 <div class="sidenav">
-  <a href="ShowUser">View All Users List</a>
+  <a href="ShowUser"><label>View All Users List<label></a>
   <a href="addProduct.jsp">Add a New Product</a>
   <a href="viewProduct">Update Product</a>
   <a href="ShowCart">View Order Details</a>
