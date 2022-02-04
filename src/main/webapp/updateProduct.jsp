@@ -11,24 +11,10 @@
 <title>Update product</title>
 <style>
 #box{
+background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 width:350px;
 margin-left:400px;
 margin-top:0px;
-}
-
-#box1{
-width:350px;
-margin-left:800px;
-margin-top:0px;
-}
-
-table, th, td { 
-
- background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
-  border-collapse: collapse;
-  font-size:13px;  
-  padding: 1px;
-  margin-left:350px;
 }
 
 
@@ -135,9 +121,8 @@ text-align:center;
 <body>
 
 <div class="header container-fluid">
-      	<h2 style=color:darkBlack>Hole Product List</h2>      		
+      	<h2 style=color:darkBlack>Update</h2>      		
       </div>
-
 
 <div class="sidenav">
   <a href="ShowUser">View All Users List</a>
@@ -149,46 +134,17 @@ text-align:center;
   <a href="home.jsp">LogOut</a>
 </div>
 
-<table class="table table-hover">
-<caption></caption>
-<tr>
-
-<th id="1">Product Name</th>
-<th id="2">Product Description</th>
-<th id="3">Product price</th>
-<th id="4">Product Categories</th>
-<th id="5">Product Rating</th>
-</tr>
-
-
-<c:forEach var="show" items="${viewProduct}">
-<tr>
-<td>${show.cakeName}</td>
-<td>${show.cakeDescription}</td>
-<td>${show.cakePrice}</td>
-<td>${show.categoryName}</td>
-<td>${show.rating}</td>
-</tr>
-</c:forEach>
-</table>
-
-<fieldset id="box"><legend><h3 style=color:red>Delete Product using Id</h3></legend><br>
-<form action="deleteProduct" method="post">
-Cake Id:<input type="number" name="cakeId" pattern="[0-9]"><br><br>
-<button class="button button1" type="submit" id="button">delete</button>
-<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
+<fieldset id="box"><legend>Update Product</legend>
+<form action="UpdatedProduct" method="post">
+ <label for="cakeId">Cake Id : </label><br><input type="text" name="cakeId" value="<c:out value='${sessionScope.cakeId}'/>" readonly><br/><br/>
+<label for="cakeName">Cake Name : </label><br><input type="text" name="cakeName" value="<c:out value='${sessionScope.cakename}'/>" ><br/><br>
+<label for="description">Cake Description : </label><br><input type="text" name="description" value="<c:out value='${sessionScope.description}'/>" ><br/><br/>
+<label for="price">Cake Price : </label><br><input type="text" name="price" value="<c:out value='${sessionScope.cakeprice}'/>" ><br/><br>
+<label for="categoryName"> CategoryName : </label><br><input type="text" name="categoryName" value="<c:out value='${sessionScope.category}'/>" ><br/><br/>
+<label for="rating">Cake Rating : </label><br><input type="text" name="rating" value="<c:out value='${sessionScope.rating}'/>" readonly><br/>
+<button type="submit" class="button button1">Update</button>
 </form>
+
 </fieldset>
-
-<fieldset id="box1"><legend><h3 style=color:red>Update Product Price using Name</h3></legend>
-<form action="updateProduct" method="post">
-<label for="cake price">New Cake Price: </label><input type="number" name="cakePrice"><br><br>
-<label for="name">Cake Name: </label><input type="text"  name="cakeName"><br><br>
-<button class="button button1" type="submit" id="button">Update</button>
-<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
-</form>
-
-</fieldset><br>
-
 </body>
 </html>

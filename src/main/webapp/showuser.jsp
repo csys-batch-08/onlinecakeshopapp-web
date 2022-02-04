@@ -8,6 +8,10 @@
 <meta charset="ISO-8859-1">
 <title>showUser page</title>
 
+<link rel="style" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 <style type="text/css">
 
 *{
@@ -124,7 +128,7 @@ text-align:center;
 <body>
 
 <div class="header container-fluid">
-      	<h2>Hole Users List</h2>     		
+      	<h2> Users List</h2>     		
       </div>
 
 
@@ -142,20 +146,23 @@ text-align:center;
 </div>
 
 
-<table  class="table table-hover" id="box">
+<table  class="table table-hover" id="myTable" >
 <caption></caption>
+<thead>
 <tr>
 <th id="1"><h5 style=color:red><strong>User Id</strong></h5></th>
 <th id="2"><h5 style=color:red><strong>User Name</strong></h5></th>
 <th id="3"><h5 style=color:red><strong>Email Id</strong></h5></th>
 <th id="4"><h5 style=color:red><strong>Password</strong></h5></th>
 <th id="6"><h5 style=color:red><strong>Address</strong></h5></th>
-<th id="7"><h5 style=color:red><strong>User Wallet</strong></h5></th>
 <th id="8"><h5 style=color:red><strong>Role</strong></h5></th>
+<th id="7"><h5 style=color:red><strong>User Wallet</strong></h5></th>
+
 
 </tr>
-
+</thead>
 <c:forEach var="show" items="${showUser}" >
+<tbody>
 <tr>
 <td><h5>${show.userId}</h5></td>
 <td><h5>${show.userName}</h5></td>
@@ -166,8 +173,13 @@ text-align:center;
 <td><h5>${show.wallet}</h5></td>
 
 </tr>
+</tbody>
 </c:forEach>
 </table><br>
 
 </body>
-</html>
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>

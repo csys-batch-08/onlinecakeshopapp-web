@@ -6,7 +6,7 @@ public class InvalidUserException extends Exception {
 
 	@Override
 	public String getMessage() {
-		return "Invalid user";
+		return "Invalid Email Id or Password";
 	}
-		
+
 }

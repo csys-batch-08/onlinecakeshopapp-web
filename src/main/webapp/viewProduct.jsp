@@ -1,13 +1,37 @@
-<%@page import="com.cakeshop.dao.impl.UserDaoImpl"%>
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.cakeshop.dao.impl.ProductDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Inactive User</title>
+<title>view product</title>
 <style>
+#box{
+width:350px;
+margin-left:400px;
+margin-top:0px;
+}
+
+#box1{
+width:350px;
+margin-left:800px;
+margin-top:0px;
+}
+
+table, th, td { 
+
+ background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
+  border-collapse: collapse;
+  font-size:13px;  
+  padding: 1px;
+  margin-left:350px;
+}
+
+
 *{
 margin:0px;
 padding:0px;
@@ -55,7 +79,6 @@ height:50px;
   color:white;
   display: block;
 }
-
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -84,7 +107,7 @@ label {
   background-color:pink; 
   border: none;
   color: white;
-  padding: 3px 8px;
+  padding: 3px 6px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -99,29 +122,22 @@ label {
   color: black; 
   border: 2px solid pink;
   }
-  
   .button1:hover {
   background-color:pink;
   color: white;
 }
-      
-  #box{
-
-  margin-top:150px;
-  margin-left:500px;
-  }    
-  
-  h2{
-  text-align:center;
-  }
+h2{
+text-align:center;
+}
 
 </style>
 </head>
 <body>
 
 <div class="header container-fluid">
-      	<h2 style=color:darkBlack>Inactive User</h2>		
-</div>
+      	<h2 style=color:darkBlack>Hole Product List</h2>      		
+      </div>
+
 
 <div class="sidenav">
   <a href="ShowUser">View All Users List</a>
@@ -133,19 +149,32 @@ label {
   <a href="home.jsp">LogOut</a>
 </div>
 
-<fieldset id="box"><legend>Inactive User</legend>
-<form action="Inactive" method="post">
+<table class="table table-hover">
+<caption></caption>
+<tr>
+<th id="1"><h3>Product Name</h3></th>
+<th id="2"><h3>Product Description</h3></th>
+<th id="3"><h3>Product price</h3></th>
+<th id="4"><h3>Product Categories</h3></th>
+<th id="5"><h3>Product Rating</h3></th>
+<th id="6"><h3>Action</h3></th>
+</tr>
+
+<c:forEach var="show" items="${viewProduct}">
+<tr>
+<td><h3>${show.cakeName}</h3></td>
+<td><h3>${show.cakeDescription}</h3></td>
+<td><h3>${show.cakePrice}</h3></td>
+<td><h3>${show.categoryName}</h3></td>
+<td><h3>${show.rating}</h3></td>
+<td><button class="button button1"><a href="updateProduct?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakeDescription=${show.cakeDescription}&cakePrice=${show.cakePrice}&category=${show.categoryName}&rating=${show.rating}"
+								style="text-decoration: none;">Update</a></button></td>
+
+</tr>
+</c:forEach>
+</table>
 
 
-Email Id : <input type="email" name="Email"
-oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" 
-onchange="try{setCustomValidity('')}catch(e){}">
 
-<button type="submit" class="button button1">Delete</button>
-<c:if test="${not empty invalidEmail }">
-<h3 style=color:red>This Email Id not Exits</h3>
-</c:if>
-</form>
-</fieldset>
 </body>
 </html>

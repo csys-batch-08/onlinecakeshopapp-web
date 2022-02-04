@@ -19,6 +19,7 @@ background-size:cover;
 }
 #box {
 	width: 350px;
+	height:130px;
 	margin-left: 800px;
 	margin-top: 40px;
 }
@@ -64,15 +65,14 @@ align:center;
    <a href="home.jsp">Return To Home</a>
 </div>
 
-
 <h2><em>For Any Queries Contact Us</em></h2>
 
 <c:forEach var="show" items="${contact}">
 
-<fieldset id="box"><legend>Contact</legend>
+<fieldset id="box"><legend>Contact</legend><br>
 
-<h3>Contact Number : ${show.phone}</h3>
-<h3>Email Id : ${show.email}</h3>
+<h3>Contact Number : ${show.phone}</h3><br>
+<h3>Email Id       : ${show.email}</h3>
 
 </fieldset>
 </c:forEach>

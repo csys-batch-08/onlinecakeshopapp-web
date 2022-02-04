@@ -153,7 +153,7 @@ float:right;
 						<strong>Product Rating</strong>
 					</h6></th>
 				<th id="8"><h6 style="color: red">
-						<strong>Button</strong>
+						<strong>Action</strong>
 					</h6></th>
 			</tr>
 			<c:forEach var="show" items="${showProduct}">

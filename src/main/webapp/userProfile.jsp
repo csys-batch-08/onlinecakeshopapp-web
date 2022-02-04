@@ -15,10 +15,10 @@
 	margin-left:900px;
 	
 }
-body{
-background-image:url('assets/cake1.jpeg');
-background-repeat:no-repeat;
-background-size:cover;
+ body{
+ background-image:url('assets/cake1.jpeg');
+ background-repeat:no-repeat;
+ background-size:cover;
 }
 /* Add a black background color to the top navigation */
 .topnav {

@@ -80,13 +80,13 @@ label {
 </head>
 <body>
 <div class="topnav"> 
-  <a href="viewOrder.jsp">Orders</a> 
-  <a href="ShowProduct">Products</a> 
-  <a href="Categories">Categories</a> 
-  <a href="searchPrice.jsp">Price Wise Search</a>
+   <a href="viewOrder.jsp">Orders</a> 
+   <a href="ShowProduct">Products</a> 
+   <a href="Categories">Categories</a> 
+   <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>      
    <a href="customizedCake.jsp">Customized Cake</a>
-    <a href="home.jsp" style="float:right;">LogOut</a> 
+   <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>         
 </div>
 			
@@ -97,9 +97,9 @@ label {
 			<label for="quantity">Cake Price/Kg : </label><input type="text" name="price" value="<c:out value='${requestScope["price"]}'/>" readonly><br/>
 			<input type="hidden" name="cakeId" value="<c:out value='${requestScope["cakeId"]}'/>"><br/>
 										
-				<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
-				<label for="orderdate">OrderDate :</label> <input type="date" id="datefield"  name="orderDate" pattern="dd/mm/yyyy"><br><br>				
-				<button class="button button1" type="submit" id="button">Buy</button>				
+			<label for="quantity">Quantity:</label><input type="number" name="quantity" pattern="[0-9]{2}" min="0" required><br><br>							
+			<label for="orderdate">OrderDate :</label> <input type="date" id="datefield"  name="orderDate" pattern="dd/mm/yyyy"><br><br>				
+			<button class="button button1" type="submit" id="button">Buy</button>				
 			</form>
 		</fieldset>
 	
@@ -119,7 +119,7 @@ today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("min", today);
 
 var today = new Date();
-var dd = today.getDate()+10;
+var dd = today.getDate()+15;
 var mm = today.getMonth()+1; 
 var yyyy = today.getFullYear();
 if(dd<10){

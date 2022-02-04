@@ -109,7 +109,7 @@ img {
 					
 					<input type="password" name="password"
 					placeholder="Password" title="8 Charecter,@#$&,Lower and Upper Case"
-					pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$"	required><br><br> 
+					pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{4,16}$"	required><br><br> 
 					
 					<input type="text" name="address" placeholder="address"
 					pattern="[A-Za-z0-9]{4,}+[,][A-Za-z]{4,}+[,][0-9]{6}+{25,}" title="Street Number & Street Name,AdressLine,Pincode"

@@ -61,8 +61,6 @@ margin-left:500px;
   <a href="UserProfile" style="float:right;">Profile</a>         
 </div>
 
-
-
 <form action="showProduct.jsp">
 <h2><e>Your Rating Was Added Successfully!!..</e></h2>
 

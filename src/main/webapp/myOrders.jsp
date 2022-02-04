@@ -16,13 +16,9 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
   align:center;
+    margin-left:170px;
 }
-body{
-background-image:url('assets/cake2.jpg');
-background-repeat:no-repeat;
-background-size:cover;
 
-}
 
 /* Add a black background color to the top navigation */
 .topnav {
@@ -102,15 +98,16 @@ align:center;
 <th id="3"><h2 style=color:red><strong>Order Quantity</strong></h2></th>
 <th id="4"><h2 style=color:red><strong>Total Price</strong></h2></th>
 <th id="6"><h2 style=color:red><strong>Order Date</strong></h2></th>
-<th id="7"><h2 style=color:red><strong>Button</strong></h2></th>
+<th id="7"><h2 style=color:red><strong>Action</strong></h2></th>
 
 </tr>
 
-<h2>User Name : ${requestScope['userName']}</h2>
+<center><h2>User Name : ${requestScope['userName']}</h2></center>
 
 <c:forEach var="show" items="${viewOrder}"> 
 
 <tr>
+
 <td>${requestScope['userName']}</td>
 <td>${show.cakeName}</td>
 <td>${show.quantity}</td>

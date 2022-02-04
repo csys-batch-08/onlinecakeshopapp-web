@@ -3,7 +3,6 @@ package com.cakeshop.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DecimalFormat;
@@ -17,17 +16,16 @@ import com.cakeshop.model.Products;
 
 public class ProductDaoImpl implements ProductDao {
 
-
-
+	@Override
 	public List<Products> showProduct() throws SQLException {
 		List<Products> cakelist = new ArrayList<>();
 
 		String showQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture,rating_count from product_details";
-		Connection con=null;
-		Statement stmte=null;
+		Connection con = null;
+		Statement stmte = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-		    stmte = con.createStatement();
+			stmte = con.createStatement();
 			ResultSet rs = stmte.executeQuery(showQuery);
 			while (rs.next()) {
 
@@ -37,45 +35,41 @@ public class ProductDaoImpl implements ProductDao {
 				cake.setCakeDescription(rs.getString(3));
 				cake.setCakePrice(rs.getInt(4));
 				cake.setCategoryName(rs.getString(5));
-				cake.setRatingCount(rs.getInt(8));				
-				
+				cake.setRatingCount(rs.getInt(8));
 
-				double ratingavg=rs.getDouble(6)/rs.getInt(8);
-				NumberFormat formatter = new DecimalFormat("#0.00");     
-				ratingavg=Double.parseDouble(formatter.format(ratingavg));
-				
-				cake.setRating(ratingavg);		     				
-				
-				
+				double ratingavg = rs.getDouble(6) / rs.getInt(8);
+				NumberFormat formatter = new DecimalFormat("#0.00");
+				ratingavg = Double.parseDouble(formatter.format(ratingavg));
+
+				cake.setRating(ratingavg);
+
 				cake.setPicture(rs.getString(7));
 				cake.setOldRating(rs.getDouble(6));
-				
+
 				cakelist.add(cake);
-				
+
 			}
-			 } catch (SQLException e) {
-			
+		} catch (SQLException e) {
+
 			e.getMessage();
-		}
-		 finally {
-				
-				if(stmte!=null) {
-					stmte.close();
-				}
-				
-				if(con!=null) {
-					con.close();
-				}
+		} finally {
+
+			if (stmte != null) {
+				stmte.close();
 			}
+
+			if (con != null) {
+				con.close();
+			}
+		}
 		return cakelist;
 	}
 
-
-
+	@Override
 	public void insertProduct(Products product) throws SQLException {
 		String insertQuery = "insert into product_details(cake_name,cake_description,cake_price,category_name,picture) values(?,?,?,?,?)";
 
-		Connection con=null;
+		Connection con = null;
 		PreparedStatement pst = null;
 
 		try {
@@ -90,89 +84,89 @@ public class ProductDaoImpl implements ProductDao {
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
 
 		} finally {
-			
-			if(pst!=null) {
+
+			if (pst != null) {
 				pst.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
 
 	}
 
-
-	public void updateProduct(double cakePrice, String cakeName) throws SQLException {
-		String updateQuery = "update product_details set cake_price =?  where cake_name=?";
-		PreparedStatement pstmt=null;
-		Connection con=null;
+	@Override
+	public void updateProduct(Products pro) throws SQLException {
+		String updateQuery = "update product_details set  cake_name =? , cake_description=?, cake_price=? , category_name=?  where cake_id=? ";
+		PreparedStatement pstmt = null;
+		Connection con = null;
 		try {
-		  con = ConnectionUtil.getDbConnection();
-			 pstmt = con.prepareStatement(updateQuery);
-			pstmt.setDouble(1, cakePrice);
-			pstmt.setString(2, cakeName);
-			 pstmt.executeUpdate();
+			con = ConnectionUtil.getDbConnection();
+			pstmt = con.prepareStatement(updateQuery);
+			pstmt.setDouble(5, pro.getCakeId());
+			pstmt.setString(1, pro.getCakeName());
+			pstmt.setString(2, pro.getCakeDescription());
+			pstmt.setDouble(3, pro.getCakePrice());
+			pstmt.setString(4, pro.getCategoryName());
+			pstmt.executeUpdate();
 
-		
 		} catch (SQLException e) {
 
 			e.getMessage();
-		}
-		finally {
-			
-			if(pstmt!=null) {
+		} finally {
+
+			if (pstmt != null) {
 				pstmt.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
 
 	}
 
-
+	@Override
 	public void insertRating(int insertRating) throws SQLException {
 
 		String insertrating = "update product_details set Ratings=? where cake_name=?";
-		PreparedStatement prepared=null;
-		Connection con=null;
+		PreparedStatement prepared = null;
+		Connection con = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			prepared = con.prepareStatement(insertrating);
 
 			prepared.executeUpdate();
-			
+
 			prepared.close();
 			con.close();
 
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
-		}finally {
-			
-			if(prepared!=null) {
+		} finally {
+
+			if (prepared != null) {
 				prepared.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
 
 	}
 
-
-
+	@Override
 	public void deleteProduct(int cakeId) throws SQLException {
 		String deleteQuery = "delete from product_details where cake_id=?";
-		PreparedStatement statement=null;
-		Connection con=null;
+		PreparedStatement statement = null;
+		Connection con = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			statement = con.prepareStatement(deleteQuery);
@@ -180,32 +174,32 @@ public class ProductDaoImpl implements ProductDao {
 			statement.executeUpdate();
 
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
-		}
-            finally {
-			
-			if(statement!=null) {
+		} finally {
+
+			if (statement != null) {
 				statement.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
-		
+
 	}
 
+	@Override
 	public int findProductId1(String productName) throws SQLException {
 		String findproductid = "select cake_id from product_details where cake_name=?";
 
-		Connection con=null;
-		PreparedStatement ps=null;
+		Connection con = null;
+		PreparedStatement ps = null;
 		int proId = 0;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			ps = con.prepareStatement(findproductid);
-            ps.setString(1, productName);
+			ps.setString(1, productName);
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
@@ -213,43 +207,42 @@ public class ProductDaoImpl implements ProductDao {
 			}
 
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
-		}finally {
-			
-			if(ps!=null) {
+		} finally {
+
+			if (ps != null) {
 				ps.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
 
 		return proId;
 	}
-	
 
-
+	@Override
 	public int findPrice(int proID) throws SQLException {
 		String findprice = "select total_price from product_details where cake_id=?";
-		PreparedStatement preste=null;
-		Connection con=null;
+		PreparedStatement preste = null;
+		Connection con = null;
 		try {
-			con = ConnectionUtil.getDbConnection();	
-			preste =con.prepareStatement(findprice) ;
-			preste.setInt(1, proID);		
+			con = ConnectionUtil.getDbConnection();
+			preste = con.prepareStatement(findprice);
+			preste.setInt(1, proID);
 
 		} catch (SQLException e) {
-		
+
 			e.getMessage();
-		}finally {
-			
-			if(preste!=null) {
+		} finally {
+
+			if (preste != null) {
 				preste.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
@@ -258,31 +251,30 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
-
-
+	@Override
 	public List<Products> findCategory(String categoryName) throws SQLException {
 
 		List<Products> category = new ArrayList<>();
 
 		String findcategory = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
-		Connection con=null;		
+		Connection con = null;
 		PreparedStatement pre = null;
-		try {		    
-			
+		try {
+
 			con = ConnectionUtil.getDbConnection();
-			 pre =con.prepareStatement(findcategory);
-			 pre.executeQuery();
+			pre = con.prepareStatement(findcategory);
+			pre.executeQuery();
 
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
-		}finally {
-			
-			if(pre!=null) {
+		} finally {
+
+			if (pre != null) {
 				pre.close();
 			}
-			
-			if(con!=null) {
+
+			if (con != null) {
 				con.close();
 			}
 		}
@@ -290,105 +282,100 @@ public class ProductDaoImpl implements ProductDao {
 		return category;
 	}
 
-
-
+	@Override
 	public List<Products> showRating() throws SQLException {
-		List<Products> ratinglist=new ArrayList<>();
+		List<Products> ratinglist = new ArrayList<>();
 		String showrating = "select cake_name,(rating/rating_count)as average from product_details order by average desc";
-		Connection con=null;
+		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			stmt = con.prepareStatement(showrating);
 			rs = stmt.executeQuery();
-			 
+
 			while (rs.next()) {
-				Products cake = new Products();				
+				Products cake = new Products();
 				cake.setCakeName(rs.getString(1));
-				
-				double ratingavg=rs.getDouble(2);
-				NumberFormat formatter = new DecimalFormat("#0.00");     
-				ratingavg=Double.parseDouble(formatter.format(ratingavg));
-				
+
+				double ratingavg = rs.getDouble(2);
+				NumberFormat formatter = new DecimalFormat("#0.00");
+				ratingavg = Double.parseDouble(formatter.format(ratingavg));
+
 				cake.setOldRating(ratingavg);
-			     				
+
 				ratinglist.add(cake);
 			}
-		} catch (SQLException e) {		
+		} catch (SQLException e) {
 			e.getMessage();
-		}
-          finally {
-			
-			if(stmt!=null) {
+		} finally {
+
+			if (stmt != null) {
 				stmt.close();
-			}			
-			if(con!=null) {
+			}
+			if (con != null) {
 				con.close();
 			}
 		}
 		return ratinglist;
 	}
 
-
-
+	@Override
 	public List<Products> showCategory() throws SQLException {
 		List<Products> category = new ArrayList<>();
 
 		String showcategory = "select DISTINCT category_name from product_details";
 
-		Connection con=null;
+		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement tmt = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			tmt = con.prepareStatement(showcategory);
 			rs = tmt.executeQuery();
-			
+
 			while (rs.next()) {
 				Products cake = new Products();
-				
+
 				cake.setCategoryName(rs.getString(1));
-				
+
 				category.add(cake);
 			}
 		} catch (SQLException e) {
 
 			e.getMessage();
-		}
-		 finally {
-				
-				if(tmt!=null) {
-					tmt.close();
-				}			
-				if(con!=null) {
-					con.close();
-				}
+		} finally {
+
+			if (tmt != null) {
+				tmt.close();
 			}
+			if (con != null) {
+				con.close();
+			}
+		}
 		return category;
 
 	}
 
-
-
+	@Override
 	public List<Products> viewCategoryList(String categoryname) throws SQLException {
-		
-		List<Products> viewCategory=new ArrayList<>();
+
+		List<Products> viewCategory = new ArrayList<>();
 
 		String viewQuery = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where category_name=?";
 
-		Connection con=null;
+		Connection con = null;
 		PreparedStatement stm = null;
 
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
 			stm = con.prepareStatement(viewQuery);
-			
+
 			stm.setString(1, categoryname);
 			rs = stm.executeQuery();
-			while(rs.next()) {
-				Products cake =new Products();
+			while (rs.next()) {
+				Products cake = new Products();
 				cake.setCakeId(rs.getInt(1));
 				cake.setCakeName(rs.getString(2));
 				cake.setCakeDescription(rs.getString(3));
@@ -396,34 +383,34 @@ public class ProductDaoImpl implements ProductDao {
 				cake.setCategoryName(rs.getString(5));
 				cake.setRating(rs.getDouble(6));
 				cake.setPicture(rs.getString(7));
-                
+
 				viewCategory.add(cake);
 			}
-			
+
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
 		} finally {
-			
-			if(stm!=null) {
+
+			if (stm != null) {
 				stm.close();
-			}			
-			if(con!=null) {
+			}
+			if (con != null) {
 				con.close();
 			}
 		}
-		return viewCategory ;
+		return viewCategory;
 
 	}
 
-	
+	@Override
 	public List<Products> filterPrice(int min, int max) throws SQLException {
-		
-		List<Products> pricelist=new ArrayList<>();
-		
+
+		List<Products> pricelist = new ArrayList<>();
+
 		String filterprice = "select cake_id,cake_name,cake_description,cake_price,category_name,rating,picture from product_details where cake_price between ? and ? ";
 
-		Connection con=null;
+		Connection con = null;
 		PreparedStatement ste = null;
 		ResultSet rs = null;
 		try {
@@ -432,7 +419,7 @@ public class ProductDaoImpl implements ProductDao {
 			ste.setInt(1, min);
 			ste.setInt(2, max);
 			rs = ste.executeQuery();
-			
+
 			while (rs.next()) {
 
 				Products cake = new Products();
@@ -445,16 +432,16 @@ public class ProductDaoImpl implements ProductDao {
 				cake.setPicture(rs.getString(7));
 
 				pricelist.add(cake);
-			}			
+			}
 		} catch (SQLException e) {
-			
+
 			e.getMessage();
-		}finally {
-			
-			if(ste!=null) {
+		} finally {
+
+			if (ste != null) {
 				ste.close();
-			}			
-			if(con!=null) {
+			}
+			if (con != null) {
 				con.close();
 			}
 		}

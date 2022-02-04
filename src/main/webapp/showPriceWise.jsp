@@ -113,7 +113,7 @@ float:right;
 <th id="4"><h6 style=color:red><strong>Product price</strong></h6></th>
 <th id="6"><h6 style=color:red><strong>Product Categories</strong></h6></th>
 <th id="7"><h6 style=color:red><strong>Product Rating</strong></h6></th>
-<th id="8"><h6 style=color:red><strong>Button</strong></h6></th>
+<th id="8"><h6 style=color:red><strong>Action</strong></h6></th>
 
 </tr>
 

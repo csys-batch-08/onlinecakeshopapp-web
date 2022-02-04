@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.cakeshop.dao.impl.UserRatingDaoImpl;
 
+import com.cakeshop.dao.impl.UserRatingDaoImpl;
 
 @WebServlet("/Rating")
 public class Rating extends HttpServlet {
@@ -26,32 +26,24 @@ public class Rating extends HttpServlet {
 		UserRatingDaoImpl userRatingDao = new UserRatingDaoImpl();
 
 		int cId = Integer.parseInt(session.getAttribute("cakeId").toString());
-		
-	
+
 		double oldRating = 0;
 		int count = 0;
-		try {							
-				
-			oldRating=(double)session.getAttribute("Rating");
-			
-			
-			count=(int)session.getAttribute("ratingcount");
-			
+		try {
+
+			oldRating = (double) session.getAttribute("Rating");
+
+			count = (int) session.getAttribute("ratingcount");
+
 			count = count + 1;
 			double rating = (oldRating + newRating);
-			
-			
+
 			userRatingDao.updateRating(rating, cId, count);
-			response.sendRedirect("ratingsuccess.jsp");
+			response.sendRedirect("ratingSuccess.jsp");
+		} catch (SQLException e) {
+			e.getMessage();
 		}
-			catch (SQLException e) {
-				e.getMessage();
-			}
-		
-	
-		
-		
+
 	}
-		
 
 }

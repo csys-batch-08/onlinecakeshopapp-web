@@ -81,13 +81,12 @@ align:center;
 </head>
 <body>
 <div class="header container-fluid">
-      	<h2>Welcome Admin!!</h2>      	
-   		
+      	<h2>Welcome Admin!!</h2>    		
       </div>
 
 
 <div class="sidenav">
-  <a href="ShowUser"><label>View All Users List<label></a>
+  <a href="ShowUser">View All Users List</a>
   <a href="addProduct.jsp">Add a New Product</a>
   <a href="viewProduct">Update Product</a>
   <a href="ShowCart">View Order Details</a>

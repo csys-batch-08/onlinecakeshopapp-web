@@ -20,7 +20,7 @@ margin-left:300px;
 </style>
 </head>
 <body>
-<form action="showProduct.jsp">
+<form action="ShowProduct">
 
 <h1 style=color:#FF007F>Your Desired Cake Order is Placed!! It Will Be Ready Soon</h1>
 

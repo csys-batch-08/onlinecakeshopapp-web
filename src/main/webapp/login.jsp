@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,21 +84,16 @@ a:hover {
 }
 </style>
 </head>
-<body>
- <center><h3 style=color:red>
- <%String msg=(String)session.getAttribute("Invalid"); 
- if(msg!=null){%> 
-	 <h2><%=msg %></h2>
-	 <%session.removeAttribute("Invalid"); %>
- <% } %>
- </h3> 
-</center>
+<body>   
+	        <c:if test="${not empty Invalid}">
+	               
+	             </c:if>
 
 	<form action="Login" method="post">
 		<div class="container">
 			<img alt="img" src="assets/user1.png" height="70" width="70">
 			<div class="card">
-				<input type="email" placeholder="username" id="name" name="EmailId" required autofocus 
+				<input type="email" placeholder="User Email" id="name" name="EmailId" required autofocus 
 				
 				oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" onchange="try{setCustomValidity('')}catch(e){}"> <br>
 				 
@@ -114,10 +109,13 @@ a:hover {
 				
 				<button type="submit" id="button">Submit</button>
 				
+				
+				
 			</form>	
 				<form action="register.jsp">
 	     	<button type="submit" id="button">Register</button><br><br>
 	        </form>				
+	     
 	</div>
 	</div>
 	</body>

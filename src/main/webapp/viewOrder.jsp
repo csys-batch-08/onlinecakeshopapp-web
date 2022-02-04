@@ -12,6 +12,7 @@ background-repeat:no-repeat;
 background-size:cover;
 }
 #box{
+  background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
 width:170px;
 height:130px;
 margin-top:200px;
@@ -93,8 +94,7 @@ margin-left:200px;
 <form action="CustmizedOrders">
 <button class="button button1">New Product</button>
 </form><br>
-<form action="showProduct.jsp">
-<button class="button button1">Back</button></form>
+
 </fieldset>
 </body>
 </html>

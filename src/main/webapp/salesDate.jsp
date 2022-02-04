@@ -135,9 +135,9 @@ text-align:center;
 
 <form action="salesWiseFilter" method="post">
 <fieldset id="box"><legend></legend>
-<label>From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
+<label for="FromDate">From Date : </label><br><input type="date" name="FromDate"  class="today" id="maxDate" required>
 
-<label>To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
+<label for="ToDate" >To Date : </label><br><input type="date" name="ToDate"  class="today" id="startDate" required>
 
 <button type="submit" class="button button1">Search</button>
 </fieldset>
@@ -147,7 +147,6 @@ text-align:center;
 </body>
 
 <script type="text/javascript">
-
 today();
 function today(){
 	var currentTime = new Date()

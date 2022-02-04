@@ -29,7 +29,7 @@ margin-top:100px;
 <h2 style=color:red>Date Wise Sales Details</h2>
 
 <table class="table table-hover">
-<caption>Sales Details</caption>
+<caption></caption>
 <tr>
 
 <th id="1"><h5 style=color:red><strong>Total User</strong></h5></th>

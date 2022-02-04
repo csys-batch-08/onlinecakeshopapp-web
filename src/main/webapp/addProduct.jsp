@@ -161,23 +161,23 @@ textarea {display:block; width:50ex; height:7em}
 
 <div class="sidenav">
 <ul>
-  <li><a href="ShowUser"><label>View All Users List</label></a></li>
-  <li><a href="addProduct.jsp"><label>Add a New Product</label></a></li>
-  <li><a href="viewProduct"><label>Update Product</label></a></li>
-  <li><a href="ShowCart"><label>View Order Details</label></a></li>
-  <li><a href="salesDate.jsp"><label>View Sales Details</label></a></li>
-  <li><a href="inactiveUser.jsp"><label>Delete User</label></a></li>
-  <li><a href="home.jsp"><label>LogOut</label></a></li>  
+  <li><a href="ShowUser">View All Users List</a></li>
+  <li><a href="addProduct.jsp">Add a New Product</a></li>
+  <li><a href="viewProduct">Update Product</a></li>
+  <li><a href="ShowCart">View Order Details</a></li>
+  <li><a href="salesDate.jsp">View Sales Details</a></li>
+  <li><a href="inactiveUser.jsp">Delete User</a></li>
+  <li><a href="home.jsp">LogOut</a></li>  
   </ul>  
 </div>
 
 <fieldset id="box"><legend>Add New Product</legend>
 <form action="AddProduct" method="post">
-<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName" id="1" required>
-<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" id="2" required>
-<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" id="3" min="0" required>
-<label for="catename">Category_name</label><input type="text" name="categoryName" id="4" required>
-<label for="picture">Image</label><input type="file" id="5" name="picture">
+<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName"  required>
+<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" required>
+<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
+<label for="catename">Category_name</label><input type="text" name="categoryName"  required>
+<label for="picture">Image</label><input type="file" name="picture">
 <button type="submit" name="button" class="button button1">Add</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
 </form>

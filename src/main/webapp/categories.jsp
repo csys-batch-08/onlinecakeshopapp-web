@@ -106,9 +106,6 @@ float:right;
 	 <a href="UserProfile" style="float:right;">Profile</a> 
 	</div>
 
-   
-
-	
 	<br>
 	<br>
 	<br>
@@ -117,7 +114,7 @@ float:right;
 	<caption><h2>Category List</h2></caption>
 
 		<th id="1"><h3>Category Name</h3></th>
-		<th id="2"><h3>Button</h3></th>
+		<th id="2"><h3>Action</h3></th>
 
 		<c:forEach var="show" items="${showCategory}">
 
@@ -125,7 +122,7 @@ float:right;
 				<td>${show.categoryName}</td>
 				
 				<td><button class="button button1" id="buy">
-						<a href="CategoryFilter?categoryname=${show.categoryName}" style="text-decoration: none;">Search</a>
+					<a href="CategoryFilter?categoryname=${show.categoryName}" style="text-decoration: none;">Search</a>
 					</button></td>
 
 		</tr>

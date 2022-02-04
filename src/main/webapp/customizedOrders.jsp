@@ -22,7 +22,7 @@ background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   align:center;
 }
 body{
-background-image:url('assets/cake2.jpg');
+
 background-repeat:no-repeat;
 background-size:cover;
 

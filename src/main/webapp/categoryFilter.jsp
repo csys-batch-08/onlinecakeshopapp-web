@@ -125,7 +125,7 @@ float:right;
 <th id="4"><h6 style=color:red><strong>Product price</strong></h6></th>
 <th id="6"><h6 style=color:red><strong>Product Categories</strong></h6></th>
 <th id="7"><h6 style=color:red><strong>Product Rating</strong></h6></th>
-<th id="8"><h6 style=color:red><strong>Button</strong></h6></th>
+<th id="8"><h6 style=color:red><strong>Action</strong></h6></th>
 
 </tr>
 <c:forEach var="show" items="${showCategory}">
@@ -139,8 +139,7 @@ float:right;
 					<td>${show.categoryName}</td>
 					<td>${show.rating}</td>
 					<td><button class="button button1">
-							<a
-								href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"
+							<a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"
 								style="text-decoration: none;">Buy</a>
 						</button></td>
 
