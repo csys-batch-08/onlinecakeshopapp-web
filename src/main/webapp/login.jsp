@@ -103,8 +103,8 @@ a:hover {
 				 
 				oninvalid="this.setCustomValidity('Password must Contains in Upper and Lower case and Any Special Charecter and numbers')" onchange="try{setCustomValidity('')}catch(e){}"></label><br>
 				
-				<h4 style="color:red">				
-				<input type="checkbox" onfocus="myFunction()" style="color:red;" ><label id="3">Show Password</label></h4>
+				<h4 style="color:red"><label id="3">				
+				<input type="checkbox" onfocus="myFunction()" style="color:red;" >Show Password</label></h4>
 				
 				<a href="forgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
 				

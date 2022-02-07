@@ -20,30 +20,30 @@ public class InactiveUser extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		try {
+			PrintWriter out = response.getWriter();
+			UserDaoImpl userDao = new UserDaoImpl();
 
-		PrintWriter out = response.getWriter();
-		UserDaoImpl userDao = new UserDaoImpl();
+			String email = request.getParameter("Email");
 
-		String email = request.getParameter("Email");
+			boolean validate = userDao.checkEmail(email);
 
-		boolean validate = userDao.checkEmail(email);
-		if (validate) {
+			if (validate) {
 
-			try {
 				userDao.inactiveUser(email);
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Are you Want to Inactive!!');");
 				out.println("location='admin.jsp';");
 				out.println("</script>");
-			} catch (SQLException e) {
-				e.getMessage();
+			} else {
+				request.setAttribute("invalidEmail", "invalid");
+				RequestDispatcher rd = request.getRequestDispatcher("inactiveUser.jsp");
+				rd.forward(request, response);
+
 			}
 
-		} else {
-			request.setAttribute("invalidEmail", "invalid");
-			RequestDispatcher rd = request.getRequestDispatcher("inactiveUser.jsp");
-			rd.forward(request, response);
-
+		} catch (SQLException e) {
+			e.getMessage();
 		}
 
 	}

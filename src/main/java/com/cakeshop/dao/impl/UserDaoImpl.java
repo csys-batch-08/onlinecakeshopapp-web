@@ -198,11 +198,12 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException e) {
 			e.getMessage();
 		} finally {
-			if (con != null) {
-				con.close();
-			}
 			if (prepare != null) {
 				prepare.close();
+			}
+
+			if (con != null) {
+				con.close();
 			}
 
 		}
@@ -270,7 +271,7 @@ public class UserDaoImpl implements UserDao {
 
 	}
 
-	public boolean checkEmail(String email) {
+	public boolean checkEmail(String email) throws SQLException {
 		String emailCheck = "select email_id from user_details where email_id in ?";
 		PreparedStatement pstmt = null;
 		Connection con = null;
@@ -286,6 +287,14 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException e) {
 
 			e.getMessage();
+		} finally {
+
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 
 		return false;
