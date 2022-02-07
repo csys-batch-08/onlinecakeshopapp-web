@@ -136,8 +136,8 @@ float:right;
 <option>Square</option>
 
 </select><br><br>
-<label>Quantity<input type="number" name="quantity" required min="0"></label><br><br>
-<label>Order Date<input type="date" name="orderdate" id="datefield" required></label><br><br>
+<label id="1">Quantity<input type="number" name="quantity" required min="0"></label><br><br>
+<label id="2">Order Date<input type="date" name="orderdate" id="datefield" required></label><br><br>
 <button type="submit" class="button button1">Click</button>
 </form>
 </fieldset>

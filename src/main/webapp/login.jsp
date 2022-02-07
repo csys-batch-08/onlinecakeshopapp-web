@@ -95,7 +95,7 @@ a:hover {
 			<div class="card">
 				<label id="1"><input type="email" placeholder="User Email" id="name" name="EmailId" required autofocus 
 				
-				oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" onchange="try{setCustomValidity('')}catch(e){}"> </label></ <br>
+				oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" onchange="try{setCustomValidity('')}catch(e){}"> </label><br>
 				 
 				<label id="2"><input type="password" placeholder="Password" id="myInput" name="password"
 				 
@@ -104,7 +104,7 @@ a:hover {
 				oninvalid="this.setCustomValidity('Password must Contains in Upper and Lower case and Any Special Charecter and numbers')" onchange="try{setCustomValidity('')}catch(e){}"></label><br>
 				
 				<h4 style="color:red">				
-				<input type="checkbox" onclick="myFunction()" style="color:red;" ><label id="3">Show Password</label></h4>
+				<input type="checkbox" onfocus="myFunction()" style="color:red;" ><label id="3">Show Password</label></h4>
 				
 				<a href="forgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
 				
