@@ -99,10 +99,10 @@ align:center;
  
 <form action="SearchPrice" method="post" >
 <fieldset id="box"><legend style=color:red><h2>Search By Price</h2></legend>
-<label for="from"><strong><em>From Price : </em></strong></label>
-<input type="number" name="fromPrice" pattern="[0-9]" min="0" required><br><br>
-<label for="to"><strong><em>To Price : </em></strong></label>
-<input type="number" name="toPrice" pattern="[0-9]" min="0" required><br>
+<label for="from"><strong><em>From Price : </em></strong>
+<input type="number" name="fromPrice" pattern="[0-9]" min="0" required></label><br><br>
+<label for="to"><strong><em>To Price : </em></strong>
+<input type="number" name="toPrice" pattern="[0-9]" min="0" required></label><br>
 <button class="button button1" type="submit" name="button">submit</button>
 
 </fieldset>

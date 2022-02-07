@@ -93,31 +93,39 @@ a:hover {
 		<div class="container">
 			<img alt="img" src="assets/user1.png" height="70" width="70">
 			<div class="card">
-				<input type="email" placeholder="User Email" id="name" name="EmailId" required autofocus 
+				<label id="1"><input type="email" placeholder="User Email" id="name" name="EmailId" required autofocus 
 				
-				oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" onchange="try{setCustomValidity('')}catch(e){}"> <br>
+				oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" onchange="try{setCustomValidity('')}catch(e){}"> </label></ <br>
 				 
-				<input type="password" placeholder="Password" id="myInput" name="password"
+				<label id="2"><input type="password" placeholder="Password" id="myInput" name="password"
 				 
 				pattern="^(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,16}$" required
 				 
-				oninvalid="this.setCustomValidity('Password must Contains in Upper and Lower case and Any Special Charecter and numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br>
+				oninvalid="this.setCustomValidity('Password must Contains in Upper and Lower case and Any Special Charecter and numbers')" onchange="try{setCustomValidity('')}catch(e){}"></label><br>
 				
-				<h4 style="color:red"><input type="checkbox" onclick="myFunction()" style="color:red;">Show Password</h4>
+				<h4 style="color:red">				
+				<input type="checkbox" onclick="myFunction()" style="color:red;" ><label id="3">Show Password</label></h4>
 				
 				<a href="forgetPassword.jsp"><h3><em>Reset My Password</em></h3></a>		
 				
 				<button type="submit" id="button">Submit</button>
 				
+					</div>
+				</div>
 				
-				
-			</form>	
+				</form>	
 				<form action="register.jsp">
 	     	<button type="submit" id="button">Register</button><br><br>
-	        </form>				
+	        </form>	
+				
+			
+				
+					
+			
+			
+					
 	     
-	</div>
-	</div>
+
 	</body>
 <script>
 function myFunction() {

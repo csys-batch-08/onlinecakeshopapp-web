@@ -45,7 +45,7 @@ margin-top:100px;
 </tr>
 </c:forEach>
 </table><br><br>
-<button><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
+<button><a href="admin.jsp" style="text-decoration:none;">Back</a></button>
 </body>
 
 </html>

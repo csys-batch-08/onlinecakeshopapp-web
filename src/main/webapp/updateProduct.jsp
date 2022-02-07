@@ -136,12 +136,12 @@ text-align:center;
 
 <fieldset id="box"><legend>Update Product</legend>
 <form action="UpdatedProduct" method="post">
- <label for="cakeId">Cake Id : </label><br><input type="text" name="cakeId" value="<c:out value='${sessionScope.cakeId}'/>" readonly><br/><br/>
-<label for="cakeName">Cake Name : </label><br><input type="text" name="cakeName" value="<c:out value='${sessionScope.cakename}'/>" ><br/><br>
-<label for="description">Cake Description : </label><br><input type="text" name="description" value="<c:out value='${sessionScope.description}'/>" ><br/><br/>
-<label for="price">Cake Price : </label><br><input type="text" name="price" value="<c:out value='${sessionScope.cakeprice}'/>" ><br/><br>
-<label for="categoryName"> CategoryName : </label><br><input type="text" name="categoryName" value="<c:out value='${sessionScope.category}'/>" ><br/><br/>
-<label for="rating">Cake Rating : </label><br><input type="text" name="rating" value="<c:out value='${sessionScope.rating}'/>" readonly><br/>
+ <label id="1" for="cakeId">Cake Id : <br><input type="text" name="cakeId" value="<c:out value='${sessionScope.cakeId}'/>" readonly></label><br/><br/>
+<label id="2" for="cakeName">Cake Name : <br><input type="text" name="cakeName" value="<c:out value='${sessionScope.cakename}'/>" ></label><br/><br>
+<label id="3" for="description">Cake Description : <br><input type="text" name="description" value="<c:out value='${sessionScope.description}'/>" ></label><br/><br/>
+<label id="4" for="price">Cake Price : <br><input type="text" name="price" value="<c:out value='${sessionScope.cakeprice}'/>" ></label><br/><br>
+<label id="5" for="categoryName"> CategoryName : <br><input type="text" name="categoryName" value="<c:out value='${sessionScope.category}'/>" ></label><br/><br/>
+<label id ="6" for="rating">Cake Rating : <br><input type="text" name="rating" value="<c:out value='${sessionScope.rating}'/>" readonly></label><br/>
 <button type="submit" class="button button1">Update</button>
 </form>
 

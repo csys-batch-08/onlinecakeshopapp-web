@@ -109,7 +109,7 @@ float:right;
 <fieldset id="box"><legend style=color:red><h2>Customized Order</h2></legend>
 <form action="customized" method="post">
 
-<label>Flavour</label>
+<label id="1">Flavour</label>
 <select name="flavour">
 
 <option value="disabled" >Select</option>
@@ -120,7 +120,7 @@ float:right;
 <option >Blueberry</option>
 </select><br><br>
 
-<label>Type</label>
+<label id="2">Type</label>
 <select name="type">
 <option value="disabled" >Select</option>
 <option>Egg</option>
@@ -128,7 +128,7 @@ float:right;
 
 </select><br><br>
 
-<label>Size</label>
+<label id="3">Size</label>
 <select name="size">
 <option value="disabled">Select</option>
 <option>Heart</option>
@@ -136,8 +136,8 @@ float:right;
 <option>Square</option>
 
 </select><br><br>
-Quantity<input type="number" name="quantity" required min="0"><br><br>
-Order Date<input type="date" name="orderdate" id="datefield" required><br><br>
+<label>Quantity<input type="number" name="quantity" required min="0"></label><br><br>
+<label>Order Date<input type="date" name="orderdate" id="datefield" required></label><br><br>
 <button type="submit" class="button button1">Click</button>
 </form>
 </fieldset>

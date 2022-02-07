@@ -137,9 +137,9 @@ label {
 <form action="Inactive" method="post">
 
 
-Email Id : <input type="email" name="Email"
+<label id="1">Email Id : <input type="email" name="Email" id="2"
 oninvalid="this.setCustomValidity('UserName Must be Your Registered Email Id(xyz@xyz.com)')" 
-onchange="try{setCustomValidity('')}catch(e){}">
+onchange="try{setCustomValidity('')}catch(e){}"></label>
 
 <button type="submit" class="button button1">Delete</button>
 <c:if test="${not empty invalidEmail }">

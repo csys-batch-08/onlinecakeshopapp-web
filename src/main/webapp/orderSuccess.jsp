@@ -95,7 +95,7 @@ background-size:cover;
 <h2><em> Your Revised Wallet Amount :  ${requestScope['wallet']}</em></h2>
 
 <form action="Rating" method="post">
-<h3>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" ></h3>
+<h3><label>Please Add Your Rating :<input type="number" name="Rating" placeholder="upto 1...5 rating" pattern="[0-9]" min="1" max="5" ></label></h3>
 <button type="submit" id="rating" class="button button1">Rate</button>
 </form>
 </fieldset>

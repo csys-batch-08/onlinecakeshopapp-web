@@ -173,15 +173,18 @@ textarea {display:block; width:50ex; height:7em}
 
 <fieldset id="box"><legend>Add New Product</legend>
 <form action="AddProduct" method="post">
-<label for="cakeName">Cake_Name  : </label><input type="text" name="cakeName"  required>
-<label for="cakedes"> Cake_description : </label><input type="text" name="cakeDescription" required>
-<label for="cakeprice">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
-<label for="catename">Category_name</label><input type="text" name="categoryName"  required>
-<label for="picture">Image</label><input type="file" name="picture">
+<label for="cakeName" id="1">Cake_Name  : </label><input type="text" name="cakeName"  required>
+<label for="cakedes" id="2"> Cake_description : </label><input type="text" name="cakeDescription" required>
+<label for="cakeprice" id="3">Cake_price</label><input type="number" name="cakePrice" pattern="[0-9]" min="0" required>
+<label for="catename" id="4">Category_name</label><input type="text" name="categoryName"  required>
+<label for="picture" id="5">Image</label><input type="file" name="picture">
 <button type="submit" name="button" class="button button1">Add</button>
-<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</button></a>
+<button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</a></button>
 </form>
 </fieldset>
+
+
+
 
 </body>
 </html>
