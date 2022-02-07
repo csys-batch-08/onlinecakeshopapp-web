@@ -3,6 +3,7 @@
     pageEncoding="ISO-8859-1" import="java.sql.ResultSet" import="com.cakeshop.dao.impl.UserDaoImpl" 
     import="com.cakeshop.dao.impl.CartDaoImpl"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+       <%@ page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,7 +103,9 @@ align:center;
 
 </tr>
 
-<center><h2>User Name : ${requestScope['userName']}</h2></center>
+<h2>User Name : ${requestScope['userName']}</h2>
+
+
 
 <c:forEach var="show" items="${viewOrder}"> 
 
@@ -112,7 +115,7 @@ align:center;
 <td>${show.cakeName}</td>
 <td>${show.quantity}</td>
 <td>${show.totalPrice}</td>
-<td>${show.orderDate}</td>
+<td>${show.orderDate.format( DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:SS"))}</td>
 <td><button class="button button1"><a href="cancelOrder?cartId=${show.cartId}" style="text-decoration:none;">Cancel Order</a></button>
 </tr>
 </c:forEach>

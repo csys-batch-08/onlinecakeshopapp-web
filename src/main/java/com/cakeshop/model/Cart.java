@@ -1,5 +1,7 @@
 package com.cakeshop.model;
 
+import java.time.LocalDate;
+
 public class Cart {
 
 	private int cartId;
@@ -10,7 +12,7 @@ public class Cart {
 	private String email;
 	private int quantity;
 	private double totalPrice;
-	private String orderDate;
+	private LocalDate orderDate;
 
 	public String getEmail() {
 		return email;
@@ -44,11 +46,11 @@ public class Cart {
 		this.cartId = cartId;
 	}
 
-	public String getOrderDate() {
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(String string) {
+	public void setOrderDate(LocalDate string) {
 		this.orderDate = string;
 	}
 
@@ -84,7 +86,7 @@ public class Cart {
 		this.totalPrice = totalPrice;
 	}
 
-	public Cart(String cakeName, String userName, int quantity, double totalPrice, String orderDate) {
+	public Cart(String cakeName, String userName, int quantity, double totalPrice, LocalDate orderDate) {
 		super();
 		this.cakeName = cakeName;
 		this.userName = userName;
@@ -93,7 +95,7 @@ public class Cart {
 		this.orderDate = orderDate;
 	}
 
-	public Cart(int productId, int userId, int quantity, double totalPrice, String orderDate) {
+	public Cart(int productId, int userId, int quantity, double totalPrice, LocalDate orderDate) {
 		super();
 		this.productId = productId;
 		this.userId = userId;
@@ -102,7 +104,7 @@ public class Cart {
 		this.orderDate = orderDate;
 	}
 
-	public Cart(int cartId, String cakeName, String email, int quantity, double totalPrice, String orderDate) {
+	public Cart(int cartId, String cakeName, String email, int quantity, double totalPrice, LocalDate orderDate) {
 		super();
 		this.cartId = cartId;
 		this.cakeName = cakeName;

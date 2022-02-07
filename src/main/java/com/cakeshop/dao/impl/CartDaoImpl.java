@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,14 +60,14 @@ public class CartDaoImpl implements CartDao {
 			con = ConnectionUtil.getDbConnection();
 			pst = con.prepareStatement(query);
 			rs = pst.executeQuery();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
 			while (rs.next()) {
 				Cart cart = new Cart();
 				cart.setCakeName(rs.getString(1));
 				cart.setUserName(rs.getString(2));
 				cart.setQuantity(rs.getInt(3));
 				cart.setTotalPrice(rs.getDouble(4));
-				cart.setOrderDate(rs.getTimestamp(5).toLocalDateTime().format(formatter));
+				cart.setOrderDate(rs.getDate(5).toLocalDate());
 				cartList.add(cart);
 			}
 
@@ -131,7 +130,7 @@ public class CartDaoImpl implements CartDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
 			while (rs.next()) {
 				Cart cart = new Cart();
 				cart.setCartId(rs.getInt(1));
@@ -139,8 +138,7 @@ public class CartDaoImpl implements CartDao {
 				cart.setCakeName(rs.getString(3));
 				cart.setQuantity(rs.getInt(4));
 				cart.setTotalPrice(rs.getDouble(5));
-				cart.setOrderDate(rs.getTimestamp(6).toLocalDateTime().format(formatter));
-
+				cart.setOrderDate(rs.getDate(6).toLocalDate());
 				cartlist.add(cart);
 			}
 
@@ -218,7 +216,7 @@ public class CartDaoImpl implements CartDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				new Cart(rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getString(6));
+				new Cart(rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getDouble(5), rs.getDate(6).toLocalDate());
 
 			} else {
 				flag = false;

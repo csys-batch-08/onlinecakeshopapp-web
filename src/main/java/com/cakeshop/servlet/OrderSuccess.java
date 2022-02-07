@@ -2,6 +2,7 @@ package com.cakeshop.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,7 +40,7 @@ public class OrderSuccess extends HttpServlet {
 
 			int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-			String orderDate = request.getParameter("orderDate");
+			LocalDate orderDate = LocalDate.parse(request.getParameter("orderDate"));
 
 			int price1 = Integer.parseInt(request.getParameter("price"));
 

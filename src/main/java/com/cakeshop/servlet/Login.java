@@ -78,7 +78,6 @@ public class Login extends HttpServlet {
 			}
 
 		} catch (InvalidUserException e) {
-
 			request.setAttribute("Invalid", e.getMessage());
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
