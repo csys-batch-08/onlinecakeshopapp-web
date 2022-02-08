@@ -28,22 +28,20 @@ public class UpdateProduct extends HttpServlet {
 		session.setAttribute("cakeprice", cakeprice);
 
 		int cakeId1 = Integer.parseInt(request.getParameter("cakeId"));
-		request.setAttribute("cakeId", cakeId1);
-		session.setAttribute("cakeId", cakeId1);
+		request.setAttribute("cakeId2", cakeId1);
+		session.setAttribute("cakeId2", cakeId1);
 
 		String description = request.getParameter("cakeDescription");
 		request.setAttribute("description", description);
 		session.setAttribute("description", description);
 
-		String category = "category";
+		String category1 = request.getParameter("category");
+		request.setAttribute("category2", category1);
+		session.setAttribute("category2", category1);
 
-		category = request.getParameter("category");
-		request.setAttribute("category", category);
-		session.setAttribute("category", category);
-
-		double rating = Double.parseDouble(request.getParameter("rating"));
-		request.setAttribute("rating", rating);
-		session.setAttribute("rating", rating);
+		double rating1 = Double.parseDouble(request.getParameter("rating"));
+		request.setAttribute("rating2", rating1);
+		session.setAttribute("rating2", rating1);
 
 		response.sendRedirect("updateProduct.jsp");
 
