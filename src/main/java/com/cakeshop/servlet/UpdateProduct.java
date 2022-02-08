@@ -27,17 +27,17 @@ public class UpdateProduct extends HttpServlet {
 		request.setAttribute("cakeprice", cakeprice);
 		session.setAttribute("cakeprice", cakeprice);
 
-		String validName = "cakeId1";
-
 		int cakeId1 = Integer.parseInt(request.getParameter("cakeId"));
-		request.setAttribute("cakeId", validName);
-		session.setAttribute("cakeId", validName);
+		request.setAttribute("cakeId", cakeId1);
+		session.setAttribute("cakeId", cakeId1);
 
 		String description = request.getParameter("cakeDescription");
 		request.setAttribute("description", description);
 		session.setAttribute("description", description);
 
-		String category = request.getParameter("category");
+		String category = "category";
+
+		category = request.getParameter("category");
 		request.setAttribute("category", category);
 		session.setAttribute("category", category);
 
