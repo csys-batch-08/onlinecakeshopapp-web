@@ -90,6 +90,8 @@ background-size:cover;
 <h1>Your Order is Placed Successfully!! Thank You!!</h1>
 <h2><em>Your Payment Is Debited from Your Wallet</em></h2>
 
+
+
 <h2><em>Your Total Amount is :  ${requestScope['totalprice']}</em></h2>
 
 <h2><em> Your Revised Wallet Amount :  ${requestScope['wallet']}</em></h2>
