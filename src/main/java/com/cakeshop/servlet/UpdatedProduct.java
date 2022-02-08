@@ -22,7 +22,7 @@ public class UpdatedProduct extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Products product = new Products();
+		Products product = null;
 
 		String cakename = request.getParameter("cakeName");
 

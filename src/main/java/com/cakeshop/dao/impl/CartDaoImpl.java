@@ -52,13 +52,13 @@ public class CartDaoImpl implements CartDao {
 	public List<Cart> viewCart() throws SQLException {
 		List<Cart> cartList = new ArrayList<>();
 
-		String query = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) group by product_details.cake_name,user_details.user_name,trunc(order_date) order by trunc(order_date) desc";
+		String viewcart = "select cake_name,user_name,count(order_quantity),sum(total_price),trunc(order_date) from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) group by product_details.cake_name,user_details.user_name,trunc(order_date) order by trunc(order_date) desc";
 		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement pst = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			pst = con.prepareStatement(query);
+			pst = con.prepareStatement(viewcart);
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
@@ -119,7 +119,7 @@ public class CartDaoImpl implements CartDao {
 
 		List<Cart> cartlist = new ArrayList<>();
 
-		String query = "select cart_id,Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
+		String usercart = "select cart_id,Email_id,cake_name,order_quantity,Total_price,Order_date from cart_items inner join user_details using (user_id) inner join product_details using(cake_id) where user_id=? order by order_date desc";
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -127,7 +127,7 @@ public class CartDaoImpl implements CartDao {
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			pstmt = con.prepareStatement(query);
+			pstmt = con.prepareStatement(usercart);
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
 
@@ -164,14 +164,14 @@ public class CartDaoImpl implements CartDao {
 
 		List<Cart> cartlist = new ArrayList<>();
 
-		String query = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
+		String filtersales = "select count(user_id),sum(total_price),sum(order_quantity) from cart_items where order_date between ? and ?";
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			pstmt = con.prepareStatement(query);
+			pstmt = con.prepareStatement(filtersales);
 			pstmt.setDate(1, java.sql.Date.valueOf(min));
 			pstmt.setDate(2, java.sql.Date.valueOf(max));
 			rs = pstmt.executeQuery();
@@ -203,14 +203,14 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public boolean checkUser(int userId, LocalDate orderDate) throws SQLException {
-		String query = "select cart_id,cake_id,user_id,order_quantity,total_price,order_date from cart_items where user_id=? and to_char(order_date,'yyyy-mm-dd')=?";
+		String checkuser = "select cart_id,cake_id,user_id,order_quantity,total_price,order_date from cart_items where user_id=? and to_char(order_date,'yyyy-mm-dd')=?";
 		Connection con = null;
 
 		boolean flag = true;
 		PreparedStatement pstmt = null;
 		try {
 			con = ConnectionUtil.getDbConnection();
-			pstmt = con.prepareStatement(query);
+			pstmt = con.prepareStatement(checkuser);
 			pstmt.setInt(1, userId);
 			pstmt.setDate(2, java.sql.Date.valueOf(orderDate));
 			ResultSet rs = pstmt.executeQuery();

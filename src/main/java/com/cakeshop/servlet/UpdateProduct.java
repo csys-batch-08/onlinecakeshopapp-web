@@ -27,9 +27,11 @@ public class UpdateProduct extends HttpServlet {
 		request.setAttribute("cakeprice", cakeprice);
 		session.setAttribute("cakeprice", cakeprice);
 
-		int cakeId = Integer.parseInt(request.getParameter("cakeId"));
-		request.setAttribute("cakeId", cakeId);
-		session.setAttribute("cakeId", cakeId);
+		String validName = "cakeId1";
+
+		int cakeId1 = Integer.parseInt(request.getParameter("cakeId"));
+		request.setAttribute("cakeId", validName);
+		session.setAttribute("cakeId", validName);
 
 		String description = request.getParameter("cakeDescription");
 		request.setAttribute("description", description);
