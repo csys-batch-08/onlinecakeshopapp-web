@@ -12,7 +12,7 @@ margin:0px;
 padding:0px;
 }
 body{
-background-image:url('assets/contact.jpeg');
+background-image:url('assets/images/contact.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 

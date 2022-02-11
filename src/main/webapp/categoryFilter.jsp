@@ -25,7 +25,7 @@ background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
 
 body{
 
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -98,7 +98,7 @@ float:right;
 </style>
 </head>
 <body>
-<img alt="img" src="assets/logo2.png" width="100px" height="90px">
+<img alt="img" src="assets/images/logo2.png" width="100px" height="90px">
 <div class="topnav" >
  
   <a href="viewOrder.jsp">Orders</a>  
@@ -131,19 +131,17 @@ float:right;
 <c:forEach var="show" items="${showCategory}">
 
 	<tr>
-					<td><img src="assets/${show.picture}" alt="#alter" width="200"
-						height="200" class="card-img-top"></td>
+					<td><img src="assets/images/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
 					<td>${show.cakeName}</td>
 					<td>${show.cakeDescription}</td>
 					<td>${show.cakePrice}</td>
 					<td>${show.categoryName}</td>
 					<td>${show.rating}</td>
 					<td><button class="button button1">
-							<a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"
-								style="text-decoration: none;">Buy</a>
-						</button></td>
+					<a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"	style="text-decoration: none;">Buy</a></button></td>
 
-				</tr>
+   </tr>
+   
 </c:forEach>
 
 </table>

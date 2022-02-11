@@ -8,7 +8,6 @@
 <meta charset="ISO-8859-1">
 <title>showUser page</title>
 
-<link rel="style" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 <style type="text/css">
 
 *{
@@ -82,7 +81,7 @@ height:50px;
 
 
 body{
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
@@ -143,7 +142,7 @@ text-align:center;
 </div>
 
 
-<table  class="table table-hover" id="myTable" >
+<table  class="table table-hover"  >
 <caption></caption>
 <thead>
 <tr>
@@ -175,8 +174,4 @@ text-align:center;
 </table><br>
 
 </body>
-<script type="text/javascript">
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-</script>
+

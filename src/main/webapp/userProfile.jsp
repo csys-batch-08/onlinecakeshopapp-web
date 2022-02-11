@@ -16,7 +16,7 @@
 	
 }
  body{
- background-image:url('assets/cake1.jpeg');
+ background-image:url('assets/images/cake1.jpeg');
  background-repeat:no-repeat;
  background-size:cover;
 }

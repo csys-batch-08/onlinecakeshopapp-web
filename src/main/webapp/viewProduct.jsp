@@ -93,7 +93,7 @@ height:50px;
 }
 
 body{
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }
@@ -162,13 +162,13 @@ text-align:center;
 
 <c:forEach var="show" items="${viewProduct}">
 <tr>
+
 <td><h3>${show.cakeName}</h3></td>
 <td><h3>${show.cakeDescription}</h3></td>
 <td><h3>${show.cakePrice}</h3></td>
 <td><h3>${show.categoryName}</h3></td>
 <td><h3>${show.rating}</h3></td>
-<td><button class="button button1"><a href="updateProduct?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakeDescription=${show.cakeDescription}&cakePrice=${show.cakePrice}&category=${show.categoryName}&rating=${show.rating}"
-								style="text-decoration: none;">Update</a></button></td>
+<td><button class="button button1"><a href="updateProduct?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakeDescription=${show.cakeDescription}&cakePrice=${show.cakePrice}&category=${show.categoryName}&rating=${show.rating}" style="text-decoration: none;">Update</a></button></td>
 
 </tr>
 </c:forEach>

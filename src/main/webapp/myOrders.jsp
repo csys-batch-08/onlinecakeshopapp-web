@@ -105,8 +105,6 @@ align:center;
 
 <h2>User Name : ${requestScope['userName']}</h2>
 
-
-
 <c:forEach var="show" items="${viewOrder}"> 
 
 <tr>
@@ -115,8 +113,9 @@ align:center;
 <td>${show.cakeName}</td>
 <td>${show.quantity}</td>
 <td>${show.totalPrice}</td>
-<td>${show.orderDate.format( DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:SS"))}</td>
+<td>${show.orderDate.format( DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</td>
 <td><button class="button button1"><a href="cancelOrder?cartId=${show.cartId}" style="text-decoration:none;">Cancel Order</a></button>
+
 </tr>
 </c:forEach>
 </table>

@@ -8,7 +8,7 @@
 <style>
 
 body{
-background-image:url('assets/cake2.jpg');
+background-image:url('assets/images/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -19,6 +19,7 @@ background-size:cover;
 	margin-left: 30px;
 	margin-right:400px;
 	margin-top: 150px;
+	text-align:center;
 }
 /* Add a black background color to the top navigation */
 .topnav {

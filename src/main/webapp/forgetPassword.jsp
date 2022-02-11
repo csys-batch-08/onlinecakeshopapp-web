@@ -12,7 +12,7 @@ margin-left:600px;
 margin-top:250px;
 }
 body{
-background-image:url('assets/Background.png');
+background-image:url('assets/images/Background.png');
 background-repeat:no-repeat;
 background-size:cover;
 

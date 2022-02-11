@@ -6,48 +6,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>About us</title>
-<style>
-body{
-background-image:url('assets/aboutUs.jpeg');
-background-repeat:no-repeat;
-background-size:cover;
-color:white;
-}
-h2{
-margin-left:200px;
-margin-top:250px;
-}
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: Gray;
-  overflow: hidden;
-}
+<link rel="stylesheet" href="assets/css/aboutUs.css">
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: gray;
-  color: white;
-}
-h2{ 
-color:black;
-}
-</style>
 </head>
 <body>
 <div class="topnav" >

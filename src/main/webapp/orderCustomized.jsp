@@ -7,7 +7,7 @@
 <title>order success</title>
 <style type="text/css">
 body{
-background-image:url('assets/index2.jpeg');
+background-image:url('assets/images/index2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 

@@ -15,9 +15,10 @@ background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 width:350px;
 margin-left:500px;
 margin-top:150px;
+text-align:center;
 }
 body{
-background-image:url('assets/index2.jpeg');
+background-image:url('assets/images/index2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -93,7 +94,7 @@ float:right;
 </style>
 </head>
 <body>
-<img alt="img" src="assets/logo2.png" width="100px" height="90px">
+<img alt="img" src="assets/images/logo2.png" width="100px" height="90px">
 <div class="topnav" > 
   <a href="viewOrder.jsp">Orders</a>  
    <a href="ShowProduct">Products</a>
@@ -135,40 +136,14 @@ float:right;
 <option>Square</option>
 </select></label><br><br>
 
-<label id="1">Quantity<input type="number" name="quantity" required min="0" id="1"></label><br><br>
-<label id="2">Order Date<input type="date" name="orderdate" id="datefield" required id="2"></label><br><br>
+<label id="1"><h4 style=color:white>Quantity</h4><input type="number" name="quantity" required min="0" id="1"></label><br><br>
+<label id="2"><h4 style=color:white>Order Date</h4><input type="date" name="orderdate" id="datefield" required id="2"></label><br><br>
 <button type="submit" class="button button1">Click</button>
 </form>
 </fieldset>
 </body>
 
-<script type="text/javascript">
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
+<script src="assets/js/customizedCake.js">
 
-
-var today = new Date();
-var dd = today.getDate()+15;
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("max", today);
 </script>
-
 </html>

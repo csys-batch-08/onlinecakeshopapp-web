@@ -16,7 +16,7 @@
 
 <style type="text/css">
 body {
-	background-image: url('assets/cake2.jpg');
+	background-image: url('assets/images/cake2.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -119,7 +119,7 @@ float:right;
 </head>
 <body>
 	
-	<img alt="img" src="assets/logo2.png" width="100px" height="90px">
+	<img alt="img" src="assets/images/logo2.png" width="100px" height="90px">
 	<div class="topnav">
 		 <a href="Categories">Categories</a>
 		 <a href="searchPrice.jsp">Price Wise Search</a> 
@@ -158,18 +158,15 @@ float:right;
 			</tr>
 			<c:forEach var="show" items="${showProduct}">
 				<tr>
-					<td><img src="assets/${show.picture}" alt="#alter" width="200"
-						height="200" class="card-img-top"></td>
+				
+					<td><img src="assets/images/${show.picture}" alt="#alter" width="200" height="200" class="card-img-top"></td>
 					<td>${show.cakeName}</td>
 					<td>${show.cakeDescription}</td>
 					<td>${show.cakePrice}</td>
 					<td>${show.categoryName}</td>
 					<td>${show.rating}</td>
 					<td><button class="button button1">
-							<a
-								href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"
-								style="text-decoration: none;">Buy</a>
-						</button></td>
+					<a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"	style="text-decoration: none;">Buy</a></button></td>
 
 				</tr>
 			</c:forEach>

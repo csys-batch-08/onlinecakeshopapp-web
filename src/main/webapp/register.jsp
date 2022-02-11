@@ -98,7 +98,7 @@ img {
 	<form action="Register" method="post"  >
 
 		<div class="container">
-			<img alt="image" src="assets/user1.png" height="70" width="70">
+			<img alt="image" src="assets/images/user1.png" height="70" width="70">
 			<div class="card" >
 			
 				<label id="1"><input type="text" name="userName" placeholder="Username"

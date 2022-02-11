@@ -6,18 +6,20 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>order here</title>
+
 <style>
 body{
-background-image:url('assets/cake2.jpg');
+background-image:url('assets/images/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 
 }
 #box {
  background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+ text-align:center;
 	width: 350px;
-	margin-left: 0px;
-	margin-right:800px;
+	margin-left: 100px;
+	margin-right:600px;
 	margin-top: 150px;
 }
 .topnav {
@@ -72,8 +74,8 @@ background-size:cover;
 label {
         display: inline-block;
         width: 155px;
-        text-align: right;
-        margin-left:-50px; ;
+        text-align: center;
+        margin-left:-30px; ;
       }
 
 </style>
@@ -101,38 +103,13 @@ label {
 										
 			<label for="quantity" id="4">Quantity:<input type="number" name="quantity" pattern="[0-9]{2}" min="0" required></label><br><br>							
 			<label for="orderdate" id="5">OrderDate :<input type="date" id="datefield"  name="orderDate" pattern="dd/mm/yyyy"></label><br><br>				
-			<button class="button button1" type="submit" id="button">Buy</button>		
-					
+			<button class="button button1" type="submit" id="button">Buy</button>						
 			</form>
+			
 		</fieldset>
 	
 </body>
-<script type="text/javascript">
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("min", today);
-
-var today = new Date();
-var dd = today.getDate()+15;
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
-if(dd<10){
-  dd='0'+dd
-} 
-if(mm<10){
-  mm='0'+mm
-} 
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("datefield").setAttribute("max", today);
+<script src="assets/js/order.js">
 
 </script>
 

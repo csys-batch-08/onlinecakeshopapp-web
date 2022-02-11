@@ -76,7 +76,7 @@ text-align:center;
 </style>
 </head>
 <body>
-<img alt="img" src="assets/logo2.png" width="100px" height="90px">
+<img alt="img" src="assets/images/logo2.png" width="100px" height="90px">
 <div class="topnav" > 
   <a href="viewOrder.jsp">Orders</a> 
    <a href="ShowProduct">Products</a> 

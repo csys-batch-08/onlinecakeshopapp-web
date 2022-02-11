@@ -13,7 +13,7 @@
   
 <style>
 body{
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -88,22 +88,19 @@ float:right;
 <img alt="img" src="assets/logo2.png" width="100px" height="90px">
 <div class="topnav" >
  
-  <a href="viewOrder.jsp">Orders</a> 
-  <a href="ShowProduct">Products</a> 
-  <a href="Categories">Categories</a> 
-  <a href="searchPrice.jsp">Price Wise Search</a>
+   <a href="viewOrder.jsp">Orders</a> 
+   <a href="ShowProduct">Products</a> 
+   <a href="Categories">Categories</a> 
+   <a href="searchPrice.jsp">Price Wise Search</a>
    <a href="ShowRating">Ratings</a>    
    <a href="customizedCake.jsp">Customized Cake</a>
-    <a href="home.jsp" style="float:right;">LogOut</a> 
+   <a href="home.jsp" style="float:right;">LogOut</a> 
    <a href="UserProfile" style="float:right;">Profile</a>
          
 </div>
 
- 
-
 <table class="table table-hover">
 <caption></caption>
-
 
 <tr>
 
@@ -120,19 +117,15 @@ float:right;
 
 <c:forEach var="show" items="${showproduct}">
 
-	<tr>
-					<td><img src="assets/${show.picture}" alt="#alter" width="200"
-						height="200" class="card-img-top"></td>
+	          <tr>
+					<td><img src="assets/images/${show.picture}" alt="#alter" width="200"	height="200" class="card-img-top"></td>
 					<td>${show.cakeName}</td>
 					<td>${show.cakeDescription}</td>
 					<td>${show.cakePrice}</td>
 					<td>${show.categoryName}</td>
 					<td>${show.rating}</td>
 					<td><button class="button button1">
-							<a
-								href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"
-								style="text-decoration: none;">Buy</a>
-						</button></td>
+					<a href="order?cakeId=${show.cakeId}&cakeName=${show.cakeName}&cakePrice=${show.cakePrice}&oldRating=${show.oldRating}&ratingCount=${show.ratingCount}"	style="text-decoration: none;">Buy</a></button></td>
 
 				</tr>
 </c:forEach>

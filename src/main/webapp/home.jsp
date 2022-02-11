@@ -16,7 +16,7 @@ padding:0px;
 
 
 body{
-background-image:url('assets/index3.jpeg');
+background-image:url('assets/images/index3.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 
@@ -91,7 +91,7 @@ text-align:center;
 <h1 style=color:#CD5959><em>Welcome to  Frosting Fairy Cake Shop</em></h1><br>
 </div> 
 
-<img alt="img" src="assets/logo2.png" width="90px" height="80px">
+<img alt="img" src="assets/images/logo2.png" width="90px" height="80px">
 <div class="topnav"> 
   <a href="login.jsp"><label>Login</label></a>
   <a href="register.jsp"><label>Register</label></a>

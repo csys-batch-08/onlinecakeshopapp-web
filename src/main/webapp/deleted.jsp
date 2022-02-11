@@ -7,7 +7,7 @@
 <title>cancel order</title>
 <style type="text/css">
 body{
-background-image:url('assets/rating.jpeg');
+background-image:url('assets/images/rating.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 

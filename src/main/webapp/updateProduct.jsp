@@ -14,6 +14,7 @@
 background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
 width:350px;
 margin-left:400px;
+text-align:center;
 margin-top:0px;
 }
 
@@ -79,7 +80,7 @@ height:50px;
 }
 
 body{
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }

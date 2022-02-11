@@ -17,7 +17,7 @@ background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
   margin-left:500px;
 }
 body{
-background-image:url('assets/back2.jpg');
+background-image:url('assets/images/back2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 

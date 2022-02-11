@@ -91,7 +91,7 @@ a:hover {
 
 	<form action="Login" method="post">
 		<div class="container">
-			<img alt="img" src="assets/user1.png" height="70" width="70">
+			<img alt="img" src="assets/images/user1.png" height="70" width="70">
 			<div class="card">
 				<label id="1"><input type="email" placeholder="User Email" id="name" name="EmailId" required autofocus 
 				
@@ -110,14 +110,16 @@ a:hover {
 				
 				<button type="submit" id="button">Submit</button>
 				
-					</div>
-				</div>
-				
-				</form>	
+					</form>	
 				<form action="register.jsp">
 	     	<button type="submit" id="button">Register</button><br><br>
 	        </form>	
 				
+				
+					</div>
+				</div>
+				
+			
 			
 				
 					
@@ -127,14 +129,7 @@ a:hover {
 	     
 
 	</body>
-<script>
-function myFunction() {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
+<script src="assets/js/login.js">
+
 </script>
 </html>

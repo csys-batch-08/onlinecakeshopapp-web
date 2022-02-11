@@ -14,7 +14,7 @@ margin:0px;
 padding:0px;
 }
 body {
-	background-image: url('assets/Background.png');
+	background-image: url('assets/images/Background.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	
@@ -94,7 +94,7 @@ float:right;
 </style>
 </head>
 <body>
-<img alt="img" src="assets/logo2.png" width="100px" height="90px">
+<img alt="img" src="assets/images/logo2.png" width="100px" height="90px">
 	<div class="topnav">
 		<a href="viewOrder.jsp">Orders</a> 
 		<a href="ShowProduct">Products</a>
@@ -121,9 +121,7 @@ float:right;
 		<tr>
 				<td>${show.categoryName}</td>
 				
-				<td><button class="button button1" id="buy">
-					<a href="CategoryFilter?categoryname=${show.categoryName}" style="text-decoration: none;">Search</a>
-					</button></td>
+				<td><button class="button button1" id="buy"><a href="CategoryFilter?categoryname=${show.categoryName}" style="text-decoration: none;">Search</a></button></td>
 
 		</tr>
 		</c:forEach>

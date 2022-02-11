@@ -70,7 +70,7 @@ height:50px;
 }
 
 body{
-background-image:url('assets/background2.jpeg');
+background-image:url('assets/images/background2.jpeg');
 background-repeat:no-repeat;
 background-size:cover;
 }

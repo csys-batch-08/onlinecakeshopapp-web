@@ -7,7 +7,7 @@
 <title>view order</title>
 <style>
 body{
-background-image:url('assets/cake2.jpg');
+background-image:url('assets/images/cake2.jpg');
 background-repeat:no-repeat;
 background-size:cover;
 }
