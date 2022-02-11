@@ -18,11 +18,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-/* Add a black background color to the top navigation */
-.topnav {
-	background-color: gray;
-	overflow: hidden;
-}
+
 
 /* Style the links inside the navigation bar */
 .topnav {
