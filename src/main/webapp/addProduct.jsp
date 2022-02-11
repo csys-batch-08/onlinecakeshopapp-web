@@ -9,12 +9,9 @@
 </head>
 <body>
 
-
 <div class="header container-fluid">
-      	<h2>Add </h2>     	
-   		
+      	<h2>Add cake</h2>        		
       </div>
-
 
 <div class="sidenav">
 <ul>

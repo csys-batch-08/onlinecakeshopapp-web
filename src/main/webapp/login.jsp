@@ -8,85 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>login page</title>
+<link rel="stylesheet" href="assets/css/login.css">
 
-<style>
-body {
-	margin: 0;
-	padding: 0;
-	background-image: url();
-	background-size: cover;
-}
-
-.container {
-	top: 50%;
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%, -50%);
-}
-
-.card {
-	padding: 60px 40px 50px 40px;
-	background: rgb(50, 50, 50);
-	border-radius: 10px;
-}
-
-#name ,#myInput {
-	width: 200px;
-	border: none;
-	background: transparent;
-	border-bottom: 1px solid white;
-	padding: 6px;
-	margin-bottom: 20px;
-	color: white;
-}
-
-#button {
-	border-radius: 20px;
-	padding: 10px 20px;
-	background: dodgerblue;
-	color: white;
-	margin-top: 20px;
-	border: none;
-	outline: none;
-	margin-left: 50px;
-}
-
-#button:hover {
-	background-color: burlywood;
-	color: black;
-	cursor: pointer;
-}
-
-a {
-	font-size: 16px;
-}
-img {
-	border-radius: 50%;
-	position: absolute;
-	margin-left: 100px;
-	margin-top: -40px;
-}
-a:link {
-  color: green;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: pink;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-</style>
 </head>
 <body>   
-	        <c:if test="${not empty Invalid}">
-	               
+	        <c:if test="${not empty Invalid}">	               
 	             </c:if>
 
 	<form action="Login" method="post">
@@ -118,15 +44,7 @@ a:hover {
 				
 					</div>
 				</div>
-				
-			
-			
-				
-					
-			
-			
-					
-	     
+		     
 
 	</body>
 <script src="assets/js/login.js">

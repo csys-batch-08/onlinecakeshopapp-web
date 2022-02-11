@@ -8,72 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customized Orders</title>
-<style type="text/css">
-*{
-margin:0px;
-padding:0px;
-}
-
-table, th, td {
-background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-  align:center;
-}
-body{
-
-background-repeat:no-repeat;
-background-size:cover;
-
-}
-.center{
- margin-left: auto; 
-  margin-right: auto;
-}
-/* Add a black background color to the top navigation */
-.topnav {
-	background-color: gray;
-	overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav {
-  background-color: gray;
-  overflow: hidden;
-  position:relative;
-  margin-top:-65px;
-  margin-left:80px;
-  
-}
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-.topnav-right{
-float:right;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: red;
-  color: white;
-}
-h2{
-text-align:center;
-}
-</style>
+<link rel="stylesheet" href="assets/css/customizedOrders.css">
 </head>
 <body>
 <img alt="img" src="assets/images/logo2.png" width="100px" height="90px">

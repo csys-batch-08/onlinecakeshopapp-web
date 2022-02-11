@@ -5,19 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>order success</title>
-<style type="text/css">
-body{
-background-image:url('assets/images/index2.jpeg');
-background-repeat:no-repeat;
-background-size:cover;
-
-}
-h1{
-margin-top:200px;
-margin-left:300px;
-}
-
-</style>
+<link rel="stylesheet" href="assets/css/orderCustomized.css">
 </head>
 <body>
 <form action="ShowProduct">

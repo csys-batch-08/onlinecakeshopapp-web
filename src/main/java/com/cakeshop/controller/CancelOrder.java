@@ -54,7 +54,7 @@ public class CancelOrder extends HttpServlet {
 
 			e.getMessage();
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("deleted.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("cancelOrder.jsp");
 		rd.forward(request, response);
 	}
 

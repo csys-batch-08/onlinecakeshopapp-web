@@ -6,57 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Contact</title>
-<style>
-*{
-margin:0px;
-padding:0px;
-}
-body{
-background-image:url('assets/images/contact.jpeg');
-background-repeat:no-repeat;
-background-size:cover;
-
-}
-#box {
-	width: 350px;
-	height:130px;
-	margin-left: 800px;
-	margin-top: 40px;
-}
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: Gray;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: gray;
-  color: white;
-}
-
-h2{
-margin-left:600px;
-align:center;
-}
-
-</style>
+<link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body>
 <div class="topnav" >
