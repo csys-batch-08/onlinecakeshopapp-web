@@ -16,13 +16,6 @@ body {
 	margin-right: auto;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-	background-color: gray;
-	overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
 .topnav {
 	background-color: gray;
 	overflow: hidden;
@@ -30,7 +23,7 @@ body {
 	margin-top: -65px;
 	margin-left: 80px;
 }
-/* Style the links inside the navigation bar */
+
 .topnav a {
 	float: left;
 	color: #f2f2f2;

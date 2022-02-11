@@ -13,10 +13,10 @@ today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("min", today);
 
 
-var today = new Date();
-var dd = today.getDate()+15;
-var mm = today.getMonth()+1; 
-var yyyy = today.getFullYear();
+ today = new Date();
+ dd = today.getDate()+15;
+ mm = today.getMonth()+1; 
+ yyyy = today.getFullYear();
 if(dd<10){
   dd='0'+dd
 } 

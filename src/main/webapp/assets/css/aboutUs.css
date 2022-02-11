@@ -10,6 +10,7 @@ body {
 h2 {
 	margin-left: 200px;
 	margin-top: 250px;
+	color: black;
 }
 /* Add a black background color to the top navigation */
 .topnav {
@@ -39,6 +40,3 @@ h2 {
 	color: white;
 }
 
-h2 {
-	color: black;
-}

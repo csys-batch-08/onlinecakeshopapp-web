@@ -5,7 +5,7 @@ table, th, td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	padding: 20px;
-	align: center;
+	text-align: center;
 	margin-left: 170px;
 }
 
@@ -64,5 +64,5 @@ table, th, td {
 }
 
 h2 {
-	align: center;
+	text-align: center;
 }
