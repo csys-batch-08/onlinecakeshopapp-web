@@ -1,18 +1,27 @@
 @charset "ISO-8859-1";
+#box {
+	width: 350px;
+	margin-left: 400px;
+	margin-top: 0px;
+}
 
-* {
-	margin: 0px;
-	padding: 0px;
+#box1 {
+	width: 350px;
+	margin-left: 800px;
+	margin-top: 0px;
 }
 
 table, th, td {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 	border-collapse: collapse;
-	font-size: 17px;
-	padding: 4px;
-	margin-left: 450px;
-	margin-top: 50px;
-	align: center;
+	font-size: 13px;
+	padding: 1px;
+	margin-left: 350px;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
 }
 
 .header {
@@ -38,6 +47,8 @@ table, th, td {
 	overflow-x: hidden;
 	padding-top: 20px;
 }
+
+
 
 .sidenav a {
 	padding: 16px 16px 16px 18px;
@@ -70,6 +81,39 @@ body {
 	background-size: cover;
 }
 
-.header container-fluid {
+label {
+	display: inline-block;
+	width: 155px;
+	text-align: right;
+	margin-left: -50px;;
+}
+
+.button {
+	background-color: pink;
+	border: none;
+	color: white;
+	padding: 3px 6px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.button1 {
+	background-color: white;
+	color: black;
+	border: 2px solid pink;
+}
+
+.button1:hover {
+	background-color: pink;
+	color: white;
+}
+
+h2 {
 	text-align: center;
 }

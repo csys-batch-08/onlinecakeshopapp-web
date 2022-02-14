@@ -27,10 +27,10 @@
 
 <fieldset id="box"><legend>Add New Product</legend>
 <form action="AddProduct" method="post">
-<label for="cakeName" id="1">Cake_Name  : <input type="text" name="cakeName"  required></label>
-<label for="cakedes" id="2"> Cake_description : <input type="text" name="cakeDescription" required></label>
-<label for="cakeprice" id="3">Cake_price :<input type="number" name="cakePrice" pattern="[0-9]" min="0" required></label>
-<label for="catename" id="4">Category_name :<input type="text" name="categoryName"  required></label>
+<label for="cakeName" id="1">Cake_Name  : <input type="text" name="cakeName"  required></label><br>
+<label for="cakedes" id="2"> Cake_description : <input type="text" name="cakeDescription" required></label><br>
+<label for="cakeprice" id="3">Cake_price :<input type="number" name="cakePrice" pattern="[0-9]" min="0" required></label><br>
+<label for="catename" id="4">Category_name :<input type="text" name="categoryName"  required></label><br>
 <label for="picture" id="5">Image :<input type="file" name="picture"></label>
 <button type="submit" name="button" class="button button1">Add</button>
 <button class="button button1"><a href="admin.jsp" style="text-decoration:none;">Back</a></button>

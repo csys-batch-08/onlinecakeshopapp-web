@@ -7,22 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>view DateWise Sales</title>
-<style>
-body{
-background-image:url('assets/images/cake2.jpg');
-background-repeat:no-repeat;
-background-size:cover;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 10px;
-  align:center;
-}
-table{
-margin-top:100px;
-}
-</style>
+<link rel="stylesheet" href="assets/css/showSales.css">
 </head>
 <body>
 

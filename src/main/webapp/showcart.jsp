@@ -9,87 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>showcart page</title>
-<style type="text/css">
-*{
-margin:0px;
-padding:0px;
-}
-
-table, th, td {
-  background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
-  border-collapse: collapse;
-  font-size:17px;  
-  padding: 4px;
-  margin-left:450px;
-  margin-top:50px;
-  align:center;
-}
-
-.header{
-padding-top:24px;
-background:#111;
-color:white;
-padding-bottom:24px;
-}
-
-.header a h3:hover{
-background-color: red;
-height:50px;
-}
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 325px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 70px; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 50px;
-}
-.sidenav a {
-  padding: 16px 16px 16px 18px;
-  text-decoration: none;
-  font-size: 20px;
-  color:white;
-  display: block;
-}
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-body{
-background-image:url('assets/images/background2.jpeg');
-background-repeat:no-repeat;
-background-size:cover;
-}
-h2{
-text-align:center;
-}
-
-</style>
+<link rel="stylesheet" href="assets/css/showcart.css">
 
 </head>
 <body>
@@ -122,7 +42,7 @@ text-align:center;
 <th id="4" style=color:red><h4>Total Price</h4></th>
 <th id="5" style=color:red><h4>Order Date</h4></th>
 </tr>
-<c:forEach var="show" items="${cartlist}" >
+<c:forEach var="show" items="${cartlist}">
 <tr>
 
 <td style="color:black; text-align:center">${show.cakeName}</td>

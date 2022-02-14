@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+
+body {
+	background-image: url(../images/cake2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+	text-align: center;
+}
+
+table {
+	margin-top: 100px;
+}

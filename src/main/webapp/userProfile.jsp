@@ -8,69 +8,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Profile</title>
-<style>
-#box {
- background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
-	width: 350px;	
-	margin-left:900px;
-	
-}
- body{
- background-image:url('assets/images/cake1.jpeg');
- background-repeat:no-repeat;
- background-size:cover;
-}
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: gray;
-  overflow: hidden;
-}
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: gray;
-  color: white;
-}
-.button {
-  background-color:pink; 
-  border: none;
-  color: white;
-  padding: 4px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-   border-radius: 20px;
-}
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid pink;
-  }
-  .button1:hover {
-  background-color:pink;
-  color: white;
-}
-</style>
+<link rel="stylesheet" href="assets/css/userProfile.css">
 </head>
 <body>
 <div class="topnav"> 
